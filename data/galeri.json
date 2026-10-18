@@ -2,6 +2,43 @@
  "cara_edit": "Galeri foto. Setiap album ada 'gambar' (senarai) dengan 'src' dan 'alt'. Gambar diletakkan dalam assets/galeri/<slug>/. Hanya gambar dewasa dalam konteks kursus/perhimpunan — JANGAN masukkan gambar pesakit dirawat atau kanak-kanak tanpa kebenaran bertulis.",
  "album": [
   {
+   "slug": "batu-pahat-2025",
+   "tajuk": "PCC2-1 & Latihan Tenaga Pengajar — Batu Pahat",
+   "tarikh": "2025-09-13",
+   "tempat": "The Katerina Hotel, Batu Pahat, Johor",
+   "kategori": "Kursus",
+   "gambar": [
+    {
+     "src": "assets/galeri/batu-pahat-2025/01.webp",
+     "alt": "Peserta, fasilitator dan urusetia PCC2-1 bergambar bersama sepanduk Privileging Course for Circumcision (Dorsal Slit) Part 2 di The Katerina Hotel, Batu Pahat"
+    },
+    {
+     "src": "assets/galeri/batu-pahat-2025/02.webp",
+     "alt": "Foto kumpulan peserta PCC2-1 bersama fasilitator di hadapan sepanduk kursus"
+    },
+    {
+     "src": "assets/galeri/batu-pahat-2025/03.webp",
+     "alt": "Dewan kuliah kursus dipenuhi peserta semasa sesi pembentangan"
+    },
+    {
+     "src": "assets/galeri/batu-pahat-2025/04.webp",
+     "alt": "Pandangan keseluruhan dewan kursus — peserta duduk mengikut baris"
+    },
+    {
+     "src": "assets/galeri/batu-pahat-2025/05.webp",
+     "alt": "Penceramah menyampaikan pembentangan di podium dalam dewan kursus"
+    },
+    {
+     "src": "assets/galeri/batu-pahat-2025/06.webp",
+     "alt": "Booth pameran peranti dan peralatan berkhatan di ruang program"
+    },
+    {
+     "src": "assets/galeri/batu-pahat-2025/07.webp",
+     "alt": "Peserta mengikuti sesi meja bulat dalam dewan kursus"
+    }
+   ]
+  },
+  {
    "slug": "sesi-amali-kursus",
    "tajuk": "Sesi Amali Kursus",
    "tarikh": "",
