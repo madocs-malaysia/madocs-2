@@ -104,18 +104,20 @@
    "tajuk": "CCC7 & TTT Teknoklem — Batu Pahat, Johor",
    "tarikh": "2025-09",
    "tempat": "Batu Pahat, Johor",
-   "gambar": "",
+   "gambar": "assets/galeri/batu-pahat-2025/04.webp",
    "ringkas": "Kursus Komprehensif Berkhatan 7 (CCC7) bersama Latihan Tenaga Pengajar (TTT) Teknoklem di Batu Pahat, Johor. Menurut Dr. Mohd Andalas, Dr. Darsono sendiri turut hadir dalam program ini.",
-   "tarikh_papar": "September 2025"
+   "tarikh_papar": "September 2025",
+   "gambar_alt": "Pandangan keseluruhan dewan kursus — peserta duduk mengikut baris"
   },
   {
    "slug": "2025-09-13-pcc2-1-batu-pahat",
    "kategori": "PCC",
    "tajuk": "PCC2-1 — Batu Pahat, Johor",
    "tarikh": "2025-09-13",
-   "tempat": "Batu Pahat, Johor",
-   "gambar": "",
-   "ringkas": "Privileging Course for Circumcision Part 2 (Siri 1) di Batu Pahat, Johor. Seramai 21 peserta lulus penilaian kursus. Pada hari yang sama, Memorandum Persefahaman (MoU) dengan Nano Medic Care ditandatangani."
+   "tempat": "The Katerina Hotel, Batu Pahat, Johor",
+   "gambar": "assets/galeri/batu-pahat-2025/01.webp",
+   "ringkas": "Privileging Course for Circumcision Part 2 (Siri 1) di Batu Pahat, Johor. Seramai 21 peserta lulus penilaian kursus. Pada hari yang sama, Memorandum Persefahaman (MoU) dengan Nano Medic Care ditandatangani.",
+   "gambar_alt": "Peserta, fasilitator dan urusetia PCC2-1 bergambar bersama sepanduk Privileging Course for Circumcision (Dorsal Slit) Part 2 di The Katerina Hotel, Batu Pahat"
   }
  ]
 }
