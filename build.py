@@ -584,14 +584,15 @@ def kad_aktiviti(a):
 </article>"""
 
 
-def item_kandungan(tajuk, url, ringkas, tarikh=None, kategori="", gambar=None, alt="", meta_ikon="calendar-days", kredit=None):
+def item_kandungan(tajuk, url, ringkas, tarikh=None, kategori="", gambar=None, alt="", meta_ikon="calendar-days", kredit=None, tarikh_papar=None):
     """Kad senarai untuk berita / aktiviti / sumber."""
     foto = ('<div class="item-photo"><img src="/%s" alt="%s" loading="lazy" decoding="async">%s%s</div>'
             % (esc(gambar), esc(alt or tajuk), chip_ilustrasi(alt),
                '<span class="chip-kredit">%s</span>' % esc(kredit) if kredit else "")) if gambar else ""
     kelas = "" if gambar else " no-photo"
     badge = '<span class="badge">%s</span>' % esc(kategori) if kategori else ""
-    masa = ('<time datetime="%s">%s %s</time>' % (esc(tarikh), icon(meta_ikon), esc(tarikh_pdk(parse_date(tarikh))))) if tarikh else ""
+    masa = ('<p class="item-meta">%s %s</p>' % (icon(meta_ikon), esc(tarikh_papar))) if tarikh_papar else (
+        ('<time datetime="%s">%s %s</time>' % (esc(tarikh), icon(meta_ikon), esc(tarikh_pdk(parse_date(tarikh))))) if tarikh else "")
     return f"""<article class="item{kelas}">
   {foto}
   <div class="item-body">
@@ -1428,7 +1429,7 @@ def bina_aktiviti():
     senarai = ('<div class="listing">%s</div>' % "".join(
         item_kandungan(a["tajuk"], "/aktiviti/%s/" % a["slug"], a.get("ringkas", ""),
                        tarikh=a.get("tarikh"), kategori=a.get("kategori", ""), gambar=a.get("gambar"),
-                       alt=a.get("gambar_alt", "")) for a in aktiviti)) if aktiviti else kosong(
+                       alt=a.get("gambar_alt", ""), tarikh_papar=a.get("tarikh_papar")) for a in aktiviti)) if aktiviti else kosong(
         "users", "Belum ada aktiviti diterbitkan",
         "Laporan dan gambar aktiviti MADOCS akan diterbitkan di sini.")
 
@@ -1457,7 +1458,7 @@ def bina_aktiviti_detail(a):
           "location": {"@type": "Place", "name": a.get("tempat", ""), "address": {"@type": "PostalAddress", "addressCountry": "MY"}},
           "organizer": {"@type": "Organization", "name": SITE["nama"], "url": BASE + "/"}}
     isi = page_hero([("Utama", "/"), ("Aktiviti", "/aktiviti/"), (a["tajuk"], None)], a["tajuk"],
-                    a.get("ringkas") or tarikh_pdk(d)) + f"""
+                    a.get("ringkas") or (a.get('tarikh_papar') or (tarikh_pdk(d) if d else ''))) + f"""
 <section class="content-wrap">
   <div class="shell split">
     <div>
@@ -1473,7 +1474,7 @@ def bina_aktiviti_detail(a):
       <div class="card">
         <h3>Butiran</h3>
         <div class="item-meta" style="display:grid;gap:9px">
-          <time datetime="{esc(a.get('tarikh',''))}">{icon('calendar-days')}{esc(tarikh_pjg(d))}</time>
+          <time datetime="{esc(a.get('tarikh',''))}">{icon('calendar-days')}{esc(a.get('tarikh_papar') or (tarikh_pjg(d) if d else ''))}</time>
           <span>{icon('map-pin')}{esc(a.get('tempat',''))}</span>
         </div>
         <a class="btn-blok ghost" href="/aktiviti/" style="margin-top:16px">{icon('arrow-left')} Semua aktiviti</a>
@@ -1486,7 +1487,8 @@ def bina_aktiviti_detail(a):
   </div>
 </section>"""
     halaman("aktiviti", "%s | Aktiviti MADOCS" % a["tajuk"],
-            a.get("ringkas") or ("%s — %s, %s" % (a["tajuk"], a.get("tempat", ""), tarikh_pdk(d))),
+            a.get("ringkas") or ("%s — %s, %s" % (a["tajuk"], a.get("tempat", ""),
+                                                    a.get('tarikh_papar') or (tarikh_pdk(d) if d else ''))),
             "/aktiviti/%s/" % a["slug"], isi, og_jenis="article", jsonld=[ld])
 
 
