@@ -249,7 +249,7 @@ def head(tajuk, deskripsi, laluan, og_jenis="website", jsonld=None, noindex=Fals
     sekatan.append('<meta name="description" content="%s">' % esc(deskripsi))
     sekatan.append('<link rel="canonical" href="%s">' % esc(kanon))
     sekatan.append("<!--HREFLANG-->")
-    sekatan.append('<meta name="theme-color" content="#041e54">')
+    sekatan.append('<meta name="theme-color" content="#510716">')
     if noindex:
         sekatan.append('<meta name="robots" content="noindex, follow">')
     sekatan.append('<link rel="icon" href="/assets/favicon-64.png" sizes="64x64">')
@@ -1015,7 +1015,7 @@ def bina_tentang():
       </div>
       <div class="card">
         <h3>Sertai MADOCS</h3>
-        <p style="font-size:14px;line-height:1.7;color:#3b4659">Doktor yang berminat dalam amalan berkhatan dialu-alukan menyertai MADOCS.</p>
+        <p style="font-size:14px;line-height:1.7;color:#583c42">Doktor yang berminat dalam amalan berkhatan dialu-alukan menyertai MADOCS.</p>
         <a class="btn-blok" href="/keahlian/sertai/" style="margin-top:14px">Borang keahlian {icon('arrow-right')}</a>
       </div>
     </aside>
@@ -1216,7 +1216,7 @@ def bina_kursus_detail(k):
       </div>
       <div class="card">
         <h3>Perlukan bantuan?</h3>
-        <p style="font-size:14px;line-height:1.7;color:#3b4659">Hubungi urusetia MADOCS untuk pertanyaan tentang pendaftaran, yuran atau keperluan kursus.</p>
+        <p style="font-size:14px;line-height:1.7;color:#583c42">Hubungi urusetia MADOCS untuk pertanyaan tentang pendaftaran, yuran atau keperluan kursus.</p>
         <a class="btn-blok wa" href="{wa_pautan('Salam, saya ingin bertanya tentang kursus ' + k['tajuk'] + ' (' + k.get('kod','') + ').')}" target="_blank" rel="noopener" style="margin-top:14px">{icon('message-circle')} WhatsApp urusetia</a>
         <a class="btn-blok ghost" href="/hubungi/" style="margin-top:9px">{icon('mail')} E-mel / borang</a>
       </div>
@@ -1412,7 +1412,7 @@ def bina_sertai():
       </div>
       <div class="card">
         <h3>Soalan?</h3>
-        <p style="font-size:14px;line-height:1.7;color:#3b4659">Urusetia MADOCS sedia membantu.</p>
+        <p style="font-size:14px;line-height:1.7;color:#583c42">Urusetia MADOCS sedia membantu.</p>
         <a class="btn-blok ghost" href="/hubungi/" style="margin-top:14px">{icon('mail')} Hubungi urusetia</a>
       </div>
     </aside>
@@ -1642,7 +1642,7 @@ def bina_hubungi():
       </div>
       <div class="card">
         <h3>Keahlian</h3>
-        <p style="font-size:14px;line-height:1.7;color:#3b4659">Ingin menyertai MADOCS? Mulakan dengan borang permohonan keahlian.</p>
+        <p style="font-size:14px;line-height:1.7;color:#583c42">Ingin menyertai MADOCS? Mulakan dengan borang permohonan keahlian.</p>
         <a class="btn-blok" href="/keahlian/sertai/" style="margin-top:14px">Borang keahlian {icon('arrow-right')}</a>
       </div>
     </aside>
