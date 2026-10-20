@@ -68,7 +68,16 @@
    "gambar": "assets/jawatankuasa/mohamad-saiful.webp"
   }
  ],
- "penasihat": [],
+ "penasihat": [
+  {
+   "nama": "Dr (Mr) Muhammad Taufiq Khalila bin Razali",
+   "jawatan": "Pakar Bedah Am · Hospital Kemaman, Terengganu"
+  },
+  {
+   "nama": "Dr (Mr) Mohd Tarmizi bin Md Nor",
+   "jawatan": "Pakar Bedah Pediatrik · Hospital Raja Perempuan Zainab II, Kota Bharu, Kelantan"
+  }
+ ],
  "struktur": {
   "jumlah_ahli_lembaga": 13,
   "ringkas": "MADOCS ditadbir urus oleh 13 orang ahli lembaga yang diketuai oleh Presiden, Naib Presiden, Setiausaha, Penolong Setiausaha, Bendahari dan 8 orang Ahli Jawatankuasa.",

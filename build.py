@@ -1795,7 +1795,7 @@ def blok_jawatankuasa(jk_data):
                esc(p["nama"]), esc(p.get("jawatan", "Penasihat")))
             for p in penasihat)
         blok_penasihat = ('<h3 class="tajuk-penasihat">Penasihat</h3>'
-                          '<div class="org-grid">%s</div>' % kad)
+                          '<div class="org-grid penasihat">%s</div>' % kad)
 
     return bahagian_carta + '<div class="org-grid">%s</div>' % ahli + blok_penasihat
 
