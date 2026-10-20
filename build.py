@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Penjana laman statik MADOCS 2.0 (madocs.drsuhailsatri.com)
+Penjana laman statik MADOCS 2.0 (madocs.my)
 
 Cara guna:
     python3 build.py            # bina semua halaman ke folder ini
@@ -1865,7 +1865,7 @@ def bina_peta_sitemap():
         peta.append("  <url><loc>%s%s</loc><priority>%s</priority></url>" % (BASE, p, keutamaan))
     peta.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(peta) + "\n", encoding="utf-8")
-    (ROOT / "CNAME").write_text("madocs.drsuhailsatri.com\n", encoding="utf-8")
+    (ROOT / "CNAME").write_text("madocs.my\n", encoding="utf-8")
     (ROOT / ".nojekyll").write_text("", encoding="utf-8")
 
 
