@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://madocs.drsuhailsatri.com/sitemap.xml
+Sitemap: https://madocs.my/sitemap.xml
