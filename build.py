@@ -1788,10 +1788,17 @@ def blok_jawatankuasa(jk_data):
     penasihat = jk_data.get("penasihat") or []
     blok_penasihat = ""
     if penasihat:
+        def _inisial(nama):
+            kata = [k for k in nama.replace("(", " ").replace(")", " ").split()
+                    if k.lower() not in ("dr", "dr.", "mr", "mr.", "datuk", "hj", "hj.",
+                                         "hjh", "prof", "prof.", "tan", "sri", "b")]
+            return "".join(k[0].upper() for k in kata[:2]) or "P"
+
         kad = "".join(
             '<div class="org-ahli">%s<b>%s</b><small>%s</small></div>'
             % ('<span class="org-bulat"><img src="/%s" alt="%s" loading="lazy" decoding="async"></span>'
-               % (esc(p["gambar"]), esc(p["nama"])) if p.get("gambar") else "",
+               % (esc(p["gambar"]), esc(p["nama"])) if p.get("gambar")
+               else '<span class="org-bulat org-bulat-kosong" aria-hidden="true">%s</span>' % esc(_inisial(p["nama"])),
                esc(p["nama"]), esc(p.get("jawatan", "Penasihat")))
             for p in penasihat)
         blok_penasihat = ('<h3 class="tajuk-penasihat">Penasihat</h3>'
