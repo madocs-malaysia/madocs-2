@@ -145,15 +145,22 @@ def blok_struktur_organisasi(jk_data):
     st = jk_data.get("struktur") or {}
     if not st:
         return ""
-    jawatan = "".join(
+    penasihat = jk_data.get("penasihat") or []
+    baris_penasihat = ""
+    if penasihat:
+        baris_penasihat = ('<li><span>Penasihat</span><b>%d orang</b></li>' % len(penasihat))
+    jawatan = baris_penasihat + "".join(
         '<li><span>%s</span><b>%s</b></li>' % (esc(j["nama"]), "%d orang" % j["bilangan"] if j.get("bilangan") else "")
         for j in st.get("jawatan", []))
+    ringkas = esc(st.get("ringkas", ""))
+    if penasihat:
+        ringkas += " Pertubuhan ini turut dibantu oleh %d orang Penasihat." % len(penasihat)
     return ("""<div class="struktur">
   <p class="struktur-ringkas">%s</p>
   <ul class="struktur-jawatan">%s</ul>
   <p class="struktur-tugas">%s</p>
   <p class="nota-isi">Sumber: %s. Nama ahli jawatankuasa sesi semasa akan diumumkan setelah disahkan.</p>
-</div>""" % (esc(st.get("ringkas", "")), jawatan, esc(st.get("tugas", "")), esc(st.get("sumber", ""))))
+</div>""" % (ringkas, jawatan, esc(st.get("tugas", "")), esc(st.get("sumber", ""))))
 
 def blok_sumber_berita(b):
     """Nota sumber untuk berita yang memetik liputan media luar."""
@@ -1804,7 +1811,7 @@ def blok_jawatankuasa(jk_data):
         blok_penasihat = ('<h3 class="tajuk-penasihat">Penasihat</h3>'
                           '<div class="org-grid penasihat">%s</div>' % kad)
 
-    return bahagian_carta + '<div class="org-grid">%s</div>' % ahli + blok_penasihat
+    return bahagian_carta + blok_penasihat + '<div class="org-grid">%s</div>' % ahli
 
 
 
