@@ -883,3 +883,6 @@ footer .socials a:hover,.tile:hover>span.ikon,.carousel-arrow:hover,.modal .clos
 
 /* --- seksyen Penasihat (di bawah jawatankuasa) --- */
 .tajuk-penasihat{margin:36px 0 18px;font-size:18px;font-weight:700;color:var(--g-ink);text-align:center}
+
+.org-grid.penasihat{grid-template-columns:repeat(2,minmax(0,1fr));max-width:430px;margin:6px auto 0}
+@media (max-width:640px){.org-grid.penasihat{grid-template-columns:1fr;max-width:300px;gap:16px}}
