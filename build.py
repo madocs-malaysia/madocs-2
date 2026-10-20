@@ -1867,7 +1867,7 @@ def blok_jawatankuasa(jk_data):
 
 
 def bina_galeri():
-    """Halaman Galeri — album gambar sebenar MADOCS (data/galeri.json).
+    """Galeri — senarai album + satu halaman setiap album.
 
     Hanya gambar dewasa dalam konteks kursus/perhimpunan dimasukkan; gambar pesakit
     menerima rawatan atau kanak-kanak memerlukan kebenaran bertulis.
@@ -1876,44 +1876,67 @@ def bina_galeri():
     if not al:
         kurang("Galeri kosong (data/galeri.json) — PRD §24.")
 
-    def album_satu(a):
+    def meta_album(a):
         d = parse_date(a.get("tarikh"))
-        meta = " · ".join(x for x in (tarikh_pdk(d), a.get("tempat", "")) if x)
-        kad = "".join(
-            '<button class="gambar" type="button" data-besar="/%s" data-kapsyen="%s" aria-label="%s">'
-            '<img src="/%s" alt="%s" loading="lazy" decoding="async"></button>'
-            % (esc(g["src"]), esc(g["alt"]), esc(g["alt"]), esc(g["src"]), esc(g["alt"]))
-            for g in a.get("gambar", []))
-        return ("""<section class="content-wrap album" id="%s">
-  <div class="shell">
-    <div class="album-kepala">
-      <span class="chip">%s</span>
-      <h2>%s</h2>
-      <p class="album-meta">%s</p>
-    </div>
-    <div class="galeri">%s</div>
-  </div>
-</section>""" % (esc(a["slug"]), esc(a.get("kategori", "")), esc(a["tajuk"]), esc(meta), kad))
+        return " · ".join(x for x in (tarikh_pdk(d), a.get("tempat", "")) if x)
 
-    ringkas = "".join(
-        '<a class="album-pautan" href="#%s"><b>%s</b><span>%d gambar</span></a>'
-        % (esc(a["slug"]), esc(a["tajuk"]), len(a.get("gambar", [])))
-        for a in al)
+    # ---- halaman indeks: kad album ----
+    kad_album = []
+    for a in al:
+        g0 = (a.get("gambar") or [{}])[0]
+        cover = g0.get("src", "")
+        alt = g0.get("alt", a["tajuk"])
+        kad_album.append(f"""    <a class="album-kad" href="/galeri/{esc(a["slug"])}/">
+      <span class="album-kad-gambar">{'<img src="/%s" alt="%s" loading="lazy" decoding="async">' % (esc(cover), esc(alt)) if cover else ''}</span>
+      <span class="album-kad-isi">
+        <span class="chip">{esc(a.get("kategori", "") or "Album")}</span>
+        <b>{esc(a["tajuk"])}</b>
+        <small>{esc(meta_album(a))}</small>
+        <em>{len(a.get("gambar", []))} gambar</em>
+      </span>
+    </a>""")
 
     isi = page_hero([("Utama", "/"), ("Galeri", None)], "Galeri",
                     "Album gambar sebenar program, kursus dan perhimpunan MADOCS.") + f"""
 <section class="content-wrap">
   <div class="shell">
-    <div class="album-ringkas">{ringkas}</div>
+    <div class="album-grid">
+{chr(10).join(kad_album)}
+    </div>
     <p class="nota-isi">Gambar diambil semasa program MADOCS dan diterbitkan untuk tujuan dokumentasi pertubuhan.
     Ibu bapa, penjaga atau peserta yang ingin gambar tertentu dibuang boleh menghubungi urusetia MADOCS —
     kami akan memadamkannya.</p>
   </div>
-</section>
-{"".join(album_satu(a) for a in al)}"""
+</section>"""
     halaman("galeri", "Galeri | MADOCS",
             "Galeri gambar program, kursus dan perhimpunan Pertubuhan Doktor Khatan Malaysia (MADOCS).",
             "/galeri/", isi)
+
+    # ---- satu halaman bagi setiap album ----
+    for a in al:
+        kad = "".join(
+            '<button class="gambar" type="button" data-besar="/%s" data-kapsyen="%s" aria-label="%s">'
+            '<img src="/%s" alt="%s" loading="lazy" decoding="async"></button>'
+            % (esc(g["src"]), esc(g["alt"]), esc(g["alt"]), esc(g["src"]), esc(g["alt"]))
+            for g in a.get("gambar", []))
+        ringkas = esc(a.get("ringkas", ""))
+        isi = page_hero([("Utama", "/"), ("Galeri", "/galeri/"), (a["tajuk"], None)], a["tajuk"],
+                        meta_album(a) or "Album gambar program MADOCS.") + f"""
+<section class="content-wrap">
+  <div class="shell">
+    <div class="album-kepala">
+      <span class="chip">{esc(a.get("kategori", ""))}</span>
+      <h2>{esc(a["tajuk"])}</h2>
+      <p class="album-meta">{esc(meta_album(a))}</p>
+      {f'<p class="album-ringkas-teks">{ringkas}</p>' if ringkas else ''}
+    </div>
+    <div class="galeri">{kad}</div>
+    <p class="nota-isi" style="margin-top:18px">Gambar diambil semasa program MADOCS dan diterbitkan untuk tujuan dokumentasi pertubuhan. Ibu bapa, penjaga atau peserta yang ingin gambar tertentu dibuang boleh menghubungi urusetia MADOCS. <a href="/galeri/">Kembali ke semua album</a>.</p>
+  </div>
+</section>"""
+        halaman("galeri", "%s | Galeri MADOCS" % a["tajuk"],
+                (a.get("ringkas") or meta_album(a) or a["tajuk"])[:180],
+                "/galeri/%s/" % a["slug"], isi)
 
 
 def bina_peta_sitemap():
@@ -2148,7 +2171,7 @@ def cap_versi():
     print("Cap imej (per-fail) digunakan pada %d fail HTML (%d aset)." % (bil_imej, len(jadual)))
 
 
-SEKSYEN_SLUG = ("aktiviti", "berita", "pendidikan", "sumber", "kursus", "en")
+SEKSYEN_SLUG = ("aktiviti", "berita", "pendidikan", "sumber", "kursus", "galeri", "en")
 
 
 def bersih_halaman_sisa():
