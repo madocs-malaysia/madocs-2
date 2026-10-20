@@ -1784,7 +1784,20 @@ def blok_jawatankuasa(jk_data):
            % (esc(a["gambar"]), esc(a["nama"])) if a.get("gambar") else "",
            esc(a["nama"]), esc(a.get("jawatan", "")))
         for a in jk)
-    return bahagian_carta + '<div class="org-grid">%s</div>' % ahli
+
+    penasihat = jk_data.get("penasihat") or []
+    blok_penasihat = ""
+    if penasihat:
+        kad = "".join(
+            '<div class="org-ahli">%s<b>%s</b><small>%s</small></div>'
+            % ('<span class="org-bulat"><img src="/%s" alt="%s" loading="lazy" decoding="async"></span>'
+               % (esc(p["gambar"]), esc(p["nama"])) if p.get("gambar") else "",
+               esc(p["nama"]), esc(p.get("jawatan", "Penasihat")))
+            for p in penasihat)
+        blok_penasihat = ('<h3 class="tajuk-penasihat">Penasihat</h3>'
+                          '<div class="org-grid">%s</div>' % kad)
+
+    return bahagian_carta + '<div class="org-grid">%s</div>' % ahli + blok_penasihat
 
 
 

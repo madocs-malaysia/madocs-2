@@ -884,4 +884,7 @@ footer .socials a:hover,.tile:hover>span.ikon,.carousel-arrow:hover,.modal .clos
   .baris-sahkan input,.baris-sahkan .btn{flex:1 1 100%}
 }
 
+/* --- seksyen Penasihat (di bawah jawatankuasa) --- */
+.tajuk-penasihat{margin:36px 0 18px;font-size:18px;font-weight:700;color:var(--g-ink);text-align:center}
+
 .ikon-ganti{display:inline-block;width:1em;height:1em}
