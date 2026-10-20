@@ -99,17 +99,6 @@
    "ringkas": "Kursus PCC2-2 diadakan di Masjid Wilayah Persekutuan, Kuala Lumpur."
   },
   {
-   "slug": "2025-09-01-ccc7-ttt-batu-pahat",
-   "kategori": "CCC",
-   "tajuk": "CCC7 & TTT Teknoklem — Batu Pahat, Johor",
-   "tarikh": "2025-09",
-   "tempat": "Batu Pahat, Johor",
-   "gambar": "assets/galeri/batu-pahat-2025/20.webp",
-   "ringkas": "Kursus Komprehensif Berkhatan 7 (CCC7) bersama Latihan Tenaga Pengajar (TTT) Teknoklem di Batu Pahat, Johor. Menurut Dr. Mohd Andalas, Dr. Darsono sendiri turut hadir dalam program ini.",
-   "tarikh_papar": "September 2025",
-   "gambar_alt": "Sesi kuliah Comprehensive Circumcision Course 7 (CCC7) — slaid kursus dipaparkan pada skrin dengan peserta duduk di meja bulat"
-  },
-  {
    "slug": "2025-09-13-pcc2-1-batu-pahat",
    "kategori": "PCC",
    "tajuk": "PCC2-1 — Batu Pahat, Johor",
@@ -118,6 +107,27 @@
    "gambar": "assets/galeri/batu-pahat-2025/01.webp",
    "ringkas": "Privileging Course for Circumcision Part 2 (Siri 1) di Batu Pahat, Johor. Seramai 21 peserta lulus penilaian kursus. Pada hari yang sama, Memorandum Persefahaman (MoU) dengan Nano Medic Care ditandatangani.",
    "gambar_alt": "Peserta, fasilitator dan urusetia PCC2-1 bergambar bersama sepanduk Privileging Course for Circumcision (Dorsal Slit) Part 2 di The Katerina Hotel, Batu Pahat"
+  },
+  {
+   "slug": "2025-09-01-ccc7-ttt-batu-pahat",
+   "kategori": "CCC",
+   "tajuk": "CCC7, PCC2-1 & TTT Touchstone — Batu Pahat, Johor",
+   "tarikh": "2025-09-13",
+   "tempat": "The Katerina Hotel, Batu Pahat, Johor",
+   "gambar": "assets/galeri/batu-pahat-2025/20.webp",
+   "ringkas": "Comprehensive Circumcision Course 7 (CCC7) berlangsung pada 13 September 2025 di The Katerina Hotel, Batu Pahat, serentak dengan Privileging Course for Circumcision Part 2 (PCC2-1). Sesi Train The Trainer (TTT) Touchstone Circumcision Stapler Workshop diadakan pada 14 September 2025 di hotel yang sama. Dr Darsono dari ASDOKI (Indonesia) turut hadir.",
+   "tarikh_papar": "13–14 September 2025",
+   "gambar_alt": "Sesi kuliah Comprehensive Circumcision Course 7 (CCC7) — slaid kursus dipaparkan pada skrin dengan peserta duduk di meja bulat"
+  },
+  {
+   "slug": "2025-06-01-ccc6-hotel-maluri",
+   "kategori": "CCC",
+   "tajuk": "CCC6 — Hotel Maluri, Cheras, Kuala Lumpur",
+   "tarikh": "2025-06-01",
+   "tempat": "Hotel Maluri, Cheras, Kuala Lumpur",
+   "gambar": "assets/galeri/ccc6-cheras-2025/21.webp",
+   "gambar_alt": "Gambar kumpulan peserta dan fasilitator CCC6 di hadapan sepanduk Comprehensive Circumcision Course 6, Hotel Maluri Cheras",
+   "ringkas": "Comprehensive Circumcision Course 6 (CCC6) pada Ahad 1 Jun 2025 — ceramah anatomi dan anestesia tempatan, kaedah Guillotine, Teknoklem dan stapler, demonstrasi prosedur secara langsung, serta latihan amali di tiga stesen (Guillotine, Teknoklem, ZSR Stapler) dengan pesakit sebenar di bawah penyeliaan fasilitator."
   }
  ]
 }
