@@ -1,5 +1,5 @@
 {
- "cara_edit": "Senarai Jawatankuasa Eksekutif. 'jawatan' contohnya: Presiden, Naib Presiden, Setiausaha, Bendahari, Ahli Jawatankuasa. Gambar pilihan. 'sesi' dipaparkan sebagai tajuk seksyen di halaman Tentang. 'struktur' ialah carta organisasi (bilangan dan jawatan) daripada brosur rasmi; senarai nama individu diisi apabila jawatankuasa menyerahkan senarai 2026–2028.",
+ "cara_edit": "Senarai Jawatankuasa Eksekutif. 'jawatan' contohnya: Presiden, Naib Presiden, Setiausaha, Bendahari, Ahli Jawatankuasa. Gambar pilihan. 'penasihat' ialah senarai Penasihat (pakar bedar yang menasihati jawatankuasa) — dipaparkan sebagai seksyen berasingan di halaman Tentang; kosongkan senarai jika tiada. 'sesi' dipaparkan sebagai tajuk seksyen. 'struktur' ialah carta organisasi (bilangan dan jawatan) daripada brosur rasmi; senarai nama individu diisi apabila jawatankuasa menyerahkan senarai 2026-2028.",
  "sesi": "2026–2028",
  "jawatankuasa": [
   {
@@ -68,6 +68,7 @@
    "gambar": "assets/jawatankuasa/mohamad-saiful.webp"
   }
  ],
+ "penasihat": [],
  "struktur": {
   "jumlah_ahli_lembaga": 13,
   "ringkas": "MADOCS ditadbir urus oleh 13 orang ahli lembaga yang diketuai oleh Presiden, Naib Presiden, Setiausaha, Penolong Setiausaha, Bendahari dan 8 orang Ahli Jawatankuasa.",
