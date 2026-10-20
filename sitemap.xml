@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://madocs.my/</loc><priority>1.0</priority></url>
   <url><loc>https://madocs.my/aktiviti/</loc><priority>0.8</priority></url>
+  <url><loc>https://madocs.my/aktiviti/2025-05-31-ttt-teknoklem-cheras/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/aktiviti/2025-06-01-ccc6-hotel-maluri/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/aktiviti/2025-09-01-ccc7-ttt-batu-pahat/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/aktiviti/2025-09-13-pcc2-1-batu-pahat/</loc><priority>0.6</priority></url>
@@ -30,6 +31,7 @@
   <url><loc>https://madocs.my/en/about/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/en/accessibility/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/en/activities/</loc><priority>0.6</priority></url>
+  <url><loc>https://madocs.my/en/activities/2025-05-31-ttt-teknoklem-cheras/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/en/activities/2025-06-01-ccc6-hotel-maluri/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/en/activities/2025-09-01-ccc7-ttt-batu-pahat/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/en/activities/2025-09-13-pcc2-1-batu-pahat/</loc><priority>0.6</priority></url>

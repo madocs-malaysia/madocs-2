@@ -115,7 +115,7 @@
    "tarikh": "2025-09-13",
    "tempat": "The Katerina Hotel, Batu Pahat, Johor",
    "gambar": "assets/galeri/batu-pahat-2025/20.webp",
-   "ringkas": "Comprehensive Circumcision Course 7 (CCC7) berlangsung pada 13 September 2025 di The Katerina Hotel, Batu Pahat, serentak dengan Privileging Course for Circumcision Part 2 (PCC2-1). Sesi Train The Trainer (TTT) Touchstone Circumcision Stapler Workshop diadakan pada 14 September 2025 di hotel yang sama. Dr Darsono dari ASDOKI (Indonesia) turut hadir.",
+   "ringkas": "Privileging Course for Circumcision Part 2 (PCC2-1) dan Comprehensive Circumcision Course 7 (CCC7) berlangsung serentak pada 13 September 2025 di The Katerina Hotel, Batu Pahat — hotel dan tingkat sama, dewan berlainan — bersama Program Khatan Percuma Klinik Kurnia dan majlis menandatangani MoU dengan Nano Medic Care. Sesi Train The Trainer (TTT) Touchstone Circumcision Stapler diadakan pada 14 September 2025. Dr Darsono dari ASDOKI (Indonesia) turut hadir.",
    "tarikh_papar": "13–14 September 2025",
    "gambar_alt": "Sesi kuliah Comprehensive Circumcision Course 7 (CCC7) — slaid kursus dipaparkan pada skrin dengan peserta duduk di meja bulat"
   },
@@ -125,9 +125,19 @@
    "tajuk": "CCC6 — Hotel Maluri, Cheras, Kuala Lumpur",
    "tarikh": "2025-06-01",
    "tempat": "Hotel Maluri, Cheras, Kuala Lumpur",
-   "gambar": "assets/galeri/ccc6-cheras-2025/21.webp",
-   "gambar_alt": "Gambar kumpulan peserta dan fasilitator CCC6 di hadapan sepanduk Comprehensive Circumcision Course 6, Hotel Maluri Cheras",
-   "ringkas": "Comprehensive Circumcision Course 6 (CCC6) pada Ahad 1 Jun 2025 — ceramah anatomi dan anestesia tempatan, kaedah Guillotine, Teknoklem dan stapler, demonstrasi prosedur secara langsung, serta latihan amali di tiga stesen (Guillotine, Teknoklem, ZSR Stapler) dengan pesakit sebenar di bawah penyeliaan fasilitator."
+   "gambar": "assets/galeri/ccc6-cheras-2025/13.webp",
+   "gambar_alt": "Gambar kumpulan besar peserta CCC6 di atas pentas, Hotel Maluri Cheras",
+   "ringkas": "Comprehensive Circumcision Course 6 (CCC6) pada Ahad 1 Jun 2025 di Hotel Maluri, Cheras. Ceramah anatomi dan anestesia tempatan, kaedah Guillotine, Teknoklem dan stapler, demonstrasi prosedur secara langsung, serta latihan amali di tiga stesen dengan pesakit sebenar di bawah penyeliaan fasilitator. Sehari sebelum itu, Train The Trainer (TTT) Teknoklem diadakan di hotel yang sama."
+  },
+  {
+   "slug": "2025-05-31-ttt-teknoklem-cheras",
+   "kategori": "TTT",
+   "tajuk": "TTT Teknoklem — Hotel Maluri, Cheras, Kuala Lumpur",
+   "tarikh": "2025-05-31",
+   "tempat": "Hotel Maluri, Cheras, Kuala Lumpur",
+   "gambar": "assets/galeri/ccc6-cheras-2025/33.webp",
+   "gambar_alt": "Pembentang menerangkan kaedah Teknoklem dengan slaid, Train The Trainer di Hotel Maluri Cheras",
+   "ringkas": "Train The Trainer (TTT) Teknoklem pada Sabtu 31 Mei 2025, sehari sebelum CCC6, di Hotel Maluri, Cheras. Sesi berpusat pada kaedah gam Teknoklem: penerangan slaid, demonstrasi kit dan latihan amali tangan peserta di meja."
   }
  ]
 }
