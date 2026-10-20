@@ -26,6 +26,7 @@ SLAG_EN = {
     "/sahkan/": "/en/verify/",
     "/": "/en/",
     "/tentang/": "/en/about/",
+    "/organisasi/": "/en/organisation/",
     "/dari-meja-presiden/": "/en/from-the-presidents-desk/",
     "/pendidikan/": "/en/education/",
     "/keahlian/": "/en/membership/",

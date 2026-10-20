@@ -237,6 +237,7 @@ def kurang(item):
 NAV = [
     ("Utama", "/", "utama"),
     ("Mengenai", "/tentang/", "tentang"),
+    ("Organisasi", "/organisasi/", "organisasi"),
     ("Pendidikan & Latihan", "/pendidikan/", "pendidikan"),
     ("Keahlian", "/keahlian/", "keahlian"),
     ("Aktiviti", "/aktiviti/", "aktiviti"),
@@ -1002,12 +1003,9 @@ def bina_tentang():
         <p style="margin-top:14px"><a class="btn btn-outline" href="/dari-meja-presiden/" style="display:inline-flex;align-items:center;text-decoration:none">Baca Dari Meja Presiden</a></p>
       </div>
       <div class="card">
-        <h2>Struktur Organisasi</h2>
-        {struktur_html}
-      </div>
-      <div class="card">
-        <h2>{tajuk_jk}</h2>
-        {ahli_html}
+        <h2>Organisasi</h2>
+        <p>Carta organisasi, senarai Penasihat dan Jawatankuasa Eksekutif dipaparkan di halaman Organisasi.</p>
+        <p style="margin-top:14px"><a class="btn btn-primary" href="/organisasi/">Lihat Organisasi MADOCS {icon('arrow-right')}</a></p>
       </div>
     </div>
     <aside class="side">
@@ -1015,6 +1013,7 @@ def bina_tentang():
         <h3>Pintasan</h3>
         <nav class="side-nav">
           <a class="aktif" href="/tentang/">Mengenai MADOCS</a>
+          <a href="/organisasi/">Organisasi &amp; jawatankuasa</a>
           <a href="/pendidikan/">Pendidikan &amp; Latihan</a>
           <a href="/keahlian/">Keahlian</a>
           <a href="/hubungi/">Hubungi urusetia</a>
@@ -1031,6 +1030,58 @@ def bina_tentang():
     halaman("tentang", "Mengenai MADOCS | Pertubuhan Doktor Khatan Malaysia",
             "Mengenai Pertubuhan Doktor Khatan Malaysia (MADOCS): latar belakang, visi, misi, tadbir urus dan jawatankuasa eksekutif.",
             "/tentang/", isi)
+
+
+# ----------------------------------------------------------------- halaman: organisasi
+def bina_organisasi():
+    jk_data = load("jawatankuasa.json")
+    jk = jk_data.get("jawatankuasa") or []
+    sesi = (jk_data.get("sesi") or "").strip()
+    tajuk_jk = "Jawatankuasa Eksekutif" + (f" — Sesi {esc(sesi)}" if sesi else "")
+    if jk:
+        ahli_html = blok_jawatankuasa(jk_data)
+    else:
+        ahli_html = kosong("users", "Senarai jawatankuasa belum disediakan",
+                           "Struktur halaman ini sedia untuk memaparkan Jawatankuasa Eksekutif"
+                           + (f" Sesi {esc(sesi)}" if sesi else "")
+                           + " sebaik sahaja nama dan gambar disahkan oleh MADOCS.")
+    struktur_html = blok_struktur_organisasi(jk_data)
+
+    isi = page_hero([("Utama", "/"), ("Mengenai", "/tentang/"), ("Organisasi", None)], "Organisasi MADOCS",
+                    "Tadbir urus pertubuhan: carta organisasi, Penasihat dan Jawatankuasa Eksekutif.") + f"""
+<section class="content-wrap">
+  <div class="shell split">
+    <div>
+      <div class="card">
+        <h2>Struktur Organisasi</h2>
+        {struktur_html}
+      </div>
+      <div class="card">
+        <h2>{tajuk_jk}</h2>
+        {ahli_html}
+      </div>
+    </div>
+    <aside class="side">
+      <div class="card">
+        <h3>Pintasan</h3>
+        <nav class="side-nav">
+          <a class="aktif" href="/organisasi/">Organisasi MADOCS</a>
+          <a href="/tentang/">Mengenai MADOCS</a>
+          <a href="/dari-meja-presiden/">Dari Meja Presiden</a>
+          <a href="/hubungi/">Hubungi urusetia</a>
+        </nav>
+      </div>
+      <div class="card">
+        <h3>Sertai MADOCS</h3>
+        <p style="font-size:14px;line-height:1.7;color:#583c42">Doktor yang berminat dalam amalan berkhatan dialu-alukan menyertai MADOCS.</p>
+        <a class="btn-blok" href="/keahlian/sertai/" style="margin-top:14px">Borang keahlian {icon('arrow-right')}</a>
+      </div>
+    </aside>
+  </div>
+</section>"""
+    halaman("organisasi", "Organisasi MADOCS | Pertubuhan Doktor Khatan Malaysia",
+            "Carta organisasi, Penasihat dan Jawatankuasa Eksekutif Pertubuhan Doktor Khatan Malaysia (MADOCS) sesi 2026-2028.",
+            "/organisasi/", isi)
 
 
 # ----------------------------------------------------------------- halaman: pendidikan
@@ -2127,6 +2178,7 @@ def main():
     bina_fail_statik()
     bina_utama()
     bina_tentang()
+    bina_organisasi()
     bina_pendidikan()
     for k in load("kursus.json")["kursus"]:
         bina_kursus_detail(k)
