@@ -888,3 +888,21 @@ footer .socials a:hover,.tile:hover>span.ikon,.carousel-arrow:hover,.modal .clos
 @media (max-width:640px){.org-grid.penasihat{grid-template-columns:1fr;max-width:300px;gap:16px}}
 
 .org-bulat-kosong{display:grid;place-items:center;font-weight:700;font-size:26px;color:var(--g-muted);background:var(--g-permukaan);border:1px solid var(--g-line)}
+
+/* --- galeri: kad album (halaman indeks) --- */
+.album-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.album-kad{border:1px solid var(--g-line);border-radius:var(--g-r);overflow:hidden;background:#fff;
+           display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.album-kad:hover{transform:translateY(-3px);box-shadow:0 12px 30px #51071612;border-color:var(--g-biru)}
+.album-kad-gambar{display:block;aspect-ratio:4/3;background:var(--g-permukaan);overflow:hidden}
+.album-kad-gambar img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+.album-kad:hover .album-kad-gambar img{transform:scale(1.04)}
+.album-kad-isi{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px}
+.album-kad-isi b{font-size:16px;font-weight:650;color:var(--g-ink);line-height:1.32}
+.album-kad-isi small{font-size:13px;color:var(--g-teks)}
+.album-kad-isi em{font-size:12.5px;font-style:normal;color:var(--g-muted);margin-top:2px}
+.album-ringkas-teks{margin:12px 0 0;font-size:15px;line-height:1.65;color:var(--g-teks);max-width:70ch}
+@media (max-width:640px){
+  .album-grid{grid-template-columns:1fr;gap:14px}
+  .album-kad-gambar{aspect-ratio:16/10}
+}

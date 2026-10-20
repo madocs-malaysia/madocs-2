@@ -54,7 +54,8 @@ def peta_slug(bm_slugs) -> dict[str, str]:
         if s in peta:
             continue
         for awalan, ganti in (("/pendidikan/", "/en/education/"), ("/aktiviti/", "/en/activities/"),
-                              ("/berita/", "/en/news/"), ("/sumber/", "/en/resources/")):
+                              ("/berita/", "/en/news/"), ("/sumber/", "/en/resources/"),
+                              ("/galeri/", "/en/gallery/")):
             if s.startswith(awalan) and len(s) > len(awalan):
                 peta[s] = ganti + s[len(awalan):]
                 break
