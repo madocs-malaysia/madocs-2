@@ -153,14 +153,14 @@ def blok_struktur_organisasi(jk_data):
         '<li><span>%s</span><b>%s</b></li>' % (esc(j["nama"]), "%d orang" % j["bilangan"] if j.get("bilangan") else "")
         for j in st.get("jawatan", []))
     ringkas = esc(st.get("ringkas", ""))
-    if penasihat:
-        ringkas += " Pertubuhan ini turut dibantu oleh %d orang Penasihat." % len(penasihat)
+    ayat_penasihat = ('<p class="struktur-ringkas">Pertubuhan ini turut dibantu oleh <b>%d</b> orang Penasihat.</p>'
+                      % len(penasihat)) if penasihat else ""
     return ("""<div class="struktur">
-  <p class="struktur-ringkas">%s</p>
+  <p class="struktur-ringkas">%s</p>%s
   <ul class="struktur-jawatan">%s</ul>
   <p class="struktur-tugas">%s</p>
   <p class="nota-isi">Sumber: %s. Nama ahli jawatankuasa sesi semasa akan diumumkan setelah disahkan.</p>
-</div>""" % (ringkas, jawatan, esc(st.get("tugas", "")), esc(st.get("sumber", ""))))
+</div>""" % (ringkas, ayat_penasihat, jawatan, esc(st.get("tugas", "")), esc(st.get("sumber", ""))))
 
 def blok_sumber_berita(b):
     """Nota sumber untuk berita yang memetik liputan media luar."""

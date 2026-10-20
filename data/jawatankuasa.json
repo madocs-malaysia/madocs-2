@@ -70,13 +70,13 @@
  ],
  "penasihat": [
   {
-   "nama": "Dr (Mr) Muhammad Taufiq Khalila bin Razali",
-   "jawatan": "Pakar Bedah Am · Hospital Kemaman, Terengganu"
-  },
-  {
    "nama": "Dr (Mr) Mohd Tarmizi bin Md Nor",
    "jawatan": "Pakar Bedah Pediatrik · Hospital Raja Perempuan Zainab II, Kota Bharu, Kelantan",
    "gambar": "assets/jawatankuasa/tarmizi.webp"
+  },
+  {
+   "nama": "Dr (Mr) Muhammad Taufiq Khalila bin Razali",
+   "jawatan": "Pakar Bedah Am · Hospital Kemaman, Terengganu"
   }
  ],
  "struktur": {
