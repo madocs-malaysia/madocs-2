@@ -344,7 +344,7 @@ def footer():
   <div class="shell footer-grid">
     <div>
       <h3>Tentang MADOCS</h3>
-      <p>{esc(SITE['nama'])} ({esc(SITE['singkatan'])}) ialah persatuan profesional yang meningkatkan standard amalan berkhatan selamat melalui pendidikan, latihan, advokasi dan kerjasama profesional.</p>
+      <p>{esc(SITE['nama'])} ({esc(SITE['singkatan'])}) ialah pertubuhan profesional yang meningkatkan standard amalan berkhatan selamat melalui pendidikan, latihan, advokasi dan kerjasama profesional.</p>
       <div class="socials">
         <a href="mailto:{esc(SITE['email'])}" aria-label="E-mel">{icon('mail')}</a>
         <a href="tel:{esc(SITE['telefon'])}" aria-label="Telefon">{icon('phone')}</a>
@@ -737,7 +737,7 @@ def bina_utama():
                    key=lambda k: k.get("tarikh") or "", reverse=True)
 
     # --- sepanduk kredensial
-    kred = [("shield-check", "Persatuan Profesional<br>Berdaftar", SITE["pendaftaran"]),
+    kred = [("shield-check", "Pertubuhan Profesional<br>Berdaftar", SITE["pendaftaran"]),
             ("graduation-cap", "Pendidikan Klinikal<br>&amp; Latihan", "CCC · PCC · TTT"),
             ("stethoscope", "Pembangunan<br>Profesional", "CPD &amp; Pembelajaran Berterusan"),
             ("users", "Komuniti<br>Seluruh Negara", "Seluruh Malaysia")]
@@ -849,7 +849,7 @@ def bina_utama():
     <div class="upcoming">
       <div class="section-title-row"><h2>Tentang MADOCS</h2></div>
       <div class="prose">
-        <p>{esc(SITE['nama'])} ({esc(SITE['singkatan'])}) ialah persatuan profesional yang menghimpunkan doktor yang terlibat dalam amalan, pendidikan dan latihan berkhatan di Malaysia.</p>
+        <p>{esc(SITE['nama'])} ({esc(SITE['singkatan'])}) ialah pertubuhan profesional yang menghimpunkan doktor yang terlibat dalam amalan, pendidikan dan latihan berkhatan di Malaysia.</p>
         <p>Kami menyediakan platform latihan klinikal berstruktur, pembangunan profesional berterusan dan perkongsian ilmu bagi meningkatkan kualiti serta keselamatan perkhidmatan berkhatan untuk masyarakat.</p>
       </div>
       <div style="margin-top:18px"><a class="btn btn-primary" href="/tentang/">Kenali MADOCS {icon('arrow-right')}</a></div>
@@ -968,7 +968,7 @@ def bina_tentang():
     kurang("Visi, misi, sejarah dan dokumen tadbir urus/perlembagaan (PRD §9.2, §55) belum disediakan — halaman menggunakan teks sementara.")
 
     isi = page_hero([("Utama", "/"), ("Tentang", None)], "Tentang MADOCS",
-                    "Persatuan profesional yang menghimpunkan doktor terlibat dalam amalan berkhatan di Malaysia.") + f"""
+                    "Pertubuhan profesional yang menghimpunkan doktor terlibat dalam amalan berkhatan di Malaysia.") + f"""
 <section class="content-wrap">
   <div class="shell split">
     <div>
@@ -1827,7 +1827,7 @@ def bina_galeri():
 <section class="content-wrap">
   <div class="shell">
     <div class="album-ringkas">{ringkas}</div>
-    <p class="nota-isi">Gambar diambil semasa program MADOCS dan diterbitkan untuk tujuan dokumentasi persatuan.
+    <p class="nota-isi">Gambar diambil semasa program MADOCS dan diterbitkan untuk tujuan dokumentasi pertubuhan.
     Ibu bapa, penjaga atau peserta yang ingin gambar tertentu dibuang boleh menghubungi urusetia MADOCS —
     kami akan memadamkannya.</p>
   </div>
@@ -1870,7 +1870,7 @@ def bina_kebolehaksesan():
     <div>
       <div class="card prose">
         <h2>Komitmen kami</h2>
-        <p>MADOCS mahu maklumat tentang persatuan, kursus dan keahlian boleh diakses oleh semua orang —
+        <p>MADOCS mahu maklumat tentang pertubuhan, kursus dan keahlian boleh diakses oleh semua orang —
         termasuk pengguna pembaca skrin, pengguna papan kekunci, dan mereka yang membaca pada telefon
         dengan teks besar. Kami merujuk garis panduan <b>WCAG 2.2 tahap AA</b> sebagai sasaran, dan
         memperbaiki laman secara berperingkat.</p>
