@@ -236,7 +236,7 @@ def kurang(item):
 # ----------------------------------------------------------------- cangkerang
 NAV = [
     ("Utama", "/", "utama"),
-    ("Tentang", "/tentang/", "tentang"),
+    ("Mengenai", "/tentang/", "tentang"),
     ("Pendidikan & Latihan", "/pendidikan/", "pendidikan"),
     ("Keahlian", "/keahlian/", "keahlian"),
     ("Aktiviti", "/aktiviti/", "aktiviti"),
@@ -350,7 +350,7 @@ def footer():
     return f"""<footer>
   <div class="shell footer-grid">
     <div>
-      <h3>Tentang MADOCS</h3>
+      <h3>Mengenai MADOCS</h3>
       <p>{esc(SITE['nama'])} ({esc(SITE['singkatan'])}) ialah pertubuhan profesional yang meningkatkan standard amalan berkhatan selamat melalui pendidikan, latihan, advokasi dan kerjasama profesional.</p>
       <div class="socials">
         <a href="mailto:{esc(SITE['email'])}" aria-label="E-mel">{icon('mail')}</a>
@@ -854,7 +854,7 @@ def bina_utama():
 <section class="section-pad" id="tentang">
   <div class="shell overview-grid">
     <div class="upcoming">
-      <div class="section-title-row"><h2>Tentang MADOCS</h2></div>
+      <div class="section-title-row"><h2>Mengenai MADOCS</h2></div>
       <div class="prose">
         <p>{esc(SITE['nama'])} ({esc(SITE['singkatan'])}) ialah pertubuhan profesional yang menghimpunkan doktor yang terlibat dalam amalan, pendidikan dan latihan berkhatan di Malaysia.</p>
         <p>Kami menyediakan platform latihan klinikal berstruktur, pembangunan profesional berterusan dan perkongsian ilmu bagi meningkatkan kualiti serta keselamatan perkhidmatan berkhatan untuk masyarakat.</p>
@@ -974,7 +974,7 @@ def bina_tentang():
 </dl>"""
     kurang("Visi, misi, sejarah dan dokumen tadbir urus/perlembagaan (PRD §9.2, §55) belum disediakan — halaman menggunakan teks sementara.")
 
-    isi = page_hero([("Utama", "/"), ("Tentang", None)], "Tentang MADOCS",
+    isi = page_hero([("Utama", "/"), ("Mengenai", None)], "Mengenai MADOCS",
                     "Pertubuhan profesional yang menghimpunkan doktor terlibat dalam amalan berkhatan di Malaysia.") + f"""
 <section class="content-wrap">
   <div class="shell split">
@@ -1014,7 +1014,7 @@ def bina_tentang():
       <div class="card">
         <h3>Pintasan</h3>
         <nav class="side-nav">
-          <a class="aktif" href="/tentang/">Tentang MADOCS</a>
+          <a class="aktif" href="/tentang/">Mengenai MADOCS</a>
           <a href="/pendidikan/">Pendidikan &amp; Latihan</a>
           <a href="/keahlian/">Keahlian</a>
           <a href="/hubungi/">Hubungi urusetia</a>
@@ -1028,7 +1028,7 @@ def bina_tentang():
     </aside>
   </div>
 </section>"""
-    halaman("tentang", "Tentang MADOCS | Pertubuhan Doktor Khatan Malaysia",
+    halaman("tentang", "Mengenai MADOCS | Pertubuhan Doktor Khatan Malaysia",
             "Mengenai Pertubuhan Doktor Khatan Malaysia (MADOCS): latar belakang, visi, misi, tadbir urus dan jawatankuasa eksekutif.",
             "/tentang/", isi)
 
@@ -1687,7 +1687,7 @@ def bina_carian():
     for s in load("sumber.json")["sumber"]:
         indeks.append({"t": s["tajuk"], "u": "/sumber/%s/" % s["slug"], "r": s.get("ringkas", ""), "j": "Sumber"})
     indeks += [
-        {"t": "Tentang MADOCS", "u": "/tentang/", "r": "Latar belakang, visi, misi dan jawatankuasa eksekutif.", "j": "Halaman"},
+        {"t": "Mengenai MADOCS", "u": "/tentang/", "r": "Latar belakang, visi, misi dan jawatankuasa eksekutif.", "j": "Halaman"},
         {"t": "Dari Meja Presiden", "u": "/dari-meja-presiden/", "r": "Perutusan Presiden MADOCS.", "j": "Halaman"},
         {"t": "Pendidikan & Latihan", "u": "/pendidikan/", "r": "Program latihan klinikal berstruktur MADOCS.", "j": "Halaman"},
         {"t": "Keahlian MADOCS", "u": "/keahlian/", "r": "Manfaat, kelayakan, kategori dan yuran keahlian.", "j": "Halaman"},
