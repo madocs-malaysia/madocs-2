@@ -1,0 +1,42 @@
+{
+ "nota": "Rekod awam status keahlian. Tiada kad pengenalan dan tiada nombor MMC. Nombor ahli dicetak pada kad keahlian dan e-mel pengesahan. 'contoh': true bermaksud data ini masih contoh untuk semakan jawatankuasa — jangan dianggap rekod rasmi.",
+ "dikemas_kini": "2026-10-21",
+ "contoh": true,
+ "ahli": [
+  {
+   "no": "MADOCS-2026-0001",
+   "nama_papar": "Dr A*** b. R***",
+   "kategori": "Ahli Seumur Hidup",
+   "status": "aktif",
+   "sah_hingga": ""
+  },
+  {
+   "no": "MADOCS-2026-0187",
+   "nama_papar": "Dr S*** b. T***",
+   "kategori": "Ahli Biasa",
+   "status": "aktif",
+   "sah_hingga": "2026-12-31"
+  },
+  {
+   "no": "MADOCS-2026-0214",
+   "nama_papar": "Dr W*** N*** b. M***",
+   "kategori": "Ahli Biasa",
+   "status": "tamat",
+   "sah_hingga": "2026-06-30"
+  },
+  {
+   "no": "MADOCS-2026-0301",
+   "nama_papar": "Dr M*** S***",
+   "kategori": "Ahli Pelajar",
+   "status": "aktif",
+   "sah_hingga": "2027-03-31"
+  },
+  {
+   "no": "MADOCS-2025-0092",
+   "nama_papar": "Datuk Dr H*** b. H***",
+   "kategori": "Ahli Biasa",
+   "status": "ditangguh",
+   "sah_hingga": "2026-09-30"
+  }
+ ]
+}

@@ -352,3 +352,85 @@
   try { q = new URLSearchParams(window.location.search).get("s"); } catch (e) { q = null; }
   if (q) { masuk.value = q; papar(q); }
 })();
+
+/* --- Pengesahan status ahli (/semak-ahli/) --- */
+(function () {
+  var el = document.getElementById("indeks-ahli");
+  var borang = document.getElementById("borang-ahli");
+  if (!el || !borang) { return; }
+
+  var indeks = [];
+  try { indeks = (JSON.parse(el.textContent || "{}").ahli) || []; } catch (e) { indeks = []; }
+
+  var EN = document.documentElement.lang === "en";
+  var T = EN
+    ? { jaya: "Active member", tamat: "Membership expired", tangguh: "Membership suspended",
+        gagal: "Not found", no: "Member number", nama: "Name", kategori: "Category",
+        status: "Status", sah: "Valid until", seumur: "Lifetime membership — no expiry",
+        aktif: "Active", ditamat: "Expired", ditangguh: "Suspended" }
+    : { jaya: "Ahli aktif", tamat: "Keahlian telah tamat", tangguh: "Keahlian ditangguh",
+        gagal: "Tidak dijumpai", no: "Nombor ahli", nama: "Nama", kategori: "Kategori",
+        status: "Status", sah: "Sah hingga", seumur: "Keahlian seumur hidup — tiada tarikh luput",
+        aktif: "Aktif", ditamat: "Tamat tempoh", ditangguh: "Ditangguh" };
+
+  var masuk = document.getElementById("no-ahli");
+  var hasil = document.getElementById("hasil-ahli");
+
+  function tunjuk(html, kelas) {
+    hasil.className = "hasil-sahkan " + (kelas || "");
+    hasil.innerHTML = html;
+  }
+
+  function cari(no) {
+    var kunci = String(no || "").trim().toUpperCase();
+    if (!kunci) { return null; }
+    for (var i = 0; i < indeks.length; i++) {
+      if (String(indeks[i].no || "").toUpperCase() === kunci) { return indeks[i]; }
+    }
+    return null;
+  }
+
+  function baris(label, nilai) {
+    return '<div><dt>' + label + '</dt><dd>' + String(nilai == null ? "" : nilai).replace(/[<>&]/g, "") + '</dd></div>';
+  }
+
+  function papar(no) {
+    var r = cari(no);
+    var kunci = String(no || "").trim().replace(/[<>&]/g, "");
+    if (!r) {
+      tunjuk("<h3>" + T.gagal + "</h3><p>" + (EN ? "No member with number " : "Tiada ahli dengan nombor ")
+             + "<b>" + kunci + "</b> " + (EN ? "is recorded by MADOCS. Please check the number on the membership card."
+                                             : "dalam rekod MADOCS. Sila semak semula nombor pada kad keahlian.") + "</p>", "gagal");
+      return;
+    }
+    var status = String(r.status || "").toLowerCase();
+    var labelStatus = status === "aktif" ? T.aktif : (status === "tamat" ? T.ditamat : T.ditangguh);
+    var sah = r.sah_hingga ? r.sah_hingga : T.seumur;
+    var dl = '<dl class="senarai-sah">'
+      + baris(T.no, r.no) + baris(T.nama, r.nama_papar) + baris(T.kategori, r.kategori)
+      + baris(T.status, labelStatus) + baris(T.sah, sah) + '</dl>';
+
+    if (status === "aktif") {
+      tunjuk("<h3>" + T.jaya + "</h3>" + dl + '<p class="nota-isi">'
+             + (EN ? "This record shows membership status only. Identity card and MMC numbers are not stored here."
+                   : "Rekod ini hanya menunjukkan status keahlian. Nombor kad pengenalan dan MMC tidak disimpan di sini.")
+             + "</p>", "jaya");
+    } else if (status === "tamat") {
+      tunjuk("<h3>" + T.tamat + "</h3>" + dl + '<p class="nota-isi">'
+             + (EN ? "Please ask the member to renew before relying on this membership."
+                   : "Sila minta ahli memperbaharui keahlian sebelum bergantung pada status ini.")
+             + "</p>", "gagal");
+    } else {
+      tunjuk("<h3>" + T.tangguh + "</h3>" + dl + '<p class="nota-isi">'
+             + (EN ? "Contact the MADOCS secretariat for the reason and current standing."
+                   : "Hubungi urusetia MADOCS untuk sebab dan kedudukan semasa.")
+             + "</p>", "gagal");
+    }
+  }
+
+  borang.addEventListener("submit", function (e) { e.preventDefault(); papar(masuk.value); });
+
+  var q = null;
+  try { q = new URLSearchParams(window.location.search).get("a"); } catch (e) { q = null; }
+  if (q) { masuk.value = q; papar(q); }
+})();

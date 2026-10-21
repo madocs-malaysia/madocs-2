@@ -383,7 +383,7 @@ def footer():
   </div>
   <div class="shell footer-bottom">
     <span>© {date.today().year} {esc(SITE['nama'])}. Hak cipta terpelihara.</span>
-    <span><a href="/sahkan/">Pengesahan Sijil</a><i></i><a href="/dasar-privasi/">Dasar Privasi</a><i></i><a href="/terma/">Terma Penggunaan</a><i></i><a href="/kebolehaksesan/">Aksesibiliti</a></span>
+    <span><a href="/sahkan/">Pengesahan Sijil</a><i></i><a href="/semak-ahli/">Pengesahan Ahli</a><i></i><a href="/dasar-privasi/">Dasar Privasi</a><i></i><a href="/terma/">Terma Penggunaan</a><i></i><a href="/kebolehaksesan/">Aksesibiliti</a></span>
   </div>
 </footer>"""
 
@@ -685,6 +685,59 @@ def bina_sahkan():
     halaman("", "Pengesahan Sijil C&P | MADOCS",
             "Sahkan keaslian sijil Credentialing & Privileging (C&P) MADOCS dengan nombor siri sijil.",
             "/sahkan/", isi, masuk_sitemap=False, noindex=True)
+
+
+def bina_semak_ahli():
+    """Halaman pengesahan status keahlian — rekod awam tanpa data peribadi.
+
+    Rekod (data/ahli.json) hanya menyimpan nombor ahli, nama bertopeng, kategori,
+    status dan tarikh sah. Tiada kad pengenalan, tiada nombor MMC.
+    """
+    data = load("ahli.json") if (DATA / "ahli.json").exists() else {"ahli": []}
+    ahli = data.get("ahli", [])
+    indeks_json = json.dumps({"ahli": ahli}, ensure_ascii=False).replace("</", "<\\/")
+    urus = (load("site.json").get("whatsapp") or "")
+    wa = "https://wa.me/%s" % re.sub(r"\D", "", str(urus))
+    contoh = bool(data.get("contoh"))
+    banner = ('<p class="banner-draf">%s <b>Data contoh untuk semakan jawatankuasa.</b> Rekod sebenar belum '
+              'dimasukkan; status di bawah tidak boleh dijadikan bukti keahlian.</p>' % icon("info")) if contoh else ""
+    isi = f"""<section class="page-hero">
+  <div class="shell">{crumbs([("Utama", "/"), ("Pengesahan Ahli", None)])}
+    <h1>Pengesahan Status Ahli</h1>
+    <p>Klinik, hospital dan pihak berkuasa boleh menyemak sama ada seorang doktor ialah ahli MADOCS yang aktif.</p>
+  </div>
+</section>
+<section class="content-wrap"><div class="shell"><div class="card prose">
+  {banner}
+  <form id="borang-ahli" class="borang-sahkan" autocomplete="off" novalidate>
+    <label for="no-ahli">Nombor ahli</label>
+    <p class="nota-isi">Nombor ahli tercetak pada kad keahlian dan e-mel pengesahan pendaftaran. Contoh: <b>MADOCS-2026-0187</b>.</p>
+    <div class="baris-sahkan">
+      <input id="no-ahli" name="no-ahli" type="text" placeholder="MADOCS-2026-0187" required>
+      <button class="btn btn-primary" type="submit">{icon('search')} Semak status</button>
+    </div>
+  </form>
+  <div id="hasil-ahli" class="hasil-sahkan" role="status" aria-live="polite"></div>
+
+  <h2>Apa yang dipaparkan</h2>
+  <ul>
+    <li><b>Status keahlian</b> — aktif, tamat tempoh, atau ditangguh.</li>
+    <li><b>Kategori</b> — Ahli Biasa, Bersekutu, Pelajar atau Seumur Hidup.</li>
+    <li><b>Tarikh sah</b> — untuk keahlian tahunan; keahlian seumur hidup tiada tarikh luput.</li>
+    <li><b>Nama bertopeng</b> — cukup untuk memadankan dengan nama pada kad pengenalan doktor, tanpa mendedahkan nama penuh.</li>
+  </ul>
+
+  <h2>Privasi</h2>
+  <p>Rekod awam ini <b>tidak menyimpan kad pengenalan atau nombor MMC</b>. Pertanyaan lanjut boleh diajukan kepada urusetia MADOCS.</p>
+
+  <h2>Jika nombor tidak dijumpai</h2>
+  <p>Sila semak semula nombor pada kad keahlian. Jika masih tidak dijumpai, hubungi urusetia: <a href="mailto:{esc(load('site.json').get('email',''))}">{esc(load('site.json').get('email',''))}</a> atau <a href="{esc(wa)}" target="_blank" rel="noopener">WhatsApp urusetia</a>.</p>
+
+  <script type="application/json" id="indeks-ahli">{indeks_json}</script>
+</div></div></section>"""
+    halaman("", "Pengesahan Ahli | MADOCS",
+            "Semak status keahlian MADOCS dengan nombor ahli — tanpa mendedahkan data peribadi.",
+            "/semak-ahli/", isi, masuk_sitemap=False, noindex=True)
 
 
 def laman_ringkas(slug, tajuk, isi_html):
@@ -1367,6 +1420,7 @@ def bina_keahlian():
       <div class="card">
         <h2>Dokumen diperlukan</h2>
         <ul class="prose" style="padding-left:18px">{dokumen}</ul>
+        <p style="margin-top:14px"><a class="btn btn-outline" href="/semak-ahli/">Semak status keahlian</a></p>
       </div>
     </div>
   </div>
@@ -2206,6 +2260,7 @@ def main():
     for k in load("kursus.json")["kursus"]:
         bina_kursus_detail(k)
     bina_keahlian()
+    bina_semak_ahli()
     bina_sertai()
     bina_aktiviti()
     bina_galeri()
