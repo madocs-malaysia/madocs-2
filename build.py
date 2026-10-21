@@ -2143,9 +2143,10 @@ def bina_dasar():
     laman_ringkas("dasar-privasi", "Dasar Privasi", f"""
 <p>{esc(SITE['nama'])} ({esc(SITE['singkatan'])}) mengumpul maklumat peribadi yang dihantar secara sukarela melalui laman ini, contohnya melalui borang permohonan keahlian, pendaftaran kursus atau borang pertanyaan.</p>
 <h2>Maklumat yang dikumpul</h2>
-<ul><li>Maklumat hubungan (nama, e-mel, nombor telefon).</li><li>Maklumat profesional (nombor pendaftaran MMC, tempat praktis, negeri).</li><li>Maklumat yang anda taip dalam mesej atau permohonan.</li></ul>
+<ul><li>Maklumat hubungan (nama, e-mel, nombor telefon).</li><li>Maklumat profesional (nombor pendaftaran MMC, tempat praktis, negeri).</li><li>Maklumat permohonan keahlian: nombor kad pengenalan, tarikh lahir, alamat rumah dan pejabat, bangsa serta agama.</li><li>Maklumat yang anda taip dalam mesej atau permohonan.</li></ul>
 <h2>Kegunaan maklumat</h2>
 <p>Maklumat digunakan semata-mata untuk memproses keahlian, pendaftaran program latihan, pertanyaan dan komunikasi berkaitan aktiviti MADOCS.</p>
+<p>Bangsa dan agama dikumpul untuk rekod keahlian dan statistik persatuan sahaja, dan tidak digunakan sebagai syarat kelulusan keahlian. Kerana agama termasuk data peribadi sensitif di bawah Akta Perlindungan Data Peribadi 2010, persetujuan nyata diminta pada borang permohonan sebelum data dihantar.</p>
 <h2>Perkongsian</h2>
 <p>Maklumat peribadi tidak dijual atau dikongsi dengan pihak ketiga untuk tujuan pemasaran. Nama ahli dan maklumat peribadi tidak diterbitkan di laman awam.</p>
 <h2>Penyimpanan</h2>
