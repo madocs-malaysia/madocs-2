@@ -13,25 +13,56 @@
   {
    "nama": "Ahli Biasa",
    "kelayakan": "Doktor perubatan yang berdaftar dengan Majlis Perubatan Malaysia (MMC)",
-   "yuran": "Lihat promosi terkini"
+   "yuran": "RM200 setahun (yuran masuk RM100 + tahunan RM100)"
   },
   {
    "nama": "Ahli Bersekutu",
    "kelayakan": "Kakitangan perubatan yang terlibat dalam prosedur berkhatan",
-   "yuran": "Hubungi urusetia"
+   "yuran": "RM200 setahun (yuran masuk RM100 + tahunan RM100)"
   },
   {
    "nama": "Ahli Pelajar",
    "kelayakan": "Pelajar perubatan",
-   "yuran": "Hubungi urusetia"
+   "yuran": "RM100 setahun (yuran masuk RM50 + tahunan RM50)"
   },
   {
    "nama": "Ahli Seumur Hidup",
    "kelayakan": "Ahli yang memilih keahlian seumur hidup",
-   "yuran": "RM900 (promosi 2026; biasa RM1,000)"
+   "yuran": "RM1,000 sekali bayar (RM100 masuk + RM900 promosi 2026). Harga biasa RM1,100"
   }
  ],
- "yuran": [],
+ "yuran": [
+  {
+   "kategori": "Ahli Biasa",
+   "yuran": "RM200",
+   "nota": "Yuran masuk RM100 + yuran tahunan RM100"
+  },
+  {
+   "kategori": "Ahli Bersekutu",
+   "yuran": "RM200",
+   "nota": "Yuran masuk RM100 + yuran tahunan RM100"
+  },
+  {
+   "kategori": "Ahli Pelajar",
+   "yuran": "RM100",
+   "nota": "Yuran masuk RM50 + yuran tahunan RM50"
+  },
+  {
+   "kategori": "Ahli Seumur Hidup",
+   "yuran": "RM1,000",
+   "nota": "Yuran masuk RM100 + RM900 (promosi 2026). Harga biasa RM1,100"
+  },
+  {
+   "kategori": "Naik taraf Biasa ke Seumur Hidup",
+   "yuran": "RM900",
+   "nota": "Bayar yuran seumur hidup sahaja (promosi 2026; biasa RM1,000)"
+  },
+  {
+   "kategori": "Pembaharuan tahunan",
+   "yuran": "RM100 / RM50",
+   "nota": "Biasa & Bersekutu RM100; Pelajar RM50"
+  }
+ ],
  "kelayakan": [
   "Warganegara Malaysia.",
   "Ahli Biasa: doktor perubatan yang berdaftar dengan Majlis Perubatan Malaysia (MMC).",
