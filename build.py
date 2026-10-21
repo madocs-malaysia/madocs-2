@@ -1348,25 +1348,25 @@ def bina_keahlian():
         <p>MADOCS menghimpunkan doktor yang serius dalam meningkatkan kualiti amalan berkhatan. Keahlian memberi akses kepada latihan klinikal berstruktur, rangkaian profesional dan sumber pendidikan.</p>
         <div class="grid-2" style="margin-top:20px;gap:12px">{manfaat}</div>
       </div>
-      <div>
-        <div class="card">
-          <h2>Kategori &amp; kelayakan</h2>
-          {kategori}
-          <h3>Kelayakan asas</h3>
-          <ul class="prose" style="padding-left:18px">{kelayakan}</ul>
-        </div>
-        <div class="card">
-          <h2>Yuran keahlian</h2>
-          {yuran}
-        </div>
-        <div class="card">
-          <h2>Keahlian MADOCS</h2>
-          {blok_statistik_keahlian(kh)}
-        </div>
-        <div class="card">
-          <h2>Dokumen diperlukan</h2>
-          <ul class="prose" style="padding-left:18px">{dokumen}</ul>
-        </div>
+      <div class="card">
+        <h2>Kategori &amp; kelayakan</h2>
+        {kategori}
+        <h3>Kelayakan asas</h3>
+        <ul class="prose" style="padding-left:18px">{kelayakan}</ul>
+      </div>
+    </div>
+    <div class="card" style="margin-top:18px">
+      <h2>Yuran keahlian</h2>
+      {yuran}
+    </div>
+    <div class="grid-2" style="margin-top:18px;align-items:start">
+      <div class="card">
+        <h2>Keahlian MADOCS</h2>
+        {blok_statistik_keahlian(kh)}
+      </div>
+      <div class="card">
+        <h2>Dokumen diperlukan</h2>
+        <ul class="prose" style="padding-left:18px">{dokumen}</ul>
       </div>
     </div>
   </div>
