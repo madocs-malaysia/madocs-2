@@ -1,5 +1,5 @@
 {
- "cara_edit": "Maklumat keahlian. 'disahkan': false bermaksud kandungan belum diluluskan jawatankuasa — laman akan menunjukkannya sebagai belum disahkan, bukan sebagai fakta.",
+ "cara_edit": "Maklumat keahlian. 'disahkan': false bermaksud kandungan belum diluluskan jawatankuasa. 'kategori' = senarai kategori + kelayakan (tiada harga di sini). 'yuran' = satu-satunya tempat harga: kategori, yuran, nota. 'promosi' = blok promosi + pautan borang dalam talian.",
  "disahkan": true,
  "manfaat": [
   "Komuniti profesional doktor yang terlibat dalam amalan berkhatan",
@@ -12,23 +12,19 @@
  "kategori": [
   {
    "nama": "Ahli Biasa",
-   "kelayakan": "Doktor perubatan yang berdaftar dengan Majlis Perubatan Malaysia (MMC)",
-   "yuran": "RM200 setahun (yuran masuk RM100 + tahunan RM100)"
+   "kelayakan": "Doktor perubatan yang berdaftar dengan Majlis Perubatan Malaysia (MMC)"
   },
   {
    "nama": "Ahli Bersekutu",
-   "kelayakan": "Kakitangan perubatan yang terlibat dalam prosedur berkhatan",
-   "yuran": "RM200 setahun (yuran masuk RM100 + tahunan RM100)"
+   "kelayakan": "Kakitangan perubatan yang terlibat dalam prosedur berkhatan"
   },
   {
    "nama": "Ahli Pelajar",
-   "kelayakan": "Pelajar perubatan",
-   "yuran": "RM100 setahun (yuran masuk RM50 + tahunan RM50)"
+   "kelayakan": "Pelajar perubatan"
   },
   {
    "nama": "Ahli Seumur Hidup",
-   "kelayakan": "Ahli yang memilih keahlian seumur hidup",
-   "yuran": "RM1,000 sekali bayar (RM100 masuk + RM900 promosi 2026). Harga biasa RM1,100"
+   "kelayakan": "Ahli yang memilih keahlian seumur hidup"
   }
  ],
  "yuran": [
@@ -64,10 +60,7 @@
   }
  ],
  "kelayakan": [
-  "Warganegara Malaysia.",
-  "Ahli Biasa: doktor perubatan yang berdaftar dengan Majlis Perubatan Malaysia (MMC).",
-  "Ahli Bersekutu: kakitangan perubatan yang terlibat dalam prosedur berkhatan.",
-  "Ahli Pelajar: pelajar perubatan."
+  "Warganegara Malaysia."
  ],
  "dokumen": [],
  "proses": [
