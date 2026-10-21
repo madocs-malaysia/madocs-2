@@ -906,3 +906,6 @@ footer .socials a:hover,.tile:hover>span.ikon,.carousel-arrow:hover,.modal .clos
   .album-grid{grid-template-columns:1fr;gap:14px}
   .album-kad-gambar{aspect-ratio:16/10}
 }
+
+/* nota di dalam kotak hasil: jangan nampak seperti kotak bersarang */
+.hasil-sahkan .nota-isi{background:none;border:0;padding:0;margin:10px 0 0;font-style:italic;font-size:13.5px}
