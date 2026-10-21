@@ -367,10 +367,12 @@
     ? { jaya: "Active member", tamat: "Membership expired", tangguh: "Membership suspended",
         gagal: "Not found", no: "Member number", nama: "Name", kategori: "Category",
         status: "Status", sah: "Valid until", seumur: "Lifetime membership — no expiry",
+        tiadaSah: "Not recorded — ask the secretariat",
         aktif: "Active", ditamat: "Expired", ditangguh: "Suspended" }
     : { jaya: "Ahli aktif", tamat: "Keahlian telah tamat", tangguh: "Keahlian ditangguh",
         gagal: "Tidak dijumpai", no: "Nombor ahli", nama: "Nama", kategori: "Kategori",
         status: "Status", sah: "Sah hingga", seumur: "Keahlian seumur hidup — tiada tarikh luput",
+        tiadaSah: "Tidak direkodkan — sila tanya urusetia",
         aktif: "Aktif", ditamat: "Tamat tempoh", ditangguh: "Ditangguh" };
 
   var masuk = document.getElementById("no-ahli");
@@ -382,10 +384,10 @@
   }
 
   function cari(no) {
-    var kunci = String(no || "").trim().toUpperCase();
+    var kunci = String(no || "").trim().toUpperCase().replace(/[^A-Z0-9]/g, "");
     if (!kunci) { return null; }
     for (var i = 0; i < indeks.length; i++) {
-      if (String(indeks[i].no || "").toUpperCase() === kunci) { return indeks[i]; }
+      if (String(indeks[i].no || "").toUpperCase().replace(/[^A-Z0-9]/g, "") === kunci) { return indeks[i]; }
     }
     return null;
   }
@@ -405,7 +407,10 @@
     }
     var status = String(r.status || "").toLowerCase();
     var labelStatus = status === "aktif" ? T.aktif : (status === "tamat" ? T.ditamat : T.ditangguh);
-    var sah = r.sah_hingga ? r.sah_hingga : T.seumur;
+    var sah;
+    if (r.sah_hingga) { sah = r.sah_hingga; }
+    else if (/seumur/i.test(String(r.kategori || ""))) { sah = T.seumur; }
+    else { sah = T.tiadaSah; }
     var dl = '<dl class="senarai-sah">'
       + baris(T.no, r.no) + baris(T.nama, r.nama_papar) + baris(T.kategori, r.kategori)
       + baris(T.status, labelStatus) + baris(T.sah, sah) + '</dl>';
