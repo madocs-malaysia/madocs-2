@@ -24,6 +24,7 @@ KAMUS = ROOT / "data" / "terjemahan.json"
 # --- pemetaan laluan: BM -> EN (slug Inggeris untuk pembaca Inggeris) -----------------
 SLAG_EN = {
     "/sahkan/": "/en/verify/",
+    "/semak-ahli/": "/en/member-verification/",
     "/": "/en/",
     "/tentang/": "/en/about/",
     "/organisasi/": "/en/organisation/",
