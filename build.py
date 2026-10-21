@@ -1314,8 +1314,8 @@ def bina_keahlian():
                        '<td data-label="%s">%s</td>' % (esc(kepala[i]) if i < len(kepala) else "", c)
                        for i, c in enumerate(r)) for r in baris)))
 
-    kategori = jadual([[esc(k["nama"]), esc(k.get("kelayakan", "")), esc(k.get("yuran", ""))] for k in kh.get("kategori", [])],
-                      ["Kategori", "Kelayakan", "Yuran"],
+    kategori = jadual([[esc(k["nama"]), esc(k.get("kelayakan", ""))] for k in kh.get("kategori", [])],
+                      ["Kategori", "Kelayakan"],
                       "Kategori keahlian sedang disahkan oleh jawatankuasa MADOCS.")
 
     yuran = jadual([[esc(y["kategori"]), esc(y["yuran"]), esc(y.get("nota", ""))] for y in kh.get("yuran", [])],
@@ -1351,7 +1351,7 @@ def bina_keahlian():
       <div class="card">
         <h2>Kategori &amp; kelayakan</h2>
         {kategori}
-        <h3>Kelayakan asas</h3>
+        <h3>Syarat am</h3>
         <ul class="prose" style="padding-left:18px">{kelayakan}</ul>
       </div>
     </div>
