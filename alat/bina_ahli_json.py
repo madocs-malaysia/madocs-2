@@ -74,6 +74,7 @@ def baca(xlsx):
     iJenis, iStatus = idx('Type'), idx('Status Membership')
     iMula = idx('Date of Membership')
     iBayar = [i for i, h in enumerate(hdr) if 'Date of Payment' in h]
+    iLuput = idx('Validity Membership', 'Tarikh Luput', 'Valid Until', 'Expiry')
 
     rekod, dibuang, perlu_semak = [], [], []
     for r in baris[1:]:
@@ -89,13 +90,21 @@ def baca(xlsx):
             continue
         jenis = g(iJenis).upper()
 
-        # tarikh sah: 12 bulan dari bayaran terakhir; jika tiada, dari tarikh keahlian
+        # tarikh sah: utamakan lajur "Validity Membership" (dikemas kini oleh setiausaha).
+        # Nilai "Lifetime" bermaksud keahlian seumur hidup. Jika kosong, kira sandaran:
+        # 12 bulan dari bayaran terakhir, atau dari tarikh keahlian.
+        mentah = r[iLuput] if (iLuput is not None and iLuput < len(r)) else None
+        teks = ('' if mentah is None else str(mentah).strip())
+        seumur = bool(re.search(r'lifetime|seumur', teks, re.I)) or jenis == 'LM'
+        tetap = None if seumur else tarikh(mentah)
         bayar = [tarikh(r[i]) for i in iBayar if i < len(r)]
         bayar = [b for b in bayar if b]
         asas = max(bayar) if bayar else (tarikh(r[iMula]) if iMula is not None else None)
         sah = ''
-        if jenis != 'LM':
-            if asas:
+        if not seumur:
+            if tetap:
+                sah = tetap.isoformat()
+            elif asas:
                 luput = tambah_bulan(asas)
                 if status == 'aktif' and luput < HARI_INI:
                     perlu_semak.append((no.upper(), nama[:30], str(luput)))
@@ -103,11 +112,12 @@ def baca(xlsx):
                     sah = luput.isoformat()
             else:
                 perlu_semak.append((no.upper(), nama[:30], '(tiada tarikh)'))
+        kategori = 'Ahli Seumur Hidup' if (seumur or jenis == 'LM') else JENIS.get(jenis, 'Ahli Biasa')
 
         rekod.append({
             'no': no.upper(),
             'nama_papar': topeng(nama),
-            'kategori': JENIS.get(jenis, 'Ahli Biasa'),
+            'kategori': kategori,
             'status': status,
             'sah_hingga': sah,
         })
