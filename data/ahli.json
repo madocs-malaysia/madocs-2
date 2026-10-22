@@ -1,6 +1,6 @@
 {
  "nota": "Rekod awam status keahlian MADOCS. Tiada kad pengenalan, nombor MMC, telefon atau e-mel disimpan di sini. Nombor ahli mengikut kod negeri.",
- "dikemas_kini": "2026-10-21",
+ "dikemas_kini": "2026-10-22",
  "contoh": false,
  "ahli": [
   {
@@ -64,14 +64,14 @@
    "nama_papar": "M*** S*** b. A***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-02-02"
+   "sah_hingga": "2025-02-25"
   },
   {
    "no": "JDT10",
    "nama_papar": "N*** S*** b. N***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-01-24"
+   "sah_hingga": "2025-02-25"
   },
   {
    "no": "JDT11",
@@ -98,15 +98,15 @@
    "no": "JDT14",
    "nama_papar": "A*** M*** b. M***",
    "kategori": "Ahli Biasa",
-   "status": "aktif",
-   "sah_hingga": ""
+   "status": "tamat",
+   "sah_hingga": "2026-08-27"
   },
   {
    "no": "JDT15",
    "nama_papar": "M*** N*** M*** b. W***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-07-19"
+   "sah_hingga": "2025-08-27"
   },
   {
    "no": "JDT16",
@@ -120,56 +120,56 @@
    "nama_papar": "N*** b. A***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-08-28"
+   "sah_hingga": "2025-11-30"
   },
   {
    "no": "JDT18",
    "nama_papar": "M*** F*** b. A*** S***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-09-19"
+   "sah_hingga": "2025-11-30"
   },
   {
    "no": "JDT19",
    "nama_papar": "H*** b. H***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-02-05"
+   "sah_hingga": "2027-04-13"
   },
   {
    "no": "JDT20",
    "nama_papar": "R*** R*** P*** A/L P***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-01-20"
+   "sah_hingga": "2026-04-13"
   },
   {
    "no": "JDT21",
    "nama_papar": "H*** b. A*** Y***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-01-28"
+   "sah_hingga": "2026-04-13"
   },
   {
    "no": "JDT22",
    "nama_papar": "A*** D*** A*** b. A***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-12-05"
+   "sah_hingga": "2027-04-13"
   },
   {
    "no": "JDT23",
    "nama_papar": "M*** A*** D*** b. D***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-06-30"
+   "sah_hingga": "2026-10-08"
   },
   {
    "no": "JDT24",
    "nama_papar": "M*** N*** b. Z***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": ""
+   "sah_hingga": "2027-04-26"
   },
   {
    "no": "JDT25",
@@ -183,7 +183,7 @@
    "nama_papar": "A*** A*** A*** b. M***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-05-28"
+   "sah_hingga": "2027-09-16"
   },
   {
    "no": "KDA1",
@@ -211,14 +211,14 @@
    "nama_papar": "S*** b. N***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-04-27"
+   "sah_hingga": "2025-03-31"
   },
   {
    "no": "KDA5",
    "nama_papar": "M*** H*** b. Y***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-04-27"
+   "sah_hingga": "2025-03-31"
   },
   {
    "no": "KDA6",
@@ -232,14 +232,14 @@
    "nama_papar": "M*** L*** H*** b. M*** Z***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-04-28"
+   "sah_hingga": "2025-03-31"
   },
   {
    "no": "KDA8",
    "nama_papar": "M*** Z*** b. M*** N***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-05-03"
+   "sah_hingga": "2025-03-31"
   },
   {
    "no": "KDA9",
@@ -260,21 +260,21 @@
    "nama_papar": "A*** H*** b. M*** A***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-01-17"
+   "sah_hingga": "2025-02-25"
   },
   {
    "no": "KDA12",
    "nama_papar": "H*** b. A*** P***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-07-06"
+   "sah_hingga": "2027-09-16"
   },
   {
    "no": "KDN1",
    "nama_papar": "M*** T*** b. M*** N***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-04-26"
+   "sah_hingga": "2025-03-31"
   },
   {
    "no": "KDN2",
@@ -288,28 +288,28 @@
    "nama_papar": "A*** I*** R*** b. R***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-07-03"
+   "sah_hingga": "2025-03-31"
   },
   {
    "no": "KDN4",
    "nama_papar": "M*** F*** b. A*** L***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-04-29"
+   "sah_hingga": "2027-03-31"
   },
   {
    "no": "KDN5",
    "nama_papar": "M*** F*** b. M***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-02-27"
+   "sah_hingga": "2025-04-27"
   },
   {
    "no": "KDN6",
    "nama_papar": "A*** M*** b. M***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-05-03"
+   "sah_hingga": "2025-04-27"
   },
   {
    "no": "KDN7",
@@ -337,7 +337,7 @@
    "nama_papar": "A*** b. A*** H***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-05-29"
+   "sah_hingga": "2027-09-16"
   },
   {
    "no": "KDN11",
@@ -386,35 +386,35 @@
    "nama_papar": "S*** A/L P***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-02-27"
+   "sah_hingga": "2025-04-27"
   },
   {
    "no": "MBB7",
    "nama_papar": "A*** b. M*** F***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-08-15"
+   "sah_hingga": "2025-08-27"
   },
   {
    "no": "MBB8",
    "nama_papar": "A*** S*** b. M*** S***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-08-05"
+   "sah_hingga": "2026-06-22"
   },
   {
    "no": "MBB9",
    "nama_papar": "R*** b. M*** A***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-01-01"
+   "sah_hingga": "2027-04-26"
   },
   {
    "no": "NDK1",
    "nama_papar": "M*** S*** b. M*** S***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-04-26"
+   "sah_hingga": "2027-03-31"
   },
   {
    "no": "NDK2",
@@ -442,28 +442,28 @@
    "nama_papar": "T*** A*** b. S***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-01-24"
+   "sah_hingga": "2025-02-25"
   },
   {
    "no": "NDK6",
    "nama_papar": "M*** H*** b. A*** R***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-06-02"
+   "sah_hingga": "2025-02-25"
   },
   {
    "no": "NDK7",
    "nama_papar": "M*** B*** b. R***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-05-28"
+   "sah_hingga": "2025-08-27"
   },
   {
    "no": "NDK8",
    "nama_papar": "A*** H*** b. M*** N*** A***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-03-25"
+   "sah_hingga": "2027-11-30"
   },
   {
    "no": "NDK9",
@@ -477,28 +477,28 @@
    "nama_papar": "A*** H*** b. M***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-01-27"
+   "sah_hingga": "2026-04-13"
   },
   {
    "no": "NDK11",
    "nama_papar": "A*** b. M***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-05-15"
+   "sah_hingga": "2026-06-22"
   },
   {
    "no": "NDK12",
    "nama_papar": "M*** A*** b. K*** H***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-02-06"
+   "sah_hingga": "2026-06-22"
   },
   {
    "no": "NDK13",
    "nama_papar": "M*** S*** b. M*** N***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-06-17"
+   "sah_hingga": "2026-06-22"
   },
   {
    "no": "PDM1",
@@ -526,14 +526,14 @@
    "nama_papar": "A*** b. K***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-06-20"
+   "sah_hingga": "2026-03-31"
   },
   {
    "no": "PDM5",
    "nama_papar": "T*** b. T***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-06-05"
+   "sah_hingga": "2026-03-31"
   },
   {
    "no": "PDM6",
@@ -568,56 +568,56 @@
    "nama_papar": "S*** b. J***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-07-04"
+   "sah_hingga": "2027-08-27"
   },
   {
    "no": "PDM12",
    "nama_papar": "M*** H*** H*** b. B*** H***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-02-27"
+   "sah_hingga": "2025-04-27"
   },
   {
    "no": "PDM13",
    "nama_papar": "H*** b. H***",
    "kategori": "Ahli Biasa",
-   "status": "aktif",
-   "sah_hingga": ""
+   "status": "tamat",
+   "sah_hingga": "2026-08-27"
   },
   {
    "no": "PDM14",
    "nama_papar": "M*** M*** R*** b. A*** R***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-10-23"
+   "sah_hingga": "2025-11-30"
   },
   {
    "no": "PDM15",
    "nama_papar": "C*** A*** M*** b. C*** S***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-10-26"
+   "sah_hingga": "2025-11-30"
   },
   {
    "no": "PDM16",
    "nama_papar": "M*** S*** b. A*** B***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-07-01"
+   "sah_hingga": "2026-04-13"
   },
   {
    "no": "PDM17",
    "nama_papar": "M*** S*** b. H***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-07-31"
+   "sah_hingga": "2026-10-08"
   },
   {
    "no": "PDR1",
    "nama_papar": "S*** b. M*** S***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-05-17"
+   "sah_hingga": "2025-05-18"
   },
   {
    "no": "PDR2",
@@ -631,7 +631,7 @@
    "nama_papar": "W*** A*** I*** b. W*** S***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-06-17"
+   "sah_hingga": "2026-02-25"
   },
   {
    "no": "PDR4",
@@ -645,21 +645,21 @@
    "nama_papar": "H*** A/P S***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-04-02"
+   "sah_hingga": "2025-02-25"
   },
   {
    "no": "PDR6",
    "nama_papar": "L*** V***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-02-22"
+   "sah_hingga": "2025-02-25"
   },
   {
    "no": "PDR7",
    "nama_papar": "M*** A*** Y***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-05-15"
+   "sah_hingga": "2026-06-22"
   },
   {
    "no": "PIK1",
@@ -680,14 +680,14 @@
    "nama_papar": "M*** S*** b. I***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-04-26"
+   "sah_hingga": "2025-03-31"
   },
   {
    "no": "PIK4",
    "nama_papar": "A*** S***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-02-27"
+   "sah_hingga": "2025-04-27"
   },
   {
    "no": "PPM1",
@@ -722,14 +722,14 @@
    "nama_papar": "M*** S*** b. M*** A***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-02-27"
+   "sah_hingga": "2025-04-27"
   },
   {
    "no": "PPM6",
    "nama_papar": "M*** A*** b. N***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-05-20"
+   "sah_hingga": "2025-08-27"
   },
   {
    "no": "PPM7",
@@ -750,7 +750,7 @@
    "nama_papar": "M*** Y*** S*** b. I***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-02-27"
+   "sah_hingga": "2026-04-13"
   },
   {
    "no": "PPM10",
@@ -778,49 +778,49 @@
    "nama_papar": "R*** D***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-06-30"
+   "sah_hingga": "2027-03-31"
   },
   {
    "no": "SBB4",
    "nama_papar": "S*** R*** b. T***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-04-29"
+   "sah_hingga": "2026-04-27"
   },
   {
    "no": "SBB5",
    "nama_papar": "M*** A*** b. S***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-11-05"
+   "sah_hingga": "2025-05-18"
   },
   {
    "no": "SBB6",
    "nama_papar": "M*** N*** H*** b. I***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-06-23"
+   "sah_hingga": "2025-08-27"
   },
   {
    "no": "SBB7",
    "nama_papar": "A*** P***",
    "kategori": "Ahli Biasa",
-   "status": "aktif",
-   "sah_hingga": ""
+   "status": "tamat",
+   "sah_hingga": "2026-08-27"
   },
   {
    "no": "SBB8",
    "nama_papar": "M*** A*** b. A***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-01-17"
+   "sah_hingga": "2026-04-13"
   },
   {
    "no": "SBB9",
    "nama_papar": "I*** b. M*** Y***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": ""
+   "sah_hingga": "2027-04-26"
   },
   {
    "no": "SDE1",
@@ -834,7 +834,7 @@
    "nama_papar": "W*** N*** b. M*** N***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-04-21"
+   "sah_hingga": "2027-03-31"
   },
   {
    "no": "SDE3",
@@ -862,14 +862,14 @@
    "nama_papar": "N*** b. Z***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-04-24"
+   "sah_hingga": "2027-03-31"
   },
   {
    "no": "SDE7",
    "nama_papar": "M*** G*** b. M*** N***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-05-17"
+   "sah_hingga": "2025-03-31"
   },
   {
    "no": "SDE8",
@@ -890,42 +890,42 @@
    "nama_papar": "M*** S*** b. A*** A***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2024-03-31"
+   "sah_hingga": "2026-03-31"
   },
   {
    "no": "SDE11",
    "nama_papar": "S*** A*** R*** b. A***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-05-16"
+   "sah_hingga": "2025-03-31"
   },
   {
    "no": "SDE12",
    "nama_papar": "M*** A*** b. O***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-04-25"
+   "sah_hingga": "2025-03-31"
   },
   {
    "no": "SDE13",
    "nama_papar": "M*** I*** b. M*** N***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-01-04"
+   "sah_hingga": "2027-03-31"
   },
   {
    "no": "SDE14",
    "nama_papar": "M*** b. M*** I***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-05-26"
+   "sah_hingga": "2027-03-31"
   },
   {
    "no": "SDE15",
    "nama_papar": "M*** S*** S*** b. M*** S***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-05-26"
+   "sah_hingga": "2027-03-31"
   },
   {
    "no": "SDE16",
@@ -939,7 +939,7 @@
    "nama_papar": "R*** R*** A/L G***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-05-31"
+   "sah_hingga": "2026-03-31"
   },
   {
    "no": "SDE18",
@@ -960,14 +960,14 @@
    "nama_papar": "N*** A*** b. J***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-04-28"
+   "sah_hingga": "2025-03-31"
   },
   {
    "no": "SDE21",
    "nama_papar": "W*** M*** H*** b. W*** Y***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-04-26"
+   "sah_hingga": "2025-03-31"
   },
   {
    "no": "SDE22",
@@ -1009,35 +1009,35 @@
    "nama_papar": "A*** F*** b. M*** S***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-01-17"
+   "sah_hingga": "2025-02-25"
   },
   {
    "no": "SDE28",
    "nama_papar": "M*** R*** b. M*** N***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-01-23"
+   "sah_hingga": "2025-02-25"
   },
   {
    "no": "SDE29",
    "nama_papar": "M*** N*** F*** b. M*** Z***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-01-02"
+   "sah_hingga": "2025-02-25"
   },
   {
    "no": "SDE30",
    "nama_papar": "S*** H*** b. M*** A***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-02-23"
+   "sah_hingga": "2025-02-25"
   },
   {
    "no": "SDE31",
    "nama_papar": "M*** Z*** b. A***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-02-24"
+   "sah_hingga": "2025-02-25"
   },
   {
    "no": "SDE32",
@@ -1051,7 +1051,7 @@
    "nama_papar": "N*** S*** b. O*** B***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-02-27"
+   "sah_hingga": "2025-04-27"
   },
   {
    "no": "SDE34",
@@ -1065,21 +1065,21 @@
    "nama_papar": "M*** N*** b. M*** N***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-04-03"
+   "sah_hingga": "2025-04-27"
   },
   {
    "no": "SDE36",
    "nama_papar": "M*** N*** M*** b. A***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-04-30"
+   "sah_hingga": "2025-05-18"
   },
   {
    "no": "SDE37",
    "nama_papar": "A*** M*** b. S***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-10-07"
+   "sah_hingga": "2025-08-27"
   },
   {
    "no": "SDE38",
@@ -1092,8 +1092,8 @@
    "no": "SDE39",
    "nama_papar": "H*** B*** b. M***",
    "kategori": "Ahli Biasa",
-   "status": "aktif",
-   "sah_hingga": ""
+   "status": "tamat",
+   "sah_hingga": "2026-08-27"
   },
   {
    "no": "SDE40",
@@ -1107,56 +1107,56 @@
    "nama_papar": "W*** M*** Z*** b. A*** H***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-08-28"
+   "sah_hingga": "2025-11-30"
   },
   {
    "no": "SDE42",
    "nama_papar": "M*** A*** b. A*** R***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-10-21"
+   "sah_hingga": "2025-11-30"
   },
   {
    "no": "SDE43",
    "nama_papar": "A*** b. A***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-10-01"
+   "sah_hingga": "2026-04-13"
   },
   {
    "no": "SDE44",
    "nama_papar": "M*** I*** b. M*** R***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-01-20"
+   "sah_hingga": "2026-04-13"
   },
   {
    "no": "SDE45",
    "nama_papar": "M*** S*** b. S***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-04-19"
+   "sah_hingga": "2027-04-13"
   },
   {
    "no": "SDE46",
    "nama_papar": "K*** A*** b. R***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-05-23"
+   "sah_hingga": "2026-06-22"
   },
   {
    "no": "SDE47",
    "nama_papar": "M*** R*** b. M*** N***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-06-17"
+   "sah_hingga": "2026-06-22"
   },
   {
    "no": "SDE48",
    "nama_papar": "M*** A*** F*** b. E***",
    "kategori": "Ahli Biasa",
-   "status": "tamat",
-   "sah_hingga": "2026-08-14"
+   "status": "aktif",
+   "sah_hingga": "2027-04-26"
   },
   {
    "no": "SDE49",
@@ -1170,28 +1170,28 @@
    "nama_papar": "M*** A*** M*** P***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-01-26"
+   "sah_hingga": "2027-04-26"
   },
   {
    "no": "SDE51",
    "nama_papar": "M*** N*** b. C*** F***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-03-21"
+   "sah_hingga": "2027-04-26"
   },
   {
    "no": "SDE52",
    "nama_papar": "A*** b. S***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-04-21"
+   "sah_hingga": "2027-04-26"
   },
   {
    "no": "SDE53",
    "nama_papar": "W*** B*** b. W*** S***",
    "kategori": "Ahli Bersekutu",
    "status": "aktif",
-   "sah_hingga": "2027-05-19"
+   "sah_hingga": "2027-09-16"
   },
   {
    "no": "SDE54",
@@ -1205,7 +1205,7 @@
    "nama_papar": "L*** b. M***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-04-27"
+   "sah_hingga": "2025-03-31"
   },
   {
    "no": "TDI2",
@@ -1219,14 +1219,14 @@
    "nama_papar": "M*** I*** A*** b. A***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-04-29"
+   "sah_hingga": "2027-03-31"
   },
   {
    "no": "TDI4",
    "nama_papar": "M*** R*** b. R***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-04-29"
+   "sah_hingga": "2027-03-31"
   },
   {
    "no": "TDI5",
@@ -1247,7 +1247,7 @@
    "nama_papar": "I*** F*** H*** b. I***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-09-21"
+   "sah_hingga": "2025-08-27"
   },
   {
    "no": "TDI8",
@@ -1268,14 +1268,14 @@
    "nama_papar": "M*** b. K***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-07-10"
+   "sah_hingga": "2026-08-27"
   },
   {
    "no": "TDI11",
    "nama_papar": "M*** b. J***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-07-30"
+   "sah_hingga": "2025-08-27"
   },
   {
    "no": "TDI12",
@@ -1289,7 +1289,7 @@
    "nama_papar": "M*** H*** b. A***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-11-18"
+   "sah_hingga": "2025-11-30"
   },
   {
    "no": "TDI14",
@@ -1302,29 +1302,29 @@
    "no": "TDI15",
    "nama_papar": "A*** H*** b. Z***",
    "kategori": "Ahli Biasa",
-   "status": "tamat",
-   "sah_hingga": "2026-10-01"
+   "status": "aktif",
+   "sah_hingga": "2027-04-26"
   },
   {
    "no": "TDI16",
    "nama_papar": "M*** R*** I*** b. M*** R***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-01-01"
+   "sah_hingga": "2027-04-26"
   },
   {
    "no": "TDI17",
    "nama_papar": "N*** b. A*** G***",
    "kategori": "Ahli Bersekutu",
    "status": "aktif",
-   "sah_hingga": "2027-10-06"
+   "sah_hingga": "2027-09-16"
   },
   {
    "no": "WKL1",
    "nama_papar": "A*** B*** b. S***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-04-26"
+   "sah_hingga": "2025-03-31"
   },
   {
    "no": "WKL2",
@@ -1352,7 +1352,7 @@
    "nama_papar": "F*** A*** N***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-04-26"
+   "sah_hingga": "2025-03-31"
   },
   {
    "no": "WKL6",
@@ -1401,28 +1401,28 @@
    "nama_papar": "M*** N*** b. H***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-10-04"
+   "sah_hingga": "2027-02-25"
   },
   {
    "no": "WKL13",
    "nama_papar": "N*** b. Z***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-02-02"
+   "sah_hingga": "2025-02-25"
   },
   {
    "no": "WKL14",
    "nama_papar": "C*** T*** H***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-04-28"
+   "sah_hingga": "2026-02-25"
   },
   {
    "no": "WKL15",
    "nama_papar": "M*** R*** b. R***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-10-05"
+   "sah_hingga": "2025-05-18"
   },
   {
    "no": "WKL16",
@@ -1443,35 +1443,35 @@
    "nama_papar": "M*** F*** b. S***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-07-02"
+   "sah_hingga": "2026-04-13"
   },
   {
    "no": "WKL19",
    "nama_papar": "S*** M*** S*** b. S*** A*** A***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-10-04"
+   "sah_hingga": "2027-04-26"
   },
   {
    "no": "WKL20",
    "nama_papar": "K*** H***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-04-24"
+   "sah_hingga": "2027-04-26"
   },
   {
    "no": "WKL21",
    "nama_papar": "T*** L*** C***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-05-22"
+   "sah_hingga": "2027-09-16"
   },
   {
    "no": "WKL22",
    "nama_papar": "N*** T***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": "2027-05-28"
+   "sah_hingga": "2027-09-16"
   },
   {
    "no": "WKL23",
@@ -1485,14 +1485,14 @@
    "nama_papar": "V*** K***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-10-01"
+   "sah_hingga": "2025-02-25"
   },
   {
    "no": "SBK2",
    "nama_papar": "M*** H*** b. Y***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2025-02-15"
+   "sah_hingga": "2025-02-25"
   },
   {
    "no": "SBK3",
@@ -1506,21 +1506,21 @@
    "nama_papar": "R*** b. F***",
    "kategori": "Ahli Biasa",
    "status": "tamat",
-   "sah_hingga": "2026-08-02"
+   "sah_hingga": "2026-04-13"
   },
   {
    "no": "SBK5",
    "nama_papar": "M*** A*** H*** b. M***",
    "kategori": "Ahli Biasa",
-   "status": "aktif",
-   "sah_hingga": "2027-05-09"
+   "status": "tamat",
+   "sah_hingga": "2026-06-22"
   },
   {
    "no": "SBK6",
    "nama_papar": "A*** H*** b. N***",
    "kategori": "Ahli Biasa",
    "status": "aktif",
-   "sah_hingga": ""
+   "sah_hingga": "2027-04-26"
   },
   {
    "no": "PJY1",
