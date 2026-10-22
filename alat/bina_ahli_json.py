@@ -14,6 +14,12 @@ STATUS = {'active': 'aktif', 'inactive': 'tamat', 'aktif': 'aktif', 'tidak aktif
 
 HARI_INI = datetime.date.today()
 
+# Ahli yang permohonannya ditolak oleh jawatankuasa — tidak diterbitkan di laman.
+# Nombor ahli mereka dibiarkan "bersara" (tidak digunakan semula untuk ahli lain).
+DITOLAK = {
+    'PPM7',   # Tan Thean Hee — tiada APC semasa pendaftaran; ditolak AJK (Okt 2026)
+}
+
 
 def tarikh(v):
     """Terima datetime, date, atau teks d/m/Y."""
@@ -85,6 +91,9 @@ def baca(xlsx):
                 dibuang.append((nama[:36], no or '(tiada nombor)'))
             continue
         status = STATUS.get(g(iStatus).lower(), '')
+        if no.upper() in DITOLAK:
+            dibuang.append((nama[:36], 'ditolak AJK'))
+            continue
         if not status:
             dibuang.append((nama[:36], 'status kosong'))
             continue
