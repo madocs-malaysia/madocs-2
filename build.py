@@ -53,9 +53,21 @@ def wa_nombor():
     return re.sub(r"\D", "", str(SITE.get("whatsapp") or SITE.get("telefon", "")))
 
 
-def wa_pautan(teks=""):
-    """Pautan WhatsApp ke urusetia, dengan mesej sedia taip."""
-    asas = "https://wa.me/%s" % wa_nombor()
+# Konteks WhatsApp semasa membina halaman:
+#   "ahli" = urusan keahlian → setiausaha keahlian (Madihah)
+#   None   = nombor am persatuan (footer, topbar halaman umum)
+_WA_KONTEKS = None
+LALUAN_AHLI = ("semak-ahli", "member-verification", "sahkan", "keahlian", "membership", "certificate")
+
+
+def wa_pautan(teks="", nombor=None):
+    """Pautan WhatsApp ke urusetia, dengan mesej sedia taip.
+
+    Di halaman urusan ahli (keahlian, semakan ahli, pengesahan sijil) pautan ini
+    menghala kepada setiausaha keahlian (Madihah); di halaman lain, nombor am.
+    """
+    no = nombor or (wa_keahlian_nombor() if _WA_KONTEKS == "ahli" else wa_nombor())
+    asas = "https://wa.me/%s" % no
     return asas + ("?text=" + urllib.parse.quote(teks) if teks else "")
 
 
@@ -74,12 +86,12 @@ def wa_keahlian_nombor():
 MESEJ_WA_UMUM = "Salam, saya ingin bertanya tentang MADOCS."
 
 
-def kotak_bantuan(tajuk, teks, mesej=None):
+def kotak_bantuan(tajuk, teks, mesej=None, nombor=None):
     """Kotak bantuan kontekstual: WhatsApp + e-mel urusetia (corak RCOG/RCGP)."""
     return f"""<div class="card kotak-bantuan">
   <h3>{esc(tajuk)}</h3>
   <p>{esc(teks)}</p>
-  <a class="btn-blok wa" href="{wa_pautan(mesej or MESEJ_WA_UMUM)}" target="_blank" rel="noopener">{icon('message-circle')} WhatsApp urusetia</a>
+  <a class="btn-blok wa" href="{wa_pautan(mesej or MESEJ_WA_UMUM, nombor)}" target="_blank" rel="noopener">{icon('message-circle')} WhatsApp urusetia</a>
   <a class="btn-blok ghost" href="mailto:{esc(SITE['email'])}" style="margin-top:9px">{icon('mail')} E-mel urusetia</a>
 </div>"""
 
@@ -401,6 +413,10 @@ def footer():
 
 
 def halaman(aktif, tajuk, deskripsi, laluan, isi, og_jenis="website", jsonld=None, masuk_sitemap=True, noindex=False):
+    # Halaman urusan ahli: semua pautan WhatsApp (termasuk topbar dan butang terapung)
+    # menghala kepada setiausaha keahlian (Madihah), bukan nombor am persatuan.
+    global _WA_KONTEKS
+    _WA_KONTEKS = "ahli" if any(k in (laluan or "") for k in LALUAN_AHLI) else None
     dokumen = f"""<!DOCTYPE html>
 <html lang="ms">
 <head>
@@ -1455,7 +1471,7 @@ def bina_keahlian():
 </section>
 
 {blok_promosi_keahlian(kh)}
-<section class="content-wrap"><div class="shell">{kotak_bantuan("Ada pertanyaan tentang keahlian?", "Hubungi urusetia MADOCS untuk kelayakan, kategori atau yuran keahlian.", "Salam, saya ingin bertanya tentang keahlian MADOCS.")}</div></section>
+<section class="content-wrap"><div class="shell">{kotak_bantuan("Ada pertanyaan tentang keahlian?", "Hubungi urusetia MADOCS untuk kelayakan, kategori atau yuran keahlian.", "Salam, saya ingin bertanya tentang keahlian MADOCS.", wa_keahlian_nombor())}</div></section>
 
 {cta_komuniti(label='Sertai MADOCS sekarang')}"""
     halaman("keahlian", "Keahlian | MADOCS",
@@ -1485,7 +1501,7 @@ def bina_sertai():
                 '<a href="tel:%s">%s</a> · <a href="%s" target="_blank" rel="noopener">WhatsApp</a>. '
                 'Sediakan butiran di bawah untuk memudahkan urusan.</div>'
                 % (esc(SITE["email"]), esc(SITE["email"]), esc(SITE["telefon"]), esc(SITE["telefon_papar"]),
-                   esc(wa_pautan("Salam, saya ingin memohon keahlian MADOCS."))))
+                   esc(wa_pautan("Salam, saya ingin memohon keahlian MADOCS.", wa_keahlian_nombor()))))
 
     borang = f"""{aksi}
   <div class="form-grid">
