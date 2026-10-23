@@ -913,7 +913,7 @@ footer .socials a:hover,.tile:hover>span.ikon,.carousel-arrow:hover,.modal .clos
 /* ---- Slaid berita dalam hero + kawalan swipe ---- */
 .hero-slaid-berita{display:block;text-decoration:none;cursor:pointer}
 .hero-slaid-berita picture{display:block;height:100%}
-.hero-berita-teks{position:absolute;right:5%;bottom:9%;width:min(390px,44%);z-index:3;display:grid;gap:6px;
+.hero-berita-teks{position:absolute;right:5%;bottom:16%;width:min(390px,44%);z-index:3;display:grid;gap:6px;
   padding:16px 18px;border-radius:12px;color:#fff;background:linear-gradient(160deg,#5d0a1aeb,#2c0308f5);
   box-shadow:0 14px 34px #32040d4d;transition:transform .25s ease,box-shadow .25s ease}
 .hero-slaid-berita:hover .hero-berita-teks{transform:translateY(-3px);box-shadow:0 18px 42px #32040d59}
@@ -922,18 +922,38 @@ footer .socials a:hover,.tile:hover>span.ikon,.carousel-arrow:hover,.modal .clos
 .hero-berita-teks i{display:flex;align-items:center;gap:6px;font-style:normal;font-size:10px;font-weight:800;color:#ffd8e0;margin-top:3px}
 .hero-berita-teks svg{width:13px;height:13px}
 
-.hero-nav{position:absolute;bottom:18px;z-index:6;width:40px;height:40px;border-radius:50%;cursor:pointer;
-  border:1px solid #e6cdd3;background:#ffffffdc;color:#510716;display:grid;place-items:center;
-  box-shadow:0 6px 18px #51071624;transition:background .2s,transform .2s}
-.hero-nav:hover{background:#fff;transform:translateY(-1px)}
-.hero-nav svg{width:16px;height:16px}
-.hero-nav-kiri{right:78px}
-.hero-nav-kanan{right:20px}
-
 @media (max-width:640px){
   .hero-berita-teks{left:12px;right:12px;width:auto;bottom:auto;top:calc(46% - 132px);padding:12px 14px;border-radius:10px}
   .hero-berita-teks b{font-size:13.5px}
   .hero-berita-teks small{font-size:8px}
-  /* pada telefon, leret sudah cukup; anak panah disembunyikan */
+}
+
+/* ---- Kawalan hero: anak panah separa lutsinar di kiri/kanan, titik di sisi kanan ---- */
+.hero-nav{position:absolute;bottom:26px;z-index:7;width:44px;height:44px;border:0;
+  border-radius:50%;cursor:pointer;display:grid;place-items:center;color:#fff;
+  background:rgba(60,6,18,.34);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  box-shadow:0 6px 20px #2c030826;opacity:.9;transition:background .2s,opacity .2s,transform .2s}
+.hero-nav svg{width:20px;height:20px}
+.hero-nav:hover,.hero-nav:focus-visible{background:rgba(60,6,18,.62);opacity:1;transform:scale(1.06)}
+.hero-nav-kiri{left:calc(39% + 14px)}
+.hero-nav-kanan{right:64px}
+
+.hero-titik{position:absolute;top:50%;right:26px;transform:translateY(-50%);z-index:7;
+  display:flex;flex-direction:column;align-items:center;gap:7px}
+.hero-titik button{width:7px;height:7px;padding:0;border:0;border-radius:99px;cursor:pointer;
+  background:rgba(255,255,255,.55);box-shadow:0 1px 4px #2c030840;transition:height .25s,background .25s}
+.hero-titik button[aria-current="true"]{height:20px;background:#fff}
+
+@media (max-width:640px){
+  /* telefon: leret dan titik sudah cukup; anak panah disembunyikan */
   .hero-nav{display:none}
+  .hero-titik{top:auto;bottom:calc(54% + 10px);right:auto;left:50%;transform:translateX(-50%);
+    flex-direction:row;gap:6px}
+  .hero-titik button[aria-current="true"]{height:7px;width:20px}
+}
+
+/* Slaid berita: kurangkan lapisan putih supaya poster/gambar kekal jelas */
+.hero-slaid-berita.aktif ~ .hero-wash{background:linear-gradient(90deg,#fff 0%,#fffc 22%,#ffffffcc 30%,#ffffff1f 46%,#0000 58%),linear-gradient(#51071608,#51071617)}
+@media (max-width:640px){
+  .hero-slaid-berita.aktif ~ .hero-wash{background:linear-gradient(#0000 0,#ffffff14 40%,#fff 52% 100%)}
 }

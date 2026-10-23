@@ -2,6 +2,23 @@
  "cara_edit": "Berita/pengumuman. 'kandungan' ialah senarai perenggan. Setiap berita boleh ada beberapa perenggan. DRAF: teks ini ditulis oleh urusetia teknikal berdasarkan tarikh/tempat peristiwa — jawatankuasa dinasihatkan menyemak dan menambah butiran sebelum dihebahkan.",
  "berita": [
   {
+   "slug": "2026-11-24-cme-tissue-adhesive",
+   "tajuk": "Presiden MADOCS berceramah CME: Tissue Adhesives dalam Berkhatan Pediatrik",
+   "tarikh": "2026-11-24",
+   "kategori": "CME",
+   "penulis": "Urusetia MADOCS",
+   "ringkas": "Dr Abdul Rashid bin Masrom dijemput membentangkan penggunaan pelekat tisu (tissue adhesive) dalam berkhatan pediatrik pada webinar CME bersama PERDIM, 24 November 2026, 2.00–3.00 petang.",
+   "kandungan": [
+    "Presiden MADOCS, Dr Abdul Rashid bin Masrom, dijemput menyampaikan ceramah CME bertajuk \"Beyond the Conventional Clamp — The Role of Tissue Adhesives in Pediatric Circumcision\". Sesi ini dianjurkan bersama Persatuan Doktor Perubatan Islam Malaysia (PERDIM) dan MADOCS.",
+    "Ceramah akan diadakan pada 24 November 2026 (Selasa), 2.00 hingga 3.00 petang, secara dalam talian melalui Teams Webinar. Sesi ini terbuka kepada doktor dan pengamal perubatan yang berminat dengan perkembangan teknik berkhatan pediatrik.",
+    "Permohonan mata CPD PERDIM sedang diproses. Bilangan mata CPD akan dimaklumkan di halaman ini sebaik ia disahkan. Penyertaan akan direkodkan oleh penganjur bersama.",
+    "MADOCS mengucapkan terima kasih kepada Presiden dan Ahli Jawatankuasa PERDIM kerana bersetuju menjemput Presiden MADOCS, dan kepada Asumed Biotech selaku penaja program.",
+    "Untuk mendaftar minat, imbas kod QR pada poster atau hubungi urusetia MADOCS. Sesi akan dijalankan dalam bahasa Inggeris."
+   ],
+   "gambar": "assets/berita-2026-11-24-cme-tissue-adhesive.webp",
+   "gambar_alt": "Poster webinar CME Beyond the Conventional Clamp — The Role of Tissue Adhesives in Pediatric Circumcision, 24 November 2026, Teams Webinar, anjuran PERDIM dan MADOCS"
+  },
+  {
    "slug": "2026-09-17-pelancaran-garis-panduan-berkhatan",
    "tajuk": "Pelancaran Garis Panduan Berkhatan Kebangsaan",
    "tarikh": "2026-09-17",
