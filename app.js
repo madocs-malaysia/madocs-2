@@ -265,17 +265,25 @@
       slaid[indeks].classList.remove("aktif");
       indeks = (indeks + 1) % slaid.length;
       slaid[indeks].classList.add("aktif");
+      tandaTitik();
     }
     function pergi(arah) {
       slaid[indeks].classList.remove("aktif");
       indeks = (indeks + arah + slaid.length) % slaid.length;
       slaid[indeks].classList.add("aktif");
+      tandaTitik();
     }
     function mula() { if (!pemasa) { pemasa = window.setInterval(tukar, selang); } }
     function henti() { if (pemasa) { window.clearInterval(pemasa); pemasa = null; } }
     function tolak(arah) { pergi(arah); henti(); mula(); }
 
     /* --- anak panah: pengguna desktop tiada swipe --- */
+    var titik = [];
+    function tandaTitik() {
+      for (var i = 0; i < titik.length; i++) {
+        titik[i].setAttribute("aria-current", i === indeks ? "true" : "false");
+      }
+    }
     if (hero) {
       var butang = [
         { kelas: "hero-nav-kiri", arah: -1, label: "Slaid sebelum", ikon: "M15 18l-6-6 6-6" },
@@ -291,6 +299,28 @@
         el.addEventListener("click", function (e) { e.preventDefault(); tolak(b.arah); });
         hero.appendChild(el);
       });
+
+      /* --- titik penunjuk di sisi kanan gambar --- */
+      var bekasTitik = document.createElement("div");
+      bekasTitik.className = "hero-titik";
+      bekasTitik.setAttribute("role", "tablist");
+      bekasTitik.setAttribute("aria-label", "Pilih slaid");
+      slaid.forEach(function (s, i) {
+        var t = document.createElement("button");
+        t.type = "button";
+        t.setAttribute("aria-label", "Slaid " + (i + 1));
+        t.addEventListener("click", function (e) {
+          e.preventDefault();
+          slaid[indeks].classList.remove("aktif");
+          indeks = i;
+          slaid[indeks].classList.add("aktif");
+          tandaTitik(); henti(); mula();
+        });
+        bekasTitik.appendChild(t);
+        titik.push(t);
+      });
+      hero.appendChild(bekasTitik);
+      tandaTitik();
     }
 
     /* --- swipe kiri/kanan pada skrin sentuh --- */
