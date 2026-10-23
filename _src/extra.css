@@ -909,3 +909,31 @@ footer .socials a:hover,.tile:hover>span.ikon,.carousel-arrow:hover,.modal .clos
 
 /* nota di dalam kotak hasil: jangan nampak seperti kotak bersarang */
 .hasil-sahkan .nota-isi{background:none;border:0;padding:0;margin:10px 0 0;font-style:italic;font-size:13.5px}
+
+/* ---- Slaid berita dalam hero + kawalan swipe ---- */
+.hero-slaid-berita{display:block;text-decoration:none;cursor:pointer}
+.hero-slaid-berita picture{display:block;height:100%}
+.hero-berita-teks{position:absolute;right:5%;bottom:9%;width:min(390px,44%);z-index:3;display:grid;gap:6px;
+  padding:16px 18px;border-radius:12px;color:#fff;background:linear-gradient(160deg,#5d0a1aeb,#2c0308f5);
+  box-shadow:0 14px 34px #32040d4d;transition:transform .25s ease,box-shadow .25s ease}
+.hero-slaid-berita:hover .hero-berita-teks{transform:translateY(-3px);box-shadow:0 18px 42px #32040d59}
+.hero-berita-teks small{text-transform:uppercase;letter-spacing:.14em;font-size:9px;font-weight:800;color:#ffc9d4}
+.hero-berita-teks b{font-size:16px;line-height:1.28;font-weight:700}
+.hero-berita-teks i{display:flex;align-items:center;gap:6px;font-style:normal;font-size:10px;font-weight:800;color:#ffd8e0;margin-top:3px}
+.hero-berita-teks svg{width:13px;height:13px}
+
+.hero-nav{position:absolute;bottom:18px;z-index:6;width:40px;height:40px;border-radius:50%;cursor:pointer;
+  border:1px solid #e6cdd3;background:#ffffffdc;color:#510716;display:grid;place-items:center;
+  box-shadow:0 6px 18px #51071624;transition:background .2s,transform .2s}
+.hero-nav:hover{background:#fff;transform:translateY(-1px)}
+.hero-nav svg{width:16px;height:16px}
+.hero-nav-kiri{right:78px}
+.hero-nav-kanan{right:20px}
+
+@media (max-width:640px){
+  .hero-berita-teks{left:12px;right:12px;width:auto;bottom:auto;top:calc(46% - 132px);padding:12px 14px;border-radius:10px}
+  .hero-berita-teks b{font-size:13.5px}
+  .hero-berita-teks small{font-size:8px}
+  /* pada telefon, leret sudah cukup; anak panah disembunyikan */
+  .hero-nav{display:none}
+}

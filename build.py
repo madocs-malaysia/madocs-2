@@ -785,7 +785,12 @@ def gambar_hero_utama():
 
 
 def blok_hero_slaid():
-    """Slaid imej hero (roulette) daripada data/hero.json.
+    """Slaid hero (roulette) daripada data/hero.json.
+
+    Dua jenis slaid:
+      - "imej"   : gambar penuh (slaid biasa)
+      - "berita" : gambar + teks di bawah + pautan ke halaman berita; seluruh slaid
+                   boleh ditekan supaya pembaca terus sampai ke berita.
 
     Slaid pertama dimuatkan segera (LCP); slaid lain memakai data-src + data-srcset
     supaya app.js memuatkannya selepas halaman sedia. Tanpa JS, hanya slaid pertama
@@ -804,7 +809,20 @@ def blok_hero_slaid():
             sumber = '<source media="(max-width: 640px)" data-srcset="/%s">' % esc(sl["telefon"])
             imej = ('<img alt="%s" width="1400" height="1015" class="hero-image" decoding="async" '
                     'data-src="/%s">' % (esc(sl["alt"]), esc(sl["besar"])))
-        keluar.append('<picture class="hero-slaid%s">%s%s</picture>' % (aktif, sumber, imej))
+
+        gambar = "<picture>%s%s</picture>" % (sumber, imej)
+
+        if sl.get("jenis") == "berita" and sl.get("pautan"):
+            teks = ('<span class="hero-berita-teks">'
+                    '<small>%s</small><b>%s</b>'
+                    '<i>Baca berita %s</i></span>'
+                    % (esc(sl.get("kicker") or "Berita"), esc(sl.get("tajuk") or ""), icon("arrow-right")))
+            keluar.append('<a class="hero-slaid hero-slaid-berita%s" href="%s" '
+                          'aria-label="%s">%s%s</a>'
+                          % (aktif, esc(sl["pautan"]), esc(sl.get("tajuk") or "Berita MADOCS"),
+                             gambar, teks))
+        else:
+            keluar.append('<picture class="hero-slaid%s">%s%s</picture>' % (aktif, sumber, imej))
     return "\n  ".join(keluar)
 
 

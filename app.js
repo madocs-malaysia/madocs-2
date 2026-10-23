@@ -266,8 +266,58 @@
       indeks = (indeks + 1) % slaid.length;
       slaid[indeks].classList.add("aktif");
     }
+    function pergi(arah) {
+      slaid[indeks].classList.remove("aktif");
+      indeks = (indeks + arah + slaid.length) % slaid.length;
+      slaid[indeks].classList.add("aktif");
+    }
     function mula() { if (!pemasa) { pemasa = window.setInterval(tukar, selang); } }
     function henti() { if (pemasa) { window.clearInterval(pemasa); pemasa = null; } }
+    function tolak(arah) { pergi(arah); henti(); mula(); }
+
+    /* --- anak panah: pengguna desktop tiada swipe --- */
+    if (hero) {
+      var butang = [
+        { kelas: "hero-nav-kiri", arah: -1, label: "Slaid sebelum", ikon: "M15 18l-6-6 6-6" },
+        { kelas: "hero-nav-kanan", arah: 1, label: "Slaid seterusnya", ikon: "M9 18l6-6-6-6" },
+      ];
+      butang.forEach(function (b) {
+        var el = document.createElement("button");
+        el.type = "button";
+        el.className = "hero-nav " + b.kelas;
+        el.setAttribute("aria-label", b.label);
+        el.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" ' +
+                       'stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="' + b.ikon + '"/></svg>';
+        el.addEventListener("click", function (e) { e.preventDefault(); tolak(b.arah); });
+        hero.appendChild(el);
+      });
+    }
+
+    /* --- swipe kiri/kanan pada skrin sentuh --- */
+    if (hero) {
+      var x0 = null, y0 = null, menegak = false;
+      hero.addEventListener("touchstart", function (e) {
+        if (!e.touches || e.touches.length !== 1) { return; }
+        x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; menegak = false;
+      }, { passive: true });
+      hero.addEventListener("touchmove", function (e) {
+        if (x0 === null || !e.touches || e.touches.length !== 1) { return; }
+        var dx = e.touches[0].clientX - x0, dy = e.touches[0].clientY - y0;
+        if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 14) { menegak = true; }
+      }, { passive: true });
+      hero.addEventListener("touchend", function (e) {
+        if (x0 === null) { return; }
+        var t = (e.changedTouches && e.changedTouches[0]) || null;
+        if (t && !menegak) {
+          var dx = t.clientX - x0;
+          if (Math.abs(dx) > 45) { tolak(dx < 0 ? 1 : -1); }
+        }
+        x0 = null; y0 = null;
+      }, { passive: true });
+      /* hentikan putaran automatik sementara jari menyentuh hero */
+      hero.addEventListener("touchstart", henti, { passive: true });
+      hero.addEventListener("touchend", mula, { passive: true });
+    }
 
     window.setTimeout(function () { muatSemua(); mula(); }, 2500);
     document.addEventListener("visibilitychange", function () {
