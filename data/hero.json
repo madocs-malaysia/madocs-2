@@ -1,21 +1,54 @@
 {
- "cara_edit": "Slaid imej hero (roulette). Susunan dalam 'slaid' ialah susunan putaran. Setiap slaid perlukan 'besar' (desktop 1400x1015) dan 'telefon' (1100x733) dalam assets/hero/, serta 'alt' yang menerangkan gambar dengan jujur. Jangan masukkan gambar yang menunjukkan muka pesakit/kanak-kanak.",
- "selang_saat": 7,
+ "cara_edit": "Slaid hero (roulette). Dua jenis: 'imej' (gambar + alt) dan 'berita' (gambar + tajuk + pautan). Setiap slaid perlukan 'besar' (1400x1015) dan 'telefon' (1100x733) dalam assets/hero/. Jangan masukkan gambar yang menunjukkan muka pesakit/kanak-kanak.",
+ "selang_saat": 6,
  "slaid": [
   {
-   "besar": "assets/hero/1-besar.webp",
-   "telefon": "assets/hero/1-telefon.webp",
-   "alt": "Dewan program PCC2-1 di The Katerina Hotel, Batu Pahat — sepanduk kursus di pentas dan peserta menunggu sesi bermula"
+   "jenis": "imej",
+   "besar": "assets/hero/sop-briefing-besar.webp",
+   "telefon": "assets/hero/sop-briefing-telefon.webp",
+   "alt": "Fasilitator MADOCS menerangkan Standard Operating Procedure (SOP) berkhatan pada skrin besar semasa kursus CCC di Hotel Maluri, Cheras"
   },
   {
-   "besar": "assets/hero/2-besar.webp",
-   "telefon": "assets/hero/2-telefon.webp",
-   "alt": "Penceramah MADOCS menyampaikan taklimat program di podium dengan jadual kursus pada skrin"
+   "jenis": "berita",
+   "besar": "assets/hero/berita-lawatan-besar.webp",
+   "telefon": "assets/hero/berita-lawatan-telefon.webp",
+   "alt": "Tunjuk cara penggunaan instrumen berkhatan di atas papan latihan semasa lawatan kerja MADOCS ke klinik sunat kanak-kanak di Indonesia",
+   "tajuk": "Lawatan kerja ke klinik sunat kanak-kanak, Indonesia",
+   "kicker": "Berita",
+   "pautan": "/berita/2026-08-10-lawatan-klinik-sunat-indonesia/"
   },
   {
-   "besar": "assets/hero/3-besar.webp",
-   "telefon": "assets/hero/3-telefon.webp",
-   "alt": "Peserta kursus MADOCS duduk di meja bulat semasa sesi latihan klinikal"
+   "jenis": "imej",
+   "besar": "assets/hero/dorsal-slit-besar.webp",
+   "telefon": "assets/hero/dorsal-slit-telefon.webp",
+   "alt": "Penceramah menerangkan langkah-langkah prosedur Dorsal Slit pada slaid semasa kursus PCC di Kota Kinabalu"
+  },
+  {
+   "jenis": "imej",
+   "besar": "assets/hero/instrumen-besar.webp",
+   "telefon": "assets/hero/instrumen-telefon.webp",
+   "alt": "Petugas menyediakan dulang instrumen steril sebelum sesi penilaian PCC2-1 di The Katerina Hotel, Batu Pahat"
+  },
+  {
+   "jenis": "berita",
+   "besar": "assets/hero/berita-pelancaran-besar.webp",
+   "telefon": "assets/hero/berita-pelancaran-telefon.webp",
+   "alt": "Peserta memenuhi dewan Hospital Shah Alam semasa majlis pelancaran Garis Panduan Berkhatan Kebangsaan 2026",
+   "tajuk": "Pelancaran Garis Panduan Berkhatan Kebangsaan",
+   "kicker": "Berita",
+   "pautan": "/berita/2026-09-17-pelancaran-garis-panduan-berkhatan/"
+  },
+  {
+   "jenis": "imej",
+   "besar": "assets/hero/peranti-besar.webp",
+   "telefon": "assets/hero/peranti-telefon.webp",
+   "alt": "Booth pameran peranti berkhatan dengan sepanduk perbandingan kaedah semasa program CME MADOCS"
+  },
+  {
+   "jenis": "imej",
+   "besar": "assets/hero/anatomi-besar.webp",
+   "telefon": "assets/hero/anatomi-telefon.webp",
+   "alt": "Penceramah menerangkan anatomi dan anestesia tempatan kepada peserta kursus CCC6 di Hotel Maluri, Cheras"
   }
  ]
 }
