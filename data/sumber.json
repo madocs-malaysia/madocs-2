@@ -1,4 +1,45 @@
 {
- "cara_edit": "Sumber klinikal. 'akses' mesti 'awam' atau 'ahli'. Jangan terbit pautan yang belum disemak oleh penyemak klinikal (PRD §21).",
- "sumber": []
+ "cara_edit": "Sumber klinikal dan rujukan. 'akses' mesti 'awam' atau 'ahli'. Jangan terbit pautan yang belum disemak oleh penyemak klinikal (PRD §21). 'fail' boleh jadi laluan dalam laman (assets/…) atau pautan luar (https://…).",
+ "sumber": [
+  {
+   "tajuk": "Poster Ceramah CME — Tissue Adhesives dalam Berkhatan Pediatrik",
+   "tarikh": "2026-11-24",
+   "kategori": "CME",
+   "ringkas": "Poster webinar CME 24 November 2026, 2.00–3.00 petang (Teams). Anjuran bersama PERDIM dan MADOCS, penaja Asumed Biotech.",
+   "fail": "assets/dokumen/poster-cme-tissue-adhesive.pdf",
+   "akses": "awam"
+  },
+  {
+   "tajuk": "Poster Keahlian Seumur Hidup MADOCS 2026",
+   "tarikh": "2026-01-15",
+   "kategori": "Keahlian",
+   "ringkas": "Poster rasmi yuran keahlian 2026 termasuk kategori, kadar bayaran dan maklumat akaun bank persatuan.",
+   "fail": "assets/dokumen/poster-keahlian-2026.pdf",
+   "akses": "awam"
+  },
+  {
+   "tajuk": "Borang Permohonan Keahlian (dalam talian)",
+   "tarikh": "2026-10-21",
+   "kategori": "Keahlian",
+   "ringkas": "Borang rasmi permohonan keahlian MADOCS. Permohonan dibentangkan dalam mesyuarat Ahli Jawatankuasa; nombor ahli diberikan selepas diluluskan.",
+   "fail": "https://forms.gle/4eofRDmz2zRk3aDr6",
+   "akses": "awam"
+  },
+  {
+   "tajuk": "Malaysian Medical Council — pendaftaran dan garis panduan",
+   "tarikh": "2026-01-01",
+   "kategori": "Pautan luar",
+   "ringkas": "Laman rasmi MMC: pendaftaran doktor, kod etika dan peraturan amalan perubatan di Malaysia.",
+   "fail": "https://mmc.gov.my/",
+   "akses": "awam"
+  },
+  {
+   "tajuk": "PERDIM — Pertubuhan Doktor-Doktor Islam Malaysia",
+   "tarikh": "2026-01-01",
+   "kategori": "Pautan luar",
+   "ringkas": "Rakan kerjasama MADOCS dalam program CME dan latihan. Laman rasmi PERDIM dengan program dan pendaftaran CPD.",
+   "fail": "https://perdim.org/",
+   "akses": "awam"
+  }
+ ]
 }

@@ -620,7 +620,7 @@ def kad_aktiviti(a):
 </article>"""
 
 
-def item_kandungan(tajuk, url, ringkas, tarikh=None, kategori="", gambar=None, alt="", meta_ikon="calendar-days", kredit=None, tarikh_papar=None):
+def item_kandungan(tajuk, url, ringkas, tarikh=None, kategori="", gambar=None, alt="", meta_ikon="calendar-days", kredit=None, tarikh_papar=None, label="Baca lanjut"):
     """Kad senarai untuk berita / aktiviti / sumber."""
     foto = ('<div class="item-photo"><img src="/%s" alt="%s" loading="lazy" decoding="async">%s%s</div>'
             % (esc(gambar), esc(alt or tajuk), chip_ilustrasi(alt),
@@ -636,7 +636,7 @@ def item_kandungan(tajuk, url, ringkas, tarikh=None, kategori="", gambar=None, a
     <h3><a href="{esc(url)}">{esc(tajuk)}</a></h3>
     <div class="item-meta">{masa}</div>
     {f'<p>{esc(ringkas)}</p>' if ringkas else ''}
-    <a class="lebih" href="{esc(url)}">Baca lanjut {icon('arrow-right')}</a>
+    <a class="lebih" href="{esc(url)}">{esc(label)} {icon('arrow-right')}</a>
   </div>
 </article>"""
 
@@ -906,7 +906,7 @@ def bina_utama():
     # --- sumber
     if sumber:
         sumber_html = "".join(
-            item_kandungan(s["tajuk"], "/sumber/%s/" % s["slug"], s.get("ringkas", ""),
+            item_kandungan(s["tajuk"], s.get("fail") or "/sumber/", s.get("ringkas", ""),
                            kategori=s.get("kategori", ""), alt=s.get("gambar_alt", ""), gambar=s.get("gambar"))
             for s in sumber[:3])
         sumber_html = '<div class="listing">%s</div>' % sumber_html
@@ -1654,18 +1654,18 @@ def bina_aktiviti_detail(a):
 def bina_sumber():
     sumber = sorted(load("sumber.json")["sumber"], key=lambda s: s.get("tarikh") or "", reverse=True)
     if sumber:
-        kad = "".join(
-            '<article class="item">'
-            '<div class="item-body"><span class="badge %s">%s</span>'
-            '<h3>%s</h3><div class="item-meta"><time datetime="%s">%s %s</time><span>%s %s</span></div>'
-            '<p>%s</p><a class="lebih" href="%s"%s>%s</a></div></article>'
-            % ("member" if s.get("akses") == "ahli" else "", "Ahli sahaja" if s.get("akses") == "ahli" else "Awam",
-               esc(s["tajuk"]), esc(s.get("tarikh", "")), icon("calendar-days"), esc(tarikh_pdk(parse_date(s.get("tarikh")))),
-               icon("file-text"), esc(s.get("kategori", "")), esc(s.get("ringkas", "")),
-               esc(s.get("fail", "#")), ' target="_blank" rel="noopener"' if s.get("fail", "").startswith("http") else "",
-               "Muat turun" if s.get("fail") else "Baca")
-            for s in sumber)
-        senarai = '<div class="listing">%s</div>' % kad
+        kad = []
+        for s in sumber:
+            fail = str(s.get("fail") or "")
+            url = fail if fail.startswith("http") else "/" + fail.lstrip("/")
+            luar = fail.startswith("http")
+            label = "Buka pautan" if luar else "Muat turun"
+            kategori = s.get("kategori", "")
+            if s.get("akses") == "ahli":
+                kategori = (kategori + " · Ahli sahaja").strip(" ·")
+            kad.append(item_kandungan(s["tajuk"], url, s.get("ringkas", ""), tarikh=s.get("tarikh"),
+                                      kategori=kategori, label=label))
+        senarai = '<div class="listing">%s</div>' % "".join(kad)
     else:
         kurang("Pusat Sumber kosong (data/sumber.json) — PRD §19 dan §49.")
         senarai = kosong("book-open", "Pusat Sumber sedang disediakan",
@@ -1685,7 +1685,6 @@ def bina_sumber():
             "/sumber/", isi)
 
 
-# ----------------------------------------------------------------- halaman: berita
 def bina_berita():
     berita = sorted(load("berita.json")["berita"], key=lambda b: b.get("tarikh") or "", reverse=True)
     if berita:
@@ -1836,7 +1835,7 @@ def bina_carian():
     for b in load("berita.json")["berita"]:
         indeks.append({"t": b["tajuk"], "u": "/berita/%s/" % b["slug"], "r": b.get("ringkas", ""), "j": "Berita"})
     for s in load("sumber.json")["sumber"]:
-        indeks.append({"t": s["tajuk"], "u": "/sumber/%s/" % s["slug"], "r": s.get("ringkas", ""), "j": "Sumber"})
+        indeks.append({"t": s["tajuk"], "u": s.get("fail") or "/sumber/", "r": s.get("ringkas", ""), "j": "Sumber"})
     indeks += [
         {"t": "Mengenai MADOCS", "u": "/tentang/", "r": "Latar belakang, visi, misi dan jawatankuasa eksekutif.", "j": "Halaman"},
         {"t": "Dari Meja Presiden", "u": "/dari-meja-presiden/", "r": "Perutusan Presiden MADOCS.", "j": "Halaman"},
