@@ -59,6 +59,18 @@ def wa_pautan(teks=""):
     return asas + ("?text=" + urllib.parse.quote(teks) if teks else "")
 
 
+def wa_keahlian_nombor():
+    """Nombor WhatsApp urusetia keahlian (Madihah) — untuk semua urusan ahli.
+
+    Semua urusan keahlian, semakan status ahli dan pengesahan sijil halakan kepada
+    urusetia keahlian, bukan nombor am persatuan. Sumber: data/keahlian.json → urusan.
+    """
+    k = load("keahlian.json")
+    urus = (k.get("urusan") or (k.get("promosi") or {}).get("urusan") or {})
+    no = re.sub(r"\D", "", str(urus.get("whatsapp") or ""))
+    return no or wa_nombor()
+
+
 MESEJ_WA_UMUM = "Salam, saya ingin bertanya tentang MADOCS."
 
 
@@ -647,8 +659,8 @@ def bina_sahkan():
     """
     data = load("sijil.json") if (DATA / "sijil.json").exists() else {"sijil": []}
     indeks_json = json.dumps({"sijil": data.get("sijil", [])}, ensure_ascii=False).replace("</", "<\\/")
-    urus = (load("site.json").get("whatsapp") or "")
-    wa = "https://wa.me/%s" % re.sub(r"\D", "", str(urus))
+    # Pengesahan sijil juga urusan ahli → urusetia keahlian (Madihah).
+    wa = "https://wa.me/%s" % wa_keahlian_nombor()
     isi = f"""<section class="page-hero">
   <div class="shell">{crumbs([("Utama", "/"), ("Pengesahan Sijil", None)])}
     <h1>Pengesahan Sijil C&amp;P</h1>
@@ -696,8 +708,8 @@ def bina_semak_ahli():
     data = load("ahli.json") if (DATA / "ahli.json").exists() else {"ahli": []}
     ahli = data.get("ahli", [])
     indeks_json = json.dumps({"ahli": ahli}, ensure_ascii=False).replace("</", "<\\/")
-    urus = (load("site.json").get("whatsapp") or "")
-    wa = "https://wa.me/%s" % re.sub(r"\D", "", str(urus))
+    # Semua urusan ahli → urusetia keahlian (Madihah), bukan nombor am persatuan.
+    wa = "https://wa.me/%s" % wa_keahlian_nombor()
     contoh = bool(data.get("contoh"))
     banner = ('<p class="banner-draf">%s <b>Data contoh untuk semakan jawatankuasa.</b> Rekod sebenar belum '
               'dimasukkan; status di bawah tidak boleh dijadikan bukti keahlian.</p>' % icon("info")) if contoh else ""
