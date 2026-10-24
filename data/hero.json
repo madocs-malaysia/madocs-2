@@ -1,12 +1,12 @@
 {
- "cara_edit": "Dijana oleh alat/bina_hero.py, jangan edit dengan tangan. Gambar prosedur dalam GAMBAR; semua berita dalam data/berita.json masuk roulette automatik.",
+ "cara_edit": "Dijana oleh alat/bina_hero.py — jangan edit dengan tangan. Gambar prosedur dalam GAMBAR; semua berita dalam data/berita.json masuk roulette automatik.",
  "selang_saat": 6,
  "slaid": [
   {
    "jenis": "imej",
-   "besar": "assets/hero/sop-briefing-besar.webp",
-   "telefon": "assets/hero/sop-briefing-telefon.webp",
-   "alt": "Fasilitator MADOCS menerangkan Standard Operating Procedure (SOP) berkhatan pada skrin besar semasa kursus CCC di Hotel Maluri, Cheras"
+   "besar": "assets/hero/ahli-agm-besar.webp",
+   "telefon": "assets/hero/ahli-agm-telefon.webp",
+   "alt": "Ahli dan Ahli Jawatankuasa MADOCS bergambar bersama sepanduk MALAYSIAN DOCTORS OF CIRCUMCISION SOCIETY pada Mesyuarat Agung Tahunan Ke-4, 2026"
   },
   {
    "jenis": "berita",
@@ -19,9 +19,9 @@
   },
   {
    "jenis": "imej",
-   "besar": "assets/hero/dorsal-slit-besar.webp",
-   "telefon": "assets/hero/dorsal-slit-telefon.webp",
-   "alt": "Penceramah menerangkan langkah-langkah prosedur Dorsal Slit pada slaid semasa kursus PCC di Kota Kinabalu"
+   "besar": "assets/hero/peserta-kursus-besar.webp",
+   "telefon": "assets/hero/peserta-kursus-telefon.webp",
+   "alt": "Peserta dan fasilitator kursus Privileging Course for Circumcision (Dorsal Slit) Part 2 bergambar bersama sepanduk kursus di The Katerina Hotel, Batu Pahat"
   },
   {
    "jenis": "berita",
@@ -34,9 +34,9 @@
   },
   {
    "jenis": "imej",
-   "besar": "assets/hero/instrumen-besar.webp",
-   "telefon": "assets/hero/instrumen-telefon.webp",
-   "alt": "Petugas menyediakan dulang instrumen steril sebelum sesi penilaian PCC2-1 di The Katerina Hotel, Batu Pahat"
+   "besar": "assets/hero/dewan-peserta-besar.webp",
+   "telefon": "assets/hero/dewan-peserta-telefon.webp",
+   "alt": "Dewan kursus PCC2-1 dan CCC7 di The Katerina Hotel, Batu Pahat penuh dengan peserta, dengan sepanduk kursus dan sepanduk MADOCS di pentas"
   },
   {
    "jenis": "berita",
@@ -49,9 +49,9 @@
   },
   {
    "jenis": "imej",
-   "besar": "assets/hero/peranti-besar.webp",
-   "telefon": "assets/hero/peranti-telefon.webp",
-   "alt": "Booth pameran peranti berkhatan dengan sepanduk perbandingan kaedah semasa program CME MADOCS"
+   "besar": "assets/hero/dorsal-slit-besar.webp",
+   "telefon": "assets/hero/dorsal-slit-telefon.webp",
+   "alt": "Penceramah menerangkan langkah-langkah prosedur Dorsal Slit pada slaid semasa kursus PCC di Kota Kinabalu"
   },
   {
    "jenis": "berita",
@@ -64,9 +64,9 @@
   },
   {
    "jenis": "imej",
-   "besar": "assets/hero/anatomi-besar.webp",
-   "telefon": "assets/hero/anatomi-telefon.webp",
-   "alt": "Penceramah menerangkan anatomi dan anestesia tempatan kepada peserta kursus CCC6 di Hotel Maluri, Cheras"
+   "besar": "assets/hero/instrumen-besar.webp",
+   "telefon": "assets/hero/instrumen-telefon.webp",
+   "alt": "Petugas menyediakan dulang instrumen steril sebelum sesi penilaian PCC2-1 di The Katerina Hotel, Batu Pahat"
   },
   {
    "jenis": "berita",
@@ -78,6 +78,12 @@
    "pautan": "/berita/2026-07-03-liputan-media-kosmo/"
   },
   {
+   "jenis": "imej",
+   "besar": "assets/hero/peranti-besar.webp",
+   "telefon": "assets/hero/peranti-telefon.webp",
+   "alt": "Booth pameran peranti berkhatan dengan sepanduk perbandingan kaedah semasa program CME MADOCS"
+  },
+  {
    "jenis": "berita",
    "besar": "assets/hero/berita-2026-06-18-pcc2-4-semporna-besar.webp",
    "telefon": "assets/hero/berita-2026-06-18-pcc2-4-semporna-telefon.webp",
@@ -85,6 +91,12 @@
    "tajuk": "Kursus PCC2-4 Semporna, Sabah",
    "kicker": "Kursus",
    "pautan": "/berita/2026-06-18-pcc2-4-semporna/"
+  },
+  {
+   "jenis": "imej",
+   "besar": "assets/hero/anatomi-besar.webp",
+   "telefon": "assets/hero/anatomi-telefon.webp",
+   "alt": "Penceramah menerangkan anatomi dan anestesia tempatan kepada peserta kursus CCC6 di Hotel Maluri, Cheras"
   },
   {
    "jenis": "berita",

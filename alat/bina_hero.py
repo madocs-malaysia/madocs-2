@@ -20,8 +20,12 @@ SELANG = 6
 
 # Gambar prosedur/klinikal (bukan berita). Fokus menegak 0=puncak 1=dasar.
 GAMBAR = [
-    ('assets/galeri/ccc6-cheras-2025/09.webp', 'sop-briefing', 0.42,
-     'Fasilitator MADOCS menerangkan Standard Operating Procedure (SOP) berkhatan pada skrin besar semasa kursus CCC di Hotel Maluri, Cheras'),
+    ('assets/berita-agm-2026-kumpulan.webp', 'ahli-agm', 0.45,
+     'Ahli dan Ahli Jawatankuasa MADOCS bergambar bersama sepanduk MALAYSIAN DOCTORS OF CIRCUMCISION SOCIETY pada Mesyuarat Agung Tahunan Ke-4, 2026'),
+    ('assets/galeri/batu-pahat-2025/01.webp', 'peserta-kursus', 0.38,
+     'Peserta dan fasilitator kursus Privileging Course for Circumcision (Dorsal Slit) Part 2 bergambar bersama sepanduk kursus di The Katerina Hotel, Batu Pahat'),
+    ('assets/galeri/batu-pahat-2025/16.webp', 'dewan-peserta', 0.45,
+     'Dewan kursus PCC2-1 dan CCC7 di The Katerina Hotel, Batu Pahat penuh dengan peserta, dengan sepanduk kursus dan sepanduk MADOCS di pentas'),
     ('assets/galeri/pcc1-2-kota-kinabalu-2026/05.webp', 'dorsal-slit', 0.38,
      'Penceramah menerangkan langkah-langkah prosedur Dorsal Slit pada slaid semasa kursus PCC di Kota Kinabalu'),
     ('assets/galeri/batu-pahat-2025/13.webp', 'instrumen', 0.72,
