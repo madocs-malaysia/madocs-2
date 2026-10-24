@@ -118,9 +118,13 @@ def _terjemah_kepingan(bahagian: str, kamus: dict[str, str]) -> str:
     for j, kepingan_teks in enumerate(kepingan):
         if j % 2:              # indeks ganjil = teg, jangan sentuh
             continue
-        kunci = kepingan_teks.strip()
+        # Ruang dan baris baharu dinormalisasi supaya teks berbaris (HTML cantik)
+        # masih sepadan dengan kunci kamus yang satu baris.
+        kunci = re.sub(r"\s+", " ", kepingan_teks).strip()
         if kunci and kunci in kamus:
-            kepingan[j] = kepingan_teks.replace(kunci, kamus[kunci], 1)
+            depan = kepingan_teks[:len(kepingan_teks) - len(kepingan_teks.lstrip())]
+            belakang = kepingan_teks[len(kepingan_teks.rstrip()):]
+            kepingan[j] = depan + kamus[kunci] + belakang
     return "".join(kepingan)
 
 
