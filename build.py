@@ -749,9 +749,9 @@ def bina_semak_ahli():
   {banner}
   <form id="borang-ahli" class="borang-sahkan" autocomplete="off" novalidate>
     <label for="no-ahli">Nombor ahli</label>
-    <p class="nota-isi">Nombor ahli tercetak pada kad keahlian dan e-mel pengesahan pendaftaran. Contoh: <b>MADOCS-2026-0187</b>.</p>
+    <p class="nota-isi">Nombor ahli tercetak pada kad keahlian dan e-mel pengesahan pendaftaran. Nombor bermula dengan kod negeri, contohnya <b>JDT1</b> (Johor), <b>SDE53</b> (Selangor), <b>WKL12</b> (Kuala Lumpur).</p>
     <div class="baris-sahkan">
-      <input id="no-ahli" name="no-ahli" type="text" placeholder="MADOCS-2026-0187" required>
+      <input id="no-ahli" name="no-ahli" type="text" placeholder="cth. SDE53" autocomplete="off" spellcheck="false" required>
       <button class="btn btn-primary" type="submit">{icon('search')} Semak status</button>
     </div>
   </form>
