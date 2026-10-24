@@ -30,6 +30,7 @@ SLAG_EN = {
     "/organisasi/": "/en/organisation/",
     "/dari-meja-presiden/": "/en/from-the-presidents-desk/",
     "/pendidikan/": "/en/education/",
+    "/cp/": "/en/cp/",
     "/keahlian/": "/en/membership/",
     "/keahlian/sertai/": "/en/membership/join/",
     "/aktiviti/": "/en/activities/",
