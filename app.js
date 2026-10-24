@@ -481,8 +481,8 @@
     var kunci = String(no || "").trim().replace(/[<>&]/g, "");
     if (!r) {
       tunjuk("<h3>" + T.gagal + "</h3><p>" + (EN ? "No member with number " : "Tiada ahli dengan nombor ")
-             + "<b>" + kunci + "</b> " + (EN ? "is recorded by MADOCS. Please check the number on the membership card."
-                                             : "dalam rekod MADOCS. Sila semak semula nombor pada kad keahlian.") + "</p>", "gagal");
+             + "<b>" + kunci + "</b> " + (EN ? "is recorded by MADOCS. Please check the number on the membership certificate."
+                                             : "dalam rekod MADOCS. Sila semak semula nombor pada sijil keahlian.") + "</p>", "gagal");
       return;
     }
     var status = String(r.status || "").toLowerCase();
