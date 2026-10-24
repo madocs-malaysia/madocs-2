@@ -1441,6 +1441,10 @@ def bina_keahlian():
 <section class="content-wrap">
   <div class="shell">
     {jika_belum}
+    <div class="form-note" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
+      <span><b>Credentialing &amp; Privileging (C&amp;P):</b> keahlian MADOCS berasingan daripada penilaian C&amp;P. Doktor yang mahu melakukan prosedur di fasiliti perlu melalui C&amp;P melalui portal iHealth.</span>
+      <a class="btn btn-outline" href="/cp/">Maklumat C&amp;P</a>
+    </div>
     <div class="grid-2" style="align-items:start">
       <div class="card prose">
         <h2>Mengapa menyertai MADOCS</h2>
@@ -1683,6 +1687,54 @@ def bina_sumber():
     halaman("sumber", "Pusat Sumber | MADOCS",
             "Pusat Sumber MADOCS: rujukan klinikal, garis panduan dan bahan pendidikan untuk doktor dalam amalan berkhatan.",
             "/sumber/", isi)
+
+
+def bina_cp():
+    """Halaman C&P (Credentialing & Privileging) — pintu masuk ke portal iHealth.
+
+    Tahap 1: tiada integrasi data. Halaman menerangkan aliran C&P MADOCS dan
+    membawa doktor ke portal iHealth untuk pendaftaran dan log masuk.
+    """
+    portal = "https://clinic.ihealth.my/cms/"
+    isi = page_hero([("Utama", "/"), ("C&P", None)], "Credentialing & Privileging",
+                    "Rangka kerja penilaian kecekapan doktor sebelum diberi hak melakukan prosedur berkhatan di sesebuah fasiliti.") + f"""
+<section class="content-wrap"><div class="shell">
+  <div class="card prose">
+    <h2>Apa itu C&amp;P</h2>
+    <p>Credentialing ialah proses menyemak kelayakan seorang doktor — ijazah perubatan, pendaftaran MMC, latihan berkhatan dan rekod log kes. Privileging ialah keputusan memberi hak melakukan prosedur tertentu di fasiliti tertentu, berdasarkan kelayakan yang telah disemak itu.</p>
+    <p>Kedua-duanya berasingan daripada keahlian MADOCS. Keahlian ialah hubungan dengan persatuan; C&amp;P ialah penilaian kecekapan klinikal yang membolehkan doktor melakukan prosedur di sesebuah hospital atau klinik.</p>
+
+    <h2>Aliran C&amp;P MADOCS</h2>
+    <div class="langkah-cp">
+      <div><b>1</b><span>Pendaftaran calon melalui urusetia MADOCS</span></div>
+      <div><b>2</b><span>Semakan dokumen: ijazah, pendaftaran MMC dan log kes</span></div>
+      <div><b>3</b><span>Penilaian klinikal — peperiksaan teori dan penilaian stesen amali</span></div>
+      <div><b>4</b><span>Keputusan Ahli Jawatankuasa C&amp;P</span></div>
+      <div><b>5</b><span>Penyenaraian doktor yang privileged dan pembaharuan berkala</span></div>
+    </div>
+
+    <h2>Portal iHealth</h2>
+    <p>MADOCS menggunakan sistem iHealth untuk pengurusan C&amp;P: pendaftaran calon, muat naik dokumen, jadual penilaian dan rekod keputusan. Calon yang telah mendaftar melalui urusetia akan dihubungi untuk diberikan akses portal.</p>
+    <div class="hero-buttons" style="margin-top:18px">
+      <a class="btn btn-primary" href="{portal}" target="_blank" rel="noopener">{icon('shield-check')} Log masuk portal iHealth</a>
+      <a class="btn btn-outline" href="/hubungi/">{icon('mail')} Hubungi urusetia</a>
+    </div>
+
+    <h2>Privasi dan had data</h2>
+    <p>Data pesakit, log kes dan logbook calon kekal dalam sistem fasiliti dan pihak berkuasa kesihatan. Laman MADOCS tidak menyimpan data pesakit. Apabila senarai doktor yang telah privileged disahkan untuk diterbitkan, laman ini akan memaparkan nama, negeri dan tarikh sah sahaja.</p>
+  </div>
+  {kotak_bantuan("Ada pertanyaan tentang C&P?", "Hubungi urusetia keahlian MADOCS untuk pendaftaran calon, dokumen yang diperlukan atau status permohonan.", "Salam, saya ingin bertanya tentang C&P MADOCS.", wa_keahlian_nombor())}
+</div></section>
+
+<style>
+.langkah-cp{{display:grid;gap:10px;margin:14px 0 22px}}
+.langkah-cp>div{{display:grid;grid-template-columns:34px 1fr;align-items:center;gap:12px}}
+.langkah-cp b{{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#510716;color:#fff;font-size:13px}}
+.langkah-cp span{{font-size:15px}}
+</style>"""
+    halaman("cp", "Credentialing & Privileging (C&P) | MADOCS",
+            "Aliran C&P MADOCS: penilaian kecekapan doktor untuk prosedur berkhatan, dengan pengurusan melalui portal iHealth.",
+            "/cp/", isi)
 
 
 def bina_berita():
@@ -2313,6 +2365,7 @@ def main():
     for a in load("aktiviti.json")["aktiviti"]:
         bina_aktiviti_detail(a)
     bina_sumber()
+    bina_cp()
     bina_berita()
     for b in load("berita.json")["berita"]:
         bina_berita_detail(b)
