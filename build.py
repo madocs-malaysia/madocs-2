@@ -1106,7 +1106,7 @@ def bina_tentang():
         </ul>
         <h2>Tadbir urus</h2>
         {tadbir}
-        <p class="nota-isi">Salinan perlembagaan pertubuhan boleh diminta daripada urusetia MADOCS.</p>
+        <p class="nota-isi">Perlembagaan pertubuhan boleh dimuat turun di <a href="/sumber/">Pusat Sumber</a>, atau diminta daripada urusetia MADOCS.</p>
       </div>
       <div class="card">
         <h2>Prakata Presiden</h2>
