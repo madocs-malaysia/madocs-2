@@ -749,7 +749,7 @@ def bina_semak_ahli():
   {banner}
   <form id="borang-ahli" class="borang-sahkan" autocomplete="off" novalidate>
     <label for="no-ahli">Nombor ahli</label>
-    <p class="nota-isi">Nombor ahli tercetak pada kad keahlian dan e-mel pengesahan pendaftaran. Nombor bermula dengan kod negeri, contohnya <b>JDT1</b> (Johor), <b>SDE53</b> (Selangor), <b>WKL12</b> (Kuala Lumpur).</p>
+    <p class="nota-isi">Nombor ahli tercetak pada sijil keahlian dan e-mel pengesahan pendaftaran. Nombor bermula dengan kod negeri, contohnya <b>JDT1</b> (Johor), <b>SDE53</b> (Selangor), <b>WKL12</b> (Kuala Lumpur).</p>
     <div class="baris-sahkan">
       <input id="no-ahli" name="no-ahli" type="text" placeholder="cth. SDE53" autocomplete="off" spellcheck="false" required>
       <button class="btn btn-primary" type="submit">{icon('search')} Semak status</button>
@@ -769,7 +769,7 @@ def bina_semak_ahli():
   <p>Rekod awam ini <b>tidak menyimpan kad pengenalan atau nombor MMC</b>. Pertanyaan lanjut boleh diajukan kepada urusetia MADOCS.</p>
 
   <h2>Jika nombor tidak dijumpai</h2>
-  <p>Sila semak semula nombor pada kad keahlian. Jika masih tidak dijumpai, hubungi urusetia: <a href="mailto:{esc(load('site.json').get('email',''))}">{esc(load('site.json').get('email',''))}</a> atau <a href="{esc(wa)}" target="_blank" rel="noopener">WhatsApp urusetia</a>.</p>
+  <p>Sila semak semula nombor pada sijil keahlian. Jika masih tidak dijumpai, hubungi urusetia: <a href="mailto:{esc(load('site.json').get('email',''))}">{esc(load('site.json').get('email',''))}</a> atau <a href="{esc(wa)}" target="_blank" rel="noopener">WhatsApp urusetia</a>.</p>
 
   <script type="application/json" id="indeks-ahli">{indeks_json}</script>
 </div></div></section>"""
@@ -1421,6 +1421,8 @@ def bina_keahlian():
     elif kh.get("sumber_nota"):
         jika_belum = '<div class="nota-sumber">%s</div>' % esc(kh["sumber_nota"])
 
+    _form = (kh.get("promosi") or {}).get("borang_url") or kh.get("borang_url") or "/keahlian/sertai/"
+    _pautan_borang = esc(_form)
     manfaat = "".join('<div class="tile"><span class="ikon">%s</span><h3>%s</h3></div>' % (icon("check"), esc(m))
                       for m in kh.get("manfaat", []))
 
@@ -1503,7 +1505,7 @@ def bina_keahlian():
       <div class="card">
         <h2>Proses permohonan</h2>
         <div class="timeline">{proses}</div>
-        <div style="margin-top:24px"><a class="btn-hantar" href="/keahlian/sertai/">Mula permohonan {icon('arrow-right')}</a></div>
+        <div style="margin-top:24px"><a class="btn-hantar" href="{_pautan_borang}" target="_blank" rel="noopener">Mula permohonan {icon('arrow-right')}</a></div>
       </div>
       <div class="card" id="faq">
         <h2>Soalan lazim</h2>
