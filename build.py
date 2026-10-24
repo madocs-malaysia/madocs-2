@@ -1503,11 +1503,55 @@ def bina_keahlian():
 
 def bina_sertai():
     endpoint = (SITE.get("borang_endpoint") or "").strip()
-    if not endpoint:
-        kurang("Borang keahlian belum diaktifkan (site.json → borang_endpoint kosong). Buat masa ini pengguna diarahkan ke e-mel/WhatsApp urusetia (PRD §16).")
+    # Borang rasmi diuruskan melalui pautan luar (Google Form) yang disahkan jawatankuasa.
+    _kh = load("keahlian.json")
+    borang_url = (_kh.get("borang_url") or (_kh.get("promosi") or {}).get("borang_url") or "").strip()
+    if not endpoint and not borang_url:
+        kurang("Borang keahlian belum diaktifkan — tiada site.json → borang_endpoint dan tiada keahlian.json → borang_url (PRD §16).")
 
     pilihan_kategori = ['<option value="">Pilih kategori</option>'] + [
         '<option value="%s">%s</option>' % (esc(k["nama"]), esc(k["nama"])) for k in load("keahlian.json").get("kategori", [])]
+
+    if borang_url:
+        # Borang awam sudah aktif — jangan tunjuk medan berganda; hantar terus ke borang rasmi.
+        isi = page_hero([("Utama", "/"), ("Keahlian", "/keahlian/"), ("Permohonan", None)],
+                        "Borang Permohonan Keahlian",
+                        "Borang rasmi MADOCS. Permohonan dibentangkan dalam mesyuarat Ahli Jawatankuasa sebelum diluluskan.") + f"""
+<section class="content-wrap">
+  <div class="shell split">
+    <div>
+      <div class="card prose">
+        <h2>Isi borang dalam talian</h2>
+        <p>Borang permohonan keahlian MADOCS diuruskan melalui borang rasmi dalam talian. Butiran yang diminta termasuk maklumat peribadi, pendaftaran MMC, tempat praktis dan kategori keahlian.</p>
+        <p>Permohonan akan dibentangkan dalam mesyuarat Ahli Jawatankuasa. Nombor ahli diberikan <b>selepas</b> permohonan diluluskan, dan anda akan dimaklumkan melalui e-mel.</p>
+        <div class="hero-buttons" style="margin-top:20px">
+          <a class="btn btn-primary" href="{esc(borang_url)}" target="_blank" rel="noopener">{icon('file-text')} Isi borang keahlian dalam talian</a>
+        </div>
+        <p class="nota-isi" style="margin-top:16px">Data peribadi diproses menurut <a href="/dasar-privasi/">Dasar Privasi</a> MADOCS. Borang mengandungi notis privasi dan kotak persetujuan yang perlu ditanda sebelum dihantar.</p>
+      </div>
+    </div>
+    <aside class="side">
+      <div class="card">
+        <h3>Sebelum mengisi</h3>
+        <ul class="prose" style="padding-left:18px;font-size:14px">
+          <li>Nombor pendaftaran MMC dan butiran amalan anda.</li>
+          <li>E-mel dan nombor telefon yang aktif.</li>
+          <li>Alamat rumah dan pejabat (poskod kedua-duanya).</li>
+          <li>Bukti bayaran yuran selepas permohonan disemak.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Soalan?</h3>
+        <p style="font-size:14px;line-height:1.7;color:#583c42">Urusetia keahlian sedia membantu.</p>
+        <a class="btn-blok ghost" href="{wa_pautan('Salam, saya ingin bertanya tentang permohonan keahlian MADOCS.', wa_keahlian_nombor())}" target="_blank" rel="noopener" style="margin-top:14px">{icon('message-circle')} WhatsApp urusetia</a>
+      </div>
+    </aside>
+  </div>
+</section>"""
+        halaman("keahlian", "Borang Permohonan Keahlian | MADOCS",
+                "Borang permohonan keahlian MADOCS untuk doktor yang terlibat dalam amalan berkhatan di Malaysia.",
+                "/keahlian/sertai/", isi)
+        return
 
     if endpoint:
         aksi = f'<form class="form" action="{esc(endpoint)}" method="POST">'
