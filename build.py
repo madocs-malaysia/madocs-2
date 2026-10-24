@@ -32,6 +32,7 @@ BULAN = ["Januari", "Februari", "Mac", "April", "Mei", "Jun", "Julai",
 BULAN_SING = ["JAN", "FEB", "MAC", "APR", "MEI", "JUN", "JUL", "OGO", "SEP", "OKT", "NOV", "DIS"]
 
 STATUS_LABEL = {
+    "tentatif": ("Tarikh tentatif", "tentatif"),
     "open": ("Pendaftaran dibuka", "open"),
     "limited": ("Kerusi terhad", "limited"),
     "closed": ("Pendaftaran ditutup", "closed"),
@@ -620,6 +621,15 @@ def kad_aktiviti(a):
 </article>"""
 
 
+def ringkas_meta(teks, had=158):
+    """Potong teks pada sempadan perkataan untuk meta description (<= `had` aksara)."""
+    t = re.sub(r"\s+", " ", str(teks or "")).strip()
+    if len(t) <= had:
+        return t
+    potong = t[:had].rsplit(" ", 1)[0]
+    return potong.rstrip(" ,.;:") + "…"
+
+
 def item_kandungan(tajuk, url, ringkas, tarikh=None, kategori="", gambar=None, alt="", meta_ikon="calendar-days", kredit=None, tarikh_papar=None, label="Baca lanjut"):
     """Kad senarai untuk berita / aktiviti / sumber."""
     foto = ('<div class="item-photo"><img src="/%s" alt="%s" loading="lazy" decoding="async">%s%s</div>'
@@ -768,13 +778,15 @@ def bina_semak_ahli():
             "/semak-ahli/", isi, masuk_sitemap=False, noindex=True)
 
 
-def laman_ringkas(slug, tajuk, isi_html):
+def laman_ringkas(slug, tajuk, isi_html, deskripsi=None):
     """Halaman teks ringkas (dasar privasi, terma)."""
     dalam = f"""<section class="page-hero">
   <div class="shell">{crumbs([("Utama", "/")])}<h1>{esc(tajuk)}</h1></div>
 </section>
 <section class="content-wrap"><div class="shell"><div class="card prose">{isi_html}</div></div></section>"""
-    halaman("", tajuk + " | MADOCS", tajuk + " MADOCS.", "/%s/" % slug, dalam)
+    ket = deskripsi or ("%s Pertubuhan Doktor Khatan Malaysia (MADOCS) — persatuan profesional doktor "
+                        "yang terlibat dalam amalan berkhatan di Malaysia." % tajuk)
+    halaman("", tajuk + " | MADOCS", ringkas_meta(ket, 160), "/%s/" % slug, dalam)
 
 
 # ----------------------------------------------------------------- halaman: utama
@@ -837,7 +849,7 @@ def bina_utama():
     hari_ini = date.today()
 
     akan_datang = sorted([k for k in kursus
-                          if k.get("status") in ("open", "limited")
+                          if k.get("status") in ("open", "limited", "tentatif")
                           and (parse_date(k.get("tarikh")) or hari_ini) >= hari_ini],
                          key=lambda k: k.get("tarikh") or "")
     lepas = sorted([k for k in kursus if k not in akan_datang],
@@ -906,7 +918,7 @@ def bina_utama():
     # --- sumber
     if sumber:
         sumber_html = "".join(
-            item_kandungan(s["tajuk"], s.get("fail") or "/sumber/", s.get("ringkas", ""),
+            item_kandungan(s["tajuk"], (s.get("fail") if str(s.get("fail", "")).startswith("http") else "/" + str(s.get("fail", "")).lstrip("/")) or "/sumber/", s.get("ringkas", ""),
                            kategori=s.get("kategori", ""), alt=s.get("gambar_alt", ""), gambar=s.get("gambar"))
             for s in sumber[:3])
         sumber_html = '<div class="listing">%s</div>' % sumber_html
@@ -1042,7 +1054,7 @@ def bina_utama():
 </section>"""
 
     halaman("utama", "MADOCS — Pertubuhan Doktor Khatan Malaysia",
-            "Pertubuhan Doktor Khatan Malaysia (MADOCS) memajukan amalan berkhatan selamat melalui pendidikan, latihan klinikal berstruktur dan pembangunan profesional doktor di Malaysia.",
+            "Pertubuhan Doktor Khatan Malaysia (MADOCS): keahlian, kursus PCC/CCC, latihan klinikal dan garis panduan berkhatan untuk doktor di Malaysia.",
             "/", isi)
 
 
@@ -1082,7 +1094,7 @@ def bina_tentang():
       <div class="card prose">
         <h2>Latar belakang</h2>
         <p>{esc(SITE['nama'])} ({esc(SITE['singkatan'])}) ialah pertubuhan profesional yang berdaftar dengan Pendaftar Pertubuhan Malaysia. MADOCS menghimpunkan doktor yang terlibat dalam amalan berkhatan dengan matlamat meningkatkan standard klinikal, keselamatan pesakit dan kualiti latihan.</p>
-        <p>Kandungan rasmi mengenai visi, misi dan sejarah penubuhan akan diterbitkan di sini sebaik sahaja disahkan oleh jawatankuasa.</p>
+        <p>{esc(SITE['singkatan'])} didaftarkan dengan Pendaftar Pertubuhan Malaysia pada {esc(SITE['daftar_ros'])} di bawah nombor pendaftaran {esc(SITE['pendaftaran'])}.</p>
         <h2>Visi</h2>
         <p>Menjadi platform profesional yang terkemuka bagi doktor yang terlibat dalam amalan berkhatan di Malaysia.</p>
         <h2>Misi</h2>
@@ -1094,7 +1106,7 @@ def bina_tentang():
         </ul>
         <h2>Tadbir urus</h2>
         {tadbir}
-        <p class="nota-isi">Butiran perlembagaan dan dokumen rasmi akan diterbitkan selepas kelulusan jawatankuasa.</p>
+        <p class="nota-isi">Salinan perlembagaan pertubuhan boleh diminta daripada urusetia MADOCS.</p>
       </div>
       <div class="card">
         <h2>Prakata Presiden</h2>
@@ -1187,8 +1199,17 @@ def bina_organisasi():
 def bina_pendidikan():
     kursus = load("kursus.json")["kursus"]
     hari_ini = date.today()
-    akan = sorted([k for k in kursus if k.get("status") in ("open", "limited")], key=lambda k: k.get("tarikh") or "")
+    akan = sorted([k for k in kursus if k.get("status") in ("open", "limited", "tentatif")], key=lambda k: k.get("tarikh") or "")
     lepas = sorted([k for k in kursus if k.get("status") in ("closed", "done")], key=lambda k: k.get("tarikh") or "", reverse=True)
+    if not lepas:
+        lebih = sorted(load("aktiviti.json")["aktiviti"], key=lambda a: a.get("tarikh") or "", reverse=True)[:3]
+        blok_lepas = ('<div class="listing">%s</div>' % "".join(
+            item_kandungan(a["tajuk"], "/aktiviti/%s/" % a["slug"], a.get("ringkas", ""),
+                           tarikh=a.get("tarikh"), kategori=a.get("kategori", ""),
+                           gambar=a.get("gambar"), alt=a.get("gambar_alt", "")) for a in lebih)
+            + '<div style="margin-top:16px"><a class="btn btn-outline" href="/aktiviti/">Semua aktiviti MADOCS</a></div>')
+    else:
+        blok_lepas = senarai(lepas)
 
     kategori = [("graduation-cap", "Kursus Komprehensif Berkhatan", "CCC", "Latihan menyeluruh: teori, demonstrasi, amali dan penilaian."),
                 ("stethoscope", "Pendidikan Klinikal &amp; Procedural", "PCC", "Kemahiran prosedur klinikal dan pengurusan komplikasi."),
@@ -1227,7 +1248,7 @@ def bina_pendidikan():
 <section class="content-wrap" style="padding-top:0">
   <div class="shell">
     <div class="section-title-row activities-head"><h2>Program lepas</h2></div>
-    {senarai(lepas, kosong("clock", "Belum ada rekod program lepas", "Rekod program yang telah dijalankan akan diterbitkan di sini."))}
+    {blok_lepas}
   </div>
 </section>
 
@@ -1664,7 +1685,7 @@ def bina_aktiviti_detail(a):
           "location": {"@type": "Place", "name": a.get("tempat", ""), "address": {"@type": "PostalAddress", "addressCountry": "MY"}},
           "organizer": {"@type": "Organization", "name": SITE["nama"], "url": BASE + "/"}}
     isi = page_hero([("Utama", "/"), ("Aktiviti", "/aktiviti/"), (a["tajuk"], None)], a["tajuk"],
-                    a.get("ringkas") or (a.get('tarikh_papar') or (tarikh_pdk(d) if d else ''))) + f"""
+                    ringkas_meta(a.get("ringkas") or (a.get('tarikh_papar') or (tarikh_pdk(d) if d else '')))) + f"""
 <section class="content-wrap">
   <div class="shell split">
     <div>
@@ -1693,8 +1714,11 @@ def bina_aktiviti_detail(a):
   </div>
 </section>"""
     halaman("aktiviti", "%s | Aktiviti MADOCS" % a["tajuk"],
-            a.get("ringkas") or ("%s — %s, %s" % (a["tajuk"], a.get("tempat", ""),
-                                                    a.get('tarikh_papar') or (tarikh_pdk(d) if d else ''))),
+            ringkas_meta(a.get("ringkas") or ("%s — program MADOCS%s%s. Laporan dan gambar aktiviti "
+                                              "Pertubuhan Doktor Khatan Malaysia." %
+                                              (a["tajuk"],
+                                               (", " + a["tempat"]) if a.get("tempat") else "",
+                                               (", " + (a.get('tarikh_papar') or tarikh_pdk(d))) if (a.get('tarikh_papar') or d) else ""))),
             "/aktiviti/%s/" % a["slug"], isi, og_jenis="article", jsonld=[ld])
 
 
@@ -1838,7 +1862,7 @@ def bina_berita_detail(b):
   </div>
 </section>"""
     halaman("berita", "%s | Berita MADOCS" % b["tajuk"],
-            b.get("ringkas", "")[:180], "/berita/%s/" % b["slug"], isi, og_jenis="article", jsonld=[ld])
+            ringkas_meta(b.get("ringkas", "")), "/berita/%s/" % b["slug"], isi, og_jenis="article", jsonld=[ld])
 
 
 # ----------------------------------------------------------------- halaman: hubungi
@@ -1860,7 +1884,7 @@ def bina_hubungi():
     <div>
       <div class="card">
         <h2>Hantar pertanyaan</h2>
-        {'<div class="form-note"><b>Borang dalam talian belum diaktifkan.</b> Sila hubungi urusetia melalui e-mel atau telefon di sebelah. Butiran di bawah boleh anda salin ke dalam e-mel.</div>' if not endpoint else ''}
+        {'<div class="form-note"><b>Hantar pertanyaan melalui e-mel atau WhatsApp urusetia.</b> Butiran di bawah boleh anda salin terus ke dalam e-mel. Kami membalas dalam tempoh dua hari bekerja.</div>' if not endpoint else ''}
         {buka}
           <div class="form-grid">
             <div class="field"><label for="hnama">Nama *</label><input id="hnama" name="nama" required autocomplete="name"></div>
@@ -2129,8 +2153,14 @@ def bina_galeri():
     <p class="nota-isi" style="margin-top:18px">Gambar diambil semasa program MADOCS dan diterbitkan untuk tujuan dokumentasi pertubuhan. Ibu bapa, penjaga atau peserta yang ingin gambar tertentu dibuang boleh menghubungi urusetia MADOCS. <a href="/galeri/">Kembali ke semua album</a>.</p>
   </div>
 </section>"""
-        halaman("galeri", "%s | Galeri MADOCS" % a["tajuk"],
-                (a.get("ringkas") or meta_album(a) or a["tajuk"])[:180],
+        _n = len(a.get("gambar") or [])
+        _meta = meta_album(a) or ""
+        _desc = (a.get("ringkas") or "").strip()
+        if len(_desc) < 70:
+            _desc = ("%s: %d gambar dokumentasi program MADOCS%s. Koleksi galeri rasmi "
+                     "Pertubuhan Doktor Khatan Malaysia." %
+                     (a["tajuk"], _n, (" — " + _meta) if _meta else ""))
+        halaman("galeri", "%s | Galeri MADOCS" % a["tajuk"], _desc[:165],
                 "/galeri/%s/" % a["slug"], isi)
 
 
@@ -2294,7 +2324,7 @@ def bina_dasar():
 <p>Maklumat disimpan setakat yang diperlukan untuk tujuan di atas dan dilindungi mengikut amalan pentadbiran yang munasabah.</p>
 <h2>Hubungi kami</h2>
 <p>Untuk permintaan akses, pembetulan atau penghapusan data, hubungi <a href="mailto:{esc(SITE['email'])}">{esc(SITE['email'])}</a>.</p>
-<p class="nota-isi">Dokumen ini draf untuk semakan jawatankuasa dan akan dikemas kini mengikut keperluan perundangan yang berkuat kuasa, termasuk Akta Perlindungan Data Peribadi 2010 (pindaan 2024).</p>
+<p class="nota-isi">Dasar ini disemak dari semasa ke semasa dan dikemas kini mengikut keperluan perundangan yang berkuat kuasa, termasuk Akta Perlindungan Data Peribadi 2010 (pindaan 2024).</p>
 """)
     laman_ringkas("terma", "Terma Penggunaan", f"""
 <p>Dengan menggunakan laman ini, anda bersetuju dengan terma berikut.</p>

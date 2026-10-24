@@ -23,11 +23,12 @@
    "yuran_bukan_ahli": "",
    "tutup_daftar": "",
    "kapasiti": "",
-   "status": "open",
+   "status": "tentatif",
    "daftar_url": "",
    "kandungan": [
     "Tarikh kursus telah ditempah. Tempat dan butiran penuh akan diterbitkan sebaik sahaja disahkan oleh jawatankuasa MADOCS."
-   ]
+   ],
+   "nota_status": "Tarikh dan butiran pendaftaran menunggu pengesahan jawatankuasa. Hubungi urusetia untuk maklumat terkini."
   },
   {
    "slug": "ccc9-masjid-putrajaya",
@@ -51,12 +52,13 @@
    "yuran_bukan_ahli": "",
    "tutup_daftar": "",
    "kapasiti": "",
-   "status": "open",
+   "status": "tentatif",
    "daftar_url": "",
    "kandungan": [
     "Tarikh dan tempat kursus ini masih tentatif dan menunggu pengesahan jawatankuasa MADOCS. Butiran pendaftaran akan diumumkan kemudian."
    ],
-   "gambar_kredit": "Foto lokasi: Muhammad Faqih, Wikimedia Commons (CC BY-SA 4.0) — bukan gambar acara MADOCS"
+   "gambar_kredit": "Foto lokasi: Muhammad Faqih, Wikimedia Commons (CC BY-SA 4.0) — bukan gambar acara MADOCS",
+   "nota_status": "Tarikh dan butiran pendaftaran menunggu pengesahan jawatankuasa. Hubungi urusetia untuk maklumat terkini."
   }
  ]
 }
