@@ -39,6 +39,26 @@ GAMBAR = [
 # Berita yang gambarnya poster menegak: dipaparkan sebagai kad pada latar gelap.
 POSTER = {'2026-11-24-cme-tissue-adhesive'}
 
+# Gambar berkumpulan: jangan potong sesiapa. Paparkan penuh di atas latar kabur.
+PENUH = {'ahli-agm', 'peserta-kursus'}
+
+
+def slaid_penuh(im, saiz):
+    """Muatkan SELURUH gambar (contain) di atas latar kabur daripada gambar yang sama.
+
+    Digunakan untuk gambar berkumpulan supaya tiada wajah terpotong di tepi.
+    """
+    lw, lh = saiz
+    latar = potong(im, saiz, 0.45).filter(ImageFilter.GaussianBlur(42))
+    latar = Image.blend(latar, Image.new('RGB', saiz, '#1e0206'), 0.62)
+
+    skala = min(lw / im.width, lh / im.height)
+    lebar, tinggi = int(im.width * skala), int(im.height * skala)
+    depan = im.resize((lebar, tinggi), Image.LANCZOS)
+    x, y = (lw - lebar) // 2, (lh - tinggi) // 2
+    latar.paste(depan, (x, y))
+    return latar
+
 
 def potong(im, saiz, fokus_y=0.4):
     """Crop cover mengikut nisbah sasaran, kemudian resize + sharpen ringan."""
@@ -90,8 +110,8 @@ def main():
             continue
         im = Image.open(laluan).convert('RGB')
         for saiz, akhiran in ((TELEFON, 'telefon'), (BESAR, 'besar')):
-            potong(im, saiz, fokus).save(
-                os.path.join(hero_dir, '%s-%s.webp' % (nama, akhiran)), 'WEBP', quality=82, method=6)
+            out = slaid_penuh(im, saiz) if nama in PENUH else potong(im, saiz, fokus)
+            out.save(os.path.join(hero_dir, '%s-%s.webp' % (nama, akhiran)), 'WEBP', quality=82, method=6)
         slaid_gambar.append({'jenis': 'imej',
                              'besar': 'assets/hero/%s-besar.webp' % nama,
                              'telefon': 'assets/hero/%s-telefon.webp' % nama,
