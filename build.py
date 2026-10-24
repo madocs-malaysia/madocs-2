@@ -8,7 +8,7 @@ Cara guna:
     python3 build.py --report   # tunjuk kandungan yang masih belum disediakan
 
 Kandungan yang boleh diubah terletak dalam folder data/*.json.
-Jangan sunting fail .html terus — ia ditulis semula oleh skrip ini.
+Jangan sunting fail .html terus, ia ditulis semula oleh skrip ini.
 """
 
 import json
@@ -149,7 +149,7 @@ def blok_promosi_keahlian(kh):
           %s
           <a class="btn-blok wa" href="%s" target="_blank" rel="noopener">%s WhatsApp %s (%s)</a>
         </div>
-        <p class="nota-qr">Kod QR pada poster memerlukan log masuk akaun Google. Guna butang di atas — urusetia boleh bantu pendaftaran melalui WhatsApp.</p>
+        <p class="nota-qr">Kod QR pada poster memerlukan log masuk akaun Google. Guna butang di atas. Urusetia boleh bantu pendaftaran melalui WhatsApp.</p>
         <p class="nota-isi">%s Sumber: %s.</p>
       </div>
     </div>
@@ -558,7 +558,7 @@ def kad_kursus(k, keutamaan=False):
         fakta.append(f"<li>{icon('list-checks')}Kapasiti {esc(k['kapasiti'])}"
                      + (f" · {esc(k['baki'])} tempat berbaki" if k.get("baki") else "") + "</li>")
     if k.get("masa_mula"):
-        fakta.append(f"<li>{icon('clock')}{esc(k['masa_mula'])}–{esc(k.get('masa_tamat',''))}</li>")
+        fakta.append(f"<li>{icon('clock')}{esc(k['masa_mula'])}-{esc(k.get('masa_tamat',''))}</li>")
     tag = "".join("<span>%s</span>" % esc(t) for t in (k.get("tag") or []))
     img = k.get("gambar") or gambar_hero_utama()
     alt = k.get("gambar_alt") or k.get("tajuk", "")
@@ -599,7 +599,7 @@ def chip_ilustrasi(alt=""):
 def kad_aktiviti(a):
     d = parse_date(a.get("tarikh"))
     kelas = "teal" if (a.get("kategori") or "").upper() in ("TTT", "PCC") else ""
-    # Aktiviti tanpa gambar sebenar: jangan pinjam gambar peristiwa lain — paparkan blok
+    # Aktiviti tanpa gambar sebenar: jangan pinjam gambar peristiwa lain, paparkan blok
     # kategori yang bersih supaya kad kekal sekata dan tidak mengelirukan.
     if a.get("gambar"):
         gambar_html = ('<img src="/%s" alt="%s" loading="lazy" decoding="async">'
@@ -676,11 +676,11 @@ def cta_komuniti(tajuk="Sertai komuniti profesional MADOCS",
 
 
 def bina_sahkan():
-    """Halaman pengesahan sijil C&P — rekod awam TANPA data peribadi.
+    """Halaman pengesahan sijil C&P, rekod awam TANPA data peribadi.
 
     Rekod (data/sijil.json, dijana oleh madocs-admin/jana-sijil.py) hanya mengandungi
     nombor siri, kursus, tarikh, mata CPD dan hash PDF. Nama dan nombor MMC pemegang
-    TIDAK disimpan di sini — jadi hospital boleh mengesahkan keaslian sijil tanpa
+    TIDAK disimpan di sini, jadi hospital boleh mengesahkan keaslian sijil tanpa
     mendedahkan maklumat peribadi kepada awam (PRD §47).
     """
     data = load("sijil.json") if (DATA / "sijil.json").exists() else {"sijil": []}
@@ -690,7 +690,7 @@ def bina_sahkan():
     isi = f"""<section class="page-hero">
   <div class="shell">{crumbs([("Utama", "/"), ("Pengesahan Sijil", None)])}
     <h1>Pengesahan Sijil C&amp;P</h1>
-    <p>Hospital dan pihak berkuasa boleh mengesahkan sijil Credentialing &amp; Privileging (C&amp;P) MADOCS di sini — tanpa perlu memaklumkan data peribadi pemegang sijil.</p>
+    <p>Hospital dan pihak berkuasa boleh mengesahkan sijil Credentialing &amp; Privileging (C&amp;P) MADOCS di sini, tanpa perlu memaklumkan data peribadi pemegang sijil.</p>
   </div>
 </section>
 <section class="content-wrap"><div class="shell"><div class="card prose">
@@ -708,7 +708,7 @@ def bina_sahkan():
   <h2>Bagaimana pengesahan berfungsi</h2>
   <ul>
     <li>Setiap sijil MADOCS mempunyai <b>nombor siri unik</b> dan <b>kod QR</b> yang membuka halaman ini dengan nombor itu.</li>
-    <li>Untuk mengesahkan, masukkan nombor siri — sistem memaparkan kursus, tarikh, mata CPD dan <b>hash SHA-256</b> fail sijil.</li>
+    <li>Untuk mengesahkan, masukkan nombor siri, sistem memaparkan kursus, tarikh, mata CPD dan <b>hash SHA-256</b> fail sijil.</li>
     <li>Sijil hanya sah jika nombor siri wujud dalam rekod, dan hash yang dipaparkan sepadan dengan fail sijil asal.</li>
   </ul>
 
@@ -726,7 +726,7 @@ def bina_sahkan():
 
 
 def bina_semak_ahli():
-    """Halaman pengesahan status keahlian — rekod awam tanpa data peribadi.
+    """Halaman pengesahan status keahlian, rekod awam tanpa data peribadi.
 
     Rekod (data/ahli.json) hanya menyimpan nombor ahli, nama bertopeng, kategori,
     status dan tarikh sah. Tiada kad pengenalan, tiada nombor MMC.
@@ -759,10 +759,10 @@ def bina_semak_ahli():
 
   <h2>Apa yang dipaparkan</h2>
   <ul>
-    <li><b>Status keahlian</b> — aktif, tamat tempoh, atau ditangguh.</li>
-    <li><b>Kategori</b> — Ahli Biasa, Bersekutu, Pelajar atau Seumur Hidup.</li>
-    <li><b>Tarikh sah</b> — untuk keahlian tahunan; keahlian seumur hidup tiada tarikh luput.</li>
-    <li><b>Nama bertopeng</b> — cukup untuk memadankan dengan nama pada kad pengenalan doktor, tanpa mendedahkan nama penuh.</li>
+    <li><b>Status keahlian</b>: aktif, tamat tempoh, atau ditangguh.</li>
+    <li><b>Kategori</b>: Ahli Biasa, Bersekutu, Pelajar atau Seumur Hidup.</li>
+    <li><b>Tarikh sah</b>: untuk keahlian tahunan; keahlian seumur hidup tiada tarikh luput.</li>
+    <li><b>Nama bertopeng</b>: cukup untuk memadankan dengan nama pada kad pengenalan doktor, tanpa mendedahkan nama penuh.</li>
   </ul>
 
   <h2>Privasi</h2>
@@ -774,7 +774,7 @@ def bina_semak_ahli():
   <script type="application/json" id="indeks-ahli">{indeks_json}</script>
 </div></div></section>"""
     halaman("", "Pengesahan Ahli | MADOCS",
-            "Semak status keahlian MADOCS dengan nombor ahli — tanpa mendedahkan data peribadi.",
+            "Semak status keahlian MADOCS dengan nombor ahli tanpa mendedahkan data peribadi.",
             "/semak-ahli/", isi, masuk_sitemap=False, noindex=True)
 
 
@@ -784,7 +784,7 @@ def laman_ringkas(slug, tajuk, isi_html, deskripsi=None):
   <div class="shell">{crumbs([("Utama", "/")])}<h1>{esc(tajuk)}</h1></div>
 </section>
 <section class="content-wrap"><div class="shell"><div class="card prose">{isi_html}</div></div></section>"""
-    ket = deskripsi or ("%s Pertubuhan Doktor Khatan Malaysia (MADOCS) — persatuan profesional doktor "
+    ket = deskripsi or ("%s Pertubuhan Doktor Khatan Malaysia (MADOCS): persatuan profesional doktor "
                         "yang terlibat dalam amalan berkhatan di Malaysia." % tajuk)
     halaman("", tajuk + " | MADOCS", ringkas_meta(ket, 160), "/%s/" % slug, dalam)
 
@@ -872,9 +872,9 @@ def bina_utama():
             % (icon(it.get("ikon", "target")), esc(it["nilai"]), esc(it["label"]), esc(it.get("sub", "")))
             for it in stats["items"])
     else:
-        kurang("Angka statistik (PRD §11) belum disahkan — data/stats.json masih 'disahkan': false.")
+        kurang("Angka statistik (PRD §11) belum disahkan, data/stats.json masih 'disahkan': false.")
         stat_items = "".join(
-            '<div class="stat"><span>%s</span><p><strong>—</strong><b>%s</b><small>Menunggu pengesahan</small></p></div>'
+            '<div class="stat"><span>%s</span><p><strong>…</strong><b>%s</b><small>Menunggu pengesahan</small></p></div>'
             % (icon(it.get("ikon", "target")), esc(it["label"]))
             for it in stats["items"])
 
@@ -891,7 +891,7 @@ def bina_utama():
             for k in akan_datang[1:4])
         kursus_html += ('<div class="listing" style="margin-top:18px">%s</div>' % baki) if baki else ""
     else:
-        kurang("Tiada kursus akan datang dalam data/kursus.json — PRD §58 memerlukan sekurang-kurangnya satu program latihan yang boleh diterbitkan.")
+        kurang("Tiada kursus akan datang dalam data/kursus.json: PRD §58 memerlukan sekurang-kurangnya satu program latihan yang boleh diterbitkan.")
         kursus_html = kosong(
             "calendar-days", "Tiada kursus akan datang buat masa ini",
             "Jadual latihan sedang disusun. Hubungi urusetia MADOCS untuk maklumat program seterusnya, atau lihat program yang telah dijalankan.",
@@ -1053,7 +1053,7 @@ def bina_utama():
   </div>
 </section>"""
 
-    halaman("utama", "MADOCS — Pertubuhan Doktor Khatan Malaysia",
+    halaman("utama", "MADOCS: Pertubuhan Doktor Khatan Malaysia",
             "Pertubuhan Doktor Khatan Malaysia (MADOCS): keahlian, kursus PCC/CCC, latihan klinikal dan garis panduan berkhatan untuk doktor di Malaysia.",
             "/", isi)
 
@@ -1063,7 +1063,7 @@ def bina_tentang():
     jk_data = load("jawatankuasa.json")
     jk = jk_data["jawatankuasa"]
     sesi = (jk_data.get("sesi") or "").strip()
-    tajuk_jk = "Jawatankuasa Eksekutif" + (f" — Sesi {esc(sesi)}" if sesi else "")
+    tajuk_jk = "Jawatankuasa Eksekutif" + (f": Sesi {esc(sesi)}" if sesi else "")
     if not jk:
         kurang("Senarai Jawatankuasa Eksekutif kosong (data/jawatankuasa.json) — diperlukan oleh PRD §9.2 dan §55.")
         ahli_html = kosong("users", "Senarai jawatankuasa belum disediakan",
@@ -1084,7 +1084,7 @@ def bina_tentang():
   <div><dt>Skop</dt><dd>Malaysia</dd></div>
   <div><dt>E-mel urusetia</dt><dd><a href="mailto:{esc(SITE['email'])}">{esc(SITE['email'])}</a></dd></div>
 </dl>"""
-    kurang("Visi, misi, sejarah dan dokumen tadbir urus/perlembagaan (PRD §9.2, §55) belum disediakan — halaman menggunakan teks sementara.")
+    kurang("Visi, misi, sejarah dan dokumen tadbir urus/perlembagaan (PRD §9.2, §55) belum disediakan, halaman menggunakan teks sementara.")
 
     isi = page_hero([("Utama", "/"), ("Mengenai", None)], "Mengenai MADOCS",
                     "Pertubuhan profesional yang menghimpunkan doktor terlibat dalam amalan berkhatan di Malaysia.") + f"""
@@ -1148,7 +1148,7 @@ def bina_organisasi():
     jk_data = load("jawatankuasa.json")
     jk = jk_data.get("jawatankuasa") or []
     sesi = (jk_data.get("sesi") or "").strip()
-    tajuk_jk = "Jawatankuasa Eksekutif" + (f" — Sesi {esc(sesi)}" if sesi else "")
+    tajuk_jk = "Jawatankuasa Eksekutif" + (f": Sesi {esc(sesi)}" if sesi else "")
     if jk:
         ahli_html = blok_jawatankuasa(jk_data)
     else:
@@ -1271,7 +1271,7 @@ def bina_kursus_detail(k):
 
     baris("Tarikh", esc(tarikh_pjg(d)) if d else "")
     if k.get("masa_mula"):
-        baris("Masa", esc(k["masa_mula"]) + " – " + esc(k.get("masa_tamat", "")))
+        baris("Masa", esc(k["masa_mula"]) + " - " + esc(k.get("masa_tamat", "")))
     baris("Tempat", esc(k.get("tempat", "")))
     baris("Penganjur", esc(k.get("penganjur", "")))
     baris("Tenaga pengajar", esc(k.get("fakulti", "")))
@@ -1320,7 +1320,7 @@ def bina_kursus_detail(k):
     url_kongsi = BASE + "/pendidikan/" + k["slug"] + "/"
     kongsi = f"""<div class="chips" aria-label="Kongsi kursus ini">
   <span style="background:#fff;border:1px solid var(--line)">Kongsi:</span>
-  <a class="badge" href="https://wa.me/?text={esc(k['tajuk'] + ' — ' + url_kongsi)}" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="badge" href="https://wa.me/?text={esc(k['tajuk'] + ': ' + url_kongsi)}" target="_blank" rel="noopener">WhatsApp</a>
   <a class="badge" href="https://www.facebook.com/sharer/sharer.php?u={esc(url_kongsi)}" target="_blank" rel="noopener">Facebook</a>
   <a class="badge" href="https://t.me/share/url?url={esc(url_kongsi)}&text={esc(k['tajuk'])}" target="_blank" rel="noopener">Telegram</a>
   <a class="badge" href="mailto:?subject={esc(k['tajuk'])}&body={esc(url_kongsi)}">E-mel</a>
@@ -1402,7 +1402,7 @@ def bina_kursus_detail(k):
   </div>
 </section>"""
 
-    halaman("pendidikan", "%s — %s | MADOCS" % (k["tajuk"], k.get("kod", "")),
+    halaman("pendidikan", "%s: %s | MADOCS" % (k["tajuk"], k.get("kod", "")),
             k.get("ringkas", "%s oleh MADOCS." % k["tajuk"])[:180],
             "/pendidikan/%s/" % k["slug"], isi, og_jenis="article", jsonld=ld)
 
@@ -1414,7 +1414,7 @@ def bina_keahlian():
     jika_belum = ""
 
     if not disahkan:
-        kurang("Maklumat keahlian (kelayakan, kategori, yuran) belum disahkan — data/keahlian.json 'disahkan': false (PRD §56.1–§56.3).")
+        kurang("Maklumat keahlian (kelayakan, kategori, yuran) belum disahkan, data/keahlian.json 'disahkan': false (PRD §56.1-§56.3).")
         jika_belum = ('<div class="pengesahan"><b>Belum disahkan jawatankuasa:</b> kelayakan, kategori dan yuran keahlian '
                       'sedang disahkan. Laman ini hanya menerbitkan maklumat yang telah diluluskan. Sila hubungi urusetia '
                       'MADOCS untuk maklumat terkini.</div>')
@@ -1530,13 +1530,13 @@ def bina_sertai():
     _kh = load("keahlian.json")
     borang_url = (_kh.get("borang_url") or (_kh.get("promosi") or {}).get("borang_url") or "").strip()
     if not endpoint and not borang_url:
-        kurang("Borang keahlian belum diaktifkan — tiada site.json → borang_endpoint dan tiada keahlian.json → borang_url (PRD §16).")
+        kurang("Borang keahlian belum diaktifkan, tiada site.json → borang_endpoint dan tiada keahlian.json → borang_url (PRD §16).")
 
     pilihan_kategori = ['<option value="">Pilih kategori</option>'] + [
         '<option value="%s">%s</option>' % (esc(k["nama"]), esc(k["nama"])) for k in load("keahlian.json").get("kategori", [])]
 
     if borang_url:
-        # Borang awam sudah aktif — jangan tunjuk medan berganda; hantar terus ke borang rasmi.
+        # Borang awam sudah aktif, jangan tunjuk medan berganda; hantar terus ke borang rasmi.
         isi = page_hero([("Utama", "/"), ("Keahlian", "/keahlian/"), ("Permohonan", None)],
                         "Borang Permohonan Keahlian",
                         "Borang rasmi MADOCS. Permohonan dibentangkan dalam mesyuarat Ahli Jawatankuasa sebelum diluluskan.") + f"""
@@ -1716,7 +1716,7 @@ def bina_aktiviti_detail(a):
   </div>
 </section>"""
     halaman("aktiviti", "%s | Aktiviti MADOCS" % a["tajuk"],
-            ringkas_meta(a.get("ringkas") or ("%s — program MADOCS%s%s. Laporan dan gambar aktiviti "
+            ringkas_meta(a.get("ringkas") or ("%s, program MADOCS%s%s. Laporan dan gambar aktiviti "
                                               "Pertubuhan Doktor Khatan Malaysia." %
                                               (a["tajuk"],
                                                (", " + a["tempat"]) if a.get("tempat") else "",
@@ -1771,14 +1771,14 @@ def bina_cp():
 <section class="content-wrap"><div class="shell">
   <div class="card prose">
     <h2>Apa itu C&amp;P</h2>
-    <p>Credentialing ialah proses menyemak kelayakan seorang doktor — ijazah perubatan, pendaftaran MMC, latihan berkhatan dan rekod log kes. Privileging ialah keputusan memberi hak melakukan prosedur tertentu di fasiliti tertentu, berdasarkan kelayakan yang telah disemak itu.</p>
+    <p>Credentialing ialah proses menyemak kelayakan seorang doktor, iaitu ijazah perubatan, pendaftaran MMC, latihan berkhatan dan rekod log kes. Privileging ialah keputusan memberi hak melakukan prosedur tertentu di fasiliti tertentu, berdasarkan kelayakan yang telah disemak itu.</p>
     <p>Kedua-duanya berasingan daripada keahlian MADOCS. Keahlian ialah hubungan dengan persatuan; C&amp;P ialah penilaian kecekapan klinikal yang membolehkan doktor melakukan prosedur di sesebuah hospital atau klinik.</p>
 
     <h2>Aliran C&amp;P MADOCS</h2>
     <div class="langkah-cp">
       <div><b>1</b><span>Pendaftaran calon melalui urusetia MADOCS</span></div>
       <div><b>2</b><span>Semakan dokumen: ijazah, pendaftaran MMC dan log kes</span></div>
-      <div><b>3</b><span>Penilaian klinikal — peperiksaan teori dan penilaian stesen amali</span></div>
+      <div><b>3</b><span>Penilaian klinikal, peperiksaan teori dan penilaian stesen amali</span></div>
       <div><b>4</b><span>Keputusan Ahli Jawatankuasa C&amp;P</span></div>
       <div><b>5</b><span>Penyenaraian doktor yang privileged dan pembaharuan berkala</span></div>
     </div>
@@ -1978,9 +1978,9 @@ def bina_carian():
 def skala_fon(css):
     """Naikkan saiz fon supaya selesa dibaca (Doc mengadu teks 'kecil sangat, sakit mata').
 
-    Reka bentuk yang dicermin daripada laman lama menggunakan saiz amat kecil (8–11px).
-    Tiga jalur: teks hiasan (<7px, tagline logo) → 9px; teks kecil (7–11.9px) → sekurang-kurangnya 12px;
-    teks sederhana (12–17.9px) → digandakan 1.15. Tajuk (≥18px) dibiarkan supaya susun atur tidak pecah.
+    Reka bentuk yang dicermin daripada laman lama menggunakan saiz amat kecil (8-11px).
+    Tiga jalur: teks hiasan (<7px, tagline logo) → 9px; teks kecil (7-11.9px) → sekurang-kurangnya 12px;
+    teks sederhana (12-17.9px) → digandakan 1.15. Tajuk (≥18px) dibiarkan supaya susun atur tidak pecah.
     """
     def ganti(m):
         saiz = float(m.group(1))
@@ -2040,7 +2040,7 @@ def blok_statistik_keahlian(kh):
 def blok_jawatankuasa(jk_data):
     """Carta organisasi + senarai Jawatankuasa Eksekutif (nama, jawatan, potret).
 
-    Sumber: carta organisasi rasmi MADOCS sesi 2026–2028 yang diserahkan jawatankuasa.
+    Sumber: carta organisasi rasmi MADOCS sesi 2026-2028 yang diserahkan jawatankuasa.
     Potret dipotong daripada carta (resolusi kecil) — ganti dengan gambar asal jika ada.
     """
     jk = jk_data.get("jawatankuasa") or []
@@ -2088,7 +2088,7 @@ def blok_jawatankuasa(jk_data):
 
 
 def bina_galeri():
-    """Galeri — senarai album + satu halaman setiap album.
+    """Galeri, senarai album + satu halaman setiap album.
 
     Hanya gambar dewasa dalam konteks kursus/perhimpunan dimasukkan; gambar pesakit
     menerima rawatan atau kanak-kanak memerlukan kebenaran bertulis.
@@ -2125,8 +2125,8 @@ def bina_galeri():
 {chr(10).join(kad_album)}
     </div>
     <p class="nota-isi">Gambar diambil semasa program MADOCS dan diterbitkan untuk tujuan dokumentasi pertubuhan.
-    Ibu bapa, penjaga atau peserta yang ingin gambar tertentu dibuang boleh menghubungi urusetia MADOCS —
-    kami akan memadamkannya.</p>
+    Ibu bapa, penjaga atau peserta yang ingin gambar tertentu dibuang boleh menghubungi urusetia MADOCS.
+    Kami akan memadamkannya.</p>
   </div>
 </section>"""
     halaman("galeri", "Galeri | MADOCS",
@@ -2161,7 +2161,7 @@ def bina_galeri():
         if len(_desc) < 70:
             _desc = ("%s: %d gambar dokumentasi program MADOCS%s. Koleksi galeri rasmi "
                      "Pertubuhan Doktor Khatan Malaysia." %
-                     (a["tajuk"], _n, (" — " + _meta) if _meta else ""))
+                     (a["tajuk"], _n, (", " + _meta) if _meta else ""))
         halaman("galeri", "%s | Galeri MADOCS" % a["tajuk"], _desc[:165],
                 "/galeri/%s/" % a["slug"], isi)
 
@@ -2198,16 +2198,13 @@ def bina_kebolehaksesan():
     <div>
       <div class="card prose">
         <h2>Komitmen kami</h2>
-        <p>MADOCS mahu maklumat tentang pertubuhan, kursus dan keahlian boleh diakses oleh semua orang —
-        termasuk pengguna pembaca skrin, pengguna papan kekunci, dan mereka yang membaca pada telefon
-        dengan teks besar. Kami merujuk garis panduan <b>WCAG 2.2 tahap AA</b> sebagai sasaran, dan
-        memperbaiki laman secara berperingkat.</p>
+        <p>MADOCS mahu maklumat tentang pertubuhan, kursus dan keahlian boleh diakses oleh semua orang, termasuk pengguna pembaca skrin, pengguna papan kekunci, dan mereka yang membaca pada telefon dengan teks besar. Kami merujuk garis panduan <b>WCAG 2.2 tahap AA</b> sebagai sasaran, dan memperbaiki laman secara berperingkat.</p>
 
         <h2>Apa yang telah kami lakukan</h2>
         <ul>
           <li>Struktur tajuk yang tersusun dan teks alternatif bagi setiap gambar.</li>
           <li>Pautan "lompat ke kandungan utama" pada setiap halaman dan keadaan fokus papan kekunci yang jelas.</li>
-          <li>Saiz teks sekurang-kurangnya 12px (kebanyakan teks badan 15–17px) dengan kontras warna yang tinggi.</li>
+          <li>Saiz teks sekurang-kurangnya 12px (kebanyakan teks badan 15-17px) dengan kontras warna yang tinggi.</li>
           <li>Semua gerakan (peralihan halaman, animasi skrol) dimatikan secara automatik apabila peranti pengguna menetapkan "kurang gerakan".</li>
           <li>Laman dwibahasa (Bahasa Melayu dan Inggeris) dengan pemilih bahasa pada setiap halaman.</li>
           <li>Sasaran sentuh sekurang-kurangnya 44px untuk butang dan pautan utama pada telefon.</li>
@@ -2216,14 +2213,12 @@ def bina_kebolehaksesan():
         <h2>Apa yang masih belum sempurna</h2>
         <ul>
           <li>Sebahagian imej masih merupakan <b>imej ilustrasi</b> (dilabel "Imej ilustrasi") menunggu gambar sebenar daripada jawatankuasa.</li>
-          <li>Kandungan yang belum disediakan (angka, jawatankuasa, bahan Pusat Sumber) dipaparkan sebagai "Sedang disediakan" — kami sengaja tidak mengisi ruang itu dengan teks contoh.</li>
+          <li>Kandungan yang belum disediakan (angka, jawatankuasa, bahan Pusat Sumber) dipaparkan sebagai "Sedang disediakan". Kami sengaja tidak mengisi ruang itu dengan teks contoh.</li>
           <li>Muat turun fail (PDF) dalam Pusat Sumber belum diuji dengan pembaca skrin untuk semua pembaca PDF.</li>
         </ul>
 
         <h2>Beritahu kami jika ada halangan</h2>
-        <p>Jika anda menghadapi masalah mengakses mana-mana bahagian laman ini — teks yang tidak boleh dibaca,
-        butang yang sukar ditekan, atau maklumat yang hilang — hubungi urusetia kami. Kami akan cuba membetulkannya
-        dan memberi jawapan dalam masa munasabah (biasanya dalam tiga hari bekerja).</p>
+        <p>Jika anda menghadapi masalah mengakses mana-mana bahagian laman ini, seperti teks yang tidak boleh dibaca, butang yang sukar ditekan, atau maklumat yang hilang, hubungi urusetia kami. Kami akan cuba membetulkannya dan memberi jawapan dalam masa munasabah (biasanya dalam tiga hari bekerja).</p>
         <p>E-mel: <a href="mailto:{esc(SITE['email'])}">{esc(SITE['email'])}</a> &middot;
         Telefon: <a href="tel:{esc(SITE['telefon'])}">{esc(SITE['telefon_papar'])}</a></p>
         <p class="nota-isi">Pernyataan ini dikemas kini pada Oktober 2026 dan akan disemak semula apabila laman
@@ -2249,7 +2244,7 @@ def bina_kebolehaksesan():
 
 
 def bina_404():
-    isi = page_hero([("Utama", "/"), ("Halaman tidak dijumpai", None)], "404 — Halaman tidak dijumpai",
+    isi = page_hero([("Utama", "/"), ("Halaman tidak dijumpai", None)], "404: Halaman tidak dijumpai",
                     "Maaf, halaman yang anda cari tidak wujud atau telah berpindah.") + """
 <section class="content-wrap">
   <div class="shell split lebar">
@@ -2265,7 +2260,7 @@ def bina_404():
     </div>
   </div>
 </section>"""
-    halaman("", "404 — Halaman tidak dijumpai | MADOCS",
+    halaman("", "404: Halaman tidak dijumpai | MADOCS",
             "Halaman yang anda cari tidak dijumpai.", "/404.html", isi, masuk_sitemap=False)
 
 
@@ -2308,7 +2303,7 @@ def bina_prakata():
   </div>
 </section>"""
     halaman("tentang", "%s | MADOCS" % p["tajuk"],
-            "Dari Meja Presiden — perutusan daripada Presiden Pertubuhan Doktor Khatan Malaysia (MADOCS), Dr. Abdol Rashid bin Masrom.",
+            "Dari Meja Presiden: perutusan daripada Presiden Pertubuhan Doktor Khatan Malaysia (MADOCS), Dr. Abdol Rashid bin Masrom.",
             "/dari-meja-presiden/", isi)
 
 

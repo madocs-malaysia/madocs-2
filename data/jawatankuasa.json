@@ -1,6 +1,6 @@
 {
- "cara_edit": "Senarai Jawatankuasa Eksekutif. 'jawatan' contohnya: Presiden, Naib Presiden, Setiausaha, Bendahari, Ahli Jawatankuasa. Gambar pilihan. 'penasihat' ialah senarai Penasihat (pakar bedar yang menasihati jawatankuasa) — dipaparkan sebagai seksyen berasingan di halaman Mengenai; kosongkan senarai jika tiada. 'sesi' dipaparkan sebagai tajuk seksyen. 'struktur' ialah carta organisasi (bilangan dan jawatan) daripada brosur rasmi; senarai nama individu diisi apabila jawatankuasa menyerahkan senarai 2026-2028.",
- "sesi": "2026–2028",
+ "cara_edit": "Senarai Jawatankuasa Eksekutif. 'jawatan' contohnya: Presiden, Naib Presiden, Setiausaha, Bendahari, Ahli Jawatankuasa. Gambar pilihan. 'penasihat' ialah senarai Penasihat (pakar bedar yang menasihati jawatankuasa): dipaparkan sebagai seksyen berasingan di halaman Mengenai; kosongkan senarai jika tiada. 'sesi' dipaparkan sebagai tajuk seksyen. 'struktur' ialah carta organisasi (bilangan dan jawatan) daripada brosur rasmi; senarai nama individu diisi apabila jawatankuasa menyerahkan senarai 2026-2028.",
+ "sesi": "2026-2028",
  "jawatankuasa": [
   {
    "nama": "Dr. Abdol Rashid bin Masrom",
@@ -114,7 +114,7 @@
  },
  "carta": {
   "gambar": "assets/carta-organisasi-2026-2028.webp",
-  "gambar_alt": "Carta organisasi Pertubuhan Doktor Khatan Malaysia (MADOCS) sesi 2026–2028",
-  "sumber": "Carta organisasi rasmi MADOCS sesi 2026–2028"
+  "gambar_alt": "Carta organisasi Pertubuhan Doktor Khatan Malaysia (MADOCS) sesi 2026-2028",
+  "sumber": "Carta organisasi rasmi MADOCS sesi 2026-2028"
  }
 }

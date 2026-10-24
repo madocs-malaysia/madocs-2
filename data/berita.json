@@ -1,5 +1,5 @@
 {
- "cara_edit": "Berita/pengumuman. 'kandungan' ialah senarai perenggan. Setiap berita boleh ada beberapa perenggan. DRAF: teks ini ditulis oleh urusetia teknikal berdasarkan tarikh/tempat peristiwa — jawatankuasa dinasihatkan menyemak dan menambah butiran sebelum dihebahkan.",
+ "cara_edit": "Berita/pengumuman. 'kandungan' ialah senarai perenggan. Setiap berita boleh ada beberapa perenggan. DRAF: teks ini ditulis oleh urusetia teknikal berdasarkan tarikh/tempat peristiwa, jawatankuasa dinasihatkan menyemak dan menambah butiran sebelum dihebahkan.",
  "berita": [
   {
    "slug": "2026-11-24-cme-tissue-adhesive",
@@ -7,16 +7,16 @@
    "tarikh": "2026-11-24",
    "kategori": "CME",
    "penulis": "Urusetia MADOCS",
-   "ringkas": "Dr Abdul Rashid bin Masrom dijemput membentangkan penggunaan pelekat tisu (tissue adhesive) dalam berkhatan pediatrik pada webinar CME bersama PERDIM, 24 November 2026, 2.00–3.00 petang.",
+   "ringkas": "Dr Abdul Rashid bin Masrom dijemput membentangkan penggunaan pelekat tisu (tissue adhesive) dalam berkhatan pediatrik pada webinar CME bersama PERDIM, 24 November 2026, 2.00-3.00 petang.",
    "kandungan": [
-    "Presiden MADOCS, Dr Abdul Rashid bin Masrom, dijemput menyampaikan ceramah CME bertajuk \"Beyond the Conventional Clamp — The Role of Tissue Adhesives in Pediatric Circumcision\". Sesi ini dianjurkan bersama Pertubuhan Doktor-Doktor Islam Malaysia (PERDIM) dan MADOCS.",
+    "Presiden MADOCS, Dr Abdul Rashid bin Masrom, dijemput menyampaikan ceramah CME bertajuk \"Beyond the Conventional Clamp, The Role of Tissue Adhesives in Pediatric Circumcision\". Sesi ini dianjurkan bersama Pertubuhan Doktor-Doktor Islam Malaysia (PERDIM) dan MADOCS.",
     "Ceramah akan diadakan pada 24 November 2026 (Selasa), 2.00 hingga 3.00 petang, secara dalam talian melalui Teams Webinar. Sesi ini terbuka kepada doktor dan pengamal perubatan yang berminat dengan perkembangan teknik berkhatan pediatrik.",
     "Permohonan mata CPD PERDIM sedang diproses. Bilangan mata CPD akan dimaklumkan di halaman ini sebaik ia disahkan. Penyertaan akan direkodkan oleh penganjur bersama.",
     "MADOCS mengucapkan terima kasih kepada Presiden dan Ahli Jawatankuasa PERDIM kerana bersetuju menjemput Presiden MADOCS, dan kepada Asumed Biotech selaku penaja program.",
     "Untuk mendaftar minat, imbas kod QR pada poster atau hubungi urusetia MADOCS. Sesi akan dijalankan dalam bahasa Inggeris."
    ],
    "gambar": "assets/berita-2026-11-24-cme-tissue-adhesive.webp",
-   "gambar_alt": "Poster webinar CME Beyond the Conventional Clamp — The Role of Tissue Adhesives in Pediatric Circumcision, 24 November 2026, Teams Webinar, anjuran PERDIM dan MADOCS"
+   "gambar_alt": "Poster webinar CME Beyond the Conventional Clamp, The Role of Tissue Adhesives in Pediatric Circumcision, 24 November 2026, Teams Webinar, anjuran PERDIM dan MADOCS"
   },
   {
    "slug": "2026-09-17-pelancaran-garis-panduan-berkhatan",
@@ -73,13 +73,13 @@
    "ringkas": "Akhbar Kosmo! melaporkan program berkhatan beramai-ramai MADOCS di Semporna yang memberi manfaat kepada 150 kanak-kanak kurang berkemampuan.",
    "kandungan": [
     "Akhbar Kosmo! pada 3 Julai 2026 melaporkan Program Berkhatan Beramai-ramai MADOCS di Dewan Arena Masyarakat, Semporna, Sabah, yang memberi manfaat kepada 150 kanak-kanak kurang berkemampuan di daerah itu dan sekitarnya.",
-    "Menurut laporan tersebut, program sehari itu dijayakan oleh 77 petugas — termasuk 20 jurulatih dalam kalangan pakar pembedahan, pegawai perubatan dan pembantu perubatan — serta sukarelawan Semporna Prihatin.",
+    "Menurut laporan tersebut, program sehari itu dijayakan oleh 77 petugas (termasuk 20 jurulatih dalam kalangan pakar pembedahan, pegawai perubatan dan pembantu perubatan), serta sukarelawan Semporna Prihatin.",
     "Program itu dijalankan serentak dengan Kursus Privileging Berkhatan (Dorsal Slit) Bahagian Dua Siri Keempat (PCC 2-4) MADOCS, yang menyaksikan 32 orang doktor menjalani penilaian.",
     "MADOCS merakamkan penghargaan kepada semua petugas, sukarelawan dan rakan kerjasama yang menjayakan program ini."
    ],
    "gambar": "assets/aktiviti-pcc2-4-semporna.webp",
    "gambar_alt": "Sepanduk kursus PCC2-4 dipasang di hadapan premis di Semporna",
-   "sumber_teks": "Kosmo! — “150 kanak-kanak dirai dalam program khatan MADOCS” (3 Julai 2026)",
+   "sumber_teks": "Kosmo!, “150 kanak-kanak dirai dalam program khatan MADOCS” (3 Julai 2026)",
    "sumber_pautan": "https://www.kosmo.com.my/2026/07/03/150-kanak-kanak-dirai-dalam-program-khatan-madocs/"
   },
   {
@@ -123,7 +123,7 @@
    "kandungan": [
     "MADOCS mengadakan Program MADOCS 2026 pada 26 April 2026 di Howard Johnson by Wyndham, Kuala Lumpur.",
     "Program sehari itu merangkumi tiga bahagian: sesi Pembangunan Profesional Berterusan (CME), Jamuan Aidilfitri bersama ahli, dan Mesyuarat Agung Tahunan Ke-4 (AGM4).",
-    "Dalam AGM4, ahli-ahli memilih barisan Ahli Jawatankuasa bagi sesi 2026–2028. Senarai penuh jawatankuasa boleh dilihat di halaman Mengenai."
+    "Dalam AGM4, ahli-ahli memilih barisan Ahli Jawatankuasa bagi sesi 2026-2028. Senarai penuh jawatankuasa boleh dilihat di halaman Mengenai."
    ],
    "gambar": "assets/berita-agm-2026-kumpulan.webp",
    "gambar_alt": "Ahli-ahli MADOCS bergambar bersama selepas Program MADOCS 2026 di Kuala Lumpur"

@@ -2,10 +2,10 @@
  "cara_edit": "Sumber klinikal dan rujukan. 'akses' mesti 'awam' atau 'ahli'. Jangan terbit pautan yang belum disemak oleh penyemak klinikal (PRD §21). 'fail' boleh jadi laluan dalam laman (assets/…) atau pautan luar (https://…).",
  "sumber": [
   {
-   "tajuk": "Poster Ceramah CME — Tissue Adhesives dalam Berkhatan Pediatrik",
+   "tajuk": "Poster Ceramah CME Tissue Adhesives dalam Berkhatan Pediatrik",
    "tarikh": "2026-11-24",
    "kategori": "CME",
-   "ringkas": "Poster webinar CME 24 November 2026, 2.00–3.00 petang (Teams). Anjuran bersama PERDIM dan MADOCS, penaja Asumed Biotech.",
+   "ringkas": "Poster webinar CME 24 November 2026, 2.00-3.00 petang (Teams). Anjuran bersama PERDIM dan MADOCS, penaja Asumed Biotech.",
    "fail": "assets/dokumen/poster-cme-tissue-adhesive.pdf",
    "akses": "awam"
   },
@@ -26,7 +26,7 @@
    "akses": "awam"
   },
   {
-   "tajuk": "Malaysian Medical Council — pendaftaran dan garis panduan",
+   "tajuk": "Malaysian Medical Council: pendaftaran dan garis panduan",
    "tarikh": "2026-01-01",
    "kategori": "Pautan luar",
    "ringkas": "Laman rasmi MMC: pendaftaran doktor, kod etika dan peraturan amalan perubatan di Malaysia.",
@@ -34,7 +34,7 @@
    "akses": "awam"
   },
   {
-   "tajuk": "PERDIM — Pertubuhan Doktor-Doktor Islam Malaysia",
+   "tajuk": "PERDIM: Pertubuhan Doktor-Doktor Islam Malaysia",
    "tarikh": "2026-01-01",
    "kategori": "Pautan luar",
    "ringkas": "Rakan kerjasama MADOCS dalam program CME dan latihan. Laman rasmi PERDIM dengan program dan pendaftaran CPD.",
