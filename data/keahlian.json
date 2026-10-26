@@ -23,6 +23,10 @@
    "kelayakan": "Pelajar perubatan"
   },
   {
+   "nama": "Ahli Kehormat",
+   "kelayakan": "Pakar bedah, doktor atau individu yang telah menyumbang dalam bidang berkhatan dan diiktiraf pertubuhan; dilantik khas oleh Ahli Jawatankuasa"
+  },
+  {
    "nama": "Ahli Seumur Hidup",
    "kelayakan": "Ahli yang memilih keahlian seumur hidup"
   }
@@ -31,22 +35,27 @@
   {
    "kategori": "Ahli Biasa",
    "yuran": "RM200",
-   "nota": "Yuran masuk RM100 + yuran tahunan RM100"
+   "nota": "Yuran masuk RM100 + yuran tahunan RM100 (Perlembagaan Kl. 6.1.1)"
   },
   {
    "kategori": "Ahli Bersekutu",
    "yuran": "RM200",
-   "nota": "Yuran masuk RM100 + yuran tahunan RM100"
+   "nota": "Yuran masuk RM100 + yuran tahunan RM100 (Perlembagaan Kl. 6.1.2)"
   },
   {
    "kategori": "Ahli Pelajar",
-   "yuran": "RM100",
-   "nota": "Yuran masuk RM50 + yuran tahunan RM50"
+   "yuran": "RM50",
+   "nota": "Yuran masuk RM25 + yuran tahunan RM25 (Perlembagaan Kl. 6.1.3)"
+  },
+  {
+   "kategori": "Ahli Kehormat",
+   "yuran": "Tiada yuran",
+   "nota": "Tiada yuran masuk atau tahunan; lantikan khas oleh Ahli Jawatankuasa (Perlembagaan Kl. 6.1.4)"
   },
   {
    "kategori": "Ahli Seumur Hidup",
    "yuran": "RM1,000",
-   "nota": "Yuran masuk RM100 + RM900 (promosi 2026). Harga biasa RM1,100"
+   "nota": "Yuran masuk RM100 + RM900 (promosi 2026). Harga biasa RM1,100 (Perlembagaan Kl. 6.1.5)"
   },
   {
    "kategori": "Naik taraf Biasa ke Seumur Hidup",
@@ -55,8 +64,8 @@
   },
   {
    "kategori": "Pembaharuan tahunan",
-   "yuran": "RM100 / RM50",
-   "nota": "Biasa & Bersekutu RM100; Pelajar RM50"
+   "yuran": "RM100 / RM25",
+   "nota": "Biasa & Bersekutu RM100; Pelajar RM25 (Perlembagaan Kl. 6.1)"
   }
  ],
  "kelayakan": [
@@ -82,6 +91,14 @@
   {
    "s": "Bagaimana proses permohonan?",
    "j": "Hantar borang permohonan; Jawatankuasa Keahlian akan menyemak dan menghubungi pemohon."
+  },
+  {
+   "s": "Apakah Ahli Kehormat?",
+   "j": "Ahli Kehormat ialah pakar bedah, doktor atau individu yang telah menyumbang dalam bidang berkhatan dan diiktiraf pertubuhan. Mereka dilantik khas oleh Ahli Jawatankuasa dan tidak dikenakan sebarang yuran (Perlembagaan Kl. 4.1 dan 6.1.4)."
+  },
+  {
+   "s": "Siapa yang layak mengundi dalam Mesyuarat Agung?",
+   "j": "Hanya Ahli Biasa. Ahli Bersekutu dan Ahli Pelajar tidak layak mengundi (Perlembagaan Kl. 7.1)."
   }
  ],
  "promosi": {
@@ -151,5 +168,6 @@
    }
   ]
  },
- "sumber_nota": "Kategori keahlian dan kelayakan diambil daripada brosur rasmi MADOCS (2023); yuran daripada poster promosi rasmi jawatankuasa (2026). Jawatankuasa boleh mengemas kini pada bila-bila masa."
+ "sumber_nota": "Kategori, kelayakan dan yuran diambil daripada Perlembagaan MADOCS (Klausa 4 dan 6); pertubuhan ini didaftarkan dengan Pendaftar Pertubuhan Malaysia. Promosi Keahlian Seumur Hidup 2026 ialah keputusan Ahli Jawatankuasa. Jawatankuasa boleh mengemas kini pada bila-bila masa.",
+ "hak_undi": "Hanya Ahli Biasa boleh mengundi dalam Mesyuarat Agung; Ahli Bersekutu dan Ahli Pelajar tidak layak mengundi (Perlembagaan Kl. 7.1)."
 }

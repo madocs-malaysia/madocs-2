@@ -1087,7 +1087,7 @@ def bina_tentang():
 
     fakta = {'<dt>': '<dt>', }
     tadbir = f"""<dl class="facts">
-  <div><dt>Nama berdaftar</dt><dd>{esc(SITE['nama'])} ({esc(SITE['nama_en'])})</dd></div>
+  <div><dt>Nama berdaftar</dt><dd>{esc(SITE.get('nama_rasmi') or (SITE['nama'] + ' (' + SITE['nama_en'] + ', ' + SITE['singkatan'] + ')'))}</dd></div>
   <div><dt>Nombor pendaftaran</dt><dd>{esc(SITE['pendaftaran'])}</dd></div>
   {f'<div><dt>Berdaftar dengan ROS</dt><dd>{esc(SITE["daftar_ros"])}</dd></div>' if SITE.get('daftar_ros') else ''}
   <div><dt>Ditubuhkan</dt><dd>{esc(SITE['ditubuhkan'])}</dd></div>
@@ -1451,6 +1451,9 @@ def bina_keahlian():
                    ["Kategori", "Yuran", "Nota"],
                    "Struktur yuran keahlian sedang disahkan. Sila rujuk urusetia MADOCS.")
 
+    hak_undi = ('<div class="form-note" style="margin-top:12px"><b>Hak mengundi:</b> %s</div>'
+                % esc(kh["hak_undi"])) if kh.get("hak_undi") else ""
+
     kelayakan = "".join("<li>%s</li>" % esc(x) for x in kh.get("kelayakan", [])) or \
         "<li>Butiran kelayakan sedang disahkan oleh jawatankuasa.</li>"
     dokumen = "".join("<li>%s</li>" % esc(x) for x in kh.get("dokumen", [])) or \
@@ -1491,6 +1494,7 @@ def bina_keahlian():
     <div class="card" style="margin-top:18px">
       <h2>Yuran keahlian</h2>
       {yuran}
+      {hak_undi}
     </div>
     <div class="grid-2" style="margin-top:18px;align-items:start">
       <div class="card">
