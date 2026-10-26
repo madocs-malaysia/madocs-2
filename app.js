@@ -253,24 +253,28 @@
     var selang = ((parseInt(hero && hero.getAttribute("data-selang"), 10) || 7)) * 1000;
     var indeks = 0, pemasa = null;
 
-    function muatSemua() {
-      slaid.forEach(function (p) {
-        var s = p.querySelector("source[data-srcset]");
-        var i = p.querySelector("img[data-src]");
-        if (s) { s.srcset = s.getAttribute("data-srcset"); s.removeAttribute("data-srcset"); }
-        if (i) { i.src = i.getAttribute("data-src"); i.removeAttribute("data-src"); }
-      });
+    function muatSlaid(n) {
+      var p = slaid[(n + slaid.length) % slaid.length];
+      if (!p) { return; }
+      var s = p.querySelector("source[data-srcset]");
+      var i = p.querySelector("img[data-src]");
+      if (s) { s.srcset = s.getAttribute("data-srcset"); s.removeAttribute("data-srcset"); }
+      if (i) { i.src = i.getAttribute("data-src"); i.removeAttribute("data-src"); }
     }
+    /* Jimat data telefon: hanya slaid semasa dan slaid seterusnya dimuatkan awal. */
+    function muatSemua() { muatSlaid(indeks); muatSlaid(indeks + 1); }
     function tukar() {
       slaid[indeks].classList.remove("aktif");
       indeks = (indeks + 1) % slaid.length;
       slaid[indeks].classList.add("aktif");
+      muatSlaid(indeks + 1);
       tandaTitik();
     }
     function pergi(arah) {
       slaid[indeks].classList.remove("aktif");
       indeks = (indeks + arah + slaid.length) % slaid.length;
       slaid[indeks].classList.add("aktif");
+      muatSlaid(indeks + 1);
       tandaTitik();
     }
     function mula() { if (!pemasa) { pemasa = window.setInterval(tukar, selang); } }

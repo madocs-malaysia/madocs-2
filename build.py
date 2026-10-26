@@ -2556,7 +2556,7 @@ def cap_versi():
     # Penting kerana GitHub Pages mengecualikan imej daripada revalidasi (max-age=600):
     # tanpa cap, telefon boleh memaparkan gambar LAMA walaupun HTML sudah baharu.
     cap_imej = re.compile(r'(/(?:assets/|favicon|apple-touch-icon)[^"\'\s>]*?\.(?:webp|png|jpe?g|svg|ico))(\?v=[0-9a-f]+)?')
-    cap_imej_data = re.compile(r'(data-srcset?=")(/[^"]+?)(")')
+    cap_imej_data = re.compile(r'(data-srcset?=")(/[^"?]+)(\?v=[0-9a-f]+)?(")')
     jadual = {}
     for f in ROOT.rglob("*.html"):
         if ".git" in f.parts:
@@ -2576,7 +2576,7 @@ def cap_versi():
         baharu = cap_imej.sub(
             lambda m: "%s?v=%s" % (m.group(1), jadual.get(m.group(1), tanda)), teks)
         baharu = cap_imej_data.sub(
-            lambda m: "%s%s?v=%s%s" % (m.group(1), m.group(2), jadual.get(m.group(2), tanda), m.group(3)), baharu)
+            lambda m: "%s%s?v=%s%s" % (m.group(1), m.group(2), jadual.get(m.group(2), tanda), m.group(4)), baharu)
         if baharu != teks:
             f.write_text(baharu, encoding="utf-8")
             bil_imej += 1
