@@ -98,6 +98,7 @@ def audit():
     }
 
     fail_semua = semua_html()
+    laporan['atribut_rosak'] = []
     laporan['halaman'] = len(fail_semua)
 
     for fail in fail_semua:
@@ -115,6 +116,10 @@ def audit():
                 simpan = laporan['gambar_rosak'] if jenis == 'gambar' else laporan['pautan_rosak']
                 if len(simpan) < 400:
                     simpan.append((relatif, url))
+
+        # --- atribut ter-escape (contoh: srcset=&quot;...&quot;) menyebabkan gambar rosak
+        for cacat in re.findall(r'(?:srcset|sizes|src|href)=&quot;', html):
+            laporan['atribut_rosak'].append((relatif, cacat))
 
         # --- alt
         for img in doc.find_all('img'):
@@ -205,6 +210,7 @@ def tulis(laporan, keluar):
     tambah('| Halaman dengan masalah meta | %d |' % len(laporan['meta']))
     tambah('| Halaman bukan satu `<h1>` | %d |' % len(laporan['h1']))
     tambah('| Halaman EN dengan sisa BM | %d |' % len(laporan['sisa_bm']))
+    tambah('| Atribut HTML ter-escape | %d |' % len(laporan['atribut_rosak']))
     tambah('| Ralat JSON-LD | %d |' % len(laporan['jsonld_ralat']))
     tambah('')
 
