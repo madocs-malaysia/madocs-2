@@ -933,28 +933,42 @@ footer .socials a:hover,.tile:hover>span.ikon{transform:none}
   .hero-berita-teks small{font-size:8px}
 }
 
-/* ---- Kawalan hero: anak panah separa lutsinar di kiri/kanan, titik di sisi kanan ---- */
-.hero-nav{position:absolute;bottom:26px;z-index:7;width:44px;height:44px;border:0;
-  border-radius:50%;cursor:pointer;display:grid;place-items:center;color:#fff;
-  background:rgba(60,6,18,.34);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  box-shadow:0 6px 20px #2c030826;opacity:.9;transition:background .2s,opacity .2s,transform .2s}
-.hero-nav svg{width:20px;height:20px}
-.hero-nav:hover,.hero-nav:focus-visible{background:rgba(60,6,18,.62);opacity:1;transform:scale(1.06)}
-.hero-nav-kiri{left:calc(39% + 14px)}
-.hero-nav-kanan{right:64px}
+/* ---- Kawalan hero: satu baris  < · · · · · >  (Dr Azfar, Okt 2026) ----
+   Anak panah dan titik kini dalam satu bekas flex, bukan tiga elemen berasingan. */
+.hero-kawalan{
+  position:absolute; z-index:7; bottom:24px;
+  left:calc(39% + 30.5%);            /* tengah kawasan gambar (39%..100%) */
+  transform:translateX(-50%);
+  display:flex; align-items:center; gap:12px;
+  padding:7px 10px; border-radius:99px;
+  background:rgba(46,5,14,.4);
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  box-shadow:0 8px 22px #2c030833;
+}
+.hero-nav{position:static; width:34px; height:34px; border:0; padding:0;
+  border-radius:50%; cursor:pointer; display:grid; place-items:center; color:#fff;
+  background:#ffffff1f; transition:background .2s, transform .2s}
+.hero-nav svg{width:17px; height:17px}
+.hero-nav:hover,.hero-nav:focus-visible{background:#ffffff3d; transform:scale(1.06)}
 
-.hero-titik{position:absolute;top:50%;right:26px;transform:translateY(-50%);z-index:7;
-  display:flex;flex-direction:column;align-items:center;gap:7px}
-.hero-titik button{width:7px;height:7px;padding:0;border:0;border-radius:99px;cursor:pointer;
-  background:rgba(255,255,255,.55);box-shadow:0 1px 4px #2c030840;transition:height .25s,background .25s}
-.hero-titik button[aria-current="true"]{height:20px;background:#fff}
+.hero-titik{position:static; transform:none; display:flex; flex-direction:row;
+  align-items:center; gap:6px}
+.hero-titik button{width:7px; height:7px; padding:0; border:0; border-radius:99px; cursor:pointer;
+  background:#ffffff8c; transition:width .25s, background .25s}
+.hero-titik button[aria-current="true"]{width:20px; background:#fff}
 
+@media (min-width:961px) and (max-width:1180px){
+  .hero-kawalan{left:calc(39% + 30.5%)}
+}
+@media (max-width:960px){
+  .hero-kawalan{left:65%; transform:translateX(-50%)}
+}
 @media (max-width:640px){
-  /* telefon: leret dan titik sudah cukup; anak panah disembunyikan */
+  /* telefon: anak panah disembunyikan (leret sudah cukup), titik di tengah bawah gambar */
   .hero-nav{display:none}
-  .hero-titik{top:auto;bottom:calc(54% + 10px);right:auto;left:50%;transform:translateX(-50%);
-    flex-direction:row;gap:6px}
-  .hero-titik button[aria-current="true"]{height:7px;width:20px}
+  /* telefon: gambar tinggi tetap 340px (lihat peraturan GAYA A), jadi titik 44px dari bawahnya */
+  .hero-kawalan{left:50%; top:296px; bottom:auto; transform:translateX(-50%);
+    padding:5px 9px; gap:6px}
 }
 
 /* Slaid berita: kurangkan lapisan putih supaya poster/gambar kekal jelas */
@@ -1052,12 +1066,12 @@ section[id]{scroll-margin-top:92px}
    Berselang A/B supaya setiap seksyen terpisah jelas, dan kad lebih menonjol
    (bayang lebih dalam + naik sedikit pada hover). */
 .seksyen-a{
-  background:linear-gradient(180deg,#f6dbe2 0%,#efc4cf 52%,#f4d5de 100%);
-  border-block:1px solid #e6b8c5;
+  background:linear-gradient(180deg,#f4ecee 0%,#eee3e6 52%,#f3eaec 100%);
+  border-block:1px solid #e4d5d8;
 }
 .seksyen-b{
-  background:linear-gradient(180deg,#fff7f9 0%,#fdeef2 100%);
-  border-block:1px solid #f4dbe2;
+  background:#ffffff;
+  border-block:1px solid #efe3e5;
 }
 .seksyen-a .section-title-row h2,
 .seksyen-b .section-title-row h2{color:#5c0818}
@@ -1069,18 +1083,18 @@ section[id]{scroll-margin-top:92px}
 .seksyen-a .course-feature,
 .seksyen-a .activity-card,
 .seksyen-a .item{
-  background:linear-gradient(180deg,#fffdfd 0%,#fff3f6 100%);
-  border:1px solid #e9bcc7;
-  box-shadow:0 16px 36px #51071633, 0 4px 10px #5107161f;
+  background:linear-gradient(180deg,#ffffff 0%,#fdf7f8 100%);
+  border:1px solid #e6d7d9;
+  box-shadow:0 14px 32px #5107162e, 0 3px 8px #5107161c;
 }
 /* Kad pada seksyen B: maroon lembut, lebih gelap daripada latar */
 .seksyen-b .tile,
 .seksyen-b .course-feature,
 .seksyen-b .activity-card,
 .seksyen-b .item{
-  background:linear-gradient(180deg,#fae1e8 0%,#f3c8d4 100%);
-  border:1px solid #e3afbe;
-  box-shadow:0 14px 32px #51071629, 0 3px 8px #5107161a;
+  background:linear-gradient(180deg,#eee0e2 0%,#e3ced2 100%);
+  border:1px solid #d8c3c7;
+  box-shadow:0 16px 34px #51071633, 0 4px 9px #51071621;
 }
 .seksyen-a .tile:hover,
 .seksyen-a .course-feature:hover,

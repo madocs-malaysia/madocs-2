@@ -285,6 +285,10 @@
       }
     }
     if (hero) {
+      /* Satu baris kawalan: < · · · · · > (anak panah dan titik sebaris) */
+      var kawalan = document.createElement("div");
+      kawalan.className = "hero-kawalan";
+      hero.appendChild(kawalan);
       var butang = [
         { kelas: "hero-nav-kiri", arah: -1, label: "Slaid sebelum", ikon: "M15 18l-6-6 6-6" },
         { kelas: "hero-nav-kanan", arah: 1, label: "Slaid seterusnya", ikon: "M9 18l6-6-6-6" },
@@ -297,7 +301,7 @@
         el.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" ' +
                        'stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="' + b.ikon + '"/></svg>';
         el.addEventListener("click", function (e) { e.preventDefault(); tolak(b.arah); });
-        hero.appendChild(el);
+        kawalan.appendChild(el);
       });
 
       /* --- titik penunjuk di sisi kanan gambar --- */
@@ -319,7 +323,7 @@
         bekasTitik.appendChild(t);
         titik.push(t);
       });
-      hero.appendChild(bekasTitik);
+      kawalan.insertBefore(bekasTitik, kawalan.querySelector(".hero-nav-kanan"));
       tandaTitik();
     }
 
