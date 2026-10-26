@@ -1542,7 +1542,7 @@ a.btn.btn-primary,a.btn.btn-primary:visited,
   .org-dua-lajur{max-width:none;justify-items:stretch}
   .org-dua-lajur>div{justify-items:stretch}
   /* Satu lajur menegak: Presiden, Timb. Presiden, Setiausaha Agung, Penolong, Bendahari */
-  .org-ajk{grid-template-columns:1fr;gap:18px;grid-auto-rows:auto}
+  .org-ajk{grid-auto-rows:auto}
   .org-grid.penasihat{max-width:none}
   .struktur-kad-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .struktur-kad{min-width:0}
@@ -1551,12 +1551,22 @@ a.btn.btn-primary,a.btn.btn-primary:visited,
 
 /* Majlis Tertinggi: semua lima jawatan guna gaya baris yang sama (potret kiri, nama kanan)
    supaya benar-benar satu lajur menegak yang sekata. */
+
+/* Majlis Tertinggi: kelima-lima baris guna grid yang SAMA (b/small jadi anak grid
+   melalui display:contents) supaya tiada lagi kesan 'tersorok ke dalam'. */
 @media (max-width:640px){
-  .org-dua-lajur .org-ahli{
+  .org-tengah .org-ahli,.org-dua-lajur .org-ahli{
     display:grid;grid-template-columns:auto 1fr;column-gap:14px;row-gap:1px;
     align-items:center;justify-items:start;text-align:left;width:100%;
   }
-  .org-dua-lajur .org-ahli .org-bulat{grid-row:1/span 2}
-  .org-dua-lajur .org-ahli b{grid-column:2;align-self:end}
-  .org-dua-lajur .org-ahli small{grid-column:2;align-self:start;text-align:left}
+  .org-tengah .org-ahli-sisi .org-teks{display:contents}
+  .org-tengah .org-ahli .org-bulat,.org-dua-lajur .org-ahli .org-bulat{grid-row:1/span 2;margin:0}
+  .org-tengah .org-ahli b,.org-dua-lajur .org-ahli b{grid-column:2;align-self:end}
+  .org-tengah .org-ahli small,.org-dua-lajur .org-ahli small{grid-column:2;align-self:start;text-align:left}
+
+  /* Ahli Jawatankuasa: 2 lajur, nama dibalut (bukan melimpah keluar) */
+  .org-ajk{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}
+  .org-ajk .org-ahli{min-width:0;max-width:100%}
+  .org-ajk .org-ahli b{font-size:13px;line-height:1.3;overflow-wrap:anywhere;hyphens:auto;text-align:center;max-width:100%}
+  .org-ajk .org-bulat{width:78px;height:78px}
 }

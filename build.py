@@ -2298,8 +2298,8 @@ def blok_jawatankuasa(jk_data):
                         % "".join(_kad(a, tanpa_jawatan=True) for a in ajk))
 
     # Jika ada jawatan lain yang tidak dikenali, jangan hilangkan — letak di hujung.
-    dikenali = {"presiden", "naib presiden", "setiausaha agung", "bendahari kehormat",
-                "penolong setiausaha", "ahli jawatankuasa"}
+    dikenali = {"presiden", "naib presiden", "timbalan presiden", "setiausaha agung",
+                "bendahari kehormat", "penolong setiausaha", "ahli jawatankuasa"}
     lain = [a for a in jk if (a.get("jawatan") or "").strip().lower() not in dikenali]
     blok_lain = ('<h3 class="tajuk-kumpulan">Lain-lain</h3><div class="org-ajk">%s</div>'
                  % "".join(_kad(a) for a in lain)) if lain else ""
