@@ -773,71 +773,76 @@ html{overflow-x:clip}
   .hero-slaid{transition:none}
 }
 
-/* --- Ikon sosial 3D (bola berkilat, gaya cembung) --- */
-/* Pemilih 'footer .socials a' (0,1,2) mengalahkan '.footer-grid a' (0,1,1) — termasuk
-   salinan peraturan itu di dalam @media (max-width:640px) yang menjadikan ikon senget ke kiri. */
+/* ================= IKON RATA (flat) =================
+   Ganti gaya 3D/cembung lama (gradien bola berkilat + bayang dalam) yang Doc kata
+   nampak kuno. Gaya baharu: bulatan rata, satu warna, tanpa gradien, tanpa bayang. */
+
 footer .socials a{
   display:grid;
   place-items:center;
   padding:0;
-  background:radial-gradient(circle at 32% 26%, #fdd9e0 0%, #f08298 17%, #cd2244 52%, #8a0b25 82%, #580818 100%);
-  border:1px solid #ffffff2e;
-  box-shadow:0 4px 9px #30050e73, 0 1px 2px #30050e80, inset 0 2px 3px #ffffff8c, inset 0 -3px 7px #00000059;
-  transition:transform .18s ease, box-shadow .18s ease;
+  background:#ffffff1f;
+  border:0;
+  box-shadow:none;
+  color:#fff;
+  transition:background .15s ease;
 }
-footer .socials a svg{filter:drop-shadow(0 1px 1.5px #2c040c8c)}
-footer .socials a:hover{
-  transform:translateY(-2px) scale(1.05);
-  box-shadow:0 7px 14px #30050e8c, inset 0 2px 3px #ffffff94, inset 0 -3px 7px #00000059;
-}
-footer .socials a:active{transform:translateY(0) scale(.97)}
+footer .socials a svg{filter:none}
+footer .socials a:hover{background:#ffffff38}
+footer .socials a:active{background:#ffffff14}
 @media (prefers-reduced-motion:reduce){footer .socials a{transition:none}}
 
-/* ================= IKON 3D — diselaraskan seluruh laman =================
-   Dua keluarga supaya ikon tidak hilang pada latar berbeza:
-     • "bola cerah" (putih berkilat) — latar putih/terang
-     • "bola biru" (biru berkilat) — latar navy/gelap
-   Cahaya datang dari kiri atas, bayang lembut di bawah => nampak cembung (timbul). */
-
+/* Jalur gelap: bulatan garis nipis, ikon putih rata */
 .credential-grid>div>span,
+.cta-icon{
+  border:1.5px solid #ffffff80;
+  background:transparent;
+  box-shadow:none;
+  transition:none;
+}
+.credential-grid svg,.cta-icon svg{filter:none}
+.cta-icon{color:#fff}
+
+/* Latar terang: bulatan warna lembut, ikon warna jenama rata */
 .service-grid article>span,
-.stat>span,
+.tile>span.ikon,
 .modal .close,
 .success>span,
-.kosong span.ikon,
-.carousel-arrow,
-.cta-icon{
-  border:1px solid #ffffffd9;
-  background:radial-gradient(circle at 32% 26%, #ffffff 0%, #fff7f9 40%, #f7e5e8 74%, #e9cdd3 100%);
-  box-shadow:0 7px 15px #3e0d1720, 0 2px 4px #3e0d1733, 0 0 0 1px #edd0d6,
-             inset 0 2px 3px #ffffff, inset 0 -4px 9px #d7b5bc66;
-  transition:transform .18s ease, box-shadow .18s ease;
+.kosong span.ikon{
+  border:0;
+  background:var(--pale);
+  color:var(--blue);
+  box-shadow:none;
+  transition:background .15s ease;
 }
-/* Bulatan pada jalur biru CTA: bola cerah + ikon biru supaya jelas */
-.cta-icon{color:var(--navy)}
-.cta-icon svg{filter:drop-shadow(0 1px 1.5px #3e0d172e)}
-.credential-grid svg,.service-grid svg,.stat svg,.kosong span.ikon svg{filter:drop-shadow(0 1px 1.5px #3e0d172e)}
+.stat>span{
+  border:1px solid #f6d9df;
+  background:#fff;
+  color:var(--blue);
+  box-shadow:none;
+}
+.service-grid svg,.stat svg,.tile>span.ikon svg,.kosong span.ikon svg{filter:none}
 
-footer .socials a,
-.tile>span.ikon{
-  border:1px solid #ffffff2e;
-  background:radial-gradient(circle at 32% 26%, #fdd9e0 0%, #f08298 17%, #cd2244 52%, #8a0b25 82%, #580818 100%);
-  box-shadow:0 5px 11px #30050e73, 0 1px 2px #30050e80, inset 0 2px 3px #ffffff8c, inset 0 -3px 7px #00000059;
-  transition:transform .18s ease, box-shadow .18s ease;
+.carousel-arrow{
+  background:#fff;
+  border:1px solid var(--line);
+  color:var(--navy);
+  box-shadow:none;
 }
-.tile>span.ikon svg{filter:drop-shadow(0 1px 1.5px #2c040c8c)}
+.carousel-arrow:hover{background:var(--pale);color:var(--blue)}
 
-/* Butang bulat di atas lapisan gelap + anak panah: sedikit timbul */
-.lightbox button{box-shadow:0 5px 12px #00000059, inset 0 1px 2px #ffffff33}
+/* Kesan sentuh: tiada bayang, hanya warna */
+footer .socials a:hover,.tile:hover>span.ikon{transform:none}
 
-/* Kesan sentuh/hover */
-footer .socials a:hover,.tile:hover>span.ikon,.carousel-arrow:hover,.modal .close:hover{
-  transform:translateY(-2px) scale(1.05);
+/* --- Tile manfaat: ikon di kiri, teks di kanan (Doc, Okt 2026) --- */
+.tile-manfaat{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  align-items:center;
+  gap:14px;
 }
-@media (prefers-reduced-motion:reduce){
-  .credential-grid>div>span,.service-grid article>span,.stat>span,.modal .close,
-  .success>span,.kosong span.ikon,.carousel-arrow,.tile>span.ikon,footer .socials a{transition:none}
-}
+.tile-manfaat>span.ikon{margin:0;flex:none}
+.tile-manfaat h3{margin:0}
 
 /* --- Kredit foto pihak ketiga (cth. Wikimedia Commons) --- */
 .chip-kredit{position:absolute;right:8px;bottom:8px;z-index:3;background:#510716c2;color:#fff;
@@ -960,3 +965,19 @@ footer .socials a:hover,.tile:hover>span.ikon,.carousel-arrow:hover,.modal .clos
 
 /* Tarikh pada tandatangan Prakata Presiden */
 .tarikh-prakata { font-size: 13px; color: var(--teks-lembut, #6b6b6b); margin-top: 2px; }
+
+/* --- Nav: elak limpahan pada desktop sederhana (font sans lebih lebar daripada Times) --- */
+@media (min-width:961px) and (max-width:1460px){
+  .logo{flex-basis:214px}
+  .logo strong{font-size:24px}
+  .desktop-nav{gap:13px}
+  .desktop-nav a{font-size:12.6px;letter-spacing:0}
+  .join-nav{padding:12px 13px;font-size:12.6px}
+  .tukar-bahasa{padding:8px 9px;font-size:11.6px}
+  .nav-row{gap:14px}
+}
+@media (min-width:961px) and (max-width:1310px){
+  .logo{flex-basis:198px}
+  .desktop-nav{gap:11px}
+  .desktop-nav a{font-size:12.2px}
+}

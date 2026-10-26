@@ -31,6 +31,10 @@ BULAN = ["Januari", "Februari", "Mac", "April", "Mei", "Jun", "Julai",
          "Ogos", "September", "Oktober", "November", "Disember"]
 BULAN_SING = ["JAN", "FEB", "MAC", "APR", "MEI", "JUN", "JUL", "OGO", "SEP", "OKT", "NOV", "DIS"]
 
+# Kad kongsi sosial (og:image). Fail: assets/og-madocs.png, 1200x630 (nisbah 1.91:1).
+GAMBAR_OG_LALAI = "/assets/og-madocs.png"
+OG_SAIZ = (1200, 630)
+
 STATUS_LABEL = {
     "tentatif": ("Tarikh tentatif", "tentatif"),
     "open": ("Pendaftaran dibuka", "open"),
@@ -273,7 +277,10 @@ NAV = [
 ]
 
 
-def head(tajuk, deskripsi, laluan, og_jenis="website", jsonld=None, noindex=False):
+def head(tajuk, deskripsi, laluan, og_jenis="website", jsonld=None, noindex=False, gambar_og=None):
+    # Kad kongsi sosial lalai: kad jenama 1200x630 (logo + logotaip). Halaman item (berita,
+    # aktiviti, kursus, galeri) menghantar gambar sendiri supaya pratonton pautan kekal relevan.
+    og_imej = ("/" + gambar_og.lstrip("/")) if gambar_og else GAMBAR_OG_LALAI
     kanon = BASE + laluan
     sekatan = []
     sekatan.append('<meta charset="utf-8">')
@@ -294,8 +301,20 @@ def head(tajuk, deskripsi, laluan, og_jenis="website", jsonld=None, noindex=Fals
     sekatan.append('<meta property="og:title" content="%s">' % esc(tajuk))
     sekatan.append('<meta property="og:description" content="%s">' % esc(deskripsi))
     sekatan.append('<meta property="og:url" content="%s">' % esc(kanon))
-    sekatan.append('<meta property="og:image" content="%s%s">' % (esc(BASE), esc(gambar_hero_utama())))
+    sekatan.append('<meta property="og:image" content="%s%s">' % (esc(BASE), esc(og_imej)))
+    # Saiz/jenis hanya diisytiharkan untuk kad jenama; gambar item ada saiznya sendiri dan
+    # pengikis (WhatsApp/Telegram) akan membaca fail sebenar.
+    if gambar_og:
+        jenis = "image/webp" if og_imej.lower().endswith(".webp") else (
+            "image/jpeg" if og_imej.lower().endswith((".jpg", ".jpeg")) else "image/png")
+        sekatan.append('<meta property="og:image:type" content="%s">' % jenis)
+    else:
+        sekatan.append('<meta property="og:image:width" content="%d">' % OG_SAIZ[0])
+        sekatan.append('<meta property="og:image:height" content="%d">' % OG_SAIZ[1])
+        sekatan.append('<meta property="og:image:type" content="image/png">')
+    sekatan.append('<meta property="og:image:alt" content="%s">' % esc("MADOCS — Pertubuhan Doktor Khatan Malaysia"))
     sekatan.append('<meta name="twitter:card" content="summary_large_image">')
+    sekatan.append('<meta name="twitter:image" content="%s%s">' % (esc(BASE), esc(og_imej)))
     data = [organisasi_ld()]
     if jsonld:
         data.extend(jsonld if isinstance(jsonld, list) else [jsonld])
@@ -353,7 +372,7 @@ def header(aktif):
     return f"""<header class="header">
   <div class="shell nav-row">
     <a href="/" class="logo" aria-label="Laman utama MADOCS">
-      <img src="/assets/logo-128.webp" alt="Lambang MADOCS" width="55" height="55">
+      <img src="/assets/logo-192.webp" alt="Lambang MADOCS" width="110" height="110">
       <span>
         <strong>MADOCS</strong>
         <small>Pertubuhan Doktor Khatan Malaysia</small>
@@ -413,7 +432,8 @@ def footer():
 </footer>"""
 
 
-def halaman(aktif, tajuk, deskripsi, laluan, isi, og_jenis="website", jsonld=None, masuk_sitemap=True, noindex=False):
+def halaman(aktif, tajuk, deskripsi, laluan, isi, og_jenis="website", jsonld=None, masuk_sitemap=True,
+            noindex=False, gambar_og=None):
     # Halaman urusan ahli: semua pautan WhatsApp (termasuk topbar dan butang terapung)
     # menghala kepada setiausaha keahlian (Madihah), bukan nombor am persatuan.
     global _WA_KONTEKS
@@ -421,7 +441,7 @@ def halaman(aktif, tajuk, deskripsi, laluan, isi, og_jenis="website", jsonld=Non
     dokumen = f"""<!DOCTYPE html>
 <html lang="ms">
 <head>
-{head(tajuk, deskripsi, laluan, og_jenis, jsonld, noindex)}
+{head(tajuk, deskripsi, laluan, og_jenis, jsonld, noindex, gambar_og)}
 </head>
 <body>
 <a class="skip-link" href="#kandungan">Lompat ke kandungan utama</a>
@@ -918,7 +938,7 @@ def bina_utama():
                           % (icon(i), t, p) for i, t, p in servis)
 
     # --- mengapa sertai
-    manfaat = "".join('<div class="tile"><span class="ikon">%s</span><h3>%s</h3></div>'
+    manfaat = "".join('<div class="tile tile-manfaat"><span class="ikon">%s</span><h3>%s</h3></div>'
                       % (icon("check"), esc(m)) for m in keahlian.get("manfaat", []))
 
     # --- aktiviti
@@ -1411,7 +1431,8 @@ def bina_kursus_detail(k):
 
     halaman("pendidikan", "%s: %s | MADOCS" % (k["tajuk"], k.get("kod", "")),
             k.get("ringkas", "%s oleh MADOCS." % k["tajuk"])[:180],
-            "/pendidikan/%s/" % k["slug"], isi, og_jenis="article", jsonld=ld)
+            "/pendidikan/%s/" % k["slug"], isi, og_jenis="article", jsonld=ld,
+            gambar_og=k.get("gambar"))
 
 
 # ----------------------------------------------------------------- halaman: keahlian
@@ -1430,7 +1451,7 @@ def bina_keahlian():
 
     _form = (kh.get("promosi") or {}).get("borang_url") or kh.get("borang_url") or "/keahlian/sertai/"
     _pautan_borang = esc(_form)
-    manfaat = "".join('<div class="tile"><span class="ikon">%s</span><h3>%s</h3></div>' % (icon("check"), esc(m))
+    manfaat = "".join('<div class="tile tile-manfaat"><span class="ikon">%s</span><h3>%s</h3></div>' % (icon("check"), esc(m))
                       for m in kh.get("manfaat", []))
 
     def jadual(baris, kepala, kosong_teks):
@@ -1732,7 +1753,8 @@ def bina_aktiviti_detail(a):
                                               (a["tajuk"],
                                                (", " + a["tempat"]) if a.get("tempat") else "",
                                                (", " + (a.get('tarikh_papar') or tarikh_pdk(d))) if (a.get('tarikh_papar') or d) else ""))),
-            "/aktiviti/%s/" % a["slug"], isi, og_jenis="article", jsonld=[ld])
+            "/aktiviti/%s/" % a["slug"], isi, og_jenis="article", jsonld=[ld],
+            gambar_og=a.get("gambar"))
 
 
 # ----------------------------------------------------------------- halaman: sumber
@@ -1875,7 +1897,8 @@ def bina_berita_detail(b):
   </div>
 </section>"""
     halaman("berita", tajuk_meta(b["tajuk"], " | Berita MADOCS"),
-            ringkas_meta(b.get("ringkas", "")), "/berita/%s/" % b["slug"], isi, og_jenis="article", jsonld=[ld])
+            ringkas_meta(b.get("ringkas", "")), "/berita/%s/" % b["slug"], isi, og_jenis="article", jsonld=[ld],
+            gambar_og=b.get("gambar"))
 
 
 # ----------------------------------------------------------------- halaman: hubungi
@@ -2168,8 +2191,9 @@ def bina_galeri():
             _desc = ("%s: %d gambar dokumentasi program MADOCS%s. Koleksi galeri rasmi "
                      "Pertubuhan Doktor Khatan Malaysia." %
                      (a["tajuk"], _n, (", " + _meta) if _meta else ""))
+        _gambar_album = ((a.get("gambar") or [{}])[0] or {}).get("src")
         halaman("galeri", tajuk_meta(a["tajuk"], " | Galeri MADOCS"), _desc[:165],
-                "/galeri/%s/" % a["slug"], isi)
+                "/galeri/%s/" % a["slug"], isi, gambar_og=_gambar_album)
 
 
 def bina_peta_sitemap():
