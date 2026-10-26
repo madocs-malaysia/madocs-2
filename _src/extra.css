@@ -272,7 +272,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 /* --- pengepala mengecil sedikit selepas skrol --- */
 .header{transition:box-shadow var(--dur-2) var(--ease)}
-.header.kompak .nav-row{min-height:64px}
+.header.kompak .nav-row{min-height:78px}
 .header.kompak{box-shadow:0 6px 20px #51071614}
 
 /* --- kemunculan lembut semasa skrol --- */
@@ -1515,3 +1515,18 @@ a.btn.btn-primary,a.btn.btn-primary:visited,
 
 /* Kad bersebelahan dalam baris grid tidak perlu jarak atas */
 .kad-sama-tinggi>.card+.card{margin-top:0}
+
+/* ================= HEADER & LIPAHAN MUDAH ALIH (Dr Azfar, Okt 2026) ================= */
+
+/* Ruang atas/bawah logo dalam bar navigasi (desktop & telefon) */
+.nav-row{min-height:94px}
+@media (max-width:960px){.nav-row{min-height:88px}}
+@media (max-width:640px){.nav-row{min-height:82px}}
+
+/* Telefon: bekas carousel aktiviti tidak melebihi lebar skrin (dulu 5px melimpah ke kanan) */
+@media (max-width:640px){
+  .activity-grid{padding:14px 10px 40px;margin:-14px -10px -40px}
+}
+
+/* Telefon: pengepala 'kompak' kekal beri ruang logo (dulu 64px -> terasa terpotong) */
+@media (max-width:640px){.header.kompak .nav-row{min-height:74px}}
