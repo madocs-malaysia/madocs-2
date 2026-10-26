@@ -981,3 +981,91 @@ footer .socials a:hover,.tile:hover>span.ikon{transform:none}
   .desktop-nav{gap:11px}
   .desktop-nav a{font-size:12.2px}
 }
+
+/* ================= HERO MAROON + KAD BERBAYANG (Dr Azfar, Okt 2026) =================
+   1. Hero: panel maroon di kiri, gambar di kanan melarut masuk ke dalam maroon.
+      Teks putih supaya tidak lagi hilang pada gambar cerah.
+   2. Kad: sedikit ton maroon + bayang halus; hover = bayang lebih dalam + naik sedikit.
+   3. Blok CTA: tajuk putih (sebelum ini warna tajuk = warna latar, tidak kelihatan). */
+
+/* --- 3. CTA: tajuk tidak kelihatan --- */
+.community-cta h2{color:#fff}
+.community-cta p{color:#ffd7de}
+.community-cta .cta-btn{color:#7d0b20;background:#fff;border:0;border-radius:5px;font-weight:800}
+.community-cta .cta-btn:hover{background:#fff0f3}
+
+/* --- 1. Hero maroon --- */
+.hero{
+  background:linear-gradient(100deg,#3a0610 0%,#4b0614 34%,#5c0818 56%,#7d0b20 100%);
+  border-bottom:1px solid #610a1b;
+}
+/* Lapisan putih lama dibuang; gambar kini melarut sendiri ke dalam maroon. */
+.hero-wash{display:none}
+.hero-slaid .hero-image,
+.hero .hero-image{
+  -webkit-mask-image:linear-gradient(90deg,#0000 0%,#00000026 10%,#0000008c 24%,#000 46%);
+  mask-image:linear-gradient(90deg,#0000 0%,#00000026 10%,#0000008c 24%,#000 46%);
+}
+/* corak berlian halus: putih pada maroon */
+.hero:after{
+  opacity:.08;
+  background-image:linear-gradient(30deg,#0000 24%,#fff 25% 26%,#0000 27% 74%,#fff 75% 76%,#0000 77%);
+}
+.hero h1{color:#fff}
+.hero h2{color:#ffc9d4}
+.hero-copy>p{color:#ffdde3}
+.hero-kicker{color:#ffb3c2!important}
+.hero .btn-primary{background:#fff;border-color:#fff;color:#7d0b20;box-shadow:0 10px 24px #1e030a33}
+.hero .btn-primary:hover{background:#fff0f3}
+.hero .btn-outline{background:#ffffff14;border-color:#ffffff59;color:#fff}
+.hero .btn-outline:hover{background:#ffffff26}
+
+@media (max-width:640px){
+  .hero{background:linear-gradient(180deg,#4b0614 0%,#54070f 46%,#6a0a1c 100%)}
+  /* telefon: gambar di atas, larut ke bawah ke dalam maroon */
+  .hero .hero-image,
+  .hero-slaid .hero-image{
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 58%,#0000008c 80%,#0000 100%);
+    mask-image:linear-gradient(180deg,#000 0%,#000 58%,#0000008c 80%,#0000 100%);
+  }
+}
+
+/* --- 2. Kad: ton maroon halus + bayang --- */
+.course-feature,
+.tile,
+.activity-card,
+.service-grid{
+  transition:box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+}
+@media (prefers-reduced-motion:reduce){
+  .course-feature,.tile,.activity-card,.service-grid{transition:none}
+  .course-feature:hover,.tile:hover,.activity-card:hover,.service-grid:hover{transform:none}
+}
+
+/* --- Latar seksyen maroon lembut (pilihan Dr Azfar: "soft maroon, sedikit lebih tepu") ---
+   Dipakai pada seksyen Kursus akan datang, Mengapa sertai MADOCS dan Aktiviti terkini.
+   Kad putih + bayang supaya terpisah jelas daripada latar. */
+.seksyen-maroon{
+  background:linear-gradient(180deg,#f8e2e8 0%,#f2ccd7 46%,#f7dee4 100%);
+  border-block:1px solid #ecc6d0;
+}
+.seksyen-maroon .section-title-row h2{color:#5c0818}
+.seksyen-maroon .section-title-row a{color:#8a0b22}
+.seksyen-maroon .tile,
+.seksyen-maroon .course-feature,
+.seksyen-maroon .activity-card{
+  background:#fff;
+  border:1px solid #e9ccd4;
+  box-shadow:0 8px 22px #5107161f, 0 2px 5px #51071614;
+}
+.seksyen-maroon .tile:hover,
+.seksyen-maroon .course-feature:hover,
+.seksyen-maroon .activity-card:hover{
+  box-shadow:0 18px 38px #51071633, 0 4px 10px #5107161f;
+  border-color:#dcb3bf;
+  transform:translateY(-3px);
+}
+
+/* Pautan sauh (cth. /#aktiviti) tidak lagi menyembunyikan tajuk di bawah header lekat. */
+section[id]{scroll-margin-top:92px}
+@media (max-width:960px){section[id]{scroll-margin-top:80px}}

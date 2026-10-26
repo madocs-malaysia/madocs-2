@@ -1017,7 +1017,7 @@ def bina_utama():
   </div>
 </section>
 
-<section class="section-pad" id="kursus">
+<section class="section-pad seksyen-maroon" id="kursus">
   <div class="shell">
     <div class="section-title-row activities-head">
       <h2>Kursus akan datang</h2>
@@ -1027,7 +1027,7 @@ def bina_utama():
   </div>
 </section>
 
-<section class="section-pad" style="background:var(--ice);border-block:1px solid var(--line)">
+<section class="section-pad seksyen-maroon">
   <div class="shell">
     <div class="section-title-row activities-head">
       <h2>Mengapa sertai MADOCS</h2>
@@ -1037,7 +1037,7 @@ def bina_utama():
   </div>
 </section>
 
-<section class="activities section-pad" id="aktiviti">
+<section class="activities section-pad seksyen-maroon" id="aktiviti">
   <div class="shell">
     <div class="section-title-row activities-head">
       <h2>Aktiviti terkini</h2>
