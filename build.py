@@ -2191,7 +2191,7 @@ def blok_jawatankuasa(jk_data):
         tengah = "".join(_kad(a, sisi=True) for a in presiden + naib)
         kiri = "".join(_kad(a) for a in setiausaha + penolong)
         kanan = "".join(_kad(a) for a in bendahari)
-        majlis = ('<h3 class="tajuk-kumpulan">Majlis Tinggi</h3>'
+        majlis = ('<h3 class="tajuk-kumpulan">Majlis Tertinggi</h3>'
                   '<div class="org-tengah">%s</div>'
                   '<div class="org-dua-lajur"><div>%s</div><div>%s</div></div>'
                   % (tengah, kiri, kanan))
