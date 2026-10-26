@@ -764,8 +764,9 @@ def ringkas_meta(teks, had=158):
 
 def item_kandungan(tajuk, url, ringkas, tarikh=None, kategori="", gambar=None, alt="", meta_ikon="calendar-days", kredit=None, tarikh_papar=None, label="Baca lanjut"):
     """Kad senarai untuk berita / aktiviti / sumber."""
-    foto = ('<div class="item-photo"><img src="/%s" alt="%s" loading="lazy" decoding="async">%s%s</div>'
-            % (esc(gambar), esc(alt or tajuk), chip_ilustrasi(alt),
+    _gs, _gset = srcset_imej(gambar) if gambar else ("", "")
+    foto = ('<div class="item-photo"><img src="/%s"%s alt="%s" loading="lazy" decoding="async">%s%s</div>'
+            % (esc(_gs), _gset, esc(alt or tajuk), chip_ilustrasi(alt),
                '<span class="chip-kredit">%s</span>' % esc(kredit) if kredit else "")) if gambar else ""
     kelas = "" if gambar else " no-photo"
     badge = '<span class="badge">%s</span>' % esc(kategori) if kategori else ""
@@ -2263,6 +2264,19 @@ def lebar_imej(laluan: str) -> int:
         except Exception:
             _LEBAR_CACHE[laluan] = 1000
     return _LEBAR_CACHE[laluan]
+
+
+def srcset_imej(src: str, saiz: str = "(max-width: 640px) 92vw, 400px") -> tuple:
+    """Pulangkan (src, atribut_srcset) untuk imej kad biasa.
+
+    Versi kecil dijana oleh alat/bina_imej_responsif.py. Kad berita/aktiviti hanya
+    selebar ~400 px, jadi menghantar fail 1024-1400 px membazir data pembaca telefon.
+    """
+    kecil = src[:-5] + "-kecil.webp" if src.endswith(".webp") else None
+    if kecil and (ROOT / kecil).exists():
+        return kecil, ' srcset="/%s %dw, /%s %dw" sizes="%s"' % (
+            esc(kecil), lebar_imej(kecil), esc(src), lebar_imej(src), saiz)
+    return src, ""
 
 
 def srcset_galeri(src: str) -> tuple:
