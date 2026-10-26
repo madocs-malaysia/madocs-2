@@ -2259,7 +2259,7 @@ def lebar_imej(laluan: str) -> int:
     if laluan not in _LEBAR_CACHE:
         try:
             from PIL import Image
-            with Image.open(ROOT / laluan) as im:
+            with Image.open(ROOT / laluan.lstrip("/")) as im:
                 _LEBAR_CACHE[laluan] = im.width
         except Exception:
             _LEBAR_CACHE[laluan] = 1000
@@ -2273,7 +2273,7 @@ def srcset_imej(src: str, saiz: str = "(max-width: 640px) 92vw, 400px") -> tuple
     selebar ~400 px, jadi menghantar fail 1024-1400 px membazir data pembaca telefon.
     """
     kecil = src[:-5] + "-kecil.webp" if src.endswith(".webp") else None
-    if kecil and (ROOT / kecil).exists():
+    if kecil and (ROOT / kecil.lstrip("/")).exists():
         return kecil, ' srcset="/%s %dw, /%s %dw" sizes="%s"' % (
             esc(kecil), lebar_imej(kecil), esc(src), lebar_imej(src), saiz)
     return src, ""
@@ -2286,7 +2286,7 @@ def srcset_galeri(src: str) -> tuple:
     gambar selebar 300-400 px, jadi menghantar fail 1400 px membazir data pembaca telefon.
     """
     kecil = src[:-5] + "-kecil.webp" if src.endswith(".webp") else None
-    if kecil and (ROOT / kecil).exists():
+    if kecil and (ROOT / kecil.lstrip("/")).exists():
         return kecil, ' srcset="/%s %dw, /%s %dw" sizes="(max-width: 640px) 45vw, (max-width: 1024px) 31vw, 320px"' % (
             esc(kecil), lebar_imej(kecil), esc(src), lebar_imej(src))
     return src, ""
