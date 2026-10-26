@@ -203,7 +203,7 @@ mark{background:#fff2a8;padding:0 2px;border-radius:3px}
    (bukan hanya pada skrin sempit) — jika tidak, kandungan melimpah keluar shell. */
 .logo{flex:0 0 240px}
 .logo strong{font-size:25px}
-.desktop-nav{gap:11px}
+.desktop-nav{gap:17px}
 .desktop-nav a{font-size:13.8px;padding:31px 0 27px}
 .join-nav{padding:12px 13px;font-size:13.8px}
 .tukar-bahasa{padding:8px 10px;font-size:16px;margin-left:9px}
@@ -987,7 +987,7 @@ footer .socials a:hover,.tile:hover>span.ikon{transform:none}
 @media (min-width:961px) and (max-width:1460px){
   .logo{flex-basis:214px}
   .logo strong{font-size:24px}
-  .desktop-nav{gap:13px}
+  .desktop-nav{gap:21px}
   .desktop-nav a{font-size:12.6px;letter-spacing:0}
   .join-nav{padding:12px 13px;font-size:12.6px}
   .tukar-bahasa{padding:8px 9px;font-size:11.6px}
@@ -995,7 +995,7 @@ footer .socials a:hover,.tile:hover>span.ikon{transform:none}
 }
 @media (min-width:961px) and (max-width:1310px){
   .logo{flex-basis:198px}
-  .desktop-nav{gap:11px}
+  .desktop-nav{gap:17px}
   .desktop-nav a{font-size:12.2px}
 }
 
@@ -1165,5 +1165,116 @@ section[id]{scroll-margin-top:92px}
 .mudah-sub a{border-bottom:0!important;padding:9px 0!important;font-size:13px!important;
   font-weight:600!important;color:#4a2a30}
 .mudah-sub a:before{content:"·";margin-right:8px;color:#b98a94}
+
+/* ---- Pembaikan kad (Dr Azfar, Okt 2026) ---------------------------------- */
+
+/* 1. Bayang kad Aktiviti terpotong: bekas carousel ada overflow:auto.
+   Beri ruang dalam bekas supaya bayang kelihatan, tanpa ubah susun atur luar. */
+.activity-grid{
+  overflow:auto;
+  padding:14px 8px 18px;
+  margin:-14px -8px -18px;
+  scrollbar-width:none;
+}
+.activity-grid::-webkit-scrollbar{display:none}
+
+/* 2. Kad "Apa yang kami lakukan" (service grid) diberi bayang */
+.service-grid{
+  box-shadow:0 12px 28px #5107161f, 0 3px 8px #51071614;
+  border:1px solid #ecdde1;
+}
+
+/* 3. Jalur kredensial: warna sama dengan "MADOCS dalam Angka" (rose gelap),
+   teks dan ikon ditukar kepada warna jenama supaya kekal jelas. */
+.credential-band{
+  background:linear-gradient(180deg,#f4ecee 0%,#eee3e6 52%,#f3eaec 100%);
+  color:#5c0818;
+  border-block:1px solid #e4d5d8;
+}
+.credential-grid>div+div{border-left:1px solid #dfcdd1}
+.credential-grid strong{color:#5c0818}
+.credential-grid small{color:#7b5a61}
+.credential-grid>div>span{border:1.5px solid #a97680;color:#8a0b22}
+
+/* 4. Navigasi: jarak lebih lapang kerana "Utama" dibuang (logo = laman utama) */
+.desktop-nav{gap:30px}
+
+/* ---- Carta organisasi berperingkat (Dr Azfar, Okt 2026) ---- */
+.tajuk-kumpulan{
+  margin:30px 0 16px;padding-bottom:8px;font-size:15px;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;color:#5c0818;
+  border-bottom:1px solid #e9dbdf;
+}
+.org-tengah{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;margin-bottom:24px}
+.org-tengah .org-ahli{max-width:230px}
+.org-dua-lajur{
+  display:grid;grid-template-columns:1fr 1fr;gap:22px 40px;
+  max-width:780px;margin:0 auto 10px;
+}
+.org-dua-lajur>div{display:grid;gap:20px;justify-items:center;align-content:start}
+.org-ajk{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 16px}
+@media (max-width:900px){
+  .org-tengah{gap:26px}
+  .org-ajk{grid-template-columns:repeat(2,1fr);gap:22px 12px}
+}
+@media (max-width:640px){
+  .org-dua-lajur{grid-template-columns:1fr;max-width:none}
+  .org-tengah{gap:20px}
+}
+
+/* ================= WARNA SKIM UNTUK HALAMAN DALAMAN (Dr Azfar, Okt 2026) =================
+   Seksyen .content-wrap berselang putih / rose, dan kad diberi ton + bayang
+   supaya pemisahan sama seperti laman utama. */
+.content-wrap{background:#fff}
+.content-wrap:nth-of-type(even){
+  background:linear-gradient(180deg,#f8f1f2 0%,#f2e8ea 100%);
+  border-block:1px solid #eedfe2;
+}
+/* Jalur putih: kad berwarna rose lembut */
+.content-wrap:nth-of-type(odd) .card,
+.content-wrap:nth-of-type(odd) .tile,
+.content-wrap:nth-of-type(odd) .item,
+.content-wrap:nth-of-type(odd) .activity-card,
+.content-wrap:nth-of-type(odd) .course-feature,
+.content-wrap:nth-of-type(odd) .album-kad{
+  background:linear-gradient(180deg,#fffdfd 0%,#f7ecee 100%);
+  border:1px solid #ecdadd;
+  box-shadow:0 10px 26px #5107161a, 0 2px 6px #51071612;
+}
+/* Jalur rose: kad putih */
+.content-wrap:nth-of-type(even) .card,
+.content-wrap:nth-of-type(even) .tile,
+.content-wrap:nth-of-type(even) .item,
+.content-wrap:nth-of-type(even) .activity-card,
+.content-wrap:nth-of-type(even) .course-feature,
+.content-wrap:nth-of-type(even) .album-kad{
+  background:#fff;
+  border:1px solid #f0e0e3;
+  box-shadow:0 12px 30px #5107161f, 0 3px 8px #51071614;
+}
+.content-wrap .card,
+.content-wrap .tile,
+.content-wrap .item,
+.content-wrap .activity-card,
+.content-wrap .course-feature,
+.content-wrap .album-kad{
+  transition:box-shadow .2s ease, transform .2s ease;
+}
+.content-wrap .card:hover,
+.content-wrap .tile:hover,
+.content-wrap .item:hover,
+.content-wrap .album-kad:hover{
+  box-shadow:0 20px 44px #5107162b, 0 5px 12px #5107161a;
+  transform:translateY(-2px);
+}
+@media (prefers-reduced-motion:reduce){
+  .content-wrap .card,.content-wrap .tile,.content-wrap .item,.content-wrap .album-kad{transition:none}
+  .content-wrap .card:hover,.content-wrap .tile:hover,.content-wrap .item:hover,.content-wrap .album-kad:hover{transform:none}
+}
+
+/* Baris AJK sama tinggi walaupun nama berbeza panjang */
+.org-ajk>.org-ahli{display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
+.org-ajk .org-ahli b{min-height:2.7em}
+.org-dua-lajur .org-ahli b{min-height:2.7em}
 
 .ikon-ganti{display:inline-block;width:1em;height:1em}
