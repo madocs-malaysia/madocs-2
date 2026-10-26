@@ -507,7 +507,7 @@ def halaman(aktif, tajuk, deskripsi, laluan, isi, og_jenis="website", jsonld=Non
 <head>
 {head(tajuk, deskripsi, laluan, og_jenis, jsonld, noindex, gambar_og)}
 </head>
-<body>
+<body class="hlm-{esc(aktif or 'umum')}">
 <a class="skip-link" href="#kandungan">Lompat ke kandungan utama</a>
 {topbar()}
 {header(aktif)}
@@ -544,6 +544,43 @@ def _tulis_fail(laluan, kandungan):
 
 
 # ----------------------------------------------------------------- dwi-bahasa
+def _potong_kata(teks: str, had: int) -> str:
+    """Potong pada sempadan perkataan supaya tidak terpotong di tengah perkataan."""
+    if len(teks) <= had:
+        return teks
+    potong = teks[:had].rsplit(" ", 1)[0].rstrip(" ,;:·-")
+    return potong or teks[:had]
+
+
+def ketat_meta(html: str, had_tajuk: int = 70, had_desc: int = 160) -> str:
+    """Hadkan <title> dan meta description versi Inggeris.
+
+    Terjemahan menjadikan ayat lebih panjang daripada Bahasa Melayu, jadi tajuk yang sah
+    dalam BM boleh melebihi 70 aksara dalam EN. Fungsi ini memendekkan pada sempadan
+    perkataan dan mengekalkan akhiran jenama ("| MADOCS Gallery" dan seumpamanya).
+    """
+    def _tajuk(m):
+        t = m.group(1)
+        if len(t) <= had_tajuk:
+            return m.group(0)
+        if " | " in t:
+            asas, akhiran = t.split(" | ", 1)
+            ruang = had_tajuk - len(akhiran) - 6  # " | " + "…"
+            if ruang >= 18:
+                return "<title>%s… | %s</title>" % (_potong_kata(asas, ruang), akhiran)
+        return "<title>%s…</title>" % _potong_kata(t, had_tajuk - 1)
+
+    def _desc(m):
+        d = m.group(2)
+        if len(d) <= had_desc:
+            return m.group(0)
+        return '%s%s"' % (m.group(1), _potong_kata(d, had_desc - 1) + "…")
+
+    html = re.sub(r"<title>(.*?)</title>", _tajuk, html, count=1)
+    html = re.sub(r'(<meta name="description" content=")(.*?)"', _desc, html, count=1)
+    return html
+
+
 def bina_bahasa_inggeris():
     """Suntik pautan tukar bahasa + hreflang pada halaman BM, dan jana versi Inggeris di /en/.
 
@@ -566,6 +603,7 @@ def bina_bahasa_inggeris():
             continue
         html_en = terjemah.terjemah_html(html, kamus, peta, laluan, en, BASE)
         html_en = terjemah.suntik_navigasi_bahasa(html_en, peta, en, BASE)
+        html_en = ketat_meta(html_en)
         _tulis_fail(en, html_en)
         PAGES.append(en)
         for t in terjemah.teks_dalam_html(html):

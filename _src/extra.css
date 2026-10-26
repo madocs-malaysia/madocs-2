@@ -1416,3 +1416,50 @@ a.btn.btn-primary,a.btn.btn-primary:visited,
 /* Butang utama dalam hero: latar putih, teks maroon (kekal jelas) */
 .hero a.btn.btn-primary,.hero a.btn.btn-primary:visited{color:#7d0b20}
 .hero a.btn.btn-primary svg{color:#7d0b20}
+
+/* ================= PUSINGAN 3 (Dr Azfar, Okt 2026) ================= */
+
+/* 1. Bayang kad Aktiviti: beri ruang kiri/kanan dalam bekas carousel */
+.activity-grid{
+  padding:18px 20px 46px;
+  margin:-18px -20px -46px;
+}
+.seksyen-a .activity-card,.seksyen-b .activity-card{
+  box-shadow:0 8px 18px #5107161f, 0 2px 5px #51071612;
+}
+.seksyen-a .activity-card:hover,.seksyen-b .activity-card:hover{
+  box-shadow:0 8px 18px #5107161f, 0 2px 5px #51071612;
+}
+
+/* 2. Kad "Apa yang kami lakukan": ikon di tengah menegak */
+.service-grid article{align-items:center}
+.service-grid article>span{align-self:center}
+
+/* 3. Halaman Keahlian: satu latar rose, kotak putih/rose lembut (tiada selang-seli) */
+.hlm-keahlian .content-wrap,
+.hlm-keahlian .content-wrap:nth-of-type(even),
+.hlm-keahlian .content-wrap:nth-of-type(odd){
+  background:linear-gradient(180deg,#f8f0f2 0%,#f3e8ea 100%);
+  border-block:0;
+}
+.hlm-keahlian .content-wrap .card,
+.hlm-keahlian .content-wrap:nth-of-type(odd) .card,
+.hlm-keahlian .content-wrap:nth-of-type(even) .card{
+  background:#fff;
+  border:1px solid #f0dfe3;
+  box-shadow:0 10px 26px #5107161a, 0 2px 6px #51071612;
+}
+/* Kotak promosi keahlian dikekalkan ton rose lembut supaya berbeza */
+.hlm-keahlian .promosi-keahlian{
+  background:linear-gradient(180deg,#fdf3f5 0%,#f9e6ea 100%);
+  border:1px solid #f0d9de;
+}
+
+/* Kotak kecil dalam kad putih pada halaman Keahlian: ton rose lembut supaya berlapis jelas */
+.hlm-keahlian .content-wrap .tile,
+.hlm-keahlian .content-wrap:nth-of-type(odd) .tile,
+.hlm-keahlian .content-wrap:nth-of-type(even) .tile{
+  background:#fdf4f6;
+  border:1px solid #f4e2e6;
+  box-shadow:none;
+}
