@@ -31,6 +31,16 @@ BULAN = ["Januari", "Februari", "Mac", "April", "Mei", "Jun", "Julai",
          "Ogos", "September", "Oktober", "November", "Disember"]
 BULAN_SING = ["JAN", "FEB", "MAC", "APR", "MEI", "JUN", "JUL", "OGO", "SEP", "OKT", "NOV", "DIS"]
 
+# Jalur kredensial disembunyikan sementara (Dr Azfar, Okt 2026). Tukar kepada True untuk papar semula.
+TUNJUK_KREDENSIAL = False
+
+
+def _blok_kredensial(isi: str) -> str:
+    if not TUNJUK_KREDENSIAL:
+        return ""
+    return '<section class="credential-band">\n  <div class="shell credential-grid">%s</div>\n</section>' % isi
+
+
 # Kad kongsi sosial (og:image). Fail: assets/og-madocs.png, 1200x630 (nisbah 1.91:1).
 GAMBAR_OG_LALAI = "/assets/og-madocs.png"
 OG_SAIZ = (1200, 630)
@@ -381,7 +391,6 @@ NAV_KUMPULAN = [
     ]),
     ("Keahlian", "/keahlian/", "keahlian", [
         ("Keahlian & Yuran", "/keahlian/", "keahlian"),
-        ("Sertai MADOCS", "/keahlian/sertai/", "keahlian-sertai"),
         ("Semak Status Ahli", "/semak-ahli/", "ahli"),
         ("Sahkan Sijil", "/sahkan/", "sahkan"),
     ]),
@@ -463,7 +472,6 @@ def footer():
     <div>
       <h3>Pintasan</h3>
       {pintasan}
-      <a href="/carian/">Carian</a>
     </div>
     <div>
       <h3>Hubungi kami</h3>
@@ -944,7 +952,7 @@ def bina_utama():
     # --- sepanduk kredensial
     kred = [("shield-check", "Pertubuhan Profesional<br>Berdaftar", SITE["pendaftaran"]),
             ("graduation-cap", "Pendidikan Klinikal<br>&amp; Latihan", "CCC · PCC · TTT"),
-            ("stethoscope", "Pembangunan<br>Profesional", "CPD &amp; Pembelajaran Berterusan"),
+            ("stethoscope", "Pembangunan Profesional", "CPD &amp; Pembelajaran Berterusan"),
             ("users", "Komuniti<br>Seluruh Negara", "Seluruh Malaysia")]
     kred_html = "".join(
         '<div><span>%s</span><p><strong>%s</strong><small>%s</small></p></div>' % (icon(i), t, s)
@@ -1045,9 +1053,7 @@ def bina_utama():
   </div>
 </section>
 
-<section class="credential-band">
-  <div class="shell credential-grid">{kred_html}</div>
-</section>
+{_blok_kredensial(kred_html)}
 
 <section class="section-pad seksyen-b" id="tentang">
   <div class="shell overview-grid">
@@ -1119,15 +1125,7 @@ def bina_utama():
 
 {cta_komuniti()}
 
-<section class="content-wrap" style="padding-top:34px">
-  <div class="shell">
-    <div class="search-bar">
-      {icon('search')}
-      <input type="search" id="carian-pantas" placeholder="Cari kursus, berita, sumber atau aktiviti…" aria-label="Carian pantas">
-      <a class="small-btn filled" id="butang-carian" href="/carian/" style="display:inline-flex;align-items:center;text-decoration:none">Cari</a>
-    </div>
-  </div>
-</section>"""
+"""
 
     halaman("utama", "MADOCS: Pertubuhan Doktor Khatan Malaysia",
             "Pertubuhan Doktor Khatan Malaysia (MADOCS): keahlian, kursus PCC/CCC, latihan klinikal dan garis panduan berkhatan untuk doktor di Malaysia.",

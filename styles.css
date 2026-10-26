@@ -1172,8 +1172,8 @@ section[id]{scroll-margin-top:92px}
    Beri ruang dalam bekas supaya bayang kelihatan, tanpa ubah susun atur luar. */
 .activity-grid{
   overflow:auto;
-  padding:14px 8px 18px;
-  margin:-14px -8px -18px;
+  padding:18px 10px 46px;
+  margin:-18px -10px -46px;
   scrollbar-width:none;
 }
 .activity-grid::-webkit-scrollbar{display:none}
@@ -1386,5 +1386,38 @@ section[id]{scroll-margin-top:92px}
 
 /* Nota tugas jawatankuasa: perenggan biasa, tiada inden/baris sisi */
 .struktur-tugas{border-left:0;padding-left:0}
+
+/* ================= PEMBAIKAN (Dr Azfar, Okt 2026 — pusingan 2) ================= */
+
+/* 2. Kawalan carousel di tengah hero */
+.hero-kawalan{left:50%!important}
+@media (max-width:640px){.hero-kawalan{left:50%!important}}
+
+/* 7 & 8. Butang utama: teks putih (sebelum ini teks merah atas latar maroon) */
+.prose a.btn-primary,.prose a.btn-primary:visited,
+a.btn.btn-primary,a.btn.btn-primary:visited,
+.card a.btn-primary,.card a.btn-primary:visited{
+  color:#fff;text-decoration:none
+}
+.prose a.btn-primary svg,.card a.btn-primary svg{color:#fff}
+/* Butang garis (outline) atas kad putih: teks maroon jelas */
+.prose a.btn-outline,.card a.btn-outline{color:var(--navy);text-decoration:none}
+/* Butang dalam kotak bantuan tidak lagi selebar kad */
+.kotak-bantuan .btn-blok{width:auto;display:inline-flex;justify-content:flex-start;margin-top:12px}
+.kotak-bantuan .btn-blok+.btn-blok{margin-top:8px}
+
+/* 5. Ikon dalam footer & kad kenalan: saiz seragam + jarak */
+.footer-grid svg{width:15px;height:15px;flex:none}
+.footer-grid a,.footer-grid span{gap:8px}
+.item-meta a,.item-meta span{gap:10px;align-items:flex-start;line-height:1.5}
+.item-meta a svg,.item-meta span svg{width:16px;height:16px;flex:none;margin-top:2px}
+
+/* 11. Jarak selepas tajuk seksyen */
+.section-title-row{margin-bottom:18px}
+.activity-grid,.kursus-grid{row-gap:18px}
+
+/* Butang utama dalam hero: latar putih, teks maroon (kekal jelas) */
+.hero a.btn.btn-primary,.hero a.btn.btn-primary:visited{color:#7d0b20}
+.hero a.btn.btn-primary svg{color:#7d0b20}
 
 .ikon-ganti{display:inline-block;width:1em;height:1em}
