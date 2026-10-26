@@ -1042,30 +1042,59 @@ footer .socials a:hover,.tile:hover>span.ikon{transform:none}
   .course-feature:hover,.tile:hover,.activity-card:hover,.service-grid:hover{transform:none}
 }
 
-/* --- Latar seksyen maroon lembut (pilihan Dr Azfar: "soft maroon, sedikit lebih tepu") ---
-   Dipakai pada seksyen Kursus akan datang, Mengapa sertai MADOCS dan Aktiviti terkini.
-   Kad putih + bayang supaya terpisah jelas daripada latar. */
-.seksyen-maroon{
-  background:linear-gradient(180deg,#f8e2e8 0%,#f2ccd7 46%,#f7dee4 100%);
-  border-block:1px solid #ecc6d0;
-}
-.seksyen-maroon .section-title-row h2{color:#5c0818}
-.seksyen-maroon .section-title-row a{color:#8a0b22}
-.seksyen-maroon .tile,
-.seksyen-maroon .course-feature,
-.seksyen-maroon .activity-card{
-  background:#fff;
-  border:1px solid #e9ccd4;
-  box-shadow:0 8px 22px #5107161f, 0 2px 5px #51071614;
-}
-.seksyen-maroon .tile:hover,
-.seksyen-maroon .course-feature:hover,
-.seksyen-maroon .activity-card:hover{
-  box-shadow:0 18px 38px #51071633, 0 4px 10px #5107161f;
-  border-color:#dcb3bf;
-  transform:translateY(-3px);
-}
-
 /* Pautan sauh (cth. /#aktiviti) tidak lagi menyembunyikan tajuk di bawah header lekat. */
 section[id]{scroll-margin-top:92px}
 @media (max-width:960px){section[id]{scroll-margin-top:80px}}
+
+/* ================= SEKSYEN BERSELANG-SELI (Dr Azfar, Okt 2026) =================
+   A: latar maroon lebih gelap + kad cerah (maroon sangat lembut)
+   B: latar maroon cerah + kad maroon lebih gelap
+   Berselang A/B supaya setiap seksyen terpisah jelas, dan kad lebih menonjol
+   (bayang lebih dalam + naik sedikit pada hover). */
+.seksyen-a{
+  background:linear-gradient(180deg,#f6dbe2 0%,#efc4cf 52%,#f4d5de 100%);
+  border-block:1px solid #e6b8c5;
+}
+.seksyen-b{
+  background:linear-gradient(180deg,#fff7f9 0%,#fdeef2 100%);
+  border-block:1px solid #f4dbe2;
+}
+.seksyen-a .section-title-row h2,
+.seksyen-b .section-title-row h2{color:#5c0818}
+.seksyen-a .section-title-row a,
+.seksyen-b .section-title-row a{color:#8a0b22}
+
+/* Kad pada seksyen A: cerah, hampir putih dengan sedikit ros */
+.seksyen-a .tile,
+.seksyen-a .course-feature,
+.seksyen-a .activity-card,
+.seksyen-a .item{
+  background:linear-gradient(180deg,#fffdfd 0%,#fff3f6 100%);
+  border:1px solid #e9bcc7;
+  box-shadow:0 16px 36px #51071633, 0 4px 10px #5107161f;
+}
+/* Kad pada seksyen B: maroon lembut, lebih gelap daripada latar */
+.seksyen-b .tile,
+.seksyen-b .course-feature,
+.seksyen-b .activity-card,
+.seksyen-b .item{
+  background:linear-gradient(180deg,#fae1e8 0%,#f3c8d4 100%);
+  border:1px solid #e3afbe;
+  box-shadow:0 14px 32px #51071629, 0 3px 8px #5107161a;
+}
+.seksyen-a .tile:hover,
+.seksyen-a .course-feature:hover,
+.seksyen-a .activity-card:hover,
+.seksyen-a .item:hover,
+.seksyen-b .tile:hover,
+.seksyen-b .course-feature:hover,
+.seksyen-b .activity-card:hover,
+.seksyen-b .item:hover{
+  box-shadow:0 26px 54px #5107163d, 0 6px 14px #51071624;
+  border-color:#d9a5b3;
+  transform:translateY(-4px);
+}
+@media (prefers-reduced-motion:reduce){
+  .seksyen-a .tile:hover,.seksyen-a .course-feature:hover,.seksyen-a .activity-card:hover,
+  .seksyen-b .tile:hover,.seksyen-b .course-feature:hover,.seksyen-b .activity-card:hover{transform:none}
+}
