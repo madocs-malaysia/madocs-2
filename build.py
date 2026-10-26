@@ -140,7 +140,7 @@ def blok_promosi_keahlian(kh):
     baris_bayar = "".join(
         "<p><span>%s</span><b>%s</b></p>" % (esc(label), esc(bay.get(kunci, "")))
         for kunci, label in (("bank", "Bank"), ("akaun", "Nombor akaun"), ("nama_akaun", "Nama akaun")))
-    return ("""<section class="content-wrap" style="padding-top:0">
+    return ("""<section class="content-wrap seksyen-rose" style="padding-top:0">
   <div class="shell">
     <div class="promosi">
       <div class="promosi-poster">
@@ -1574,7 +1574,7 @@ def bina_keahlian():
                     "Sertai komuniti profesional doktor yang terlibat dalam amalan berkhatan di Malaysia.",
                     '<div class="hero-buttons"><a class="btn btn-primary" href="/keahlian/sertai/">Sertai MADOCS</a>'
                     '<a class="btn btn-outline" href="#faq">Soalan lazim</a></div>') + f"""
-<section class="content-wrap">
+<section class="content-wrap seksyen-rose">
   <div class="shell">
     {jika_belum}
     <div class="form-note" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
@@ -1585,7 +1585,7 @@ def bina_keahlian():
       <div class="card prose">
         <h2>Mengapa menyertai MADOCS</h2>
         <p>MADOCS menghimpunkan doktor yang serius dalam meningkatkan kualiti amalan berkhatan. Keahlian memberi akses kepada latihan klinikal berstruktur, rangkaian profesional dan sumber pendidikan.</p>
-        <div class="grid-2" style="margin-top:20px;gap:12px">{manfaat}</div>
+        <p style="margin-top:14px"><b>Manfaat utama keahlian:</b></p>
       </div>
       <div class="card">
         <h2>Kategori &amp; kelayakan</h2>
@@ -1594,6 +1594,7 @@ def bina_keahlian():
         <ul class="prose" style="padding-left:18px">{kelayakan}</ul>
       </div>
     </div>
+    <div class="manfaat-keahlian">{manfaat}</div>
     <div class="card" style="margin-top:18px">
       <h2>Yuran keahlian</h2>
       {yuran}
@@ -1613,7 +1614,7 @@ def bina_keahlian():
   </div>
 </section>
 
-<section class="content-wrap" style="padding-top:0">
+<section class="content-wrap seksyen-rose" style="padding-top:0">
   <div class="shell split lebar">
     <div>
       <div class="card">
