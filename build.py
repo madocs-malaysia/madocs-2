@@ -2254,16 +2254,56 @@ def blok_jawatankuasa(jk_data):
 _LEBAR_CACHE = {}
 
 
+def _lebar_webp(data: bytes):
+    """Baca lebar/tinggi fail WebP terus daripada bait (tiada kebergantungan luar).
+
+    GitHub Actions menjalankan build.py tanpa Pillow, jadi pembaca ini memastikan
+    atribut srcset kekal tepat walaupun Pillow tiada.
+    """
+    if data[:4] != b"RIFF" or data[8:12] != b"WEBP":
+        return None
+    jenis = data[12:16]
+    if jenis == b"VP8 ":
+        w = int.from_bytes(data[26:28], "little") & 0x3FFF
+        h = int.from_bytes(data[28:30], "little") & 0x3FFF
+        return w, h
+    if jenis == b"VP8L":
+        b = data[21:25]
+        if len(b) < 4:
+            return None
+        w = 1 + (((b[1] & 0x3F) << 8) | b[0])
+        h = 1 + (((b[3] & 0x0F) << 10) | (b[2] << 2) | ((b[1] & 0xC0) >> 6))
+        return w, h
+    if jenis == b"VP8X":
+        w = 1 + int.from_bytes(data[24:27], "little")
+        h = 1 + int.from_bytes(data[27:30], "little")
+        return w, h
+    return None
+
+
 def lebar_imej(laluan: str) -> int:
     """Lebar sebenar fail imej (cache) untuk atribut srcset yang tepat."""
-    if laluan not in _LEBAR_CACHE:
+    if laluan in _LEBAR_CACHE:
+        return _LEBAR_CACHE[laluan]
+    fail = ROOT / laluan.lstrip("/")
+    lebar = None
+    try:
+        with open(fail, "rb") as f:
+            data = f.read(64)
+        saiz = _lebar_webp(data)
+        if saiz:
+            lebar = saiz[0]
+    except Exception:
+        lebar = None
+    if lebar is None:
         try:
             from PIL import Image
-            with Image.open(ROOT / laluan.lstrip("/")) as im:
-                _LEBAR_CACHE[laluan] = im.width
+            with Image.open(fail) as im:
+                lebar = im.width
         except Exception:
-            _LEBAR_CACHE[laluan] = 1000
-    return _LEBAR_CACHE[laluan]
+            lebar = 1000
+    _LEBAR_CACHE[laluan] = lebar
+    return lebar
 
 
 def srcset_imej(src: str, saiz: str = "(max-width: 640px) 92vw, 400px") -> tuple:

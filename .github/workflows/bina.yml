@@ -38,6 +38,9 @@ jobs:
       - name: Sahkan skrip bina (tiada ralat sintaks)
         run: python -c "import ast,pathlib; [ast.parse(pathlib.Path(f).read_text(encoding='utf-8')) for f in ('build.py','terjemah.py')]"
 
+      - name: Pasang kebergantungan imej
+        run: python -m pip install --quiet Pillow
+
       - name: Bina laman
         run: python build.py
 
