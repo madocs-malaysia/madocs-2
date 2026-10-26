@@ -1129,7 +1129,6 @@ section[id]{scroll-margin-top:92px}
 .nav-kumpulan{position:relative;display:flex;align-items:center}
 .desktop-nav .nav-induk{display:flex;align-items:center;gap:4px}
 .desktop-nav .nav-induk svg{width:11px;height:11px;transition:transform .18s ease;opacity:.75}
-.nav-kumpulan:focus-within .nav-induk svg,
 .nav-kumpulan.terbuka .nav-buka svg{transform:rotate(180deg)}
 .nav-kumpulan.aktif>.nav-induk,
 .nav-kumpulan.terbuka>.nav-induk,
@@ -1149,7 +1148,6 @@ section[id]{scroll-margin-top:92px}
   opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity .16s ease, transform .16s ease, visibility .16s;
 }
-.nav-kumpulan:focus-within .sub-nav,
 .nav-kumpulan.terbuka .sub-nav{opacity:1;visibility:visible;transform:translateY(0)}
 /* Hover hanya untuk peranti bertetikus; skrin sentuh guna butang karet */
 @media (hover:hover) and (pointer:fine){
