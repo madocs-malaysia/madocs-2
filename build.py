@@ -1284,19 +1284,16 @@ def bina_kursus_detail(k):
         baris("Masa", esc(k["masa_mula"]) + " - " + esc(k.get("masa_tamat", "")))
     baris("Tempat", esc(k.get("tempat", "")))
     baris("Penganjur", esc(k.get("penganjur", "")))
-    baris("Tenaga pengajar", esc(k.get("fakulti", "")))
+    baris("Tenaga pengajar", esc(k.get("fakulti") or "Akan disahkan"))
     baris("Peserta sasaran", esc(k.get("sasaran", "")))
-    if k.get("yuran") or k.get("yuran_ahli"):
-        baris("Yuran", esc(k.get("yuran") or ""))
+    baris("Yuran", esc(k.get("yuran") or "Akan disahkan"))
     if k.get("yuran_ahli"):
         baris("Yuran ahli", esc(k["yuran_ahli"]))
     if k.get("yuran_bukan_ahli"):
         baris("Yuran bukan ahli", esc(k["yuran_bukan_ahli"]))
-    if k.get("tutup_daftar"):
-        baris("Tutup pendaftaran", esc(tarikh_pdk(parse_date(k["tutup_daftar"]))))
-    if k.get("kapasiti"):
-        baris("Kapasiti peserta", esc(k["kapasiti"])
-              + (f" · {esc(k['baki'])} tempat berbaki" if k.get("baki") else ""))
+    baris("Tutup pendaftaran", esc(tarikh_pdk(parse_date(k["tutup_daftar"]))) if k.get("tutup_daftar") else "Akan disahkan")
+    baris("Kapasiti peserta", (esc(k["kapasiti"])
+          + (f" · {esc(k['baki'])} tempat berbaki" if k.get("baki") else "")) if k.get("kapasiti") else "Akan disahkan")
     baris("Status", badge_status(k.get("status")))
 
     for medan, label in (("objektif", "Objektif pembelajaran"), ("rangka", "Rangka program")):
@@ -1306,10 +1303,10 @@ def bina_kursus_detail(k):
         if not k.get(medan):
             kurang("Medan '%s' kosong untuk kursus %s (PRD §12)." % (medan, k["kod"]))
 
-    objektif = ""
+    objektif = '<h2>Objektif pembelajaran</h2><p class="nota-isi">Akan disahkan.</p>'
     if k.get("objektif"):
         objektif = "<h2>Objektif pembelajaran</h2><ul>%s</ul>" % "".join("<li>%s</li>" % esc(o) for o in k["objektif"])
-    rangka = ""
+    rangka = '<h2>Rangka program</h2><p class="nota-isi">Akan disahkan.</p>'
     if k.get("rangka"):
         rangka = "<h2>Rangka program</h2><dl class='facts'>%s</dl>" % "".join(
             "<div><dt>%s</dt><dd>%s</dd></div>" % (esc(r.get("masa", "")), esc(r.get("slot", ""))) for r in k["rangka"])
@@ -2103,7 +2100,7 @@ def bina_galeri():
     Hanya gambar dewasa dalam konteks kursus/perhimpunan dimasukkan; gambar pesakit
     menerima rawatan atau kanak-kanak memerlukan kebenaran bertulis.
     """
-    al = load("galeri.json").get("album", [])
+    al = sorted(load("galeri.json").get("album", []), key=lambda a: a.get("tarikh") or "", reverse=True)
     if not al:
         kurang("Galeri kosong (data/galeri.json) — PRD §24.")
 
