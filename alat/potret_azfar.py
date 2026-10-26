@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
-"""Sediakan potret AJK: latar putih + crop piawai laman (dengan gelung auto-fit).
+"""Sediakan potret AJK: latar putih + crop piawai laman.
 
 Piawai: muka 0.50-0.56 daripada tinggi bingkai, garis mata ~0.40 dari atas, 480 px webp.
-Gelung auto-fit: ukur semula muka pada hasil crop, laraskan sisi sehingga nisbah betul.
+
+PENTING: pada build OpenCV VPS ini, `FaceDetectorYN` memberi kotak muka yang SALAH bila
+imej > ~600 px (nisbah tersasar ~1.6x; amaran "graph engine"). Jadi semua ukuran dibuat
+pada imej kecil 480 px, dan crop dikira dalam ruang PECAHAN (0-1) supaya boleh digunakan
+pada imej kerja 2400 px.
 """
 import pathlib
 import urllib.request
@@ -18,7 +22,8 @@ DEST = pathlib.Path("/home/ubuntu/madocs-site/assets/jawatankuasa/azfar-hakim.we
 YUNET = pathlib.Path("/home/ubuntu/.hermes/profiles/madocs/cache/scratch/yunet.onnx")
 SAIZ = 480
 KERJA = 2400
-MUKA_SASARAN = 0.53      # dalam julat 0.50-0.56 yang Doc terima
+UKUR = 480               # saiz ukuran yang boleh dipercayai
+MUKA_SASARAN = 0.53
 MATA_SASARAN = 0.40
 
 
@@ -41,59 +46,59 @@ def latar_putih(im: Image.Image) -> Image.Image:
     return putih.convert("RGB")
 
 
-def muka_terbesar(im: Image.Image):
-    """Pulangkan (x, y, w, h, mata_y, pusat_x) muka terbesar, atau None."""
-    bgr = cv2.cvtColor(np.array(im), cv2.COLOR_RGB2BGR)
-    h, w = bgr.shape[:2]
-    det = cv2.FaceDetectorYN.create(pastikan_yunet(), "", (w, h), 0.6, 0.3, 5000)
+def ukur_muka(im: Image.Image):
+    """Ukur muka pada saiz UKUR; pulangkan (x0f, y0f, wf, hf, mata_yf) dalam pecahan 0-1."""
+    kecil = im.resize((UKUR, UKUR), Image.LANCZOS)
+    bgr = cv2.cvtColor(np.array(kecil), cv2.COLOR_RGB2BGR)
+    det = cv2.FaceDetectorYN.create(pastikan_yunet(), "", (UKUR, UKUR), 0.6, 0.3, 5000)
     _, muka = det.detect(bgr)
     if muka is None or len(muka) == 0:
         return None
     m = max(muka, key=lambda r: r[2] * r[3])
-    x, y, fw, fh = (float(v) for v in m[:4])
-    mata_y = (float(m[5]) + float(m[7])) / 2.0     # landmark: mata kanan (4,5), mata kiri (6,7)
-    return x, y, fw, fh, mata_y, x + fw / 2.0
+    x, y, w, h = (float(v) / UKUR for v in m[:4])
+    mata_y = (float(m[5]) + float(m[7])) / 2.0 / UKUR
+    return x, y, w, h, mata_y
 
 
-def potong(im: Image.Image, sisi: float, pusat_x: float, mata_y: float) -> Image.Image:
-    w, h = im.size
-    x0 = min(max(pusat_x - sisi / 2.0, 0), w - sisi)
-    y0 = min(max(mata_y - sisi * MATA_SASARAN, 0), h - sisi)
-    return im.crop((int(round(x0)), int(round(y0)), int(round(x0 + sisi)), int(round(y0 + sisi))))
+def potong_pecahan(im: Image.Image, sisi: float, pusat_x: float, mata_y: float) -> Image.Image:
+    W, H = im.size
+    x0 = min(max(pusat_x - sisi / 2.0, 0.0), 1.0 - sisi)
+    y0 = min(max(mata_y - sisi * MATA_SASARAN, 0.0), 1.0 - sisi)
+    return im.crop((int(x0 * W), int(y0 * H), int((x0 + sisi) * W), int((y0 + sisi) * H)))
 
 
 def crop_piawai(im: Image.Image) -> Image.Image:
-    info = muka_terbesar(im)
-    if not info:
-        raise SystemExit("Muka tidak dikesan pada gambar asal")
-    _, _, _, fh, mata_y, pusat_x = info
-    sisi = fh / MUKA_SASARAN
+    ukuran = ukur_muka(im)
+    if not ukuran:
+        raise SystemExit("Muka tidak dikesan")
+    x, y, w, h, mata_y = ukuran
+    sisi = h / MUKA_SASARAN
+    pusat_x = x + w / 2.0
+    print("ukur asal: muka w=%.3f h=%.3f mata=%.3f" % (w, h, mata_y))
 
-    for pusingan in range(8):
-        calon = potong(im, sisi, pusat_x, mata_y)
-        semak = muka_terbesar(calon)
+    calon = None
+    for i in range(8):
+        calon = potong_pecahan(im, sisi, pusat_x, mata_y)
+        semak = ukur_muka(calon)
         if not semak:
-            raise SystemExit("Muka hilang selepas crop (pusingan %d)" % pusingan)
-        _, _, _, fh2, mata2, _ = semak
-        nisbah = fh2 / calon.height
-        print("  pusingan %d: sisi=%.0f nisbah muka=%.3f mata=%.3f"
-              % (pusingan + 1, sisi, nisbah, mata2 / calon.height))
+            raise SystemExit("Muka hilang selepas crop (pusingan %d)" % i)
+        nisbah = semak[3]
+        print("  pusingan %d: sisi=%.3f -> muka=%.3f mata=%.3f" % (i + 1, sisi, nisbah, semak[4]))
         if abs(nisbah - MUKA_SASARAN) <= 0.015:
             break
-        sisi = sisi * (nisbah / MUKA_SASARAN)
+        sisi *= nisbah / MUKA_SASARAN
 
     return calon.resize((SAIZ, SAIZ), Image.LANCZOS)
 
 
 def main():
+    # Latar asal dikekalkan (Doc: "use original background, not white").
     asal = Image.open(SUMBER).convert("RGB")
-    putih = latar_putih(asal)
-    akhir = crop_piawai(putih)
+    akhir = crop_piawai(asal)
     akhir.save(DEST, "WEBP", quality=86, method=6)
-    info = muka_terbesar(akhir)
+    semak = ukur_muka(akhir)
     print("fail: %s (%d px, %.0f KB)" % (DEST.name, akhir.width, DEST.stat().st_size / 1024))
-    print("semakan akhir: muka %.2f bingkai, garis mata %.2f"
-          % (info[3] / akhir.height, info[4] / akhir.height))
+    print("semakan akhir: muka %.2f bingkai, garis mata %.2f" % (semak[3], semak[4]))
 
 
 if __name__ == "__main__":
