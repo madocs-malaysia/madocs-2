@@ -1120,4 +1120,50 @@ section[id]{scroll-margin-top:92px}
 .stats-band.seksyen-a{background:linear-gradient(180deg,#f4ecee 0%,#eee3e6 52%,#f3eaec 100%);border-block:1px solid #e4d5d8}
 .stats-band.seksyen-a .stat>span{background:#fff;border:1px solid #e4d0d4}
 
+/* ================= NAVIGASI BERKUMPULAN (Dr Azfar, Okt 2026) =================
+   6 item atas: Utama · Mengenai ▾ · Pendidikan ▾ · Keahlian ▾ · Media ▾ · Hubungi
+   Desktop: dropdown pada hover/fokus. Telefon: akordion <details>. */
+.nav-kumpulan{position:relative;display:flex;align-items:center}
+.desktop-nav .nav-induk{display:flex;align-items:center;gap:4px}
+.desktop-nav .nav-induk svg{width:11px;height:11px;transition:transform .18s ease;opacity:.75}
+.nav-kumpulan:hover .nav-induk svg,
+.nav-kumpulan:focus-within .nav-induk svg{transform:rotate(180deg)}
+.nav-kumpulan.aktif>.nav-induk,
+.nav-kumpulan:hover>.nav-induk,
+.nav-kumpulan:focus-within>.nav-induk{color:var(--blue)}
+
+.sub-nav{
+  position:absolute;top:100%;left:-12px;z-index:40;
+  min-width:250px;padding-top:8px;
+  opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .16s ease, transform .16s ease, visibility .16s;
+}
+.nav-kumpulan:hover .sub-nav,
+.nav-kumpulan:focus-within .sub-nav{opacity:1;visibility:visible;transform:translateY(0)}
+.sub-nav-dalaman{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:8px;box-shadow:0 18px 40px #51071626, 0 2px 6px #51071612;
+  display:grid;gap:2px;
+}
+.sub-nav a{
+  text-transform:none;white-space:nowrap;padding:9px 12px;border-radius:7px;
+  font-size:13px;font-weight:600;color:#4a2a30;letter-spacing:0;
+}
+.sub-nav a:hover,.sub-nav a:focus-visible{background:var(--pale);color:var(--blue)}
+.sub-nav a[aria-current="page"]{background:var(--pale);color:var(--blue);font-weight:700}
+
+/* Akordion navigasi telefon */
+.mudah-kumpulan{border-bottom:1px solid var(--line)}
+.mudah-kumpulan>summary{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 0;font-size:13.8px;font-weight:700;cursor:pointer;list-style:none;
+}
+.mudah-kumpulan>summary::-webkit-details-marker{display:none}
+.mudah-kumpulan>summary svg{width:15px;height:15px;transition:transform .18s ease;color:var(--blue)}
+.mudah-kumpulan[open]>summary svg{transform:rotate(180deg)}
+.mudah-sub{display:grid;gap:2px;padding:0 0 10px 12px}
+.mudah-sub a{border-bottom:0!important;padding:9px 0!important;font-size:13px!important;
+  font-weight:600!important;color:#4a2a30}
+.mudah-sub a:before{content:"·";margin-right:8px;color:#b98a94}
+
 .ikon-ganti{display:inline-block;width:1em;height:1em}

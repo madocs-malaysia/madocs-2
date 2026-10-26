@@ -363,12 +363,65 @@ def topbar():
 </div>"""
 
 
+# Navigasi berkumpulan (5 kumpulan): (label, href, kunci, [(label, href, kunci), ...])
+NAV_KUMPULAN = [
+    ("Utama", "/", "utama", []),
+    ("Mengenai", "/tentang/", "tentang", [
+        ("Mengenai MADOCS", "/tentang/", "tentang"),
+        ("Organisasi & Jawatankuasa", "/organisasi/", "organisasi"),
+        ("Perutusan Presiden", "/dari-meja-presiden/", "presiden"),
+    ]),
+    ("Pendidikan", "/pendidikan/", "pendidikan", [
+        ("Kursus & Latihan", "/pendidikan/", "pendidikan"),
+        ("Credentialing & Privileging (C&P)", "/cp/", "cp"),
+        ("Pusat Sumber", "/sumber/", "sumber"),
+    ]),
+    ("Keahlian", "/keahlian/", "keahlian", [
+        ("Keahlian & Yuran", "/keahlian/", "keahlian"),
+        ("Sertai MADOCS", "/keahlian/sertai/", "keahlian-sertai"),
+        ("Semak Status Ahli", "/semak-ahli/", "ahli"),
+        ("Sahkan Sijil", "/sahkan/", "sahkan"),
+    ]),
+    ("Media", "/berita/", "berita", [
+        ("Berita", "/berita/", "berita"),
+        ("Aktiviti", "/aktiviti/", "aktiviti"),
+        ("Galeri", "/galeri/", "galeri"),
+    ]),
+    ("Hubungi", "/hubungi/", "hubungi", []),
+]
+
+
 def header(aktif):
-    pautan = "".join(
-        '<a class="%s" href="%s"%s>%s</a>'
-        % ("active" if kunci == aktif else "", href, ' aria-current="page"' if kunci == aktif else "", esc(label))
-        for label, href, kunci in NAV)
-    mudah = "".join('<a href="%s">%s</a>' % (href, esc(label)) for label, href, kunci in NAV)
+    """Navigasi desktop: 4 kumpulan berdropdown + 2 pautan terus."""
+    blok = []
+    for label, href, kunci, anak in NAV_KUMPULAN:
+        aktif_kumpulan = kunci == aktif or any(a[2] == aktif for a in anak)
+        if not anak:
+            blok.append('<a class="%s" href="%s"%s>%s</a>'
+                        % ("active" if aktif_kumpulan else "", href,
+                           ' aria-current="page"' if aktif_kumpulan else "", esc(label)))
+            continue
+        sub = "".join('<a href="%s"%s>%s</a>'
+                      % (h, ' aria-current="page"' if k == aktif else "", esc(l))
+                      for l, h, k in anak)
+        blok.append(
+            '<div class="nav-kumpulan%s">'
+            '<a class="nav-induk" href="%s" aria-haspopup="true">%s%s</a>'
+            '<div class="sub-nav"><div class="sub-nav-dalaman">%s</div></div>'
+            '</div>'
+            % (" aktif" if aktif_kumpulan else "", href, esc(label), icon("chevron-down"), sub))
+    pautan = "".join(blok)
+
+    blok_mudah = []
+    for label, href, kunci, anak in NAV_KUMPULAN:
+        if not anak:
+            blok_mudah.append('<a href="%s">%s</a>' % (href, esc(label)))
+            continue
+        sub = "".join('<a href="%s">%s</a>' % (h, esc(l)) for l, h, k in anak)
+        blok_mudah.append('<details class="mudah-kumpulan"><summary>%s%s</summary>'
+                          '<div class="mudah-sub">%s</div></details>'
+                          % (esc(label), icon("chevron-down"), sub))
+    mudah = "".join(blok_mudah)
     return f"""<header class="header">
   <div class="shell nav-row">
     <a href="/" class="logo" aria-label="Laman utama MADOCS">
@@ -993,7 +1046,7 @@ def bina_utama():
   <div class="shell credential-grid">{kred_html}</div>
 </section>
 
-<section class="section-pad" id="tentang">
+<section class="section-pad seksyen-b" id="tentang">
   <div class="shell overview-grid">
     <div class="upcoming">
       <div class="section-title-row"><h2>Mengenai MADOCS</h2></div>
@@ -1017,26 +1070,6 @@ def bina_utama():
   </div>
 </section>
 
-<section class="section-pad seksyen-b" id="kursus">
-  <div class="shell">
-    <div class="section-title-row activities-head">
-      <h2>Kursus akan datang</h2>
-      <a href="/pendidikan/">Lihat semua kursus {icon('arrow-right')}</a>
-    </div>
-    {kursus_html}
-  </div>
-</section>
-
-<section class="section-pad seksyen-a">
-  <div class="shell">
-    <div class="section-title-row activities-head">
-      <h2>Mengapa sertai MADOCS</h2>
-      <a href="/keahlian/">Maklumat keahlian {icon('arrow-right')}</a>
-    </div>
-    <div class="grid-3">{manfaat}</div>
-  </div>
-</section>
-
 <section class="activities section-pad seksyen-b" id="aktiviti">
   <div class="shell">
     <div class="section-title-row activities-head">
@@ -1054,20 +1087,30 @@ def bina_utama():
 <section class="section-pad seksyen-a">
   <div class="shell">
     <div class="section-title-row activities-head">
-      <h2>Pusat sumber</h2>
-      <a href="/sumber/">Semua sumber {icon('arrow-right')}</a>
-    </div>
-    {sumber_html}
-  </div>
-</section>
-
-<section class="section-pad seksyen-b">
-  <div class="shell">
-    <div class="section-title-row activities-head">
       <h2>Berita terkini</h2>
       <a href="/berita/">Semua berita {icon('arrow-right')}</a>
     </div>
     {berita_html}
+  </div>
+</section>
+
+<section class="section-pad seksyen-b" id="kursus">
+  <div class="shell">
+    <div class="section-title-row activities-head">
+      <h2>Kursus akan datang</h2>
+      <a href="/pendidikan/">Lihat semua kursus {icon('arrow-right')}</a>
+    </div>
+    {kursus_html}
+  </div>
+</section>
+
+<section class="section-pad seksyen-a">
+  <div class="shell">
+    <div class="section-title-row activities-head">
+      <h2>Mengapa sertai MADOCS</h2>
+      <a href="/keahlian/">Maklumat keahlian {icon('arrow-right')}</a>
+    </div>
+    <div class="grid-3">{manfaat}</div>
   </div>
 </section>
 
