@@ -1482,3 +1482,24 @@ a.btn.btn-primary,a.btn.btn-primary:visited,
 @media (max-width:1100px){.manfaat-keahlian{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:760px){.manfaat-keahlian{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:480px){.manfaat-keahlian{grid-template-columns:1fr}}
+
+/* Keahlian: dua kad sama tinggi, kandungan di tengah menegak */
+.kad-sama-tinggi{align-items:stretch}
+.kad-sama-tinggi>.card{height:100%;display:flex;flex-direction:column;justify-content:center}
+.senarai-manfaat{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:11px}
+.senarai-manfaat li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;
+  font-size:14px;line-height:1.45;color:#583c42}
+.senarai-manfaat li .ikon{width:28px;height:28px;margin:0;border-radius:50%;
+  background:var(--pale);color:var(--blue);display:grid;place-items:center;flex:none}
+.senarai-manfaat li .ikon svg{width:15px;height:15px}
+/* Jarak menegak seragam antara kotak dalam zon rose */
+.seksyen-rose>.shell>*+*{margin-top:18px}
+.seksyen-rose>.shell>.form-note+*{margin-top:18px}
+
+/* Jarak menegak betul-betul seragam antara kotak (18px) dalam zon rose */
+.seksyen-rose>.shell>*{margin-bottom:0}
+.seksyen-rose>.shell>.nota-sumber,
+.seksyen-rose>.shell>.form-note{margin-bottom:0}
+
+/* Kad bersebelahan dalam baris grid tidak perlu jarak atas */
+.kad-sama-tinggi>.card+.card{margin-top:0}

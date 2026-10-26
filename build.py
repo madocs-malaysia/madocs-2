@@ -42,7 +42,7 @@ def _blok_kredensial(isi: str) -> str:
 
 
 # Kad kongsi sosial (og:image). Fail: assets/og-madocs.png, 1200x630 (nisbah 1.91:1).
-GAMBAR_OG_LALAI = "/assets/og-madocs.png"
+GAMBAR_OG_LALAI = "/assets/og-madocs.jpg"
 OG_SAIZ = (1200, 630)
 
 STATUS_LABEL = {
@@ -325,7 +325,7 @@ def head(tajuk, deskripsi, laluan, og_jenis="website", jsonld=None, noindex=Fals
     else:
         sekatan.append('<meta property="og:image:width" content="%d">' % OG_SAIZ[0])
         sekatan.append('<meta property="og:image:height" content="%d">' % OG_SAIZ[1])
-        sekatan.append('<meta property="og:image:type" content="image/png">')
+        sekatan.append('<meta property="og:image:type" content="image/jpeg">')
     sekatan.append('<meta property="og:image:alt" content="%s">' % esc("MADOCS — Pertubuhan Doktor Khatan Malaysia"))
     sekatan.append('<meta name="twitter:card" content="summary_large_image">')
     sekatan.append('<meta name="twitter:image" content="%s%s">' % (esc(BASE), esc(og_imej)))
@@ -1536,6 +1536,8 @@ def bina_keahlian():
     _pautan_borang = esc(_form)
     manfaat = "".join('<div class="tile tile-manfaat"><span class="ikon">%s</span><h3>%s</h3></div>' % (icon("check"), esc(m))
                       for m in kh.get("manfaat", []))
+    senarai_manfaat = "".join('<li><span class="ikon">%s</span><span>%s</span></li>' % (icon("check"), esc(m))
+                              for m in kh.get("manfaat", []))
 
     def jadual(baris, kepala, kosong_teks):
         if not baris:
@@ -1582,26 +1584,26 @@ def bina_keahlian():
       <span><b>Credentialing &amp; Privileging (C&amp;P):</b> keahlian MADOCS berasingan daripada penilaian C&amp;P. Doktor yang mahu melakukan prosedur di fasiliti perlu melalui C&amp;P melalui portal iHealth.</span>
       <a class="btn btn-outline" href="/cp/">Maklumat C&amp;P</a>
     </div>
-    <div class="grid-2" style="align-items:start">
-      <div class="card prose">
+    <div class="grid-2 kad-sama-tinggi">
+      <div class="card prose kad-tengah">
         <h2>Mengapa menyertai MADOCS</h2>
         <p>MADOCS menghimpunkan doktor yang serius dalam meningkatkan kualiti amalan berkhatan. Keahlian memberi akses kepada latihan klinikal berstruktur, rangkaian profesional dan sumber pendidikan.</p>
-        <p style="margin-top:14px"><b>Manfaat utama keahlian:</b></p>
+        <p style="margin-top:16px"><b>Manfaat utama keahlian:</b></p>
+        <ul class="senarai-manfaat">{senarai_manfaat}</ul>
       </div>
-      <div class="card">
+      <div class="card kad-tengah">
         <h2>Kategori &amp; kelayakan</h2>
         {kategori}
         <h3>Syarat am</h3>
         <ul class="prose" style="padding-left:18px">{kelayakan}</ul>
       </div>
     </div>
-    <div class="manfaat-keahlian">{manfaat}</div>
-    <div class="card" style="margin-top:18px">
+    <div class="card">
       <h2>Yuran keahlian</h2>
       {yuran}
       {hak_undi}
     </div>
-    <div class="grid-2" style="margin-top:18px;align-items:start">
+    <div class="grid-2" style="align-items:start">
       <div class="card">
         <h2>Keahlian MADOCS</h2>
         {blok_statistik_keahlian(kh)}
@@ -1632,7 +1634,7 @@ def bina_keahlian():
 </section>
 
 {blok_promosi_keahlian(kh)}
-<section class="content-wrap"><div class="shell">{kotak_bantuan("Ada pertanyaan tentang keahlian?", "Hubungi urusetia MADOCS untuk kelayakan, kategori atau yuran keahlian.", "Salam, saya ingin bertanya tentang keahlian MADOCS.", wa_keahlian_nombor())}</div></section>
+<section class="content-wrap seksyen-rose"><div class="shell">{kotak_bantuan("Ada pertanyaan tentang keahlian?", "Hubungi urusetia MADOCS untuk kelayakan, kategori atau yuran keahlian.", "Salam, saya ingin bertanya tentang keahlian MADOCS.", wa_keahlian_nombor())}</div></section>
 
 {cta_komuniti(label='Sertai MADOCS sekarang')}"""
     halaman("keahlian", "Keahlian | MADOCS",
