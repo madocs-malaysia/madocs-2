@@ -87,6 +87,16 @@ def utama():
     if '--json' in sys.argv:
         print(json.dumps(hasil, ensure_ascii=False, indent=1))
         return
+    if '--senyap' in sys.argv:
+        # Corak watchdog untuk cron: cetak HANYA apabila ada masalah.
+        if rosak:
+            print('\u26a0\ufe0f Semakan pautan luar MADOCS: %d daripada %d pautan bermasalah.' %
+                  (len(rosak), len(hasil)))
+            for h in rosak:
+                nota = h.get('tls') if h.get('tls') not in ('ok', 'http') else h.get('ralat', '')
+                print('\u2022 %s \u2014 status %s%s' % (h['url'], h.get('status'),
+                                              (' \u00b7 ' + str(nota)[:70]) if nota else ''))
+        return
     print('Pautan luar diperiksa: %d | bermasalah: %d' % (len(hasil), len(rosak)))
     for h in hasil:
         tanda = 'OK ' if h not in rosak else '!! '
