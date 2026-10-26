@@ -1466,3 +1466,15 @@ a.btn.btn-primary,a.btn.btn-primary:visited,
   border:1px solid #f4e2e6;
   box-shadow:none;
 }
+
+/* Halaman Keahlian: SATU latar berterusan dari atas ke bawah (tiada jalur bergradien) */
+.hlm-keahlian{background:linear-gradient(180deg,#f9f2f3 0%,#f4eaec 55%,#f1e4e8 100%);background-repeat:no-repeat}
+.hlm-keahlian .page-hero,
+.hlm-keahlian .content-wrap,
+.hlm-keahlian .content-wrap:nth-of-type(even),
+.hlm-keahlian .content-wrap:nth-of-type(odd),
+.hlm-keahlian .community-cta{
+  background:transparent!important;
+  background-image:none!important;
+  border-block:0!important;
+}
