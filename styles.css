@@ -1116,4 +1116,8 @@ section[id]{scroll-margin-top:92px}
   .seksyen-b .tile:hover,.seksyen-b .course-feature:hover,.seksyen-b .activity-card:hover{transform:none}
 }
 
+/* Jalur statistik ikut warna seksyen gelap (selang-seli) — Dr Azfar, Okt 2026 */
+.stats-band.seksyen-a{background:linear-gradient(180deg,#f4ecee 0%,#eee3e6 52%,#f3eaec 100%);border-block:1px solid #e4d5d8}
+.stats-band.seksyen-a .stat>span{background:#fff;border:1px solid #e4d0d4}
+
 .ikon-ganti{display:inline-block;width:1em;height:1em}

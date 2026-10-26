@@ -1010,7 +1010,7 @@ def bina_utama():
   </div>
 </section>
 
-<section class="stats-band">
+<section class="stats-band seksyen-a">
   <div class="shell stats-grid">
     <h2>MADOCS dalam<br>Angka</h2>
     {stat_items}
