@@ -408,7 +408,7 @@ def footer():
   </div>
   <div class="shell footer-bottom">
     <span>© {date.today().year} {esc(SITE['nama'])}. Hak cipta terpelihara.</span>
-    <span><a href="/sahkan/">Pengesahan Sijil</a><i></i><a href="/semak-ahli/">Pengesahan Ahli</a><i></i><a href="/dasar-privasi/">Dasar Privasi</a><i></i><a href="/terma/">Terma Penggunaan</a><i></i><a href="/kebolehaksesan/">Aksesibiliti</a></span>
+    <span><a href="/semak-ahli/">Pengesahan Ahli</a><i></i><a href="/dasar-privasi/">Dasar Privasi</a><i></i><a href="/terma/">Terma Penggunaan</a><i></i><a href="/kebolehaksesan/">Aksesibiliti</a></span>
   </div>
 </footer>"""
 
@@ -621,6 +621,16 @@ def kad_aktiviti(a):
 </article>"""
 
 
+def tajuk_meta(teks, akhiran=" | MADOCS", had=70):
+    """Tajuk <title> yang tidak melebihi `had` aksara (Google memotong selepas ~60-70)."""
+    t = re.sub(r"\s+", " ", str(teks or "")).strip()
+    ruang = had - len(akhiran)
+    if len(t) <= ruang:
+        return t + akhiran
+    potong = t[:ruang].rsplit(" ", 1)[0].rstrip(" ,.;:—-")
+    return potong + "…" + akhiran
+
+
 def ringkas_meta(teks, had=158):
     """Potong teks pada sempadan perkataan untuk meta description (<= `had` aksara)."""
     t = re.sub(r"\s+", " ", str(teks or "")).strip()
@@ -694,7 +704,7 @@ def bina_sahkan():
   </div>
 </section>
 <section class="content-wrap"><div class="shell"><div class="card prose">
-  <p class="banner-draf">{icon('info')} <b>Draf untuk semakan jawatankuasa.</b> Prosedur pengeluaran sijil C&amp;P (siapa menandatangani, bila dikeluarkan) belum diputuskan, jadi rekod di bawah masih belum rasmi.</p>
+  <p class="banner-draf">{icon('info')} <b>Rekod sijil sedang diselaraskan dengan urusetia.</b> Untuk pengesahan rasmi bertulis, sila hubungi urusetia MADOCS.</p>
   <form id="borang-sahkan" class="borang-sahkan" autocomplete="off" novalidate>
     <label for="siri">Nombor siri sijil</label>
     <p class="nota-isi">Nombor siri tercetak di bahagian bawah sijil, di sebelah kod QR. Contoh: <b>MADOCS-CP-2026-0001</b>.</p>
@@ -1715,7 +1725,7 @@ def bina_aktiviti_detail(a):
     </aside>
   </div>
 </section>"""
-    halaman("aktiviti", "%s | Aktiviti MADOCS" % a["tajuk"],
+    halaman("aktiviti", tajuk_meta(a["tajuk"], " | Aktiviti MADOCS"),
             ringkas_meta(a.get("ringkas") or ("%s, program MADOCS%s%s. Laporan dan gambar aktiviti "
                                               "Pertubuhan Doktor Khatan Malaysia." %
                                               (a["tajuk"],
@@ -1863,7 +1873,7 @@ def bina_berita_detail(b):
     </aside>
   </div>
 </section>"""
-    halaman("berita", "%s | Berita MADOCS" % b["tajuk"],
+    halaman("berita", tajuk_meta(b["tajuk"], " | Berita MADOCS"),
             ringkas_meta(b.get("ringkas", "")), "/berita/%s/" % b["slug"], isi, og_jenis="article", jsonld=[ld])
 
 
@@ -2162,7 +2172,7 @@ def bina_galeri():
             _desc = ("%s: %d gambar dokumentasi program MADOCS%s. Koleksi galeri rasmi "
                      "Pertubuhan Doktor Khatan Malaysia." %
                      (a["tajuk"], _n, (", " + _meta) if _meta else ""))
-        halaman("galeri", "%s | Galeri MADOCS" % a["tajuk"], _desc[:165],
+        halaman("galeri", tajuk_meta(a["tajuk"], " | Galeri MADOCS"), _desc[:165],
                 "/galeri/%s/" % a["slug"], isi)
 
 
@@ -2261,7 +2271,7 @@ def bina_404():
   </div>
 </section>"""
     halaman("", "404: Halaman tidak dijumpai | MADOCS",
-            "Halaman yang anda cari tidak dijumpai.", "/404.html", isi, masuk_sitemap=False)
+            "Halaman yang anda cari tidak dijumpai. Kembali ke laman utama MADOCS atau gunakan carian untuk mencari maklumat yang anda perlukan.", "/404.html", isi, masuk_sitemap=False)
 
 
 def bina_prakata():
