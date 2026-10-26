@@ -2408,7 +2408,7 @@ def bina_galeri():
         cover = g0.get("src", "")
         alt = g0.get("alt", a["tajuk"])
         kad_album.append(f"""    <a class="album-kad" href="/galeri/{esc(a["slug"])}/">
-      <span class="album-kad-gambar">{'<img src="/%s"%s alt="%s" loading="lazy" decoding="async">' % (esc(srcset_galeri(cover)[0]), esc(srcset_galeri(cover)[1]), esc(alt)) if cover else ''}</span>
+      <span class="album-kad-gambar">{'<img src="/%s"%s alt="%s" loading="lazy" decoding="async">' % (esc(srcset_galeri(cover)[0]), srcset_galeri(cover)[1], esc(alt)) if cover else ''}</span>
       <span class="album-kad-isi">
         <span class="chip">{esc(a.get("kategori", "") or "Album")}</span>
         <b>{esc(a["tajuk"])}</b>
