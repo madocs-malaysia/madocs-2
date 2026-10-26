@@ -29,7 +29,7 @@
    "tajuk": "Malaysian Medical Council: pendaftaran dan garis panduan",
    "tarikh": "2026-01-01",
    "kategori": "Pautan luar",
-   "ringkas": "Laman rasmi MMC: pendaftaran doktor, kod etika dan peraturan amalan perubatan di Malaysia.",
+   "ringkas": "Laman rasmi MMC: pendaftaran doktor, kod etika dan peraturan amalan perubatan di Malaysia. Halaman utama MMC agak berat; untuk semakan pantas, guna pautan carian pendaftaran doktor di bawah.",
    "fail": "https://mmc.gov.my/",
    "akses": "awam"
   },
@@ -47,6 +47,14 @@
    "kategori": "Tadbir urus",
    "ringkas": "Perlembagaan rasmi pertubuhan seperti didaftarkan dengan Pendaftar Pertubuhan Malaysia: nama, alamat berdaftar, objektif, kategori keahlian, yuran, mesyuarat agung dan kuasa jawatankuasa. Dokumen dalam bahasa Inggeris, 11 halaman.",
    "fail": "assets/dokumen/perlembagaan-madocs.pdf",
+   "akses": "awam"
+  },
+  {
+   "tajuk": "Carian pendaftaran doktor (MeRITS, Malaysian Medical Council)",
+   "tarikh": "2026-01-01",
+   "kategori": "Pautan luar",
+   "ringkas": "Semak status pendaftaran dan APC seseorang doktor dengan pantas. Halaman ringan, sesuai dibuka pada telefon.",
+   "fail": "https://merits.mmc.gov.my/search/registeredDoctor",
    "akses": "awam"
   }
  ]

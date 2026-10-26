@@ -1373,6 +1373,54 @@ def bina_pendidikan():
             "/pendidikan/", isi)
 
 
+def event_ld(tajuk, tarikh, tamat=None, tempat=None, negeri=None, ringkas="", gambar=None,
+             url=None, yuran=None, status=None, penganjur=None):
+    """Bina data berstruktur schema.org/Event untuk kursus/aktiviti.
+
+    Google memerlukan name, startDate dan location untuk hasil carian acara. Jika tempat
+    belum ditetapkan, location diisi dengan nama "Akan diumumkan" dan alamat negara sahaja
+    supaya markup kekal sah tanpa mereka-reka alamat.
+    """
+    d = {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": tajuk,
+        "startDate": tarikh,
+        "eventStatus": ("https://schema.org/EventCancelled" if status == "batal"
+                        else "https://schema.org/EventScheduled"),
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "inLanguage": "ms-MY",
+        "url": url or (BASE + "/pendidikan/"),
+        "organizer": {"@type": "Organization", "name": SITE["nama"], "url": BASE + "/"},
+        "location": {
+            "@type": "Place",
+            "name": tempat or "Akan diumumkan",
+            "address": {"@type": "PostalAddress",
+                        **({"addressLocality": tempat} if tempat else {}),
+                        **({"addressRegion": negeri} if negeri else {}),
+                        "addressCountry": "MY"},
+        },
+    }
+    if tamat:
+        d["endDate"] = tamat
+    if ringkas:
+        d["description"] = ringkas
+    if gambar:
+        d["image"] = [BASE + "/" + gambar.lstrip("/")]
+    if penganjur:
+        d["organizer"] = {"@type": "Organization", "name": penganjur, "url": BASE + "/"}
+    harga = re.sub(r"[^0-9.]", "", str(yuran or ""))
+    if harga:
+        d["offers"] = {
+            "@type": "Offer",
+            "price": harga,
+            "priceCurrency": "MYR",
+            "url": url or (BASE + "/keahlian/"),
+            "availability": "https://schema.org/InStock",
+        }
+    return d
+
+
 def bina_kursus_detail(k):
     d = parse_date(k.get("tarikh"))
     selesai = k.get("status") in ("closed", "done")
@@ -1457,6 +1505,11 @@ def bina_kursus_detail(k):
 
     ld = []
     if d:
+        # Event: muncul dalam hasil carian Google sebagai acara (tarikh, tempat, harga).
+        ld.append(event_ld(k["tajuk"], k.get("tarikh", ""), k.get("tamat"), k.get("tempat"),
+                           k.get("negeri"), k.get("ringkas", ""), k.get("gambar"),
+                           url_kongsi, k.get("yuran") or k.get("yuran_ahli"), k.get("status"),
+                           k.get("penganjur")))
         ld.append({"@context": "https://schema.org", "@type": "Course",
                    "name": k["tajuk"], "description": k.get("ringkas", ""),
                    "provider": {"@type": "Organization", "name": SITE["nama"], "sameAs": BASE + "/"},
@@ -1799,11 +1852,9 @@ def bina_aktiviti_detail(a):
               % (esc(a["gambar"]), esc(a.get("gambar_alt") or a["tajuk"]))) if a.get("gambar") else ""
     if not a.get("ringkas"):
         kurang("Keterangan/laporan belum ditulis untuk aktiviti '%s' (PRD §24)." % a["tajuk"])
-    ld = {"@context": "https://schema.org", "@type": "Event", "name": a["tajuk"],
-          "startDate": a.get("tarikh", ""),
-          "eventStatus": "https://schema.org/EventScheduled",
-          "location": {"@type": "Place", "name": a.get("tempat", ""), "address": {"@type": "PostalAddress", "addressCountry": "MY"}},
-          "organizer": {"@type": "Organization", "name": SITE["nama"], "url": BASE + "/"}}
+    ld = event_ld(a["tajuk"], a.get("tarikh", ""), a.get("tamat"), a.get("tempat"),
+                  a.get("negeri"), a.get("ringkas", ""), a.get("gambar"),
+                  BASE + "/aktiviti/%s/" % a["slug"], None, "selesai")
     isi = page_hero([("Utama", "/"), ("Aktiviti", "/aktiviti/"), (a["tajuk"], None)], a["tajuk"],
                     ringkas_meta(a.get("ringkas") or (a.get('tarikh_papar') or (tarikh_pdk(d) if d else '')))) + f"""
 <section class="content-wrap">
