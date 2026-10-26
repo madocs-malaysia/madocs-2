@@ -1303,7 +1303,7 @@ section[id]{scroll-margin-top:92px}
 @media (max-width:900px){.struktur-kad-grid{grid-template-columns:repeat(4,1fr)}}
 @media (max-width:520px){.struktur-kad-grid{grid-template-columns:repeat(2,1fr)}}
 
-/* 2. Presiden/Naib Presiden: nama di kanan bulatan */
+/* 2. Presiden/Timbalan Presiden: nama di kanan bulatan */
 .org-ahli-sisi{
   display:flex;align-items:center;gap:16px;text-align:left;width:430px;max-width:100%;
 }

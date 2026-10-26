@@ -190,7 +190,7 @@ def blok_struktur_organisasi(jk_data):
     if penasihat:
         ringkas = ("%s. Pertubuhan ini turut dibantu oleh <b>%d</b> orang Penasihat." % (ringkas, len(penasihat)))
 
-    # Kad bilangan dalam 7 lajur: Penasihat, Presiden, Naib Presiden, Setiausaha,
+    # Kad bilangan dalam 7 lajur: Penasihat, Presiden, Timbalan Presiden, Setiausaha,
     # Penolong Setiausaha, Bendahari, Ahli Jawatankuasa.
     kad = []
     if penasihat:
@@ -2259,7 +2259,7 @@ def blok_jawatankuasa(jk_data):
                           '<div class="org-grid penasihat">%s</div>' % kad)
 
     # ---- Susunan berperingkat (Dr Azfar, Okt 2026) ----
-    #   Majlis Tinggi : Presiden & Naib Presiden (tengah), kemudian 2 lajur:
+    #   Majlis Tinggi : Presiden & Timbalan Presiden (tengah), kemudian 2 lajur:
     #                   Setiausaha Agung | Bendahari Kehormat, Penolong Setiausaha
     #   Ahli Jawatankuasa : 4 lajur x 2 baris
     def _kad(a, sisi=False, tanpa_jawatan=False):
@@ -2275,7 +2275,7 @@ def blok_jawatankuasa(jk_data):
         return [a for a in jk if (a.get("jawatan") or "").strip().lower() == jawatan.lower()]
 
     presiden = _cari("Presiden")
-    naib = _cari("Naib Presiden")
+    naib = _cari("Timbalan Presiden")
     setiausaha = _cari("Setiausaha Agung")
     bendahari = _cari("Bendahari Kehormat")
     penolong = _cari("Penolong Setiausaha")
