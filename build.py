@@ -418,10 +418,12 @@ def header(aktif):
                       for l, h, k in anak)
         blok.append(
             '<div class="nav-kumpulan%s">'
-            '<a class="nav-induk" href="%s" aria-haspopup="true">%s%s</a>'
+            '<a class="nav-induk" href="%s">%s</a>'
+            '<button class="nav-buka" type="button" aria-expanded="false" aria-label="Buka submenu %s">%s</button>'
             '<div class="sub-nav"><div class="sub-nav-dalaman">%s</div></div>'
             '</div>'
-            % (" aktif" if aktif_kumpulan else "", href, esc(label), icon("chevron-down"), sub))
+            % (" aktif" if aktif_kumpulan else "", href, esc(label), esc(label),
+               icon("chevron-down"), sub))
     pautan = "".join(blok)
 
     blok_mudah = []

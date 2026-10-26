@@ -1129,11 +1129,18 @@ section[id]{scroll-margin-top:92px}
 .nav-kumpulan{position:relative;display:flex;align-items:center}
 .desktop-nav .nav-induk{display:flex;align-items:center;gap:4px}
 .desktop-nav .nav-induk svg{width:11px;height:11px;transition:transform .18s ease;opacity:.75}
-.nav-kumpulan:hover .nav-induk svg,
-.nav-kumpulan:focus-within .nav-induk svg{transform:rotate(180deg)}
+.nav-kumpulan:focus-within .nav-induk svg,
+.nav-kumpulan.terbuka .nav-buka svg{transform:rotate(180deg)}
 .nav-kumpulan.aktif>.nav-induk,
-.nav-kumpulan:hover>.nav-induk,
+.nav-kumpulan.terbuka>.nav-induk,
 .nav-kumpulan:focus-within>.nav-induk{color:var(--blue)}
+
+/* Butang karet: sasaran sentuh 44px, berfungsi pada skrin sentuh tanpa hover */
+.nav-buka{background:none;border:0;padding:0 4px;display:grid;place-items:center;
+  min-width:26px;min-height:44px;color:inherit;cursor:pointer;align-self:center}
+.nav-buka svg{width:13px;height:13px;opacity:.75;transition:transform .18s ease}
+.nav-buka:hover svg{opacity:1}
+.nav-buka:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:6px}
 
 .sub-nav{
   position:absolute;top:100%;left:-12px;z-index:40;
@@ -1141,8 +1148,14 @@ section[id]{scroll-margin-top:92px}
   opacity:0;visibility:hidden;transform:translateY(-6px);
   transition:opacity .16s ease, transform .16s ease, visibility .16s;
 }
-.nav-kumpulan:hover .sub-nav,
-.nav-kumpulan:focus-within .sub-nav{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-kumpulan:focus-within .sub-nav,
+.nav-kumpulan.terbuka .sub-nav{opacity:1;visibility:visible;transform:translateY(0)}
+/* Hover hanya untuk peranti bertetikus; skrin sentuh guna butang karet */
+@media (hover:hover) and (pointer:fine){
+  .nav-kumpulan:hover .sub-nav{opacity:1;visibility:visible;transform:translateY(0)}
+  .nav-kumpulan:hover .nav-induk svg{transform:rotate(180deg)}
+  .nav-kumpulan:hover>.nav-induk{color:var(--blue)}
+}
 .sub-nav-dalaman{
   background:#fff;border:1px solid var(--line);border-radius:10px;
   padding:8px;box-shadow:0 18px 40px #51071626, 0 2px 6px #51071612;

@@ -548,3 +548,38 @@
   try { q = new URLSearchParams(window.location.search).get("a"); } catch (e) { q = null; }
   if (q) { masuk.value = q; papar(q); }
 })();
+
+  /* ---- submenu navigasi: boleh ditekan pada skrin sentuh ---- */
+  (function () {
+    var kumpulan = Array.prototype.slice.call(document.querySelectorAll(".nav-kumpulan"));
+    if (!kumpulan.length) { return; }
+
+    function tutup(kecuali) {
+      kumpulan.forEach(function (k) {
+        if (k === kecuali) { return; }
+        k.classList.remove("terbuka");
+        var b = k.querySelector(".nav-buka");
+        if (b) { b.setAttribute("aria-expanded", "false"); }
+      });
+    }
+
+    kumpulan.forEach(function (k) {
+      var butang = k.querySelector(".nav-buka");
+      if (!butang) { return; }
+      butang.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var buka = !k.classList.contains("terbuka");
+        tutup(k);
+        k.classList.toggle("terbuka", buka);
+        butang.setAttribute("aria-expanded", buka ? "true" : "false");
+      });
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest || !e.target.closest(".nav-kumpulan")) { tutup(null); }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { tutup(null); }
+    });
+  })();
