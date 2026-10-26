@@ -1381,6 +1381,8 @@ def event_ld(tajuk, tarikh, tamat=None, tempat=None, negeri=None, ringkas="", ga
     belum ditetapkan, location diisi dengan nama "Akan diumumkan" dan alamat negara sahaja
     supaya markup kekal sah tanpa mereka-reka alamat.
     """
+    # Nama tempat untuk alamat: buang nota kurungan seperti "(tentatif)".
+    tempat_bersih = re.sub(r"\s*\(.*?\)", "", tempat or "").strip()
     d = {
         "@context": "https://schema.org",
         "@type": "Event",
@@ -1396,7 +1398,7 @@ def event_ld(tajuk, tarikh, tamat=None, tempat=None, negeri=None, ringkas="", ga
             "@type": "Place",
             "name": tempat or "Akan diumumkan",
             "address": {"@type": "PostalAddress",
-                        **({"addressLocality": tempat} if tempat else {}),
+                        **({"addressLocality": tempat_bersih} if tempat_bersih else {}),
                         **({"addressRegion": negeri} if negeri else {}),
                         "addressCountry": "MY"},
         },
