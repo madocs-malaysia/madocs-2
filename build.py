@@ -1312,7 +1312,7 @@ def bina_pendidikan():
   </div>
 </section>
 
-<section class="content-wrap" id="akan-datang" style="padding-top:0">
+<section class="content-wrap" id="akan-datang">
   <div class="shell">
     <div class="section-title-row activities-head"><h2>Kursus akan datang</h2></div>
     {senarai(akan, kosong("calendar-days", "Tiada kursus akan datang buat masa ini",
@@ -1321,7 +1321,7 @@ def bina_pendidikan():
   </div>
 </section>
 
-<section class="content-wrap" style="padding-top:0">
+<section class="content-wrap">
   <div class="shell">
     <div class="section-title-row activities-head"><h2>Program lepas</h2></div>
     {blok_lepas}

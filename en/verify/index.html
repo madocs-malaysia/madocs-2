@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pengesahan Sijil C&amp;P | MADOCS</title>
-<meta name="description" content="Sahkan keaslian sijil Credentialing &amp; Privileging (C&amp;P) MADOCS dengan nombor siri sijil.">
+<title>Certificate Verification (C&amp;P) | MADOCS</title>
+<meta name="description" content="Verify the authenticity of a MADOCS Credentialing &amp; Privileging (C&amp;P) certificate using its serial number.">
 <link rel="canonical" href="https://madocs.my/en/verify/">
 <link rel="alternate" hreflang="ms" href="https://madocs.my/sahkan/">
 <link rel="alternate" hreflang="en" href="https://madocs.my/en/verify/">
@@ -13,12 +13,12 @@
 <meta name="robots" content="noindex, follow">
 <link rel="icon" href="/assets/favicon-64.png?v=a6f00877" sizes="64x64">
 <link rel="apple-touch-icon" href="/assets/apple-touch-180.png?v=86b2f62a">
-<link rel="stylesheet" href="/styles.css?v=b4ad8ee1">
+<link rel="stylesheet" href="/styles.css?v=e43cfaec">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MADOCS">
 <meta property="og:locale" content="en_MY">
-<meta property="og:title" content="Pengesahan Sijil C&amp;P | MADOCS">
-<meta property="og:description" content="Sahkan keaslian sijil Credentialing &amp; Privileging (C&amp;P) MADOCS dengan nombor siri sijil.">
+<meta property="og:title" content="Certificate Verification (C&amp;P) | MADOCS">
+<meta property="og:description" content="Verify the authenticity of a MADOCS Credentialing &amp; Privileging (C&amp;P) certificate using its serial number.">
 <meta property="og:url" content="https://madocs.my/en/verify/">
 <meta property="og:image" content="https://madocs.my/assets/og-madocs.png?v=b235a80d">
 <meta property="og:image:width" content="1200">
@@ -69,8 +69,8 @@
 <main id="kandungan">
 <section class="page-hero">
   <div class="shell"><nav class="crumbs" aria-label="Breadcrumb"><a href="/en/">Home</a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg><span>Certificate Verification</span></nav>
-    <h1>Pengesahan Sijil C&amp;P</h1>
-    <p>Hospital dan pihak berkuasa boleh mengesahkan sijil Credentialing &amp; Privileging (C&amp;P) MADOCS di sini, tanpa perlu memaklumkan data peribadi pemegang sijil.</p>
+    <h1>Certificate Verification (C&amp;P)</h1>
+    <p>Hospitals and authorities can verify a MADOCS Credentialing &amp; Privileging (C&amp;P) certificate here, without disclosing the holder's personal data.</p>
   </div>
 </section>
 <section class="content-wrap"><div class="shell"><div class="card prose">
@@ -78,30 +78,30 @@
   <path d="M12 16v-4" />
   <path d="M12 8h.01" /></svg> <b>Certificate records are being reconciled with the secretariat.</b> For written official confirmation, please contact the MADOCS secretariat.</p>
   <form id="borang-sahkan" class="borang-sahkan" autocomplete="off" novalidate>
-    <label for="siri">Nombor siri sijil</label>
-    <p class="nota-isi">Nombor siri tercetak di bahagian bawah sijil, di sebelah kod QR. Contoh: <b>MADOCS-CP-2026-0001</b>.</p>
+    <label for="siri">Certificate serial number</label>
+    <p class="nota-isi">The serial number is printed at the bottom of the certificate, next to the QR code. Example: <b>MADOCS-CP-2026-0001</b>.</p>
     <div class="baris-sahkan">
       <input id="siri" name="siri" type="text" placeholder="MADOCS-CP-2026-0001" required>
       <button class="btn btn-primary" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><path d="m21 21-4.34-4.34" />
-  <circle cx="11" cy="11" r="8" /></svg> Sahkan sijil</button>
+  <circle cx="11" cy="11" r="8" /></svg> Verify certificate</button>
     </div>
   </form>
   <div id="hasil-sahkan" class="hasil-sahkan" role="status" aria-live="polite"></div>
 
-  <h2>Bagaimana pengesahan berfungsi</h2>
+  <h2>How verification works</h2>
   <ul>
-    <li>Setiap sijil MADOCS mempunyai <b>nombor siri unik</b> dan <b>kod QR</b> who opens this page with that number.</li>
-    <li>Untuk mengesahkan, masukkan nombor siri, sistem memaparkan kursus, tarikh, mata CPD dan <b>hash SHA-256</b> fail sijil.</li>
+    <li>Every MADOCS certificate has <b>a unique serial number</b> and <b>QR code</b> who opens this page with that number.</li>
+    <li>To verify, enter the serial number; the system displays the course, date, CPD points and <b>SHA-256 hash</b> certificate file.</li>
     <li>A certificate is valid only if the serial number exists in the record, and the hash shown matches the original certificate file.</li>
   </ul>
 
   <h2>Privacy</h2>
-  <p>Rekod awam ini <b>does not store names or MMC numbers</b> the certificate holder. The name on the certificate appears only in the holder's own document, and verification here does not disclose personal information to third parties. Questions about verification may be directed to the secretariat.</p>
+  <p>This public record <b>does not store names or MMC numbers</b> the certificate holder. The name on the certificate appears only in the holder's own document, and verification here does not disclose personal information to third parties. Questions about verification may be directed to the secretariat.</p>
 
   <h2>If the certificate is not found</h2>
   <p>Please check the certificate serial number again. If it still cannot be found, contact the MADOCS secretariat: <a href="mailto:madocs.secretary@gmail.com">madocs.secretary@gmail.com</a> or <a href="https://wa.me/601115249849" target="_blank" rel="noopener">WhatsApp the secretariat</a>.</p>
 
-  <script type="application/json" id="indeks-sijil">{"sijil": [{"siri": "MADOCS-CP-2026-0001", "kursus": "Kursus Komprehensif Berkhatan (CCC 8)", "kod": "CCC8", "tarikh": "31 Mei 2026", "cpd": "8", "status": "sah", "hash": "45920d120a01bb5619ef8d7dd0fb2018"}]}</script>
+  <script type="application/json" id="indeks-sijil">{"sijil": [{"siri": "MADOCS-CP-2026-0001", "kursus": "Kursus Komprehensif Berkhatan (CCC 8)", "kod": "CCC8", "tarikh": "31 May 2026", "cpd": "8", "status": "sah", "hash": "45920d120a01bb5619ef8d7dd0fb2018"}]}</script>
 </div></div></section>
 </main>
 <footer>
@@ -148,6 +148,6 @@
     <span><a href="/en/member-verification/">Member verification</a><i></i><a href="/en/privacy/">Privacy Policy</a><i></i><a href="/en/terms/">Terms of Use</a><i></i><a href="/en/accessibility/">Accessibility</a></span>
   </div>
 </footer>
-<script src="/app.js?v=b4ad8ee1" defer></script>
+<script src="/app.js?v=e43cfaec" defer></script>
 </body>
 </html>

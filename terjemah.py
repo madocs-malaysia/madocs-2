@@ -129,6 +129,31 @@ def _terjemah_kepingan(bahagian: str, kamus: dict[str, str]) -> str:
 
 
 # ---------------------------------------------------------------------------------------
+BULAN_EN = {
+    "Januari": "January", "Februari": "February", "Mac": "March", "April": "April",
+    "Mei": "May", "Jun": "June", "Julai": "July", "Ogos": "August",
+    "September": "September", "Oktober": "October", "November": "November", "Disember": "December",
+}
+HARI_EN = {
+    "Isnin": "Monday", "Selasa": "Tuesday", "Rabu": "Wednesday", "Khamis": "Thursday",
+    "Jumaat": "Friday", "Sabtu": "Saturday", "Ahad": "Sunday",
+}
+
+
+def tukar_tarikh_en(s: str) -> str:
+    """Tukar nama bulan/hari Bahasa Melayu kepada Inggeris dalam corak tarikh sahaja.
+
+    Contoh: "23 Ogos 2022" -> "23 August 2022"; "Sabtu, 31 Mei 2025" -> "Saturday, 31 May 2025".
+    Hanya bulan yang didahului nombor dan diikuti tahun ditukar, jadi perkataan biasa
+    (contoh "Mac" sebagai jenama) tidak terjejas.
+    """
+    for bm, en in BULAN_EN.items():
+        s = re.sub(r"(\b\d{1,2}\s+)" + bm + r"(\s+\d{4}\b)", r"\1" + en + r"\2", s)
+    for bm, en in HARI_EN.items():
+        s = re.sub(r"(\b)" + bm + r"(,\s+\d{1,2}\s+)", r"\1" + en + r"\2", s)
+    return s
+
+
 def terjemah_html(s: str, kamus: dict[str, str], peta: dict[str, str],
                   laluan_bm: str, laluan_en: str, asas: str) -> str:
     """Hasilkan versi Inggeris bagi satu halaman HTML Bahasa Melayu."""
@@ -193,6 +218,8 @@ def terjemah_html(s: str, kamus: dict[str, str], peta: dict[str, str],
         dalam(data)
         return m.group(1) + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + m.group(3)
     s = RE_LD.sub(ganti_ld, s)
+    # 7) tarikh: nama bulan/hari Melayu -> Inggeris (termasuk dalam meta & JSON-LD)
+    s = tukar_tarikh_en(s)
     return s
 
 

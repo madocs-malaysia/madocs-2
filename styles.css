@@ -1370,4 +1370,21 @@ section[id]{scroll-margin-top:92px}
 .btn-blok:hover,.menu-toggle:hover{filter:brightness(1.09)}
 .btn-primary:hover{filter:brightness(1.14)}
 
+/* ================= PENALAAN TAJUK & KAD (Dr Azfar, Okt 2026) ================= */
+
+/* Jarak sihat di atas tajuk seksyen (semua halaman) */
+.shell>.section-title-row{margin-top:34px}
+.shell>.section-title-row:first-child{margin-top:0}
+.overview-grid .section-title-row,.split .section-title-row{margin-top:0}
+@media (max-width:640px){.shell>.section-title-row{margin-top:26px}}
+
+/* Kad 4 lajur (halaman Pendidikan): ikon & teks di tengah */
+.grid-4>.tile{text-align:center}
+.grid-4>.tile>span.ikon{margin-left:auto;margin-right:auto}
+.grid-4>.tile h3{text-align:center}
+.grid-4>.tile p{text-align:center}
+
+/* Nota tugas jawatankuasa: perenggan biasa, tiada inden/baris sisi */
+.struktur-tugas{border-left:0;padding-left:0}
+
 .ikon-ganti{display:inline-block;width:1em;height:1em}
