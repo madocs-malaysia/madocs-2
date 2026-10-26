@@ -279,10 +279,25 @@
 
     /* --- anak panah: pengguna desktop tiada swipe --- */
     var titik = [];
+    var mqMudah = window.matchMedia("(max-width: 640px)");
+    /* Telefon: papar tetingkap 7 titik sahaja (titik bergolek ikut slaid aktif). */
+    function tetingkapTitik() {
+      var max = mqMudah.matches ? 7 : titik.length;
+      if (!titik.length) { return; }
+      if (titik.length <= max) {
+        for (var j = 0; j < titik.length; j++) { titik[j].style.display = ""; }
+        return;
+      }
+      var mula = Math.min(Math.max(indeks - Math.floor(max / 2), 0), titik.length - max);
+      for (var k = 0; k < titik.length; k++) {
+        titik[k].style.display = (k >= mula && k < mula + max) ? "" : "none";
+      }
+    }
     function tandaTitik() {
       for (var i = 0; i < titik.length; i++) {
         titik[i].setAttribute("aria-current", i === indeks ? "true" : "false");
       }
+      tetingkapTitik();
     }
     if (hero) {
       /* Satu baris kawalan: < · · · · · > (anak panah dan titik sebaris) */
@@ -325,6 +340,11 @@
       });
       kawalan.insertBefore(bekasTitik, kawalan.querySelector(".hero-nav-kanan"));
       tandaTitik();
+      if (mqMudah.addEventListener) {
+        mqMudah.addEventListener("change", tetingkapTitik);
+      } else if (mqMudah.addListener) {
+        mqMudah.addListener(tetingkapTitik);
+      }
     }
 
     /* --- swipe kiri/kanan pada skrin sentuh --- */

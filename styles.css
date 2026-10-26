@@ -944,15 +944,15 @@ footer .socials a:hover,.tile:hover>span.ikon{transform:none}
   transform:translateX(-50%);
   display:flex; align-items:center; gap:12px;
   padding:7px 10px; border-radius:99px;
-  background:rgba(46,5,14,.4);
-  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
-  box-shadow:0 8px 22px #2c030833;
+  background:rgba(46,5,14,.17);
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  box-shadow:0 6px 18px #2c03081f;
 }
 .hero-nav{position:static; width:34px; height:34px; border:0; padding:0;
   border-radius:50%; cursor:pointer; display:grid; place-items:center; color:#fff;
-  background:#ffffff1f; transition:background .2s, transform .2s}
+  background:#ffffff14; transition:background .2s, transform .2s}
 .hero-nav svg{width:17px; height:17px}
-.hero-nav:hover,.hero-nav:focus-visible{background:#ffffff3d; transform:scale(1.06)}
+.hero-nav:hover,.hero-nav:focus-visible{background:#ffffff33; transform:scale(1.06)}
 
 .hero-titik{position:static; transform:none; display:flex; flex-direction:row;
   align-items:center; gap:6px}
