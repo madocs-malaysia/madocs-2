@@ -41,7 +41,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .prose a{color:var(--blue);text-decoration:underline}
 .prose strong{color:#360f17}
 .prose blockquote{border-left:3px solid var(--blue);background:var(--ice);margin:0 0 14px;padding:14px 18px;border-radius:0 8px 8px 0}
-.nota-isi{color:#6a788e;font-size:15px;font-style:italic}
+.nota-isi{color:#55617a;font-size:15px;font-style:italic}
 
 /* ---------- grid kad umum ---------- */
 .grid-2{grid-template-columns:1fr 1fr;gap:18px;display:grid}
@@ -132,7 +132,7 @@ table.data td strong{color:#360f17}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #9f0d2a17}
 .field .pilihan{align-items:flex-start;gap:9px;display:flex;font-size:15px;line-height:1.6;color:#58353c}
 .field .pilihan input{width:auto;min-height:auto;margin-top:2px}
-.form-note{color:#6a788e;background:var(--ice);border:1px solid var(--line);border-radius:8px;margin:0 0 20px;padding:14px 16px;font-size:14px;line-height:1.65}
+.form-note{color:#55617a;background:var(--ice);border:1px solid var(--line);border-radius:8px;margin:0 0 20px;padding:14px 16px;font-size:14px;line-height:1.65}
 .form-note b{color:#360f17}
 .btn-hantar{border:0;background:linear-gradient(135deg,var(--navy),#ad0e2e);color:#fff;border-radius:5px;justify-content:center;align-items:center;gap:10px;min-height:46px;padding:0 26px;font-size:15px;font-weight:800;text-transform:uppercase;display:inline-flex;box-shadow:0 8px 22px #51071626}
 .btn-hantar svg{width:15px;height:15px}
@@ -141,7 +141,7 @@ table.data td strong{color:#360f17}
 .search-bar{border:1px solid var(--line);background:#fff;border-radius:11px;align-items:center;gap:12px;padding:12px 16px;display:flex;box-shadow:0 5px 18px #5107160d}
 .search-bar svg{width:18px;height:18px;color:var(--navy);flex:none}
 .search-bar input{border:0;outline:none;flex:1;min-height:34px;font-size:14.9px}
-.hasil{color:#6a788e;margin:16px 0 18px;font-size:14px}
+.hasil{color:#55617a;margin:16px 0 18px;font-size:14px}
 mark{background:#fff2a8;padding:0 2px;border-radius:3px}
 
 /* ---------- keadaan kosong ---------- */
@@ -529,7 +529,7 @@ footer{background:#2e050d;background-image:none}
 @media (max-width:960px){.split-presiden{grid-template-columns:1fr;gap:26px}.kad-presiden{padding:22px 18px}}
 
 /* --- Fasa 1: butang WhatsApp + kotak bantuan kontekstual --- */
-.btn-blok.wa{background:#128c7e;border-color:#128c7e;box-shadow:none}
+.btn-blok.wa{background:#0c6f64;border-color:#0c6f64;box-shadow:none}
 .btn-blok.wa:hover{background:#0f7568;border-color:#0f7568}
 .btn-blok.wa svg{width:15px;height:15px}
 .kotak-bantuan{background:var(--g-permukaan)}
@@ -549,7 +549,7 @@ footer{background:#2e050d;background-image:none}
 .promosi-yuran{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
 .kad-yuran{border:1px solid var(--g-line);background:#fff;border-radius:var(--g-r-kecil);padding:14px 16px}
 .kad-yuran small{display:block;font-size:12.5px;color:var(--g-teks);line-height:1.4;min-height:34px}
-.kad-yuran s{display:block;font-size:13px;color:#b4949b;margin-top:6px}
+.kad-yuran s{display:block;font-size:13px;color:#8a6a71;margin-top:6px}
 .kad-yuran strong{display:block;font-size:23px;font-weight:700;color:var(--g-ink);letter-spacing:-.02em}
 .promosi-bayaran{border-top:1px solid var(--g-line);padding-top:16px;margin-bottom:20px}
 .promosi-bayaran h3{font-size:14px;font-weight:700;color:var(--g-ink);margin:0 0 10px}
@@ -956,9 +956,12 @@ footer .socials a:hover,.tile:hover>span.ikon{transform:none}
 
 .hero-titik{position:static; transform:none; display:flex; flex-direction:row;
   align-items:center; gap:6px}
-.hero-titik button{width:7px; height:7px; padding:0; border:0; border-radius:99px; cursor:pointer;
+.hero-titik button{width:24px; height:24px; padding:0; border:0; background:transparent; cursor:pointer;
+  display:grid; place-items:center; border-radius:99px}
+.hero-titik button::before{content:""; width:8px; height:8px; border-radius:99px;
   background:#ffffff8c; transition:width .25s, background .25s}
-.hero-titik button[aria-current="true"]{width:20px; background:#fff}
+.hero-titik button[aria-pressed="true"]::before{width:22px; background:#fff}
+.hero-titik button:focus-visible{outline:2px solid #fff; outline-offset:2px}
 
 @media (min-width:961px) and (max-width:1180px){
   .hero-kawalan{left:calc(39% + 30.5%)}

@@ -2249,6 +2249,34 @@ def blok_jawatankuasa(jk_data):
 
 
 
+_LEBAR_CACHE = {}
+
+
+def lebar_imej(laluan: str) -> int:
+    """Lebar sebenar fail imej (cache) untuk atribut srcset yang tepat."""
+    if laluan not in _LEBAR_CACHE:
+        try:
+            from PIL import Image
+            with Image.open(ROOT / laluan) as im:
+                _LEBAR_CACHE[laluan] = im.width
+        except Exception:
+            _LEBAR_CACHE[laluan] = 1000
+    return _LEBAR_CACHE[laluan]
+
+
+def srcset_galeri(src: str) -> tuple:
+    """Pulangkan (src, atribut_srcset) untuk gambar galeri.
+
+    Versi kecil (520 px) dijana oleh alat/bina_thumb_galeri.py. Grid hanya memaparkan
+    gambar selebar 300-400 px, jadi menghantar fail 1400 px membazir data pembaca telefon.
+    """
+    kecil = src[:-5] + "-kecil.webp" if src.endswith(".webp") else None
+    if kecil and (ROOT / kecil).exists():
+        return kecil, ' srcset="/%s %dw, /%s %dw" sizes="(max-width: 640px) 45vw, (max-width: 1024px) 31vw, 320px"' % (
+            esc(kecil), lebar_imej(kecil), esc(src), lebar_imej(src))
+    return src, ""
+
+
 def bina_galeri():
     """Galeri, senarai album + satu halaman setiap album.
 
@@ -2270,7 +2298,7 @@ def bina_galeri():
         cover = g0.get("src", "")
         alt = g0.get("alt", a["tajuk"])
         kad_album.append(f"""    <a class="album-kad" href="/galeri/{esc(a["slug"])}/">
-      <span class="album-kad-gambar">{'<img src="/%s" alt="%s" loading="lazy" decoding="async">' % (esc(cover), esc(alt)) if cover else ''}</span>
+      <span class="album-kad-gambar">{'<img src="/%s"%s alt="%s" loading="lazy" decoding="async">' % (esc(srcset_galeri(cover)[0]), esc(srcset_galeri(cover)[1]), esc(alt)) if cover else ''}</span>
       <span class="album-kad-isi">
         <span class="chip">{esc(a.get("kategori", "") or "Album")}</span>
         <b>{esc(a["tajuk"])}</b>
@@ -2297,11 +2325,14 @@ def bina_galeri():
 
     # ---- satu halaman bagi setiap album ----
     for a in al:
-        kad = "".join(
-            '<button class="gambar" type="button" data-besar="/%s" data-kapsyen="%s" aria-label="%s">'
-            '<img src="/%s" alt="%s" loading="lazy" decoding="async"></button>'
-            % (esc(g["src"]), esc(g["alt"]), esc(g["alt"]), esc(g["src"]), esc(g["alt"]))
-            for g in a.get("gambar", []))
+        _kad = []
+        for g in a.get("gambar", []):
+            _src, _srcset = srcset_galeri(g["src"])
+            _kad.append(
+                '<button class="gambar" type="button" data-besar="/%s" data-kapsyen="%s" aria-label="%s">'
+                '<img src="/%s"%s alt="%s" loading="lazy" decoding="async"></button>'
+                % (esc(g["src"]), esc(g["alt"]), esc(g["alt"]), esc(_src), _srcset, esc(g["alt"])))
+        kad = "".join(_kad)
         ringkas = esc(a.get("ringkas", ""))
         isi = page_hero([("Utama", "/"), ("Galeri", "/galeri/"), (a["tajuk"], None)], a["tajuk"],
                         meta_album(a) or "Album gambar program MADOCS.") + f"""

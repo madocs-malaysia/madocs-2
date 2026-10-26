@@ -295,7 +295,7 @@
     }
     function tandaTitik() {
       for (var i = 0; i < titik.length; i++) {
-        titik[i].setAttribute("aria-current", i === indeks ? "true" : "false");
+        titik[i].setAttribute("aria-pressed", i === indeks ? "true" : "false");
       }
       tetingkapTitik();
     }
@@ -322,12 +322,13 @@
       /* --- titik penunjuk di sisi kanan gambar --- */
       var bekasTitik = document.createElement("div");
       bekasTitik.className = "hero-titik";
-      bekasTitik.setAttribute("role", "tablist");
+      bekasTitik.setAttribute("role", "group");
       bekasTitik.setAttribute("aria-label", "Pilih slaid");
       slaid.forEach(function (s, i) {
         var t = document.createElement("button");
         t.type = "button";
         t.setAttribute("aria-label", "Slaid " + (i + 1));
+        t.setAttribute("aria-pressed", i === 0 ? "true" : "false");
         t.addEventListener("click", function (e) {
           e.preventDefault();
           slaid[indeks].classList.remove("aktif");
