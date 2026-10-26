@@ -42,8 +42,8 @@ def _blok_kredensial(isi: str) -> str:
 
 
 # Kad kongsi sosial (og:image). Fail: assets/og-madocs.png, 1200x630 (nisbah 1.91:1).
-GAMBAR_OG_LALAI = "/assets/og-madocs.jpg"
-OG_SAIZ = (1200, 630)
+GAMBAR_OG_LALAI = "/assets/og-madocs-square.jpg"
+OG_SAIZ = (1200, 1200)
 
 STATUS_LABEL = {
     "tentatif": ("Tarikh tentatif", "tentatif"),
