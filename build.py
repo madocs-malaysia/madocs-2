@@ -2304,6 +2304,7 @@ def bina_prakata():
         <div class="tandatangan-prakata">
           <div class="nm">{esc(p['nama'])}</div>
           <div class="jw">{esc(p['label'])}, {esc(p['organisasi'])}</div>
+          <div class="tarikh-prakata">{esc(p['tarikh'])}</div>
         </div>
       </div>
       <div class="card nota-prakata">

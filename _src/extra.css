@@ -957,3 +957,6 @@ footer .socials a:hover,.tile:hover>span.ikon,.carousel-arrow:hover,.modal .clos
 @media (max-width:640px){
   .hero-slaid-berita.aktif ~ .hero-wash{background:linear-gradient(#0000 0,#ffffff14 40%,#fff 52% 100%)}
 }
+
+/* Tarikh pada tandatangan Prakata Presiden */
+.tarikh-prakata { font-size: 13px; color: var(--teks-lembut, #6b6b6b); margin-top: 2px; }
