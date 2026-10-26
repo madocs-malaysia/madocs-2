@@ -1136,8 +1136,9 @@ section[id]{scroll-margin-top:92px}
 .nav-kumpulan:focus-within>.nav-induk{color:var(--blue)}
 
 /* Butang karet: sasaran sentuh 44px, berfungsi pada skrin sentuh tanpa hover */
-.nav-buka{background:none;border:0;padding:0 4px;display:grid;place-items:center;
-  min-width:26px;min-height:44px;color:inherit;cursor:pointer;align-self:center}
+.nav-buka{background:none;border:0;padding:0 7px;display:grid;place-items:center;
+  min-width:36px;min-height:44px;color:inherit;cursor:pointer;align-self:center;
+  touch-action:manipulation;border-radius:8px}
 .nav-buka svg{width:13px;height:13px;opacity:.75;transition:transform .18s ease}
 .nav-buka:hover svg{opacity:1}
 .nav-buka:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:6px}
