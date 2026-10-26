@@ -175,21 +175,25 @@ def blok_struktur_organisasi(jk_data):
     if not st:
         return ""
     penasihat = jk_data.get("penasihat") or []
-    baris_penasihat = ""
+    ringkas = esc(st.get("ringkas", "")).rstrip(".")
+    # Satu perenggan: ringkasan tadbir urus + bilangan penasihat.
     if penasihat:
-        baris_penasihat = ('<li><span>Penasihat</span><b>%d orang</b></li>' % len(penasihat))
-    jawatan = baris_penasihat + "".join(
-        '<li><span>%s</span><b>%s</b></li>' % (esc(j["nama"]), "%d orang" % j["bilangan"] if j.get("bilangan") else "")
-        for j in st.get("jawatan", []))
-    ringkas = esc(st.get("ringkas", ""))
-    ayat_penasihat = ('<p class="struktur-ringkas">Pertubuhan ini turut dibantu oleh <b>%d</b> orang Penasihat.</p>'
-                      % len(penasihat)) if penasihat else ""
+        ringkas = ("%s. Pertubuhan ini turut dibantu oleh <b>%d</b> orang Penasihat." % (ringkas, len(penasihat)))
+
+    # Kad bilangan dalam 7 lajur: Penasihat, Presiden, Naib Presiden, Setiausaha,
+    # Penolong Setiausaha, Bendahari, Ahli Jawatankuasa.
+    kad = []
+    if penasihat:
+        kad.append(("Penasihat", len(penasihat)))
+    kad.extend((j["nama"], j.get("bilangan") or 1) for j in st.get("jawatan", []))
+    kad_html = "".join(
+        '<div class="struktur-kad"><b>%d</b><span>%s</span></div>' % (bil, esc(nama)) for nama, bil in kad)
+
     return ("""<div class="struktur">
-  <p class="struktur-ringkas">%s</p>%s
-  <ul class="struktur-jawatan">%s</ul>
+  <p class="struktur-ringkas">%s</p>
+  <div class="struktur-kad-grid">%s</div>
   <p class="struktur-tugas">%s</p>
-  <p class="nota-isi">Sumber: %s. Nama ahli jawatankuasa sesi semasa akan diumumkan setelah disahkan.</p>
-</div>""" % (ringkas, ayat_penasihat, jawatan, esc(st.get("tugas", "")), esc(st.get("sumber", ""))))
+</div>""" % (ringkas, kad_html, esc(st.get("tugas", "")).rstrip()))
 
 def blok_sumber_berita(b):
     """Nota sumber untuk berita yang memetik liputan media luar."""
@@ -2124,7 +2128,7 @@ def blok_jawatankuasa(jk_data):
         return ""
     carta = jk_data.get("carta") or {}
     bahagian_carta = ""
-    if carta.get("gambar"):
+    if False and carta.get("gambar"):  # carta gambar disembunyikan (Dr Azfar, Okt 2026)
         bahagian_carta = (
             '<div class="org-carta">'
             '<button class="gambar" type="button" data-besar="/%s" data-kapsyen="%s" aria-label="%s">'
@@ -2156,18 +2160,21 @@ def blok_jawatankuasa(jk_data):
                else '<span class="org-bulat org-bulat-kosong" aria-hidden="true">%s</span>' % esc(_inisial(p["nama"])),
                esc(p["nama"]), esc(p.get("jawatan", "Penasihat")))
             for p in penasihat)
-        blok_penasihat = ('<h3 class="tajuk-penasihat">Penasihat</h3>'
+        blok_penasihat = ('<h3 class="tajuk-kumpulan">Penasihat</h3>'
                           '<div class="org-grid penasihat">%s</div>' % kad)
 
     # ---- Susunan berperingkat (Dr Azfar, Okt 2026) ----
     #   Majlis Tinggi : Presiden & Naib Presiden (tengah), kemudian 2 lajur:
     #                   Setiausaha Agung | Bendahari Kehormat, Penolong Setiausaha
     #   Ahli Jawatankuasa : 4 lajur x 2 baris
-    def _kad(a):
-        return ('<div class="org-ahli">%s<b>%s</b><small>%s</small></div>'
-                % ('<span class="org-bulat"><img src="/%s" alt="%s" loading="lazy" decoding="async"></span>'
-                   % (esc(a["gambar"]), esc(a["nama"])) if a.get("gambar") else "",
-                   esc(a["nama"]), esc(a.get("jawatan", ""))))
+    def _kad(a, sisi=False, tanpa_jawatan=False):
+        bulat = ('<span class="org-bulat"><img src="/%s" alt="%s" loading="lazy" decoding="async"></span>'
+                 % (esc(a["gambar"]), esc(a["nama"])) if a.get("gambar") else "")
+        jawatan = "" if tanpa_jawatan else esc(a.get("jawatan", ""))
+        teks = '<b>%s</b>%s' % (esc(a["nama"]), ('<small>%s</small>' % jawatan) if jawatan else "")
+        if sisi:
+            return '<div class="org-ahli org-ahli-sisi">%s<span class="org-teks">%s</span></div>' % (bulat, teks)
+        return '<div class="org-ahli">%s%s</div>' % (bulat, teks)
 
     def _cari(jawatan):
         return [a for a in jk if (a.get("jawatan") or "").strip().lower() == jawatan.lower()]
@@ -2181,7 +2188,7 @@ def blok_jawatankuasa(jk_data):
 
     majlis = ""
     if presiden or naib or setiausaha or bendahari or penolong:
-        tengah = "".join(_kad(a) for a in presiden + naib)
+        tengah = "".join(_kad(a, sisi=True) for a in presiden + naib)
         kiri = "".join(_kad(a) for a in setiausaha + penolong)
         kanan = "".join(_kad(a) for a in bendahari)
         majlis = ('<h3 class="tajuk-kumpulan">Majlis Tinggi</h3>'
@@ -2192,7 +2199,8 @@ def blok_jawatankuasa(jk_data):
     jawatankuasa = ""
     if ajk:
         jawatankuasa = ('<h3 class="tajuk-kumpulan">Ahli Jawatankuasa</h3>'
-                        '<div class="org-ajk">%s</div>' % "".join(_kad(a) for a in ajk))
+                        '<div class="org-ajk">%s</div>'
+                        % "".join(_kad(a, tanpa_jawatan=True) for a in ajk))
 
     # Jika ada jawatan lain yang tidak dikenali, jangan hilangkan — letak di hujung.
     dikenali = {"presiden", "naib presiden", "setiausaha agung", "bendahari kehormat",

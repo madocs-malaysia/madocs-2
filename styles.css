@@ -1207,6 +1207,7 @@ section[id]{scroll-margin-top:92px}
 }
 .org-tengah{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;margin-bottom:24px}
 .org-tengah .org-ahli{max-width:230px}
+.org-tengah .org-ahli-sisi{max-width:none;width:430px}
 .org-dua-lajur{
   display:grid;grid-template-columns:1fr 1fr;gap:22px 40px;
   max-width:780px;margin:0 auto 10px;
@@ -1276,5 +1277,97 @@ section[id]{scroll-margin-top:92px}
 .org-ajk>.org-ahli{display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
 .org-ajk .org-ahli b{min-height:2.7em}
 .org-dua-lajur .org-ahli b{min-height:2.7em}
+
+/* ================= KEMASAN AKHIR (Dr Azfar, Okt 2026) ================= */
+
+/* 1. Kad bilangan struktur: 7 lajur */
+.struktur-kad-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin:20px 0 22px}
+.struktur-kad{
+  background:#fff;border:1px solid #ecdadd;border-radius:10px;
+  padding:14px 8px;text-align:center;box-shadow:0 6px 16px #51071614;
+}
+.struktur-kad b{display:block;font-size:26px;line-height:1;color:#8a0b22;font-weight:800}
+.struktur-kad span{display:block;margin-top:5px;font-size:11.5px;line-height:1.25;color:#67474d}
+@media (max-width:900px){.struktur-kad-grid{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:520px){.struktur-kad-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* 2. Presiden/Naib Presiden: nama di kanan bulatan */
+.org-ahli-sisi{
+  display:flex;align-items:center;gap:16px;text-align:left;width:430px;max-width:100%;
+}
+.org-ahli-sisi .org-bulat{flex:none}
+.org-ahli-sisi .org-teks{display:flex;flex-direction:column;gap:2px}
+.org-ahli-sisi b{font-size:16.5px}
+.org-ahli-sisi small{font-size:12.5px;margin-top:0}
+
+/* 3. Nama & jawatan rapat (buang min-height yang menyebabkan jurang) */
+.org-ajk .org-ahli b,.org-dua-lajur .org-ahli b{min-height:0}
+.org-ajk{grid-auto-rows:1fr}
+.org-ahli small{margin-top:2px}
+
+/* 4. Bayang di belakang potret bulat */
+.org-bulat{
+  border-radius:50%;overflow:hidden;background:#fff;
+  box-shadow:0 6px 16px #51071626, 0 2px 5px #5107161a;
+}
+
+/* 5. Buang animasi pop-out / bayang gelap pada hover */
+.course-feature:hover,.tile:hover,.activity-card:hover,.item:hover,.album-kad:hover,
+.card:hover,.service-grid:hover,
+.seksyen-a .tile:hover,.seksyen-a .course-feature:hover,.seksyen-a .activity-card:hover,.seksyen-a .item:hover,
+.seksyen-b .tile:hover,.seksyen-b .course-feature:hover,.seksyen-b .activity-card:hover,.seksyen-b .item:hover,
+.content-wrap .card:hover,.content-wrap .tile:hover,.content-wrap .item:hover,.content-wrap .album-kad:hover{
+  transform:none;
+}
+.btn:hover,.small-btn:hover,.join-nav:hover,.cta-grid>button:hover,.footer-grid form button:hover,
+.tukar-bahasa:hover,.hero-nav:hover{transform:none}
+.btn:active,.small-btn:active,.join-nav:active,.tukar-bahasa:active,
+.cta-grid>button:active,.footer-grid form button:active,.mobile-nav button:active{transform:none}
+.activity-card:hover .activity-image img,
+.album-kad:hover .album-kad-gambar img,
+.galeri .gambar:hover img{transform:none}
+.hero-slaid-berita:hover .hero-berita-teks{transform:translateY(-3px)}
+
+/* 6. Kotak Pintasan (side-nav): jarak dari garis + teks lebih kecil */
+.side-nav a{
+  border-left:3px solid transparent;
+  padding:10px 12px 10px 16px;
+  font-size:13px;font-weight:600;color:#67474d;border-radius:0 6px 6px 0;
+}
+.side-nav a.aktif{
+  border-left-color:var(--blue);
+  background:var(--pale);color:var(--blue);font-weight:700;
+}
+.side .card h3{font-size:15px;letter-spacing:.03em;text-transform:uppercase;color:#8a0b22}
+
+/* Hover kad: tiada perubahan bayang/warna lebih gelap — hanya kursor (Dr Azfar, Okt 2026) */
+.seksyen-a .tile:hover,.seksyen-a .course-feature:hover,
+.seksyen-a .activity-card:hover,.seksyen-a .item:hover{
+  box-shadow:0 14px 32px #5107162e, 0 3px 8px #5107161c;
+}
+.seksyen-b .tile:hover,.seksyen-b .course-feature:hover,
+.seksyen-b .activity-card:hover,.seksyen-b .item:hover{
+  box-shadow:0 16px 34px #51071633, 0 4px 9px #51071621;
+}
+.content-wrap:nth-of-type(odd) .card:hover,.content-wrap:nth-of-type(odd) .tile:hover,
+.content-wrap:nth-of-type(odd) .item:hover,.content-wrap:nth-of-type(odd) .activity-card:hover,
+.content-wrap:nth-of-type(odd) .course-feature:hover,.content-wrap:nth-of-type(odd) .album-kad:hover{
+  box-shadow:0 10px 26px #5107161a, 0 2px 6px #51071612;
+}
+.content-wrap:nth-of-type(even) .card:hover,.content-wrap:nth-of-type(even) .tile:hover,
+.content-wrap:nth-of-type(even) .item:hover,.content-wrap:nth-of-type(even) .activity-card:hover,
+.content-wrap:nth-of-type(even) .course-feature:hover,.content-wrap:nth-of-type(even) .album-kad:hover{
+  box-shadow:0 12px 30px #5107161f, 0 3px 8px #51071614;
+}
+.album-kad:hover{border-color:var(--g-line)}
+.tile:hover,.card:hover,.item:hover,.course-feature:hover,.activity-card:hover,.service-grid:hover{
+  border-color:inherit;
+}
+
+/* Butang: hover hanya mencerahkan warna (tiada gerakan) */
+.btn:hover,.small-btn:hover,.join-nav:hover,.cta-grid>button:hover,
+.footer-grid form button:hover,.tukar-bahasa:hover,.cta-btn:hover,
+.btn-blok:hover,.menu-toggle:hover{filter:brightness(1.09)}
+.btn-primary:hover{filter:brightness(1.14)}
 
 .ikon-ganti{display:inline-block;width:1em;height:1em}
