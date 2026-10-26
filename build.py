@@ -2156,12 +2156,7 @@ def bina_galeri():
                         meta_album(a) or "Album gambar program MADOCS.") + f"""
 <section class="content-wrap">
   <div class="shell">
-    <div class="album-kepala">
-      <span class="chip">{esc(a.get("kategori", ""))}</span>
-      <h2>{esc(a["tajuk"])}</h2>
-      <p class="album-meta">{esc(meta_album(a))}</p>
-      {f'<p class="album-ringkas-teks">{ringkas}</p>' if ringkas else ''}
-    </div>
+    {f'<p class="album-ringkas-teks">{ringkas}</p>' if ringkas else ''}
     <div class="galeri">{kad}</div>
     <p class="nota-isi" style="margin-top:18px">Gambar diambil semasa program MADOCS dan diterbitkan untuk tujuan dokumentasi pertubuhan. Ibu bapa, penjaga atau peserta yang ingin gambar tertentu dibuang boleh menghubungi urusetia MADOCS. <a href="/galeri/">Kembali ke semua album</a>.</p>
   </div>
