@@ -2563,7 +2563,7 @@ def bina_galeri():
         pautan_laporan = ('<div style="margin:16px 0 20px"><a class="btn btn-outline" href="/aktiviti/%s/">'
                           'Baca laporan program %s</a></div>' % (esc(_akt["slug"]), icon("arrow-right"))) if _akt else ""
         isi = page_hero([("Utama", "/"), ("Galeri", "/galeri/"), (a["tajuk"], None)], a["tajuk"],
-                        meta_album(a) or "Album gambar program MADOCS.") + f"""
+                        re.sub(r"<[^>]+>", "", meta_album(a)) or "Album gambar program MADOCS.") + f"""
 <section class="content-wrap">
   <div class="shell">
     {f'<p class="album-ringkas-teks">{ringkas}</p>' if ringkas else ''}
