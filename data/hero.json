@@ -29,8 +29,8 @@
    "telefon": "assets/hero/berita-2026-09-17-pelancaran-garis-panduan-berkhatan-telefon.webp",
    "alt": "Sepanduk dan kaunter MADOCS pada majlis pelancaran di Auditorium Hospital Shah Alam",
    "tajuk": "Pelancaran Garis Panduan Berkhatan Kebangsaan",
-   "kicker": "Program",
-   "pautan": "/berita/2026-09-17-pelancaran-garis-panduan-berkhatan/"
+   "kicker": "Aktiviti",
+   "pautan": "/aktiviti/2026-09-17-pelancaran-garis-panduan/"
   },
   {
    "jenis": "imej",
@@ -43,9 +43,9 @@
    "besar": "assets/hero/berita-2026-09-16-mesyuarat-ahli-jawatankuasa-besar.webp",
    "telefon": "assets/hero/berita-2026-09-16-mesyuarat-ahli-jawatankuasa-telefon.webp",
    "alt": "Bangunan tempat berlangsungnya mesyuarat Ahli Jawatankuasa MADOCS",
-   "tajuk": "Mesyuarat Ahli Jawatankuasa Bil. 2",
-   "kicker": "Mesyuarat",
-   "pautan": "/berita/2026-09-16-mesyuarat-ahli-jawatankuasa/"
+   "tajuk": "Mesyuarat Ahli Jawatankuasa Bil. 2/2026",
+   "kicker": "Aktiviti",
+   "pautan": "/aktiviti/2026-09-16-mesyuarat-ajk-bil2/"
   },
   {
    "jenis": "imej",
@@ -58,9 +58,9 @@
    "besar": "assets/hero/berita-2026-08-10-lawatan-klinik-sunat-indonesia-besar.webp",
    "telefon": "assets/hero/berita-2026-08-10-lawatan-klinik-sunat-indonesia-telefon.webp",
    "alt": "Peralatan klinikal disusun di atas meja semasa lawatan kerja ke klinik berkhatan di Indonesia",
-   "tajuk": "Lawatan Kerja MADOCS ke Klinik Sunat Kanak-kanak di Indonesia",
-   "kicker": "Lawatan",
-   "pautan": "/berita/2026-08-10-lawatan-klinik-sunat-indonesia/"
+   "tajuk": "Bengkel Teknoklem & Teknosealer di Depok, Indonesia",
+   "kicker": "Aktiviti",
+   "pautan": "/aktiviti/2026-08-10-lawatan-klinik-indonesia/"
   },
   {
    "jenis": "imej",
@@ -69,13 +69,10 @@
    "alt": "Petugas menyediakan dulang instrumen steril sebelum sesi penilaian PCC2-1 di The Katerina Hotel, Batu Pahat"
   },
   {
-   "jenis": "berita",
+   "jenis": "imej",
    "besar": "assets/hero/berita-2026-07-03-liputan-media-kosmo-besar.webp",
    "telefon": "assets/hero/berita-2026-07-03-liputan-media-kosmo-telefon.webp",
-   "alt": "Sepanduk kursus PCC2-4 dipasang di hadapan premis di Semporna",
-   "tajuk": "MADOCS dalam Media: 150 Kanak-kanak Dirai dalam Program Khatan MADOCS",
-   "kicker": "Media",
-   "pautan": "/berita/2026-07-03-liputan-media-kosmo/"
+   "alt": "Sepanduk kursus PCC2-4 dipasang di hadapan premis di Semporna"
   },
   {
    "jenis": "imej",
@@ -88,9 +85,9 @@
    "besar": "assets/hero/berita-2026-06-18-pcc2-4-semporna-besar.webp",
    "telefon": "assets/hero/berita-2026-06-18-pcc2-4-semporna-telefon.webp",
    "alt": "Peserta kursus PCC2-4 berkumpul di dalam dewan di Semporna",
-   "tajuk": "Kursus PCC2-4 Semporna, Sabah",
-   "kicker": "Kursus",
-   "pautan": "/berita/2026-06-18-pcc2-4-semporna/"
+   "tajuk": "PCC2-4 Semporna",
+   "kicker": "Aktiviti",
+   "pautan": "/aktiviti/2026-06-18-pcc2-4-semporna/"
   },
   {
    "jenis": "imej",
@@ -103,9 +100,9 @@
    "besar": "assets/hero/berita-2026-04-26-agm-dan-cme-raya-besar.webp",
    "telefon": "assets/hero/berita-2026-04-26-agm-dan-cme-raya-telefon.webp",
    "alt": "Ahli-ahli MADOCS bergambar bersama selepas Program MADOCS 2026 di Kuala Lumpur",
-   "tajuk": "Program MADOCS 2026: CME, Jamuan Aidilfitri dan AGM Ke-4",
-   "kicker": "Perhimpunan",
-   "pautan": "/berita/2026-04-26-agm-dan-cme-raya/"
+   "tajuk": "CME MADOCS, Jamuan Aidilfitri dan Mesyuarat Agung Tahunan Ke-4",
+   "kicker": "Aktiviti",
+   "pautan": "/aktiviti/2026-04-26-program-madocs/"
   }
  ]
 }
