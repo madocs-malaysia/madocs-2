@@ -150,8 +150,8 @@ def tukar_tarikh_en(s: str) -> str:
     for bm, en in BULAN_EN.items():
         s = re.sub(r"(\b\d{1,2}\s+)" + bm + r"(\s+\d{4}\b)", r"\1" + en + r"\2", s)
     for bm, en in HARI_EN.items():
-        # "Khamis, 17 September 2026" -> "Thursday 17 September 2026" (tanpa koma, ikut gaya EN)
-        s = re.sub(r"(\b)" + bm + r",\s+(\d{1,2}\s+)", r"\1" + en + r" \2", s)
+        # "Khamis, 17 September 2026" -> "Thursday, 17 September 2026" (kekalkan koma)
+        s = re.sub(r"(\b)" + bm + r",\s+(\d{1,2}\s+)", r"\1" + en + r", \2", s)
     return s
 
 
@@ -221,6 +221,9 @@ def terjemah_html(s: str, kamus: dict[str, str], peta: dict[str, str],
     s = RE_LD.sub(ganti_ld, s)
     # 7) tarikh: nama bulan/hari Melayu -> Inggeris (termasuk dalam meta & JSON-LD)
     s = tukar_tarikh_en(s)
+    # 8) frasa berangka yang dibina secara dinamik (tidak boleh masuk kamus)
+    s = re.sub(r"Lihat semua (\d+) gambar", r"View all \1 images", s)
+    s = re.sub(r"Lihat semua aktiviti", "View all activities", s)
     return s
 
 
