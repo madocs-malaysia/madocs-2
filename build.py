@@ -120,7 +120,8 @@ def blok_promosi_keahlian(kh):
     if not pr.get("aktif"):
         return ""
     kad = "".join(
-        '<div class="kad-yuran"><small>%s</small>%s<strong>%s</strong></div>'
+        '<div class="kad-yuran"><small>%s</small>'
+        '<div class="yuran-harga">%s<strong>%s</strong></div></div>'
         % (esc(y["nama"]),
            ("<s>%s</s>" % esc(y["harga_asas"])) if y.get("harga_asas") else "",
            esc(y["harga"]))
@@ -163,8 +164,7 @@ def blok_promosi_keahlian(kh):
           %s
           <a class="btn-blok wa" href="%s" target="_blank" rel="noopener">%s WhatsApp %s (%s)</a>
         </div>
-        <p class="nota-qr">Kod QR pada poster memerlukan log masuk akaun Google. Guna butang di atas. Urusetia boleh bantu pendaftaran melalui WhatsApp.</p>
-        <p class="nota-isi">%s Sumber: %s.</p>
+        <p class="nota-isi">%s</p>
       </div>
     </div>
   </div>
@@ -172,7 +172,7 @@ def blok_promosi_keahlian(kh):
                  esc(pr.get("tajuk", "")), esc(pr.get("pengenalan", "")), kad, baris_bayar,
                  esc(pr.get("amaran_bayaran", "")), butang_borang,
                  pautan_wa, icon("message-circle"), esc(urus.get("telefon", "")), esc(urus.get("nama", "")),
-                 esc(pr.get("nota", "")), esc(pr.get("sumber", ""))))
+                 esc(pr.get("nota", ""))))
 
 
 def blok_struktur_organisasi(jk_data):

@@ -73,11 +73,11 @@
  ],
  "dokumen": [],
  "proses": [
-  "Isi borang permohonan dalam talian melalui butang “Isi borang keahlian” di halaman ini.",
-  "Urusetia menyemak maklumat dan dokumen: pendaftaran MMC, APC dan butiran amalan.",
+  "Lengkapkan borang permohonan dalam talian dan hantar bukti pembayaran kepada urusetia.",
+  "Urusetia menyemak maklumat dan dokumen anda: pendaftaran MMC, APC dan butiran amalan.",
   "Permohonan dibentangkan dalam mesyuarat Ahli Jawatankuasa untuk kelulusan.",
-  "Selepas diluluskan, bayaran yuran dibuat dan slip dihantar kepada urusetia.",
-  "Nombor ahli diberikan dan sijil keahlian dikeluarkan oleh urusetia."
+  "Anda akan dimaklumkan, dan keahlian anda aktif bermula daripada tarikh kelulusan.",
+  "Nombor ahli dan sijil keahlian akan dikeluarkan oleh urusetia."
  ],
  "faq": [
   {
@@ -99,6 +99,10 @@
   {
    "s": "Siapa yang layak mengundi dalam Mesyuarat Agung?",
    "j": "Hanya Ahli Biasa. Ahli Bersekutu dan Ahli Pelajar tidak layak mengundi (Perlembagaan Kl. 7.1)."
+  },
+  {
+   "s": "Bolehkah saya mengikuti C&P tanpa keahlian MADOCS?",
+   "j": "Boleh. Pendaftaran C&P adalah berasingan daripada keahlian MADOCS. MADOCS bekerjasama dengan Kementerian Kesihatan untuk menyediakan kursus C&P, dan ahli MADOCS akan menerima makluman lebih awal bagi kursus C&P."
   }
  ],
  "promosi": {
@@ -133,7 +137,7 @@
    "telefon": "011-1524 9849",
    "whatsapp": "601115249849"
   },
-  "nota": "Hantar bukti pembayaran kepada urusetia untuk pengaktifan keahlian. Sebarang pertanyaan tentang kategori atau kelayakan boleh diajukan terus kepada urusetia.",
+  "nota": "Hantar bukti pembayaran kepada urusetia untuk melengkapkan pendaftaran anda. Anda akan dimaklumkan setelah keahlian anda diluluskan.",
   "gambar": "assets/promosi-life-membership-2026.webp",
   "gambar_alt": "Poster Promosi Keahlian Seumur Hidup MADOCS 2026 dengan kadar yuran, maklumat pembayaran dan kod QR pendaftaran",
   "amaran_bayaran": "Sebelum membayar, pastikan nama akaun ialah MALAYSIAN DOCTORS OF CIRCUMCISION SOCIETY. MADOCS tidak pernah meminta bayaran ke akaun peribadi individu. Jika ragu-ragu, sahkan dengan urusetia terlebih dahulu.",
