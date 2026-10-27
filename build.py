@@ -1565,7 +1565,11 @@ def bina_kursus_detail(k):
   </div>
 </section>"""
 
-    halaman("pendidikan", "%s: %s | MADOCS" % (k["tajuk"], k.get("kod", "")),
+    # Elak kod kursus berulang dalam tajuk (contoh "… (PCC 2-5): PCC 2-5") dan kekalkan
+    # tajuk di bawah 70 aksara untuk hasil carian.
+    _kod = k.get("kod", "")
+    _tajuk = k["tajuk"] if (not _kod or _kod in k["tajuk"]) else "%s: %s" % (k["tajuk"], _kod)
+    halaman("pendidikan", tajuk_meta(_tajuk, " | MADOCS"),
             k.get("ringkas", "%s oleh MADOCS." % k["tajuk"])[:180],
             "/pendidikan/%s/" % k["slug"], isi, og_jenis="article", jsonld=ld,
             gambar_og=k.get("gambar"))
