@@ -10,12 +10,12 @@
   },
   {
    "jenis": "berita",
-   "besar": "assets/hero/berita-2026-11-24-cme-tissue-adhesive-besar.webp",
-   "telefon": "assets/hero/berita-2026-11-24-cme-tissue-adhesive-telefon.webp",
-   "alt": "Poster webinar CME Beyond the Conventional Clamp, The Role of Tissue Adhesives in Pediatric Circumcision, 24 November 2026, Teams Webinar, anjuran PERDIM dan MADOCS",
-   "tajuk": "Ceramah CME oleh Presiden",
-   "kicker": "CME",
-   "pautan": "/berita/2026-11-24-cme-tissue-adhesive/"
+   "besar": "assets/hero/berita-2026-10-27-promosi-keahlian-seumur-hidup-2026-besar.webp",
+   "telefon": "assets/hero/berita-2026-10-27-promosi-keahlian-seumur-hidup-2026-telefon.webp",
+   "alt": "Poster Promosi Keahlian Seumur Hidup MADOCS 2026",
+   "tajuk": "Promosi Keahlian Seumur Hidup 2026",
+   "kicker": "Pengumuman",
+   "pautan": "/berita/2026-10-27-promosi-keahlian-seumur-hidup-2026/"
   },
   {
    "jenis": "imej",
@@ -25,12 +25,12 @@
   },
   {
    "jenis": "berita",
-   "besar": "assets/hero/berita-2026-09-17-pelancaran-garis-panduan-berkhatan-besar.webp",
-   "telefon": "assets/hero/berita-2026-09-17-pelancaran-garis-panduan-berkhatan-telefon.webp",
-   "alt": "Sepanduk dan kaunter MADOCS pada majlis pelancaran di Auditorium Hospital Shah Alam",
-   "tajuk": "Pelancaran Garis Panduan Berkhatan Kebangsaan",
-   "kicker": "Aktiviti",
-   "pautan": "/aktiviti/2026-09-17-pelancaran-garis-panduan/"
+   "besar": "assets/hero/berita-2026-11-24-cme-tissue-adhesive-besar.webp",
+   "telefon": "assets/hero/berita-2026-11-24-cme-tissue-adhesive-telefon.webp",
+   "alt": "Poster webinar CME Beyond the Conventional Clamp, The Role of Tissue Adhesives in Pediatric Circumcision, 24 November 2026, Teams Webinar, anjuran PERDIM dan MADOCS",
+   "tajuk": "Ceramah CME oleh Presiden MADOCS",
+   "kicker": "CME",
+   "pautan": "/berita/2026-11-24-cme-tissue-adhesive/"
   },
   {
    "jenis": "imej",
@@ -39,28 +39,10 @@
    "alt": "Dewan kursus PCC2-1 dan CCC7 di The Katerina Hotel, Batu Pahat penuh dengan peserta, dengan sepanduk kursus dan sepanduk MADOCS di pentas"
   },
   {
-   "jenis": "berita",
-   "besar": "assets/hero/berita-2026-09-16-mesyuarat-ahli-jawatankuasa-besar.webp",
-   "telefon": "assets/hero/berita-2026-09-16-mesyuarat-ahli-jawatankuasa-telefon.webp",
-   "alt": "Bangunan tempat berlangsungnya mesyuarat Ahli Jawatankuasa MADOCS",
-   "tajuk": "Mesyuarat Ahli Jawatankuasa Bil. 2/2026",
-   "kicker": "Aktiviti",
-   "pautan": "/aktiviti/2026-09-16-mesyuarat-ajk-bil2/"
-  },
-  {
    "jenis": "imej",
    "besar": "assets/hero/dorsal-slit-besar.webp",
    "telefon": "assets/hero/dorsal-slit-telefon.webp",
    "alt": "Penceramah menerangkan langkah-langkah prosedur Dorsal Slit pada slaid semasa kursus PCC di Kota Kinabalu"
-  },
-  {
-   "jenis": "berita",
-   "besar": "assets/hero/berita-2026-08-10-lawatan-klinik-sunat-indonesia-besar.webp",
-   "telefon": "assets/hero/berita-2026-08-10-lawatan-klinik-sunat-indonesia-telefon.webp",
-   "alt": "Peralatan klinikal disusun di atas meja semasa lawatan kerja ke klinik berkhatan di Indonesia",
-   "tajuk": "Bengkel Teknoklem & Teknosealer di Depok, Indonesia",
-   "kicker": "Aktiviti",
-   "pautan": "/aktiviti/2026-08-10-lawatan-klinik-indonesia/"
   },
   {
    "jenis": "imej",
@@ -70,39 +52,15 @@
   },
   {
    "jenis": "imej",
-   "besar": "assets/hero/berita-2026-07-03-liputan-media-kosmo-besar.webp",
-   "telefon": "assets/hero/berita-2026-07-03-liputan-media-kosmo-telefon.webp",
-   "alt": "Sepanduk kursus PCC2-4 dipasang di hadapan premis di Semporna"
-  },
-  {
-   "jenis": "imej",
    "besar": "assets/hero/peranti-besar.webp",
    "telefon": "assets/hero/peranti-telefon.webp",
    "alt": "Booth pameran peranti berkhatan dengan sepanduk perbandingan kaedah semasa program CME MADOCS"
-  },
-  {
-   "jenis": "berita",
-   "besar": "assets/hero/berita-2026-06-18-pcc2-4-semporna-besar.webp",
-   "telefon": "assets/hero/berita-2026-06-18-pcc2-4-semporna-telefon.webp",
-   "alt": "Peserta kursus PCC2-4 berkumpul di dalam dewan di Semporna",
-   "tajuk": "PCC2-4 Semporna",
-   "kicker": "Aktiviti",
-   "pautan": "/aktiviti/2026-06-18-pcc2-4-semporna/"
   },
   {
    "jenis": "imej",
    "besar": "assets/hero/anatomi-besar.webp",
    "telefon": "assets/hero/anatomi-telefon.webp",
    "alt": "Penceramah menerangkan anatomi dan anestesia tempatan kepada peserta kursus CCC6 di Hotel Maluri, Cheras"
-  },
-  {
-   "jenis": "berita",
-   "besar": "assets/hero/berita-2026-04-26-agm-dan-cme-raya-besar.webp",
-   "telefon": "assets/hero/berita-2026-04-26-agm-dan-cme-raya-telefon.webp",
-   "alt": "Ahli-ahli MADOCS bergambar bersama selepas Program MADOCS 2026 di Kuala Lumpur",
-   "tajuk": "CME MADOCS, Jamuan Aidilfitri dan Mesyuarat Agung Tahunan Ke-4",
-   "kicker": "Aktiviti",
-   "pautan": "/aktiviti/2026-04-26-program-madocs/"
   }
  ]
 }
