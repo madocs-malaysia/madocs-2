@@ -132,7 +132,7 @@ def blok_promosi_keahlian(kh):
     # terbuka kepada awam. Kod QR pada poster memerlukan log masuk Google (HTTP 401),
     # jadi pautan itu tidak boleh dipakai sebagai ganti.
     borang_url = (pr.get("borang_url") or "").strip()
-    butang_borang = ('<a class="btn-blok borang" href="%s" target="_blank" rel="noopener">%s Isi borang keahlian dalam talian</a>'
+    butang_borang = ('<a class="btn-blok borang" href="%s" target="_blank" rel="noopener">%s Isi borang keahlian</a>'
                      % (esc(borang_url), icon("file-text"))) if borang_url else ""
     pautan_wa = "https://wa.me/%s?text=%s" % (
         re.sub(r"\D", "", str(urus.get("whatsapp", ""))),
@@ -1950,11 +1950,13 @@ def bina_cp():
 
     <h2>Aliran C&amp;P MADOCS</h2>
     <div class="langkah-cp">
-      <div><b>1</b><span>Pendaftaran calon melalui urusetia MADOCS</span></div>
+      <div><b>1</b><span>Pendaftaran melalui urusetia MADOCS</span></div>
       <div><b>2</b><span>Semakan dokumen: ijazah, pendaftaran MMC dan log kes</span></div>
-      <div><b>3</b><span>Penilaian klinikal, peperiksaan teori dan penilaian stesen amali</span></div>
-      <div><b>4</b><span>Keputusan Ahli Jawatankuasa C&amp;P</span></div>
-      <div><b>5</b><span>Penyenaraian doktor yang privileged dan pembaharuan berkala</span></div>
+      <div><b>3</b><span>Privileging Course for Circumcision (PCC) Part 1: kuliah, peperiksaan dan stesen amali (manekin)</span></div>
+      <div><b>4</b><span>Privileging Course for Circumcision (PCC) Part 2: penyempurnaan logbook, iaitu calon dikehendaki memerhati 3 kes, membantu 3 kes dan melakukan 3 kes klinikal pada pesakit; semuanya di bawah penyeliaan jurulatih bertauliah</span></div>
+      <div><b>5</b><span>Keputusan Ahli Jawatankuasa C&amp;P</span></div>
+      <div><b>6</b><span>Penyenaraian doktor yang privileged</span></div>
+      <div><b>7</b><span>Pembaharuan berkala setiap 3 tahun</span></div>
     </div>
 
     <h2>Portal iHealth</h2>
@@ -1971,9 +1973,9 @@ def bina_cp():
 </div></section>
 
 <style>
-.langkah-cp{{display:grid;gap:10px;margin:14px 0 22px}}
-.langkah-cp>div{{display:grid;grid-template-columns:34px 1fr;align-items:center;gap:12px}}
-.langkah-cp b{{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#510716;color:#fff;font-size:13px}}
+.langkah-cp{{display:grid;gap:14px;margin:14px 0 22px}}
+.langkah-cp>div{{display:grid;grid-template-columns:34px 1fr;align-items:start;gap:12px}}
+.langkah-cp b{{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#510716;color:#fff;font-size:13px;margin-top:1px}}
 .langkah-cp span{{font-size:15px}}
 </style>"""
     halaman("cp", "Credentialing & Privileging (C&P) | MADOCS",
