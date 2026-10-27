@@ -1716,4 +1716,13 @@ a.chip-peta:hover{background:#fdf3f5;border-color:#dfbcc4;text-decoration:none}
 .peta-lain a:hover{text-decoration:underline}
 .peta-lain svg{width:13px;height:13px;flex:none}
 
+/* Organisasi: dua perenggan penerangan sama saiz */
+.struktur-ringkas,.struktur-tugas{font-size:15.5px;line-height:1.72;color:var(--g-teks);margin:0 0 18px}
+.struktur-tugas{margin-bottom:0}
+
+/* Pusat Sumber: rapatkan jarak bawah butang muat turun */
+.listing .item .lebih{margin-top:8px}
+.listing .item .item-body p{margin-bottom:6px}
+.listing .item .item-body .item-meta{margin-bottom:2px}
+
 .ikon-ganti{display:inline-block;width:1em;height:1em}

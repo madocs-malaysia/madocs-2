@@ -35,27 +35,27 @@
   {
    "kategori": "Ahli Biasa",
    "yuran": "RM200",
-   "nota": "Yuran masuk RM100 + yuran tahunan RM100 (Perlembagaan Kl. 6.1.1)"
+   "nota": "Yuran masuk RM100 + yuran tahunan RM100"
   },
   {
    "kategori": "Ahli Bersekutu",
    "yuran": "RM200",
-   "nota": "Yuran masuk RM100 + yuran tahunan RM100 (Perlembagaan Kl. 6.1.2)"
+   "nota": "Yuran masuk RM100 + yuran tahunan RM100"
   },
   {
    "kategori": "Ahli Pelajar",
    "yuran": "RM50",
-   "nota": "Yuran masuk RM25 + yuran tahunan RM25 (Perlembagaan Kl. 6.1.3)"
+   "nota": "Yuran masuk RM25 + yuran tahunan RM25"
   },
   {
    "kategori": "Ahli Kehormat",
    "yuran": "Tiada yuran",
-   "nota": "Tiada yuran masuk atau tahunan; lantikan khas oleh Ahli Jawatankuasa (Perlembagaan Kl. 6.1.4)"
+   "nota": "Tiada yuran masuk atau tahunan; lantikan khas oleh Ahli Jawatankuasa"
   },
   {
    "kategori": "Ahli Seumur Hidup",
    "yuran": "RM1,000",
-   "nota": "Yuran masuk RM100 + RM900 (promosi 2026). Harga biasa RM1,100 (Perlembagaan Kl. 6.1.5)"
+   "nota": "Yuran masuk RM100 + RM900 (promosi 2026). Harga biasa RM1,100"
   },
   {
    "kategori": "Naik taraf Biasa ke Seumur Hidup",
@@ -65,7 +65,7 @@
   {
    "kategori": "Pembaharuan tahunan",
    "yuran": "RM100 / RM25",
-   "nota": "Biasa & Bersekutu RM100; Pelajar RM25 (Perlembagaan Kl. 6.1)"
+   "nota": "Biasa & Bersekutu RM100; Pelajar RM25"
   }
  ],
  "kelayakan": [
@@ -76,7 +76,7 @@
   "Lengkapkan borang permohonan dalam talian dan hantar bukti pembayaran kepada urusetia.",
   "Urusetia menyemak maklumat dan dokumen anda: pendaftaran MMC, APC dan butiran amalan.",
   "Permohonan dibentangkan dalam mesyuarat Ahli Jawatankuasa untuk kelulusan.",
-  "Anda akan dimaklumkan, dan keahlian anda aktif bermula daripada tarikh kelulusan. Jika permohonan anda ditolak, anda akan dimaklumkan berserta penjelasan, dan bayaran anda akan dipulangkan sepenuhnya.",
+  "Anda akan dimaklumkan, dan keahlian anda aktif bermula daripada tarikh kelulusan.\nJika permohonan anda ditolak, anda akan dimaklumkan berserta penjelasan, dan bayaran anda akan dipulangkan sepenuhnya.",
   "Nombor ahli dan sijil keahlian akan dikeluarkan oleh urusetia.",
   "Kecuali Ahli Seumur Hidup dan Ahli Kehormat, urusetia akan mengingatkan anda untuk memperbaharui keahlian setiap tahun."
  ],
@@ -95,11 +95,11 @@
   },
   {
    "s": "Apakah Ahli Kehormat?",
-   "j": "Ahli Kehormat ialah pakar bedah, doktor atau individu yang telah menyumbang dalam bidang berkhatan dan diiktiraf pertubuhan. Mereka dilantik khas oleh Ahli Jawatankuasa dan tidak dikenakan sebarang yuran (Perlembagaan Kl. 4.1 dan 6.1.4)."
+   "j": "Ahli Kehormat ialah pakar bedah, doktor atau individu yang telah menyumbang dalam bidang berkhatan dan diiktiraf pertubuhan. Mereka dilantik khas oleh Ahli Jawatankuasa dan tidak dikenakan sebarang yuran"
   },
   {
    "s": "Siapa yang layak mengundi dalam Mesyuarat Agung?",
-   "j": "Hanya Ahli Biasa. Ahli Bersekutu dan Ahli Pelajar tidak layak mengundi (Perlembagaan Kl. 7.1)."
+   "j": "Hanya Ahli Biasa. Ahli Bersekutu dan Ahli Pelajar tidak layak mengundi"
   },
   {
    "s": "Bolehkah saya mengikuti C&P tanpa keahlian MADOCS?",
@@ -146,8 +146,8 @@
  },
  "kategori_sumber": "Brosur rasmi MADOCS (2023). Jawatankuasa diminta mengesahkan kategori untuk sesi semasa.",
  "statistik": {
-  "tajuk": "Keahlian setakat 15 September 2026",
-  "sumber": "Daftar keahlian MADOCS (dikemas kini 15 September 2026)",
+  "tajuk": "Keahlian sehingga 15 September 2026",
+  "sumber": "",
   "baris": [
    {
     "label": "Ahli Seumur Hidup",
@@ -173,6 +173,6 @@
    }
   ]
  },
- "sumber_nota": "Kategori, kelayakan dan yuran diambil daripada Perlembagaan MADOCS (Klausa 4 dan 6); pertubuhan ini didaftarkan dengan Pendaftar Pertubuhan Malaysia. Promosi Keahlian Seumur Hidup 2026 ialah keputusan Ahli Jawatankuasa. Jawatankuasa boleh mengemas kini pada bila-bila masa.",
- "hak_undi": "Hanya Ahli Biasa boleh mengundi dalam Mesyuarat Agung; Ahli Bersekutu dan Ahli Pelajar tidak layak mengundi (Perlembagaan Kl. 7.1)."
+ "sumber_nota": "Kategori, kelayakan dan yuran seperti yang berkuat kuasa sekarang. Pertubuhan ini didaftarkan dengan Pendaftar Pertubuhan Malaysia. Promosi Keahlian Seumur Hidup 2026 ialah keputusan Ahli Jawatankuasa. Jawatankuasa boleh mengemas kini pada bila-bila masa.",
+ "hak_undi": "Hanya Ahli Biasa boleh mengundi dalam Mesyuarat Agung; Ahli Bersekutu dan Ahli Pelajar tidak layak mengundi."
 }

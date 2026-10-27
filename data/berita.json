@@ -2,6 +2,22 @@
  "cara_edit": "Berita/pengumuman. 'kandungan' ialah senarai perenggan. Setiap berita boleh ada beberapa perenggan. DRAF: teks ini ditulis oleh urusetia teknikal berdasarkan tarikh/tempat peristiwa, jawatankuasa dinasihatkan menyemak dan menambah butiran sebelum dihebahkan.",
  "berita": [
   {
+   "slug": "2026-10-27-promosi-keahlian-seumur-hidup-2026",
+   "tajuk": "Promosi Keahlian Seumur Hidup 2026",
+   "tarikh": "2026-10-27",
+   "kategori": "Pengumuman",
+   "penulis": "Urusetia MADOCS",
+   "ringkas": "Yuran keahlian seumur hidup dikurangkan daripada RM1,000 kepada RM900 sepanjang tempoh promosi 2026, terbuka kepada ahli baharu dan ahli sedia ada yang ingin menaik taraf.",
+   "kandungan": [
+    "Ahli Jawatankuasa MADOCS menetapkan Promosi Keahlian Seumur Hidup bagi tahun 2026. Sepanjang tempoh promosi, yuran keahlian seumur hidup dikurangkan daripada RM1,000 kepada RM900.",
+    "Tawaran ini terbuka kepada dua kumpulan: doktor yang baru menyertai MADOCS sebagai Ahli Seumur Hidup, dan ahli sedia ada yang ingin menaik taraf daripada keahlian tahunan kepada keahlian seumur hidup. Yuran pendaftaran RM100 dikenakan bagi pendaftaran baharu.",
+    "Bayaran boleh dibuat ke akaun MALAYSIAN DOCTORS OF CIRCUMCISION SOCIETY, Maybank 562991028408. Sila pastikan nama akaun tepat sebelum membayar; MADOCS tidak pernah meminta bayaran ke akaun peribadi individu.",
+    "Hantar bukti pembayaran kepada urusetia untuk melengkapkan pendaftaran anda. Butiran penuh kategori, yuran dan proses permohonan terdapat di halaman Keahlian."
+   ],
+   "gambar": "assets/promosi-life-membership-2026.webp",
+   "gambar_alt": "Poster Promosi Keahlian Seumur Hidup MADOCS 2026"
+  },
+  {
    "slug": "2026-11-24-cme-tissue-adhesive",
    "tajuk": "Ceramah CME oleh Presiden MADOCS",
    "tarikh": "2026-11-24",

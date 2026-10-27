@@ -188,7 +188,7 @@ def blok_struktur_organisasi(jk_data):
     ringkas = esc(st.get("ringkas", "")).rstrip(".")
     # Satu perenggan: ringkasan tadbir urus + bilangan penasihat.
     if penasihat:
-        ringkas = ("%s. Pertubuhan ini turut dibantu oleh <b>%d</b> orang Penasihat." % (ringkas, len(penasihat)))
+        ringkas = ("%s. Pertubuhan ini turut dibantu oleh %d orang Penasihat." % (ringkas, len(penasihat)))
 
     # Kad bilangan dalam 7 lajur: Penasihat, Presiden, Timbalan Presiden, Setiausaha,
     # Penolong Setiausaha, Bendahari, Ahli Jawatankuasa.
@@ -1360,7 +1360,9 @@ def bina_pendidikan():
         blok_lepas = ('<div class="listing">%s</div>' % "".join(
             item_kandungan(a["tajuk"], "/aktiviti/%s/" % a["slug"], a.get("ringkas", ""),
                            tarikh=a.get("tarikh"), kategori=a.get("kategori", ""),
-                           gambar=a.get("gambar"), alt=a.get("gambar_alt", "")) for a in lebih)
+                           gambar=a.get("gambar"), alt=a.get("gambar_alt", ""),
+                           tempat=a.get("tempat"), peta=a.get("peta"), tamat=a.get("tamat"),
+                           meta_sebaris=True) for a in lebih)
             + '<div style="margin-top:16px"><a class="btn btn-outline" href="/aktiviti/">Semua aktiviti MADOCS</a></div>')
     else:
         blok_lepas = senarai(lepas)
@@ -1376,7 +1378,9 @@ def bina_pendidikan():
         return '<div class="listing">%s</div>' % "".join(
             item_kandungan(k["tajuk"], "/pendidikan/%s/" % k["slug"], k.get("ringkas", ""),
                            tarikh=k.get("tarikh"), kategori=k.get("kod", ""), gambar=k.get("gambar"),
-                           alt=k.get("gambar_alt", ""), kredit=k.get("gambar_kredit"))
+                           alt=k.get("gambar_alt", ""), kredit=k.get("gambar_kredit"),
+                           tempat=k.get("tempat"), peta=k.get("peta"), tamat=k.get("tamat"),
+                           meta_sebaris=True)
             for k in items)
 
     isi = page_hero([("Utama", "/"), ("Pendidikan & Latihan", None)],
@@ -1401,7 +1405,7 @@ def bina_pendidikan():
 
 <section class="content-wrap">
   <div class="shell">
-    <div class="section-title-row activities-head"><h2>Program lepas</h2></div>
+    <div class="section-title-row activities-head"><h2>Aktiviti lepas</h2></div>
     {blok_lepas}
   </div>
 </section>
@@ -1655,7 +1659,7 @@ def bina_keahlian():
         "<li>Butiran kelayakan sedang disahkan oleh jawatankuasa.</li>"
     dokumen = "".join("<li>%s</li>" % esc(x) for x in kh.get("dokumen", [])) or \
         "<li>Senarai dokumen sokongan akan disediakan oleh urusetia.</li>"
-    proses = "".join('<div><time>Langkah %d</time><strong>%s</strong></div>' % (i + 1, esc(p))
+    proses = "".join('<div><time>Langkah %d</time><strong>%s</strong></div>' % (i + 1, esc(p).replace("\n", "<br>"))
                      for i, p in enumerate(kh.get("proses", [])))
 
     faq = "".join('<details><summary>%s</summary><div class="jawapan"><p>%s</p></div></details>' % (esc(f["s"]), esc(f["j"]))
