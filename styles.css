@@ -1607,4 +1607,15 @@ a.btn.btn-primary,a.btn.btn-primary:visited,
 .footer-grid>div:nth-child(3)>span{align-items:flex-start}
 .footer-grid>div:nth-child(3)>span svg{margin-top:3px}
 
+/* ================= GALERI <-> LAPORAN PROGRAM (Dr Azfar, Okt 2026) ================= */
+.galeri-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
+.galeri-mini img{width:100%;height:104px;object-fit:cover;border-radius:9px;display:block}
+.galeri-pautan{display:block;line-height:0;border-radius:9px;overflow:hidden;
+  box-shadow:0 4px 12px #5107161a;transition:box-shadow .18s ease}
+.galeri-pautan:hover{box-shadow:0 10px 22px #5107162e}
+@media (max-width:640px){
+  .galeri-mini{grid-template-columns:repeat(2,1fr);gap:8px}
+  .galeri-mini img{height:96px}
+}
+
 .ikon-ganti{display:inline-block;width:1em;height:1em}

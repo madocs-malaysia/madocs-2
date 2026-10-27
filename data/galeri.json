@@ -365,7 +365,8 @@
      "alt": "Sepanduk TTT Touchstone (14 September 2025) di The Katerina Hotel, Batu Pahat"
     }
    ],
-   "ringkas": "Album program di The Katerina Hotel, Batu Pahat: Priviling Course for Circumcision Part 2 (PCC2-1) dan Comprehensive Circumcision Course 7 (CCC7) pada 13 September 2025, serta Train The Trainer Touchstone pada 14 September 2025."
+   "ringkas": "Album program di The Katerina Hotel, Batu Pahat: Priviling Course for Circumcision Part 2 (PCC2-1) dan Comprehensive Circumcision Course 7 (CCC7) pada 13 September 2025, serta Train The Trainer Touchstone pada 14 September 2025.",
+   "aktiviti": "2025-09-01-ccc7-ttt-batu-pahat"
   },
   {
    "slug": "demo-peranti-cme",
@@ -447,7 +448,8 @@
      "src": "assets/galeri/ccc8-2026/04.webp",
      "alt": "Peserta kursus mengikuti sesi dalam dewan"
     }
-   ]
+   ],
+   "aktiviti": "2026-04-26-program-madocs"
   },
   {
    "slug": "pcc2-4-semporna-2026",
@@ -472,7 +474,8 @@
      "src": "assets/galeri/pcc2-4-semporna-2026/04.webp",
      "alt": "Kakitangan pendaftaran menjalankan tugas di Semporna"
     }
-   ]
+   ],
+   "aktiviti": "2026-06-18-pcc2-4-semporna"
   },
   {
    "slug": "pcc1-2-kota-kinabalu-2026",
@@ -505,7 +508,8 @@
      "src": "assets/galeri/pcc1-2-kota-kinabalu-2026/06.webp",
      "alt": "Foto berkumpulan peserta kursus PCC1-2 Kota Kinabalu"
     }
-   ]
+   ],
+   "aktiviti": "2026-01-26-pcc1-2-kota-kinabalu"
   },
   {
    "slug": "pcc2-3-putrajaya-2026",
@@ -534,7 +538,8 @@
      "src": "assets/galeri/pcc2-3-putrajaya-2026/05.webp",
      "alt": "Auditorium kursus PCC2-3 di Putrajaya"
     }
-   ]
+   ],
+   "aktiviti": "2026-05-30-pcc2-3-putrajaya"
   },
   {
    "slug": "pelancaran-2026",
@@ -563,11 +568,12 @@
      "src": "assets/galeri/pelancaran-2026/05.webp",
      "alt": "Sepanduk majlis pelancaran Garis Panduan Berkhatan 2026"
     }
-   ]
+   ],
+   "aktiviti": "2026-09-17-pelancaran-garis-panduan"
   },
   {
    "slug": "mesyuarat-ajk-2026",
-   "tajuk": "Mesyuarat Ahli Jawatankuasa Bil. 2",
+   "tajuk": "Mesyuarat Ahli Jawatankuasa #2/2026",
    "tarikh": "2026-09-16",
    "tempat": "Restoran Casar Balqis, Taman Melati, Kuala Lumpur",
    "kategori": "Mesyuarat",
@@ -584,7 +590,8 @@
      "src": "assets/galeri/mesyuarat-ajk-2026/03.webp",
      "alt": "Ahli jawatankuasa dalam sesi mesyuarat"
     }
-   ]
+   ],
+   "aktiviti": "2026-09-16-mesyuarat-ajk-bil2"
   },
   {
    "slug": "ccc6-cheras-2025",
@@ -754,7 +761,8 @@
      "src": "assets/galeri/ccc6-cheras-2025/40.webp",
      "alt": "Selfie peserta TTT Teknoklem"
     }
-   ]
+   ],
+   "aktiviti": "2025-06-01-ccc6-hotel-maluri"
   }
  ]
 }

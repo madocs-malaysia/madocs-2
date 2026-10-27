@@ -1479,14 +1479,8 @@ def bina_kursus_detail(k):
                % (k["tajuk"].replace(" ", "+"), mula, tamat,
                   ("Maklumat lanjut: " + BASE + "/pendidikan/" + k["slug"] + "/").replace(" ", "+"),
                   (k.get("tempat") or "").replace(" ", "+")))
+    # Blok kongsi dan butang "Daftar melalui urusetia" dibuang (Dr Azfar, Okt 2026).
     url_kongsi = BASE + "/pendidikan/" + k["slug"] + "/"
-    kongsi = f"""<div class="chips" aria-label="Kongsi kursus ini">
-  <span style="background:#fff;border:1px solid var(--line)">Kongsi:</span>
-  <a class="badge" href="https://wa.me/?text={esc(k['tajuk'] + ': ' + url_kongsi)}" target="_blank" rel="noopener">WhatsApp</a>
-  <a class="badge" href="https://www.facebook.com/sharer/sharer.php?u={esc(url_kongsi)}" target="_blank" rel="noopener">Facebook</a>
-  <a class="badge" href="https://t.me/share/url?url={esc(url_kongsi)}&text={esc(k['tajuk'])}" target="_blank" rel="noopener">Telegram</a>
-  <a class="badge" href="mailto:?subject={esc(k['tajuk'])}&body={esc(url_kongsi)}">E-mel</a>
-</div>"""
 
     if selesai:
         butang_daftar = (f'<div class="form-note" style="margin-top:18px"><b>Program ini telah selesai.</b> '
@@ -1496,9 +1490,7 @@ def bina_kursus_detail(k):
         butang_daftar = (f'<a class="btn-hantar" href="{esc(k["daftar_url"])}" target="_blank" rel="noopener">'
                          f'Daftar sekarang {icon("external-link")}</a>')
     else:
-        kurang("Pautan pendaftaran (daftar_url) belum ditetapkan untuk kursus %s (PRD §14)." % k["kod"])
-        butang_daftar = (f'<a class="btn-hantar" href="/hubungi/?kursus={esc(k["slug"])}">'
-                         f'Daftar melalui urusetia {icon("arrow-right")}</a>')
+        butang_daftar = ""
 
     kaitan = [x for x in load("kursus.json")["kursus"] if x["slug"] != k["slug"]][:2]
     kaitan_html = ""
@@ -1545,7 +1537,6 @@ def bina_kursus_detail(k):
           {butang_daftar}
           {f'<a class="btn btn-outline" href="{kal}" target="_blank" rel="noopener">{icon("calendar-days")} TAMBAH KE KALENDAR</a>' if kal else ''}
         </div>
-        {kongsi}
       </div>
       {kaitan_html}
     </div>
@@ -1859,6 +1850,29 @@ def bina_aktiviti_detail(a):
     ld = event_ld(a["tajuk"], a.get("tarikh", ""), a.get("tamat"), a.get("tempat"),
                   a.get("negeri"), a.get("ringkas", ""), a.get("gambar"),
                   BASE + "/aktiviti/%s/" % a["slug"], None, "selesai")
+    # Galeri yang dipautkan (data/galeri.json → album[].aktiviti)
+    album_galeri = next((x for x in load("galeri.json").get("album", [])
+                         if x.get("aktiviti") == a["slug"]), None)
+    blok_galeri = ""
+    if album_galeri and album_galeri.get("gambar"):
+        _kecil = []
+        for g_ in album_galeri["gambar"][:6]:
+            _src, _ss = srcset_galeri(g_["src"])
+            _kecil.append('<a class="galeri-pautan" href="/galeri/%s/"><img src="/%s"%s alt="%s" loading="lazy" decoding="async"></a>'
+                          % (esc(album_galeri["slug"]), esc(_src), _ss, esc(g_["alt"])))
+        blok_galeri = ('<div class="card"><h2>Galeri program</h2>'
+                       '<div class="galeri-mini">%s</div>'
+                       '<a class="btn btn-outline" href="/galeri/%s/" style="margin-top:16px">'
+                       'Lihat semua %d gambar %s</a></div>'
+                       % ("".join(_kecil), esc(album_galeri["slug"]),
+                          len(album_galeri["gambar"]), icon("arrow-right")))
+    # Badan laporan: guna senarai perenggan "isi" jika ada, jika tidak "ringkas"
+    if a.get("isi"):
+        badan = "".join("<p>%s</p>" % esc(p) for p in a["isi"])
+    elif a.get("ringkas"):
+        badan = "<p>%s</p>" % esc(a["ringkas"])
+    else:
+        badan = '<p class="nota-isi">Laporan penuh aktiviti ini belum disediakan.</p>'
     isi = page_hero([("Utama", "/"), ("Aktiviti", "/aktiviti/"), (a["tajuk"], None)], a["tajuk"],
                     ringkas_meta(a.get("ringkas") or (a.get('tarikh_papar') or (tarikh_pdk(d) if d else '')))) + f"""
 <section class="content-wrap">
@@ -1867,10 +1881,9 @@ def bina_aktiviti_detail(a):
       <div class="card">
         <div class="chips" style="margin-bottom:16px"><span class="badge">{esc(a.get('kategori',''))}</span></div>
         {gambar}
-        <div class="prose">
-          {('<p>%s</p>' % esc(a['ringkas'])) if a.get('ringkas') else '<p class="nota-isi">Laporan penuh aktiviti ini belum disediakan.</p>'}
-        </div>
+        <div class="prose">{badan}</div>
       </div>
+      {blok_galeri}
     </div>
     <aside class="side">
       <div class="card">
@@ -2448,11 +2461,17 @@ def bina_galeri():
                 % (esc(g["src"]), esc(g["alt"]), esc(g["alt"]), esc(_src), _srcset, esc(g["alt"])))
         kad = "".join(_kad)
         ringkas = esc(a.get("ringkas", ""))
+        # Pautan ke laporan program (jika album ini dipautkan ke aktiviti)
+        _akt = next((x for x in load("aktiviti.json").get("aktiviti", [])
+                     if x["slug"] == a.get("aktiviti")), None)
+        pautan_laporan = ('<div style="margin:16px 0 20px"><a class="btn btn-outline" href="/aktiviti/%s/">'
+                          'Baca laporan program %s</a></div>' % (esc(_akt["slug"]), icon("arrow-right"))) if _akt else ""
         isi = page_hero([("Utama", "/"), ("Galeri", "/galeri/"), (a["tajuk"], None)], a["tajuk"],
                         meta_album(a) or "Album gambar program MADOCS.") + f"""
 <section class="content-wrap">
   <div class="shell">
     {f'<p class="album-ringkas-teks">{ringkas}</p>' if ringkas else ''}
+    {pautan_laporan}
     <div class="galeri">{kad}</div>
     <p class="nota-isi" style="margin-top:18px">Gambar diambil semasa program MADOCS dan diterbitkan untuk tujuan dokumentasi pertubuhan. Ibu bapa, penjaga atau peserta yang ingin gambar tertentu dibuang boleh menghubungi urusetia MADOCS. <a href="/galeri/">Kembali ke semua album</a>.</p>
   </div>

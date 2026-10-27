@@ -14,7 +14,7 @@
   {
    "slug": "2026-09-16-mesyuarat-ajk-bil2",
    "kategori": "Mesyuarat",
-   "tajuk": "Mesyuarat Ahli Jawatankuasa Bil. 2",
+   "tajuk": "Mesyuarat Ahli Jawatankuasa #2/2026",
    "tarikh": "2026-09-16",
    "tempat": "Restoran Casar Balqis, Taman Melati, Kuala Lumpur",
    "gambar": "assets/berita-2026-09-16-mesyuarat.webp",
@@ -24,12 +24,17 @@
   {
    "slug": "2026-08-10-lawatan-klinik-indonesia",
    "kategori": "Lawatan",
-   "tajuk": "Lawatan Kerja ke Klinik Sunat Kanak-kanak, Indonesia",
+   "tajuk": "Latihan Teknoklem & Teknosealer di Depok, Indonesia",
    "tarikh": "2026-08-10",
-   "tempat": "Indonesia",
+   "tempat": "Depok, Indonesia",
    "gambar": "assets/berita-2026-08-10-lawatan.webp",
    "gambar_alt": "Peralatan klinikal disusun di atas meja semasa lawatan kerja",
-   "ringkas": "Lawatan kerja delegasi MADOCS bagi meninjau pengurusan perkhidmatan berkhatan kanak-kanak."
+   "ringkas": "Wakil MADOCS telah mengadakan lawatan ke Depok, Indonesia, bagi mempelajari asal-usul dan aplikasi teknik berkhatan Teknoklem dan Teknosealer.",
+   "isi": [
+    "Wakil MADOCS telah mengadakan lawatan ke Depok, Indonesia, bagi mempelajari asal-usul dan aplikasi teknik berkhatan Teknoklem dan Teknosealer.",
+    "Lawatan tersebut merangkumi bengkel Train-the-Trainer yang dikendalikan oleh pencipta alat ini, iaitu Dr. Darsono dan Dr. Anwar Indrasyafrudin. Latihan ini merangkumi simulasi khatan pada model anatomi serta praktikal klinikal di bawah penyeliaan.",
+    "Teknoklem merupakan peranti klamp pakai buang yang direka untuk ditanggalkan selepas prosedur selesai, bukannya dibiarkan pada pesakit. Prosedur ini seterusnya dilengkapkan dengan Teknosealer, iaitu pelekat tisu yang mencantumkan tepi luka tanpa memerlukan jahitan atau pemasangan peranti bagi tempoh yang lama."
+   ]
   },
   {
    "slug": "2026-06-18-pcc2-4-semporna",
