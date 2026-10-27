@@ -149,9 +149,12 @@ def tukar_tarikh_en(s: str) -> str:
     """
     for bm, en in BULAN_EN.items():
         s = re.sub(r"(\b\d{1,2}\s+)" + bm + r"(\s+\d{4}\b)", r"\1" + en + r"\2", s)
+    # julat: "Sabtu–Ahad, 13–14 September 2025" -> "Saturday–Sunday, 13–14 September 2025"
+    for bm, en in HARI_EN.items():
+        s = re.sub(r"(\b)" + bm + r"(?=–)", en, s)
     for bm, en in HARI_EN.items():
         # "Khamis, 17 September 2026" -> "Thursday, 17 September 2026" (kekalkan koma)
-        s = re.sub(r"(\b)" + bm + r",\s+(\d{1,2}\s+)", r"\1" + en + r", \2", s)
+        s = re.sub(r"(\b)" + bm + r",\s+(\d{1,2}(?:–\d{1,2})?\s+)", r"\1" + en + r", \2", s)
     return s
 
 

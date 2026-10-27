@@ -6,55 +6,72 @@
    "kategori": "CCC",
    "tajuk": "Comprehensive Circumcision Course 1 (CCC 1)",
    "tarikh": "2023-02-18",
-   "tempat": "",
+   "tempat": "Hotel Maluri Kuala Lumpur",
    "gambar": "assets/galeri/program-2023/ccc1-02.webp",
    "gambar_alt": "Penceramah di pentas CCC 1 dengan latar sepanduk MADOCS dan PERDIM",
    "ringkas": "Kursus komprehensif pertama MADOCS, menampilkan empat kaedah berkhatan dengan 5 penceramah dan 12 jurulatih amali. Seramai 59 peserta mengikuti kursus dan 93 pesakit daripada golongan asnaf, fakir dan B40 menerima manfaat melalui program CSR tajaan PPZ Wilayah Persekutuan.",
    "laporan": [
     "Empat kaedah berkhatan diperkenalkan dalam kursus ini, dengan gabungan sesi kuliah dan latihan amali yang dikendalikan 12 jurulatih.",
     "Program CSR bersama PPZ Wilayah Persekutuan membolehkan 93 pesakit daripada golongan asnaf, fakir dan B40 menerima rawatan berkhatan tanpa bayaran."
-   ]
+   ],
+   "peta": "https://maps.app.goo.gl/AthV2RXuoTJWMm1z8"
   },
   {
    "slug": "2023-02-26-micc-putrajaya",
    "kategori": "Persidangan",
    "tajuk": "Malaysian International Circumcision Conference 2023",
    "tarikh": "2023-02-26",
-   "tempat": "The Everly Hotel, Putrajaya",
+   "tempat": "The Everly Putrajaya",
    "gambar": "assets/galeri/program-2023/micc-05.webp",
    "gambar_alt": "Gambar berkumpulan peserta MICC 2023 di The Everly Hotel Putrajaya",
    "ringkas": "MADOCS menyertai Malaysian International Circumcision Conference 2023 di Putrajaya. Presiden menyampaikan ceramah bertajuk \"Roles of MADOCS in Malaysia\" dan MADOCS turut mengadakan sesi bersama media.",
    "laporan": [
     "Ceramah \"Roles of MADOCS in Malaysia\" memperkenalkan peranan pertubuhan kepada peserta antarabangsa dan pengamal tempatan.",
     "Kehadiran MADOCS dalam persidangan ini membuka ruang perbincangan dengan rakan NGO dan pihak berkepentingan industri berkhatan."
-   ]
+   ],
+   "peta": "https://maps.app.goo.gl/UH8L94g7WADpR2w88"
   },
   {
    "slug": "2023-03-31-agm-pertama",
    "kategori": "AGM",
    "tajuk": "Mesyuarat Agung Tahunan Pertama MADOCS",
    "tarikh": "2023-03-31",
-   "tempat": "Hotel Tamu, Kampung Baru, Kuala Lumpur",
+   "tempat": "TAMU Hotel & Suites Kuala Lumpur",
    "gambar": "assets/galeri/program-2023/agm1-04.webp",
    "gambar_alt": "Gambar berkumpulan ahli selepas Mesyuarat Agung Tahunan Pertama MADOCS",
    "ringkas": "Mesyuarat Agung Tahunan pertama diadakan di Hotel Tamu, Kampung Baru. Dalam mesyuarat ini, keahlian kumpulan pertama seramai 85 ahli diluluskan, menandakan bermulanya keanggotaan rasmi pertubuhan.",
    "laporan": [
     "Seramai 85 ahli kumpulan pertama diluluskan keahliannya dalam mesyuarat ini.",
     "Mesyuarat turut membincangkan hala tuju program latihan dan penyeragaman caj berkhatan."
-   ]
+   ],
+   "peta": "https://maps.app.goo.gl/BfsX5rmcokpeiQHc6"
   },
   {
    "slug": "2023-12-31-mesyuarat-ajk-2023",
    "kategori": "Mesyuarat",
    "tajuk": "Mesyuarat Ahli Jawatankuasa MADOCS Sesi 2023",
    "tarikh": "2023-07-02",
-   "tempat": "Hotel Maluri Cheras, Hotel Tamu Kampung Baru dan Yahala Restaurant, Kuala Lumpur",
+   "tempat": "Pelbagai lokasi",
    "gambar": "assets/galeri/program-2023/umum-01.webp",
    "gambar_alt": "Ahli jawatankuasa MADOCS dalam perbincangan meja bulat",
    "ringkas": "Sepanjang tahun pertama, tiga mesyuarat ahli jawatankuasa direkodkan iaitu pada 18 Februari di Hotel Maluri Cheras, 31 Mac di Hotel Tamu Kampung Baru dan 2 Julai di Yahala Restaurant, Kuala Lumpur. Urusan harian pula dibuat melalui kumpulan WhatsApp jawatankuasa.",
    "laporan": [
     "Mesyuarat dijalankan secara fizikal dengan pilihan hadir dalam talian bagi ahli yang berada jauh.",
     "Keputusan harian dibincangkan dalam kumpulan WhatsApp jawatankuasa dan direkodkan secara rasmi dalam mesyuarat."
+   ],
+   "peta_lain": [
+    {
+     "label": "Hotel Maluri Kuala Lumpur",
+     "url": "https://maps.app.goo.gl/AthV2RXuoTJWMm1z8"
+    },
+    {
+     "label": "TAMU Hotel & Suites Kuala Lumpur",
+     "url": "https://maps.app.goo.gl/BfsX5rmcokpeiQHc6"
+    },
+    {
+     "label": "YaHala Restaurant (Chulan)",
+     "url": "https://maps.app.goo.gl/erBakqjkACrmRNpS9"
+    }
    ]
   },
   {
@@ -62,34 +79,36 @@
    "kategori": "CCC",
    "tajuk": "Comprehensive Circumcision Course 2 (CCC 2)",
    "tarikh": "2023-08-27",
-   "tempat": "",
+   "tempat": "Hotel Maluri Kuala Lumpur",
    "gambar": "assets/galeri/program-2023/ccc2-03.webp",
    "gambar_alt": "Penceramah menyampaikan kuliah di CCC 2",
    "ringkas": "Kursus komprehensif kedua menampilkan lima kaedah berkhatan, 6 penceramah dan 12 jurulatih amali. Seramai 57 peserta menyertai kursus dan 76 pesakit menerima rawatan melalui program CSR tajaan PPZ Wilayah Persekutuan.",
    "laporan": [
     "Sebelas ahli baharu turut diluluskan keahliannya pada tarikh yang sama.",
     "Sambutan peserta dan pesakit melebihi jangkaan, menyamai pencapaian kursus pertama."
-   ]
+   ],
+   "peta": "https://maps.app.goo.gl/AthV2RXuoTJWMm1z8"
   },
   {
    "slug": "2023-09-17-perak-circumcision-update",
    "kategori": "Ceramah",
    "tajuk": "Perak Circumcision Update 2023",
    "tarikh": "2023-09-17",
-   "tempat": "Hotel Taiping Perdana, Perak",
+   "tempat": "Hotel Taiping Perdana Taiping",
    "gambar": "assets/galeri/program-2023/perak-01.webp",
    "gambar_alt": "Bangunan Hotel Taiping Perdana, lokasi Perak Circumcision Update 2023",
    "ringkas": "Presiden MADOCS dijemput menyampaikan ceramah \"Introduction to MADOCS\" di Perak Circumcision Update 2023, menjadikan pertubuhan ini dikenali di peringkat negeri.",
    "laporan": [
     "Ceramah memperkenalkan peranan, program latihan dan pendekatan keselamatan berkhatan yang dibawa MADOCS."
-   ]
+   ],
+   "peta": "https://maps.app.goo.gl/bjZKZ6p5qE2vUdrh9"
   },
   {
    "slug": "2023-11-01-garis-panduan-khatan-kkm",
    "kategori": "Dasar",
-   "tajuk": "Mesyuarat Semakan Garis Panduan Khatan KKM",
+   "tajuk": "Mesyuarat Semakan Garis Panduan Khatan Kementerian Kesihatan Malaysia",
    "tarikh": "2023-11-01",
-   "tempat": "E1, Kementerian Kesihatan Malaysia, Putrajaya",
+   "tempat": "Kementerian Kesihatan Malaysia",
    "gambar": "",
    "gambar_alt": "",
    "ringkas": "MADOCS mewakili sektor swasta dalam mesyuarat semakan Garis Panduan Khatan Kementerian Kesihatan Malaysia. Mesyuarat bersetuju menubuhkan Jawatankuasa Khatan Kebangsaan dan MADOCS diberi dua kerusi wakil.",
@@ -97,7 +116,8 @@
     "Mesyuarat dihadiri Bahagian Amalan Perubatan, Bahagian Perkembangan Kesihatan Awam, Bahagian Pembangunan Kesihatan Keluarga, pakar bedah KKM serta wakil NGO perubatan.",
     "Jawatankuasa Khatan Kebangsaan ditubuhkan untuk merangka garis panduan berkhatan, termasuk teknik dorsal slit, khatan di premis KKM dan swasta, khatan beramai-ramai, aspek medico-legal dan mekanisme rujukan komplikasi.",
     "Sektor swasta diwakili MADOCS (2 wakil), PERDIM, MMA dan APHM (seorang wakil setiap satu)."
-   ]
+   ],
+   "peta": "https://maps.app.goo.gl/gw39eivvfVSP62TQ7"
   },
   {
    "slug": "2025-05-31-ttt-teknoklem-cheras",
@@ -142,7 +162,8 @@
    "ringkas": "Privileging Course for Circumcision Part 2 (PCC2-1) dan Comprehensive Circumcision Course 7 (CCC7) berlangsung serentak pada 13 September 2025 di The Katerina Hotel, Batu Pahat, hotel dan tingkat sama, dewan berlainan, bersama Program Khatan Percuma Klinik Kurnia dan majlis menandatangani MoU dengan Nano Medic Care. Sesi Train The Trainer (TTT) Touchstone Circumcision Stapler diadakan pada 14 September 2025. Dr Darsono dari ASDOKI (Indonesia) turut hadir.",
    "tarikh_papar": "13-14 September 2025",
    "gambar_alt": "Sesi kuliah Comprehensive Circumcision Course 7 (CCC7): slaid kursus dipaparkan pada skrin dengan peserta duduk di meja bulat",
-   "peta": "https://maps.app.goo.gl/H6T116kKbjhd6hnTA"
+   "peta": "https://maps.app.goo.gl/H6T116kKbjhd6hnTA",
+   "tamat": "2025-09-14"
   },
   {
    "slug": "2026-08-10-lawatan-klinik-indonesia",

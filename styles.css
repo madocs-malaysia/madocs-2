@@ -1711,4 +1711,9 @@ a.chip-peta:hover{background:#fdf3f5;border-color:#dfbcc4;text-decoration:none}
   .listing .item.no-photo{height:auto}
 }
 
+.peta-lain{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}
+.peta-lain a{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:#8a0b22;font-weight:600}
+.peta-lain a:hover{text-decoration:underline}
+.peta-lain svg{width:13px;height:13px;flex:none}
+
 .ikon-ganti{display:inline-block;width:1em;height:1em}

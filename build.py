@@ -234,6 +234,22 @@ def tarikh_pjg(d):
     return "%s, %d %s %d" % (HARI[d.weekday()], d.day, BULAN[d.month - 1], d.year)
 
 
+def tarikh_julat(d, tamat=None):
+    """Julat tarikh: "Sabtu–Ahad, 13–14 September 2025" bila acara lebih sehari."""
+    if not d:
+        return ""
+    if not tamat or tamat <= d:
+        return tarikh_pjg(d)
+    if d.year == tamat.year and d.month == tamat.month:
+        return "%s–%s, %d–%d %s %d" % (HARI[d.weekday()], HARI[tamat.weekday()],
+                                       d.day, tamat.day, BULAN[d.month - 1], d.year)
+    if d.year == tamat.year:
+        return "%s, %d %s – %s, %d %s %d" % (HARI[d.weekday()], d.day, BULAN[d.month - 1],
+                                             HARI[tamat.weekday()], tamat.day, BULAN[tamat.month - 1], d.year)
+    return "%s, %d %s %d – %s, %d %s %d" % (HARI[d.weekday()], d.day, BULAN[d.month - 1], d.year,
+                                            HARI[tamat.weekday()], tamat.day, BULAN[tamat.month - 1], tamat.year)
+
+
 def tarikh_pdk(d):
     """Tarikh ringkas — kekal sama format dengan tarikh_pjg supaya konsisten."""
     if not d:
@@ -769,7 +785,7 @@ def ringkas_meta(teks, had=158):
     return potong.rstrip(" ,.;:") + "…"
 
 
-def item_kandungan(tajuk, url, ringkas, tarikh=None, kategori="", gambar=None, alt="", meta_ikon="calendar-days", kredit=None, tarikh_papar=None, label="Baca lanjut", tempat=None, peta=None, meta_sebaris=False):
+def item_kandungan(tajuk, url, ringkas, tarikh=None, kategori="", gambar=None, alt="", meta_ikon="calendar-days", kredit=None, tarikh_papar=None, label="Baca lanjut", tempat=None, peta=None, meta_sebaris=False, tamat=None):
     """Kad senarai untuk berita / aktiviti / sumber."""
     _gs, _gset = srcset_imej(gambar) if gambar else ("", "")
     foto = ('<div class="item-photo"><img src="/%s"%s alt="%s" loading="lazy" decoding="async">%s%s</div>'
@@ -777,8 +793,14 @@ def item_kandungan(tajuk, url, ringkas, tarikh=None, kategori="", gambar=None, a
                '<span class="chip-kredit">%s</span>' % esc(kredit) if kredit else "")) if gambar else ""
     kelas = "" if gambar else " no-photo"
     badge = '<span class="badge">%s</span>' % esc(kategori) if kategori else ""
-    masa = ('<p class="item-meta">%s %s</p>' % (icon(meta_ikon), esc(tarikh_papar))) if tarikh_papar else (
-        ('<time datetime="%s">%s %s</time>' % (esc(tarikh), icon(meta_ikon), esc(tarikh_pdk(parse_date(tarikh))))) if tarikh else "")
+    if tarikh and parse_date(tamat):
+        # acara berbilang hari: julat penuh dengan nama hari
+        masa = ('<time datetime="%s">%s %s</time>' % (esc(tarikh), icon(meta_ikon),
+                esc(tarikh_julat(parse_date(tarikh), parse_date(tamat)))))
+    elif tarikh_papar:
+        masa = '<p class="item-meta">%s %s</p>' % (icon(meta_ikon), esc(tarikh_papar))
+    else:
+        masa = (('<time datetime="%s">%s %s</time>' % (esc(tarikh), icon(meta_ikon), esc(tarikh_pdk(parse_date(tarikh))))) if tarikh else "")
     lokasi = ""
     if tempat:
         lokasi = ('<a class="meta-peta" href="%s" target="_blank" rel="noopener">%s %s</a>'
@@ -1844,7 +1866,7 @@ def bina_aktiviti():
                        tarikh=a.get("tarikh"), kategori=a.get("kategori", ""), gambar=a.get("gambar"),
                        alt=a.get("gambar_alt", ""), tarikh_papar=a.get("tarikh_papar"),
                        tempat=a.get("tempat"), peta=a.get("peta"),
-                       meta_sebaris=True) for a in aktiviti)) if aktiviti else kosong(
+                       meta_sebaris=True, tamat=a.get("tamat")) for a in aktiviti)) if aktiviti else kosong(
         "users", "Belum ada aktiviti diterbitkan",
         "Laporan dan gambar aktiviti MADOCS akan diterbitkan di sini.")
 
@@ -1917,9 +1939,10 @@ def bina_aktiviti_detail(a):
       <div class="card">
         <h3>Butiran</h3>
         <div class="item-meta" style="display:grid;gap:9px">
-          <time datetime="{esc(a.get('tarikh',''))}">{icon('calendar-days')}{esc(a.get('tarikh_papar') or (tarikh_pjg(d) if d else ''))}</time>
+          <time datetime="{esc(a.get('tarikh',''))}">{icon('calendar-days')}{esc((tarikh_julat(d, parse_date(a.get('tamat'))) if parse_date(a.get('tamat')) else a.get('tarikh_papar')) or (tarikh_pjg(d) if d else ''))}</time>
           {('<a href="%s" target="_blank" rel="noopener">%s %s</a>' % (esc(a["peta"]), icon("map-pin"), esc(a.get("tempat","")))) if a.get("peta") else ('<span>%s %s</span>' % (icon("map-pin"), esc(a.get("tempat",""))) if a.get("tempat") else '')}
           {('<small class="alamat-penuh">%s</small>' % esc(a["alamat"])) if a.get("alamat") else ''}
+          {('<ul class="peta-lain">%s</ul>' % "".join('<li><a href="%s" target="_blank" rel="noopener">%s %s</a></li>' % (esc(x["url"]), esc(x["label"]), icon("external-link")) for x in a["peta_lain"])) if a.get("peta_lain") else ''}
         </div>
         <a class="btn-blok ghost" href="/aktiviti/" style="margin-top:16px">{icon('arrow-left')} Semua aktiviti</a>
       </div>
