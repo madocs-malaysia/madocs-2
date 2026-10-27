@@ -415,10 +415,10 @@ NAV_KUMPULAN = [
         ("Semak Status Ahli", "/semak-ahli/", "ahli"),
         ("Sahkan Sijil", "/sahkan/", "sahkan"),
     ]),
-    ("Media", "/berita/", "berita", [
-        ("Berita", "/berita/", "berita"),
+    ("Aktiviti", "/aktiviti/", "aktiviti", [
         ("Aktiviti", "/aktiviti/", "aktiviti"),
         ("Galeri", "/galeri/", "galeri"),
+        ("Berita terkini", "/berita/", "berita"),
     ]),
     ("Hubungi", "/hubungi/", "hubungi", []),
 ]
@@ -514,7 +514,7 @@ def footer():
   </div>
   <div class="shell footer-bottom">
     <span>© {date.today().year} {esc(SITE['nama'])}. Hak cipta terpelihara.</span>
-    <span><a href="/semak-ahli/">Pengesahan Ahli</a><i></i><a href="/dasar-privasi/">Dasar Privasi</a><i></i><a href="/terma/">Terma Penggunaan</a><i></i><a href="/kebolehaksesan/">Aksesibiliti</a></span>
+    <span><a href="/dasar-privasi/">Dasar Privasi</a><i></i><a href="/terma/">Terma Penggunaan</a><i></i><a href="/kebolehaksesan/">Aksesibiliti</a></span>
   </div>
 </footer>"""
 
@@ -1013,7 +1013,8 @@ def blok_hero_slaid():
 def bina_utama():
     stats = load("stats.json")
     kursus = load("kursus.json")["kursus"]
-    aktiviti = load("aktiviti.json")["aktiviti"]
+    aktiviti = sorted(load("aktiviti.json")["aktiviti"],
+                      key=lambda a: (a.get("tarikh") or "", a.get("tamat") or ""), reverse=True)
     sumber = load("sumber.json")["sumber"]
     berita = load("berita.json")["berita"]
     keahlian = load("keahlian.json")
@@ -2061,9 +2062,37 @@ def bina_berita():
                          "Pengumuman, berita latihan dan kemas kini profesional MADOCS akan diterbitkan di sini.",
                          '<div style="margin-top:20px"><a class="btn btn-primary" href="/hubungi/">Hubungi urusetia</a></div>')
 
+    # --- kursus akan datang + aktiviti terkini di atas senarai berita
+    _hari_ini = date.today().isoformat()
+    akan = sorted([k for k in load("kursus.json")["kursus"] if (k.get("tarikh") or "") >= _hari_ini],
+                  key=lambda k: k.get("tarikh") or "")[:2]
+    kursus_html = ('<div class="listing">%s</div>' % "".join(
+        item_kandungan(k["tajuk"], "/pendidikan/%s/" % k["slug"], k.get("ringkas", ""),
+                       tarikh=k.get("tarikh"), kategori=k.get("kod", ""), gambar=k.get("gambar"),
+                       alt=k.get("gambar_alt", "")) for k in akan)) if akan else ""
+
+    aktiviti_terkini = sorted(load("aktiviti.json")["aktiviti"],
+                              key=lambda a: (a.get("tarikh") or "", a.get("tamat") or ""),
+                              reverse=True)[:3]
+    aktiviti_html = ('<div class="listing">%s</div>' % "".join(
+        item_kandungan(a["tajuk"], "/aktiviti/%s/" % a["slug"], a.get("ringkas", ""),
+                       tarikh=a.get("tarikh"), kategori=a.get("kategori", ""), gambar=a.get("gambar"),
+                       alt=a.get("gambar_alt", ""), tempat=a.get("tempat"), peta=a.get("peta"),
+                       meta_sebaris=True, tamat=a.get("tamat")) for a in aktiviti_terkini))
+
     isi = page_hero([("Utama", "/"), ("Berita", None)], "Berita & Pengumuman",
                     "Berita terkini, pengumuman dan kemas kini profesional daripada MADOCS.") + f"""
-<section class="content-wrap"><div class="shell">{senarai}</div></section>"""
+{('<section class="content-wrap"><div class="shell"><div class="section-title-row activities-head"><h2>Kursus akan datang</h2><a href="/pendidikan/">Semua kursus ' + icon("arrow-right") + '</a></div>' + kursus_html + '</div></section>') if kursus_html else ''}
+
+<section class="content-wrap">
+  <div class="shell">
+    <div class="section-title-row activities-head"><h2>Aktiviti terkini</h2><a href="/aktiviti/">Semua aktiviti {icon("arrow-right")}</a></div>
+    {aktiviti_html}
+    <div style="margin-top:22px"><a class="btn btn-primary" href="/aktiviti/">Lihat semua aktiviti {icon("arrow-right")}</a></div>
+  </div>
+</section>
+
+<section class="content-wrap"><div class="shell"><div class="section-title-row activities-head"><h2>Berita</h2></div>{senarai}</div></section>"""
     halaman("berita", "Berita & Pengumuman | MADOCS",
             "Berita, pengumuman dan kemas kini profesional daripada Pertubuhan Doktor Khatan Malaysia (MADOCS).",
             "/berita/", isi)
