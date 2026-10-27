@@ -769,7 +769,7 @@ def ringkas_meta(teks, had=158):
     return potong.rstrip(" ,.;:") + "…"
 
 
-def item_kandungan(tajuk, url, ringkas, tarikh=None, kategori="", gambar=None, alt="", meta_ikon="calendar-days", kredit=None, tarikh_papar=None, label="Baca lanjut", tempat=None, peta=None):
+def item_kandungan(tajuk, url, ringkas, tarikh=None, kategori="", gambar=None, alt="", meta_ikon="calendar-days", kredit=None, tarikh_papar=None, label="Baca lanjut", tempat=None, peta=None, meta_sebaris=False):
     """Kad senarai untuk berita / aktiviti / sumber."""
     _gs, _gset = srcset_imej(gambar) if gambar else ("", "")
     foto = ('<div class="item-photo"><img src="/%s"%s alt="%s" loading="lazy" decoding="async">%s%s</div>'
@@ -784,12 +784,16 @@ def item_kandungan(tajuk, url, ringkas, tarikh=None, kategori="", gambar=None, a
         lokasi = ('<a class="meta-peta" href="%s" target="_blank" rel="noopener">%s %s</a>'
                   % (esc(peta), icon("map-pin"), esc(tempat))) if peta else (
                   '<span>%s %s</span>' % (icon("map-pin"), esc(tempat)))
+    # meta_sebaris: tag | tarikh | lokasi dalam satu baris (kad senarai aktiviti)
+    kelas_meta = "item-meta sebaris" if meta_sebaris else "item-meta"
+    kepala = "" if meta_sebaris else badge
+    isi_meta = (badge + masa + lokasi) if meta_sebaris else (masa + lokasi)
     return f"""<article class="item{kelas}">
   {foto}
   <div class="item-body">
-    {badge}
+    {kepala}
     <h3><a href="{esc(url)}">{esc(tajuk)}</a></h3>
-    <div class="item-meta">{masa}{lokasi}</div>
+    <div class="{kelas_meta}">{isi_meta}</div>
     {f'<p>{esc(ringkas)}</p>' if ringkas else ''}
     <a class="lebih" href="{esc(url)}">{esc(label)} {icon('arrow-right')}</a>
   </div>
@@ -1839,7 +1843,8 @@ def bina_aktiviti():
         item_kandungan(a["tajuk"], "/aktiviti/%s/" % a["slug"], a.get("ringkas", ""),
                        tarikh=a.get("tarikh"), kategori=a.get("kategori", ""), gambar=a.get("gambar"),
                        alt=a.get("gambar_alt", ""), tarikh_papar=a.get("tarikh_papar"),
-                       tempat=a.get("tempat"), peta=a.get("peta")) for a in aktiviti)) if aktiviti else kosong(
+                       tempat=a.get("tempat"), peta=a.get("peta"),
+                       meta_sebaris=True) for a in aktiviti)) if aktiviti else kosong(
         "users", "Belum ada aktiviti diterbitkan",
         "Laporan dan gambar aktiviti MADOCS akan diterbitkan di sini.")
 
@@ -1902,11 +1907,7 @@ def bina_aktiviti_detail(a):
   <div class="shell split">
     <div>
       <div class="card">
-        <div class="chips post-meta" style="margin-bottom:16px">
-          <span class="badge">{esc(a.get('kategori',''))}</span>
-          <time class="chip-meta" datetime="{esc(a.get('tarikh',''))}">{icon('calendar-days')}{esc(a.get('tarikh_papar') or (tarikh_pjg(d) if d else ''))}</time>
-          {('<a class="chip-meta chip-peta" href="%s" target="_blank" rel="noopener">%s %s</a>' % (esc(a["peta"]), icon("map-pin"), esc(a.get("tempat","")))) if a.get("peta") else ('<span class="chip-meta">%s %s</span>' % (icon("map-pin"), esc(a.get("tempat",""))) if a.get("tempat") else '')}
-        </div>
+        <div class="chips" style="margin-bottom:16px"><span class="badge">{esc(a.get('kategori',''))}</span></div>
         {gambar}
         <div class="prose">{badan}</div>
       </div>
