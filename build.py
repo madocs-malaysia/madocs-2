@@ -1843,7 +1843,8 @@ def bina_aktiviti():
 
 def bina_aktiviti_detail(a):
     d = parse_date(a.get("tarikh"))
-    gambar = ('<img src="/%s" alt="%s" style="width:100%%;border-radius:11px;margin-bottom:22px">'
+    gambar = ('<img src="/%s" alt="%s" style="width:100%%;max-height:440px;object-fit:cover;'
+              'border-radius:11px;margin-bottom:22px">'
               % (esc(a["gambar"]), esc(a.get("gambar_alt") or a["tajuk"]))) if a.get("gambar") else ""
     if not a.get("ringkas"):
         kurang("Keterangan/laporan belum ditulis untuk aktiviti '%s' (PRD §24)." % a["tajuk"])
