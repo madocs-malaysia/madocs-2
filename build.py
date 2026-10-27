@@ -1103,7 +1103,9 @@ def bina_utama():
     if berita:
         berita_html = "".join(
             item_kandungan(b["tajuk"], "/berita/%s/" % b["slug"], b.get("ringkas", ""),
-                           tarikh=b.get("tarikh"), kategori=b.get("kategori", ""), alt=b.get("gambar_alt", ""), gambar=b.get("gambar"))
+                           tarikh=b.get("tarikh"), kategori=b.get("kategori", ""), alt=b.get("gambar_alt", ""),
+                           gambar=b.get("gambar"), tempat=b.get("tempat"), peta=b.get("peta"),
+                           meta_sebaris=True)
             for b in berita[:3])
         berita_html = '<div class="listing">%s</div>' % berita_html
     else:
@@ -2056,7 +2058,9 @@ def bina_berita():
     if berita:
         senarai = '<div class="listing">%s</div>' % "".join(
             item_kandungan(b["tajuk"], "/berita/%s/" % b["slug"], b.get("ringkas", ""),
-                           tarikh=b.get("tarikh"), kategori=b.get("kategori", ""), alt=b.get("gambar_alt", ""), gambar=b.get("gambar"))
+                           tarikh=b.get("tarikh"), kategori=b.get("kategori", ""), alt=b.get("gambar_alt", ""),
+                           gambar=b.get("gambar"), tempat=b.get("tempat"), peta=b.get("peta"),
+                           meta_sebaris=True)
             for b in berita)
     else:
         kurang("Tiada berita diterbitkan (data/berita.json) — PRD §49.")
@@ -2090,7 +2094,6 @@ def bina_berita():
   <div class="shell">
     <div class="section-title-row activities-head"><h2>Aktiviti terkini</h2><a href="/aktiviti/">Semua aktiviti {icon("arrow-right")}</a></div>
     {aktiviti_html}
-    <div style="margin-top:22px"><a class="btn btn-primary" href="/aktiviti/">Lihat semua aktiviti {icon("arrow-right")}</a></div>
   </div>
 </section>
 
