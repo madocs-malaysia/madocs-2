@@ -20,6 +20,8 @@ SELANG = 6
 
 # Gambar prosedur/klinikal (bukan berita). Fokus menegak 0=puncak 1=dasar.
 GAMBAR = [
+    ('assets/galeri/pelancaran-2026/06.webp', 'garis-panduan', 0.42,
+     'Stand pelancaran Buku Garis Panduan Berkhatan (Lelaki) 2026 di majlis pelancaran rasmi Kementerian Kesihatan Malaysia'),
     ('assets/berita-agm-2026-kumpulan.webp', 'ahli-agm', 0.45,
      'Ahli dan Ahli Jawatankuasa MADOCS bergambar bersama sepanduk MALAYSIAN DOCTORS OF CIRCUMCISION SOCIETY pada Mesyuarat Agung Tahunan Ke-4, 2026'),
     ('assets/galeri/batu-pahat-2025/01.webp', 'peserta-kursus', 0.38,

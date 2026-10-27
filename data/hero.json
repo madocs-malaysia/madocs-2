@@ -4,9 +4,9 @@
  "slaid": [
   {
    "jenis": "imej",
-   "besar": "assets/hero/ahli-agm-besar.webp",
-   "telefon": "assets/hero/ahli-agm-telefon.webp",
-   "alt": "Ahli dan Ahli Jawatankuasa MADOCS bergambar bersama sepanduk MALAYSIAN DOCTORS OF CIRCUMCISION SOCIETY pada Mesyuarat Agung Tahunan Ke-4, 2026"
+   "besar": "assets/hero/garis-panduan-besar.webp",
+   "telefon": "assets/hero/garis-panduan-telefon.webp",
+   "alt": "Stand pelancaran Buku Garis Panduan Berkhatan (Lelaki) 2026 di majlis pelancaran rasmi Kementerian Kesihatan Malaysia"
   },
   {
    "jenis": "berita",
@@ -19,9 +19,9 @@
   },
   {
    "jenis": "imej",
-   "besar": "assets/hero/peserta-kursus-besar.webp",
-   "telefon": "assets/hero/peserta-kursus-telefon.webp",
-   "alt": "Peserta dan fasilitator kursus Privileging Course for Circumcision (Dorsal Slit) Part 2 bergambar bersama sepanduk kursus di The Katerina Hotel, Batu Pahat"
+   "besar": "assets/hero/ahli-agm-besar.webp",
+   "telefon": "assets/hero/ahli-agm-telefon.webp",
+   "alt": "Ahli dan Ahli Jawatankuasa MADOCS bergambar bersama sepanduk MALAYSIAN DOCTORS OF CIRCUMCISION SOCIETY pada Mesyuarat Agung Tahunan Ke-4, 2026"
   },
   {
    "jenis": "berita",
@@ -31,6 +31,12 @@
    "tajuk": "Ceramah CME oleh Presiden MADOCS",
    "kicker": "CME",
    "pautan": "/berita/2026-11-24-cme-tissue-adhesive/"
+  },
+  {
+   "jenis": "imej",
+   "besar": "assets/hero/peserta-kursus-besar.webp",
+   "telefon": "assets/hero/peserta-kursus-telefon.webp",
+   "alt": "Peserta dan fasilitator kursus Privileging Course for Circumcision (Dorsal Slit) Part 2 bergambar bersama sepanduk kursus di The Katerina Hotel, Batu Pahat"
   },
   {
    "jenis": "imej",
