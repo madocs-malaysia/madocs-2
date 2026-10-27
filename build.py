@@ -316,7 +316,10 @@ def head(tajuk, deskripsi, laluan, og_jenis="website", jsonld=None, noindex=Fals
     sekatan.append('<meta property="og:title" content="%s">' % esc(tajuk))
     sekatan.append('<meta property="og:description" content="%s">' % esc(deskripsi))
     sekatan.append('<meta property="og:url" content="%s">' % esc(kanon))
-    sekatan.append('<meta property="og:image" content="%s%s">' % (esc(BASE), esc(og_imej)))
+    # URL imej kad kongsi tanpa ?v=: pengikis WhatsApp/Facebook menyimpan cache sendiri dan
+    # sesetengahnya gagal memproses URL bercap.
+    og_bersih = og_imej.split("?")[0]
+    sekatan.append('<meta property="og:image" content="%s%s">' % (esc(BASE), esc(og_bersih)))
     # Saiz/jenis hanya diisytiharkan untuk kad jenama; gambar item ada saiznya sendiri dan
     # pengikis (WhatsApp/Telegram) akan membaca fail sebenar.
     if gambar_og:
@@ -329,7 +332,8 @@ def head(tajuk, deskripsi, laluan, og_jenis="website", jsonld=None, noindex=Fals
         sekatan.append('<meta property="og:image:type" content="image/jpeg">')
     sekatan.append('<meta property="og:image:alt" content="%s">' % esc("MADOCS — Pertubuhan Doktor Khatan Malaysia"))
     sekatan.append('<meta name="twitter:card" content="summary_large_image">')
-    sekatan.append('<meta name="twitter:image" content="%s%s">' % (esc(BASE), esc(og_imej)))
+    sekatan.append('<meta property="og:image:secure_url" content="%s%s">' % (esc(BASE), esc(og_bersih)))
+    sekatan.append('<meta name="twitter:image" content="%s%s">' % (esc(BASE), esc(og_bersih)))
     data = [organisasi_ld()]
     if jsonld:
         data.extend(jsonld if isinstance(jsonld, list) else [jsonld])
@@ -2717,6 +2721,12 @@ def cap_versi():
             lambda m: "%s?v=%s" % (m.group(1), jadual.get(m.group(1), tanda)), teks)
         baharu = cap_imej_data.sub(
             lambda m: "%s%s?v=%s%s" % (m.group(1), m.group(2), jadual.get(m.group(2), tanda), m.group(4)), baharu)
+        # Kad kongsi (og:image / twitter:image) kekal tanpa cap ?v= supaya pengikis WhatsApp
+        # dan Facebook tidak perlu memproses URL bercap.
+        baharu = re.sub(r'(<meta property="og:image(?::secure_url)?" content="[^"?]+)\?v=[0-9a-f]+"',
+                        r'\1"', baharu)
+        baharu = re.sub(r'(<meta name="twitter:image" content="[^"?]+)\?v=[0-9a-f]+"',
+                        r'\1"', baharu)
         if baharu != teks:
             f.write_text(baharu, encoding="utf-8")
             bil_imej += 1
