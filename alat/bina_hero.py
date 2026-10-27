@@ -42,7 +42,7 @@ GAMBAR = [
 POSTER = {'2026-11-24-cme-tissue-adhesive'}
 
 # Gambar berkumpulan: jangan potong sesiapa. Paparkan penuh di atas latar kabur.
-PENUH = {'ahli-agm', 'peserta-kursus'}
+PENUH = {'ahli-agm', 'peserta-kursus', 'garis-panduan'}
 
 
 def slaid_penuh(im, saiz):
