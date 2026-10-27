@@ -1924,8 +1924,10 @@ def bina_aktiviti_detail(a):
         badan = '<p class="nota-isi">Laporan penuh aktiviti ini belum disediakan.</p>'
     _ringkas = (a.get("ringkas") or "").strip()
     _ayat1 = (_ringkas.split(". ")[0] + ".") if ". " in _ringkas else _ringkas
+    # Subtajuk hero guna ayat pertama penuh (tanpa potong) supaya terjemahan Inggeris dapat
+    # dipadankan dengan kamus; ayat pertama ringkas biasanya 100-200 aksara sahaja.
     isi = page_hero([("Utama", "/"), ("Aktiviti", "/aktiviti/"), (a["tajuk"], None)], a["tajuk"],
-                    ringkas_meta(_ayat1 or (a.get('tarikh_papar') or (tarikh_pdk(d) if d else '')))) + f"""
+                    _ayat1 or (a.get('tarikh_papar') or (tarikh_pdk(d) if d else ''))) + f"""
 <section class="content-wrap">
   <div class="shell split">
     <div>
