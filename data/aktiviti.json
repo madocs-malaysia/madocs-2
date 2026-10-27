@@ -2,24 +2,143 @@
  "cara_edit": "Aktiviti/aktiviti lepas. Tarikh = YYYY-MM-DD. Kategori bebas (CCC, PCC, TTT, dll). Gambar: letak fail dalam folder assets/.",
  "aktiviti": [
   {
-   "slug": "2026-09-17-pelancaran-garis-panduan",
-   "kategori": "Program",
-   "tajuk": "Pelancaran Garis Panduan Berkhatan Kebangsaan",
-   "tarikh": "2026-09-17",
-   "tempat": "Auditorium Hospital Shah Alam, Selangor",
-   "gambar": "assets/berita-2026-09-17-shah-alam.webp",
-   "gambar_alt": "Papan tanda Hospital Shah Alam tempat majlis pelancaran diadakan",
-   "ringkas": "Garis Panduan Berkhatan Kebangsaan dilancarkan oleh Ketua Pengarah Kesihatan. MADOCS turut membuka booth pada majlis itu."
+   "slug": "2023-02-18-ccc1",
+   "kategori": "CCC",
+   "tajuk": "Comprehensive Circumcision Course 1 (CCC 1)",
+   "tarikh": "2023-02-18",
+   "tempat": "",
+   "gambar": "assets/galeri/program-2023/ccc1-02.webp",
+   "gambar_alt": "Penceramah di pentas CCC 1 dengan latar sepanduk MADOCS dan PERDIM",
+   "ringkas": "Kursus komprehensif pertama MADOCS, menampilkan empat kaedah berkhatan dengan 5 penceramah dan 12 jurulatih amali. Seramai 59 peserta mengikuti kursus dan 93 pesakit daripada golongan asnaf, fakir dan B40 menerima manfaat melalui program CSR tajaan PPZ Wilayah Persekutuan.",
+   "laporan": [
+    "Empat kaedah berkhatan diperkenalkan dalam kursus ini, dengan gabungan sesi kuliah dan latihan amali yang dikendalikan 12 jurulatih.",
+    "Program CSR bersama PPZ Wilayah Persekutuan membolehkan 93 pesakit daripada golongan asnaf, fakir dan B40 menerima rawatan berkhatan tanpa bayaran."
+   ]
   },
   {
-   "slug": "2026-09-16-mesyuarat-ajk-bil2",
+   "slug": "2023-02-26-micc-putrajaya",
+   "kategori": "Persidangan",
+   "tajuk": "Malaysian International Circumcision Conference 2023",
+   "tarikh": "2023-02-26",
+   "tempat": "The Everly Hotel, Putrajaya",
+   "gambar": "assets/galeri/program-2023/micc-05.webp",
+   "gambar_alt": "Gambar berkumpulan peserta MICC 2023 di The Everly Hotel Putrajaya",
+   "ringkas": "MADOCS menyertai Malaysian International Circumcision Conference 2023 di Putrajaya. Presiden menyampaikan ceramah bertajuk \"Roles of MADOCS in Malaysia\" dan MADOCS turut mengadakan sesi bersama media.",
+   "laporan": [
+    "Ceramah \"Roles of MADOCS in Malaysia\" memperkenalkan peranan pertubuhan kepada peserta antarabangsa dan pengamal tempatan.",
+    "Kehadiran MADOCS dalam persidangan ini membuka ruang perbincangan dengan rakan NGO dan pihak berkepentingan industri berkhatan."
+   ]
+  },
+  {
+   "slug": "2023-03-31-agm-pertama",
+   "kategori": "AGM",
+   "tajuk": "Mesyuarat Agung Tahunan Pertama MADOCS",
+   "tarikh": "2023-03-31",
+   "tempat": "Hotel Tamu, Kampung Baru, Kuala Lumpur",
+   "gambar": "assets/galeri/program-2023/agm1-04.webp",
+   "gambar_alt": "Gambar berkumpulan ahli selepas Mesyuarat Agung Tahunan Pertama MADOCS",
+   "ringkas": "Mesyuarat Agung Tahunan pertama diadakan di Hotel Tamu, Kampung Baru. Dalam mesyuarat ini, keahlian kumpulan pertama seramai 85 ahli diluluskan, menandakan bermulanya keanggotaan rasmi pertubuhan.",
+   "laporan": [
+    "Seramai 85 ahli kumpulan pertama diluluskan keahliannya dalam mesyuarat ini.",
+    "Mesyuarat turut membincangkan hala tuju program latihan dan penyeragaman caj berkhatan."
+   ]
+  },
+  {
+   "slug": "2023-12-31-mesyuarat-ajk-2023",
    "kategori": "Mesyuarat",
-   "tajuk": "Mesyuarat Ahli Jawatankuasa Bil. 2/2026",
-   "tarikh": "2026-09-16",
-   "tempat": "Restoran Casar Balqis, Taman Melati, Kuala Lumpur",
-   "gambar": "assets/berita-2026-09-16-mesyuarat.webp",
-   "gambar_alt": "Bangunan tempat berlangsungnya mesyuarat Ahli Jawatankuasa MADOCS",
-   "ringkas": "Mesyuarat Ahli Jawatankuasa Bil. 2 membincangkan perancangan program dan latihan MADOCS."
+   "tajuk": "Mesyuarat Ahli Jawatankuasa MADOCS Sesi 2023",
+   "tarikh": "2023-07-02",
+   "tempat": "Hotel Maluri Cheras, Hotel Tamu Kampung Baru dan Yahala Restaurant, Kuala Lumpur",
+   "gambar": "assets/galeri/program-2023/umum-01.webp",
+   "gambar_alt": "Ahli jawatankuasa MADOCS dalam perbincangan meja bulat",
+   "ringkas": "Sepanjang tahun pertama, tiga mesyuarat ahli jawatankuasa direkodkan iaitu pada 18 Februari di Hotel Maluri Cheras, 31 Mac di Hotel Tamu Kampung Baru dan 2 Julai di Yahala Restaurant, Kuala Lumpur. Urusan harian pula dibuat melalui kumpulan WhatsApp jawatankuasa.",
+   "laporan": [
+    "Mesyuarat dijalankan secara fizikal dengan pilihan hadir dalam talian bagi ahli yang berada jauh.",
+    "Keputusan harian dibincangkan dalam kumpulan WhatsApp jawatankuasa dan direkodkan secara rasmi dalam mesyuarat."
+   ]
+  },
+  {
+   "slug": "2023-08-27-ccc2",
+   "kategori": "CCC",
+   "tajuk": "Comprehensive Circumcision Course 2 (CCC 2)",
+   "tarikh": "2023-08-27",
+   "tempat": "",
+   "gambar": "assets/galeri/program-2023/ccc2-03.webp",
+   "gambar_alt": "Penceramah menyampaikan kuliah di CCC 2",
+   "ringkas": "Kursus komprehensif kedua menampilkan lima kaedah berkhatan, 6 penceramah dan 12 jurulatih amali. Seramai 57 peserta menyertai kursus dan 76 pesakit menerima rawatan melalui program CSR tajaan PPZ Wilayah Persekutuan.",
+   "laporan": [
+    "Sebelas ahli baharu turut diluluskan keahliannya pada tarikh yang sama.",
+    "Sambutan peserta dan pesakit melebihi jangkaan, menyamai pencapaian kursus pertama."
+   ]
+  },
+  {
+   "slug": "2023-09-17-perak-circumcision-update",
+   "kategori": "Ceramah",
+   "tajuk": "Perak Circumcision Update 2023",
+   "tarikh": "2023-09-17",
+   "tempat": "Hotel Taiping Perdana, Perak",
+   "gambar": "assets/galeri/program-2023/perak-01.webp",
+   "gambar_alt": "Bangunan Hotel Taiping Perdana, lokasi Perak Circumcision Update 2023",
+   "ringkas": "Presiden MADOCS dijemput menyampaikan ceramah \"Introduction to MADOCS\" di Perak Circumcision Update 2023, menjadikan pertubuhan ini dikenali di peringkat negeri.",
+   "laporan": [
+    "Ceramah memperkenalkan peranan, program latihan dan pendekatan keselamatan berkhatan yang dibawa MADOCS."
+   ]
+  },
+  {
+   "slug": "2023-11-01-garis-panduan-khatan-kkm",
+   "kategori": "Dasar",
+   "tajuk": "Mesyuarat Semakan Garis Panduan Khatan KKM",
+   "tarikh": "2023-11-01",
+   "tempat": "E1, Kementerian Kesihatan Malaysia, Putrajaya",
+   "gambar": "",
+   "gambar_alt": "",
+   "ringkas": "MADOCS mewakili sektor swasta dalam mesyuarat semakan Garis Panduan Khatan Kementerian Kesihatan Malaysia. Mesyuarat bersetuju menubuhkan Jawatankuasa Khatan Kebangsaan dan MADOCS diberi dua kerusi wakil.",
+   "laporan": [
+    "Mesyuarat dihadiri Bahagian Amalan Perubatan, Bahagian Perkembangan Kesihatan Awam, Bahagian Pembangunan Kesihatan Keluarga, pakar bedah KKM serta wakil NGO perubatan.",
+    "Jawatankuasa Khatan Kebangsaan ditubuhkan untuk merangka garis panduan berkhatan, termasuk teknik dorsal slit, khatan di premis KKM dan swasta, khatan beramai-ramai, aspek medico-legal dan mekanisme rujukan komplikasi.",
+    "Sektor swasta diwakili MADOCS (2 wakil), PERDIM, MMA dan APHM (seorang wakil setiap satu)."
+   ]
+  },
+  {
+   "slug": "2025-05-31-ttt-teknoklem-cheras",
+   "kategori": "TTT",
+   "tajuk": "TTT Teknoklem, Hotel Maluri, Cheras, Kuala Lumpur",
+   "tarikh": "2025-05-31",
+   "tempat": "Hotel Maluri, Cheras, Kuala Lumpur",
+   "gambar": "assets/galeri/ccc6-cheras-2025/33.webp",
+   "gambar_alt": "Pembentang menerangkan kaedah Teknoklem dengan slaid, Train The Trainer di Hotel Maluri Cheras",
+   "ringkas": "Train The Trainer (TTT) Teknoklem pada Sabtu 31 Mei 2025, sehari sebelum CCC6, di Hotel Maluri, Cheras. Sesi berpusat pada kaedah gam Teknoklem: penerangan slaid, demonstrasi kit dan latihan amali tangan peserta di meja."
+  },
+  {
+   "slug": "2025-06-01-ccc6-hotel-maluri",
+   "kategori": "CCC",
+   "tajuk": "CCC6, Hotel Maluri, Cheras, Kuala Lumpur",
+   "tarikh": "2025-06-01",
+   "tempat": "Hotel Maluri, Cheras, Kuala Lumpur",
+   "gambar": "assets/galeri/ccc6-cheras-2025/13.webp",
+   "gambar_alt": "Gambar kumpulan besar peserta CCC6 di atas pentas, Hotel Maluri Cheras",
+   "ringkas": "Comprehensive Circumcision Course 6 (CCC6) pada Ahad 1 Jun 2025 di Hotel Maluri, Cheras. Ceramah anatomi dan anestesia tempatan, kaedah Guillotine, Teknoklem dan stapler, demonstrasi prosedur secara langsung, serta latihan amali di tiga stesen dengan pesakit sebenar di bawah penyeliaan fasilitator. Sehari sebelum itu, Train The Trainer (TTT) Teknoklem diadakan di hotel yang sama."
+  },
+  {
+   "slug": "2025-09-13-pcc2-1-batu-pahat",
+   "kategori": "PCC",
+   "tajuk": "PCC2-1, Batu Pahat, Johor",
+   "tarikh": "2025-09-13",
+   "tempat": "The Katerina Hotel, Batu Pahat, Johor",
+   "gambar": "assets/galeri/batu-pahat-2025/01.webp",
+   "ringkas": "Privileging Course for Circumcision Part 2 (Siri 1) di Batu Pahat, Johor. Seramai 21 peserta lulus penilaian kursus. Pada hari yang sama, Memorandum Persefahaman (MoU) dengan Nano Medic Care ditandatangani.",
+   "gambar_alt": "Peserta, fasilitator dan urusetia PCC2-1 bergambar bersama sepanduk Privileging Course for Circumcision (Dorsal Slit) Part 2 di The Katerina Hotel, Batu Pahat"
+  },
+  {
+   "slug": "2025-09-01-ccc7-ttt-batu-pahat",
+   "kategori": "CCC",
+   "tajuk": "CCC7, PCC2-1 & TTT Touchstone, Batu Pahat, Johor",
+   "tarikh": "2025-09-13",
+   "tempat": "The Katerina Hotel, Batu Pahat, Johor",
+   "gambar": "assets/galeri/batu-pahat-2025/20.webp",
+   "ringkas": "Privileging Course for Circumcision Part 2 (PCC2-1) dan Comprehensive Circumcision Course 7 (CCC7) berlangsung serentak pada 13 September 2025 di The Katerina Hotel, Batu Pahat, hotel dan tingkat sama, dewan berlainan, bersama Program Khatan Percuma Klinik Kurnia dan majlis menandatangani MoU dengan Nano Medic Care. Sesi Train The Trainer (TTT) Touchstone Circumcision Stapler diadakan pada 14 September 2025. Dr Darsono dari ASDOKI (Indonesia) turut hadir.",
+   "tarikh_papar": "13-14 September 2025",
+   "gambar_alt": "Sesi kuliah Comprehensive Circumcision Course 7 (CCC7): slaid kursus dipaparkan pada skrin dengan peserta duduk di meja bulat"
   },
   {
    "slug": "2026-08-10-lawatan-klinik-indonesia",
@@ -48,52 +167,13 @@
    ]
   },
   {
-   "slug": "2026-06-18-pcc2-4-semporna",
+   "slug": "2025-12-27-pcc2-2-masjid-wilayah",
    "kategori": "PCC",
-   "tajuk": "PCC2-4 Semporna",
-   "tarikh": "2026-06-18",
-   "tempat": "Semporna, Sabah",
-   "gambar": "assets/aktiviti-pcc2-4-semporna.webp",
-   "gambar_alt": "Sepanduk kursus PCC2-4 dipasang di hadapan premis di Semporna",
-   "ringkas": "Kursus PCC2-4 dijalankan di Semporna, Sabah dengan sesi kuliah dan latihan amali."
-  },
-  {
-   "slug": "2026-05-31-ccc8-masjid-putra",
-   "kategori": "CCC",
-   "tajuk": "CCC8 di Masjid Putra, Putrajaya",
-   "tarikh": "2026-05-31",
-   "tempat": "Masjid Putra, Putrajaya",
+   "tajuk": "PCC2-2 Masjid Wilayah",
+   "tarikh": "2025-12-27",
+   "tempat": "Masjid Wilayah Persekutuan, Kuala Lumpur",
    "gambar": "",
-   "ringkas": "Kursus CCC8 diadakan di Masjid Putra, Putrajaya, dengan sesi hands-on pada 48 kanak-kanak."
-  },
-  {
-   "slug": "2026-05-30-pcc2-3-putrajaya",
-   "kategori": "PCC",
-   "tajuk": "PCC2-3 Putrajaya",
-   "tarikh": "2026-05-30",
-   "tempat": "Masjid Putra, Putrajaya",
-   "gambar": "assets/aktiviti-pcc2-3-putrajaya.webp",
-   "gambar_alt": "Ruang pameran dan kaunter pendaftaran kursus PCC2-3 di Putrajaya",
-   "ringkas": "Kursus PCC2-3 diadakan di Masjid Putra, Putrajaya (8 mata CPD), dengan sekitar 82 kanak-kanak didaftarkan. Malam yang sama berlangsung Mesyuarat AJK Bil. 1."
-  },
-  {
-   "slug": "2026-05-21-webinar-penjagaan-luka",
-   "kategori": "Webinar",
-   "tajuk": "Webinar Penjagaan Luka Selepas Berkhatan",
-   "tarikh": "2026-05-21",
-   "tempat": "Google Meet (dalam talian)",
-   "gambar": "",
-   "ringkas": "Webinar penjagaan luka selepas berkhatan bersama Antaviro HOCl, dijalankan dalam talian pada 9-11 malam."
-  },
-  {
-   "slug": "2026-04-26-program-madocs",
-   "kategori": "AGM",
-   "tajuk": "Program MADOCS 2026, CME, Jamuan Aidilfitri & AGM Ke-4",
-   "tarikh": "2026-04-26",
-   "tempat": "Howard Johnson by Wyndham, Kuala Lumpur",
-   "gambar": "assets/aktiviti-agm-2026.webp",
-   "gambar_alt": "Dewan Program MADOCS 2026 di Howard Johnson by Wyndham, Kuala Lumpur",
-   "ringkas": "Program MADOCS 2026 (4 mata CPD) menggabungkan sesi CME, Jamuan Aidilfitri yang dihadiri 80 orang, dan AGM Ke-4 dengan pemilihan ahli jawatankuasa sesi 2026-2028."
+   "ringkas": "Kursus PCC2-2 diadakan di Masjid Wilayah Persekutuan, Kuala Lumpur."
   },
   {
    "slug": "2026-01-26-pcc1-2-kota-kinabalu",
@@ -106,54 +186,72 @@
    "ringkas": "Kursus PCC1-2 dihadiri 76 peserta di Hotel Klagan Regency 1Borneo, Kota Kinabalu."
   },
   {
-   "slug": "2025-12-27-pcc2-2-masjid-wilayah",
-   "kategori": "PCC",
-   "tajuk": "PCC2-2 Masjid Wilayah",
-   "tarikh": "2025-12-27",
-   "tempat": "Masjid Wilayah Persekutuan, Kuala Lumpur",
+   "slug": "2026-04-26-program-madocs",
+   "kategori": "AGM",
+   "tajuk": "Program MADOCS 2026, CME, Jamuan Aidilfitri & AGM Ke-4",
+   "tarikh": "2026-04-26",
+   "tempat": "Howard Johnson by Wyndham, Kuala Lumpur",
+   "gambar": "assets/aktiviti-agm-2026.webp",
+   "gambar_alt": "Dewan Program MADOCS 2026 di Howard Johnson by Wyndham, Kuala Lumpur",
+   "ringkas": "Program MADOCS 2026 (4 mata CPD) menggabungkan sesi CME, Jamuan Aidilfitri yang dihadiri 80 orang, dan AGM Ke-4 dengan pemilihan ahli jawatankuasa sesi 2026-2028."
+  },
+  {
+   "slug": "2026-05-21-webinar-penjagaan-luka",
+   "kategori": "Webinar",
+   "tajuk": "Webinar Penjagaan Luka Selepas Berkhatan",
+   "tarikh": "2026-05-21",
+   "tempat": "Google Meet (dalam talian)",
    "gambar": "",
-   "ringkas": "Kursus PCC2-2 diadakan di Masjid Wilayah Persekutuan, Kuala Lumpur."
+   "ringkas": "Webinar penjagaan luka selepas berkhatan bersama Antaviro HOCl, dijalankan dalam talian pada 9-11 malam."
   },
   {
-   "slug": "2025-09-13-pcc2-1-batu-pahat",
+   "slug": "2026-05-30-pcc2-3-putrajaya",
    "kategori": "PCC",
-   "tajuk": "PCC2-1, Batu Pahat, Johor",
-   "tarikh": "2025-09-13",
-   "tempat": "The Katerina Hotel, Batu Pahat, Johor",
-   "gambar": "assets/galeri/batu-pahat-2025/01.webp",
-   "ringkas": "Privileging Course for Circumcision Part 2 (Siri 1) di Batu Pahat, Johor. Seramai 21 peserta lulus penilaian kursus. Pada hari yang sama, Memorandum Persefahaman (MoU) dengan Nano Medic Care ditandatangani.",
-   "gambar_alt": "Peserta, fasilitator dan urusetia PCC2-1 bergambar bersama sepanduk Privileging Course for Circumcision (Dorsal Slit) Part 2 di The Katerina Hotel, Batu Pahat"
+   "tajuk": "PCC2-3 Putrajaya",
+   "tarikh": "2026-05-30",
+   "tempat": "Masjid Putra, Putrajaya",
+   "gambar": "assets/aktiviti-pcc2-3-putrajaya.webp",
+   "gambar_alt": "Ruang pameran dan kaunter pendaftaran kursus PCC2-3 di Putrajaya",
+   "ringkas": "Kursus PCC2-3 diadakan di Masjid Putra, Putrajaya (8 mata CPD), dengan sekitar 82 kanak-kanak didaftarkan. Malam yang sama berlangsung Mesyuarat AJK Bil. 1."
   },
   {
-   "slug": "2025-09-01-ccc7-ttt-batu-pahat",
+   "slug": "2026-05-31-ccc8-masjid-putra",
    "kategori": "CCC",
-   "tajuk": "CCC7, PCC2-1 & TTT Touchstone, Batu Pahat, Johor",
-   "tarikh": "2025-09-13",
-   "tempat": "The Katerina Hotel, Batu Pahat, Johor",
-   "gambar": "assets/galeri/batu-pahat-2025/20.webp",
-   "ringkas": "Privileging Course for Circumcision Part 2 (PCC2-1) dan Comprehensive Circumcision Course 7 (CCC7) berlangsung serentak pada 13 September 2025 di The Katerina Hotel, Batu Pahat, hotel dan tingkat sama, dewan berlainan, bersama Program Khatan Percuma Klinik Kurnia dan majlis menandatangani MoU dengan Nano Medic Care. Sesi Train The Trainer (TTT) Touchstone Circumcision Stapler diadakan pada 14 September 2025. Dr Darsono dari ASDOKI (Indonesia) turut hadir.",
-   "tarikh_papar": "13-14 September 2025",
-   "gambar_alt": "Sesi kuliah Comprehensive Circumcision Course 7 (CCC7): slaid kursus dipaparkan pada skrin dengan peserta duduk di meja bulat"
+   "tajuk": "CCC8 di Masjid Putra, Putrajaya",
+   "tarikh": "2026-05-31",
+   "tempat": "Masjid Putra, Putrajaya",
+   "gambar": "",
+   "ringkas": "Kursus CCC8 diadakan di Masjid Putra, Putrajaya, dengan sesi hands-on pada 48 kanak-kanak."
   },
   {
-   "slug": "2025-06-01-ccc6-hotel-maluri",
-   "kategori": "CCC",
-   "tajuk": "CCC6, Hotel Maluri, Cheras, Kuala Lumpur",
-   "tarikh": "2025-06-01",
-   "tempat": "Hotel Maluri, Cheras, Kuala Lumpur",
-   "gambar": "assets/galeri/ccc6-cheras-2025/13.webp",
-   "gambar_alt": "Gambar kumpulan besar peserta CCC6 di atas pentas, Hotel Maluri Cheras",
-   "ringkas": "Comprehensive Circumcision Course 6 (CCC6) pada Ahad 1 Jun 2025 di Hotel Maluri, Cheras. Ceramah anatomi dan anestesia tempatan, kaedah Guillotine, Teknoklem dan stapler, demonstrasi prosedur secara langsung, serta latihan amali di tiga stesen dengan pesakit sebenar di bawah penyeliaan fasilitator. Sehari sebelum itu, Train The Trainer (TTT) Teknoklem diadakan di hotel yang sama."
+   "slug": "2026-06-18-pcc2-4-semporna",
+   "kategori": "PCC",
+   "tajuk": "PCC2-4 Semporna",
+   "tarikh": "2026-06-18",
+   "tempat": "Semporna, Sabah",
+   "gambar": "assets/aktiviti-pcc2-4-semporna.webp",
+   "gambar_alt": "Sepanduk kursus PCC2-4 dipasang di hadapan premis di Semporna",
+   "ringkas": "Kursus PCC2-4 dijalankan di Semporna, Sabah dengan sesi kuliah dan latihan amali."
   },
   {
-   "slug": "2025-05-31-ttt-teknoklem-cheras",
-   "kategori": "TTT",
-   "tajuk": "TTT Teknoklem, Hotel Maluri, Cheras, Kuala Lumpur",
-   "tarikh": "2025-05-31",
-   "tempat": "Hotel Maluri, Cheras, Kuala Lumpur",
-   "gambar": "assets/galeri/ccc6-cheras-2025/33.webp",
-   "gambar_alt": "Pembentang menerangkan kaedah Teknoklem dengan slaid, Train The Trainer di Hotel Maluri Cheras",
-   "ringkas": "Train The Trainer (TTT) Teknoklem pada Sabtu 31 Mei 2025, sehari sebelum CCC6, di Hotel Maluri, Cheras. Sesi berpusat pada kaedah gam Teknoklem: penerangan slaid, demonstrasi kit dan latihan amali tangan peserta di meja."
+   "slug": "2026-09-16-mesyuarat-ajk-bil2",
+   "kategori": "Mesyuarat",
+   "tajuk": "Mesyuarat Ahli Jawatankuasa Bil. 2/2026",
+   "tarikh": "2026-09-16",
+   "tempat": "Restoran Casar Balqis, Taman Melati, Kuala Lumpur",
+   "gambar": "assets/berita-2026-09-16-mesyuarat.webp",
+   "gambar_alt": "Bangunan tempat berlangsungnya mesyuarat Ahli Jawatankuasa MADOCS",
+   "ringkas": "Mesyuarat Ahli Jawatankuasa Bil. 2 membincangkan perancangan program dan latihan MADOCS."
+  },
+  {
+   "slug": "2026-09-17-pelancaran-garis-panduan",
+   "kategori": "Program",
+   "tajuk": "Pelancaran Garis Panduan Berkhatan Kebangsaan",
+   "tarikh": "2026-09-17",
+   "tempat": "Auditorium Hospital Shah Alam, Selangor",
+   "gambar": "assets/berita-2026-09-17-shah-alam.webp",
+   "gambar_alt": "Papan tanda Hospital Shah Alam tempat majlis pelancaran diadakan",
+   "ringkas": "Garis Panduan Berkhatan Kebangsaan dilancarkan oleh Ketua Pengarah Kesihatan. MADOCS turut membuka booth pada majlis itu."
   }
  ]
 }

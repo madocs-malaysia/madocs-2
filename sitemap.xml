@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://madocs.my/</loc><priority>1.0</priority></url>
   <url><loc>https://madocs.my/aktiviti/</loc><priority>0.8</priority></url>
+  <url><loc>https://madocs.my/aktiviti/2023-02-18-ccc1/</loc><priority>0.6</priority></url>
+  <url><loc>https://madocs.my/aktiviti/2023-02-26-micc-putrajaya/</loc><priority>0.6</priority></url>
+  <url><loc>https://madocs.my/aktiviti/2023-03-31-agm-pertama/</loc><priority>0.6</priority></url>
+  <url><loc>https://madocs.my/aktiviti/2023-08-27-ccc2/</loc><priority>0.6</priority></url>
+  <url><loc>https://madocs.my/aktiviti/2023-09-17-perak-circumcision-update/</loc><priority>0.6</priority></url>
+  <url><loc>https://madocs.my/aktiviti/2023-11-01-garis-panduan-khatan-kkm/</loc><priority>0.6</priority></url>
+  <url><loc>https://madocs.my/aktiviti/2023-12-31-mesyuarat-ajk-2023/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/aktiviti/2025-05-31-ttt-teknoklem-cheras/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/aktiviti/2025-06-01-ccc6-hotel-maluri/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/aktiviti/2025-09-01-ccc7-ttt-batu-pahat/</loc><priority>0.6</priority></url>
@@ -33,6 +40,13 @@
   <url><loc>https://madocs.my/en/about/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/en/accessibility/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/en/activities/</loc><priority>0.6</priority></url>
+  <url><loc>https://madocs.my/en/activities/2023-02-18-ccc1/</loc><priority>0.6</priority></url>
+  <url><loc>https://madocs.my/en/activities/2023-02-26-micc-putrajaya/</loc><priority>0.6</priority></url>
+  <url><loc>https://madocs.my/en/activities/2023-03-31-agm-pertama/</loc><priority>0.6</priority></url>
+  <url><loc>https://madocs.my/en/activities/2023-08-27-ccc2/</loc><priority>0.6</priority></url>
+  <url><loc>https://madocs.my/en/activities/2023-09-17-perak-circumcision-update/</loc><priority>0.6</priority></url>
+  <url><loc>https://madocs.my/en/activities/2023-11-01-garis-panduan-khatan-kkm/</loc><priority>0.6</priority></url>
+  <url><loc>https://madocs.my/en/activities/2023-12-31-mesyuarat-ajk-2023/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/en/activities/2025-05-31-ttt-teknoklem-cheras/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/en/activities/2025-06-01-ccc6-hotel-maluri/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/en/activities/2025-09-01-ccc7-ttt-batu-pahat/</loc><priority>0.6</priority></url>
@@ -62,6 +76,7 @@
   <url><loc>https://madocs.my/en/gallery/pcc2-3-putrajaya-2026/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/en/gallery/pcc2-4-semporna-2026/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/en/gallery/pelancaran-2026/</loc><priority>0.6</priority></url>
+  <url><loc>https://madocs.my/en/gallery/program-2023/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/en/gallery/program-madocs-2026/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/en/member-verification/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/en/membership/</loc><priority>0.6</priority></url>
@@ -90,6 +105,7 @@
   <url><loc>https://madocs.my/galeri/pcc2-3-putrajaya-2026/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/galeri/pcc2-4-semporna-2026/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/galeri/pelancaran-2026/</loc><priority>0.6</priority></url>
+  <url><loc>https://madocs.my/galeri/program-2023/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/galeri/program-madocs-2026/</loc><priority>0.6</priority></url>
   <url><loc>https://madocs.my/hubungi/</loc><priority>0.8</priority></url>
   <url><loc>https://madocs.my/keahlian/</loc><priority>0.8</priority></url>
