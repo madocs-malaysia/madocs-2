@@ -1888,8 +1888,10 @@ def bina_aktiviti_detail(a):
         badan = "<p>%s</p>" % esc(a["ringkas"])
     else:
         badan = '<p class="nota-isi">Laporan penuh aktiviti ini belum disediakan.</p>'
+    _ringkas = (a.get("ringkas") or "").strip()
+    _ayat1 = (_ringkas.split(". ")[0] + ".") if ". " in _ringkas else _ringkas
     isi = page_hero([("Utama", "/"), ("Aktiviti", "/aktiviti/"), (a["tajuk"], None)], a["tajuk"],
-                    ringkas_meta(a.get("ringkas") or (a.get('tarikh_papar') or (tarikh_pdk(d) if d else '')))) + f"""
+                    ringkas_meta(_ayat1 or (a.get('tarikh_papar') or (tarikh_pdk(d) if d else '')))) + f"""
 <section class="content-wrap">
   <div class="shell split">
     <div>
@@ -1905,7 +1907,7 @@ def bina_aktiviti_detail(a):
         <h3>Butiran</h3>
         <div class="item-meta" style="display:grid;gap:9px">
           <time datetime="{esc(a.get('tarikh',''))}">{icon('calendar-days')}{esc(a.get('tarikh_papar') or (tarikh_pjg(d) if d else ''))}</time>
-          <span>{icon('map-pin')}{esc(a.get('tempat',''))}</span>
+          {f"<span>{icon('map-pin')}{esc(a['tempat'])}</span>" if a.get('tempat') else ""}
         </div>
         <a class="btn-blok ghost" href="/aktiviti/" style="margin-top:16px">{icon('arrow-left')} Semua aktiviti</a>
       </div>
