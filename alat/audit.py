@@ -95,6 +95,7 @@ def audit():
         'istilah': Counter(),
         'noindex': [],
         'jsonld_ralat': [],
+        'data_peribadi': [],
     }
 
     fail_semua = semua_html()
@@ -191,7 +192,36 @@ def audit():
             elif 'Persatuan' in teks:
                 laporan['istilah']['Persatuan sahaja'] += 1
 
+    semak_data_peribadi(laporan)
     return laporan
+
+
+OCR_PENANDA = Path('/home/ubuntu/.hermes/profiles/madocs/cache/scratch/audit-galeri-ocr.json')
+DATA_SENSITIF = Path('/home/ubuntu/madocs-site/data')
+
+
+def semak_data_peribadi(laporan):
+    """Tandakan gambar yang OCR kesan nombor IC/telefon atau senarai nama dalam galeri."""
+    if not OCR_PENANDA.exists():
+        return
+    try:
+        hasil = json.loads(OCR_PENANDA.read_text(encoding='utf-8'))
+    except Exception:
+        return
+    # Hanya tanda nombor kad pengenalan (12 digit / ######-##-####). E-mel dan telefon
+    # organisasi pada sepanduk (contoh PERDIM) bukan data peribadi individu.
+    bertanda = {h['fail'] for h in hasil
+                if 'ic_12digit' in h.get('jumpa', {}) or 'ic_bertanda' in h.get('jumpa', {})}
+    if not bertanda:
+        return
+    for fail in DATA_SENSITIF.glob('*.json'):
+        try:
+            teks = fail.read_text(encoding='utf-8')
+        except Exception:
+            continue
+        for g in bertanda:
+            if g in teks:
+                laporan['data_peribadi'].append((fail.name, g))
 
 
 def tulis(laporan, keluar):
@@ -212,6 +242,7 @@ def tulis(laporan, keluar):
     tambah('| Halaman EN dengan sisa BM | %d |' % len(laporan['sisa_bm']))
     tambah('| Atribut HTML ter-escape | %d |' % len(laporan['atribut_rosak']))
     tambah('| Ralat JSON-LD | %d |' % len(laporan['jsonld_ralat']))
+    tambah('| Gambar berisiko data peribadi | %d |' % len(laporan['data_peribadi']))
     tambah('')
 
     def senarai(tajuk, baris, had=40):
