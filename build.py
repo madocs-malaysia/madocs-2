@@ -235,9 +235,10 @@ def tarikh_pjg(d):
 
 
 def tarikh_pdk(d):
+    """Tarikh ringkas — kekal sama format dengan tarikh_pjg supaya konsisten."""
     if not d:
         return ""
-    return "%d %s %d" % (d.day, BULAN[d.month - 1], d.year)
+    return "%s, %d %s %d" % (HARI[d.weekday()], d.day, BULAN[d.month - 1], d.year)
 
 
 def muat_ikon():
@@ -1870,6 +1871,11 @@ def bina_aktiviti_detail(a):
     # Badan laporan: guna senarai perenggan "isi" jika ada, jika tidak "ringkas"
     if a.get("isi"):
         badan = "".join("<p>%s</p>" % esc(p) for p in a["isi"])
+        if a.get("pautan_luar"):
+            badan += ('<ul class="pautan-luar">%s</ul>' % "".join(
+                '<li><a href="%s" target="_blank" rel="noopener">%s %s</a></li>'
+                % (esc(x["url"]), esc(x["label"]), icon("external-link"))
+                for x in a["pautan_luar"]))
     elif a.get("ringkas"):
         badan = "<p>%s</p>" % esc(a["ringkas"])
     else:

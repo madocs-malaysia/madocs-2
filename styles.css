@@ -1618,4 +1618,32 @@ a.btn.btn-primary,a.btn.btn-primary:visited,
   .galeri-mini img{height:96px}
 }
 
+/* ================= IKON & TARIKH (Dr Azfar, Okt 2026) =================
+   .item-meta time tidak pernah masuk senarai flex/16px, jadi ikon tarikh kekal
+   12px dan tiada jarak — berbeza daripada ikon lokasi/peserta di sebelahnya. */
+.item-meta time{display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.item-meta a svg,.item-meta span svg,.item-meta time svg{width:16px;height:16px;flex:none;margin-top:2px}
+
+/* Butiran dalam laporan aktiviti: lebih besar dan menonjol */
+.side .item-meta{gap:14px !important}
+.side .item-meta a,.side .item-meta span,.side .item-meta time{font-size:14.5px;color:#4b2b31}
+.side .item-meta svg{width:18px;height:18px;color:#8a0b22;margin-top:1px}
+
+/* Pautan luar dalam laporan aktiviti */
+.pautan-luar{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:10px}
+.pautan-luar a{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#8a0b22;font-weight:600}
+.pautan-luar a:hover{text-decoration:underline}
+.pautan-luar svg{width:15px;height:15px;flex:none}
+
+/* Breadcrumb pada latar cerah: hover putih = hilang. Guna maroon. */
+.page-hero .crumbs a:hover,.crumbs a:hover{color:#8a0b22;text-decoration:underline}
+.page-hero .crumbs{color:#7a5a60}
+.page-hero .crumbs svg{color:#a97680;opacity:1}
+
+/* Ikon dalam baris meta tidak boleh mengecut (dulu jadi 2x11px dll.) */
+.activity-info p svg,.item-meta svg,.course-info li svg,.timeline svg,.footer-grid svg{flex:none}
+/* Footer: ikon e-mel/telefon dan lokasi sama saiz & jarak */
+.footer-grid a svg,.footer-grid>div:nth-child(3)>span svg,.footer-grid label svg{width:15px;height:15px}
+.footer-grid>div:nth-child(3)>span{gap:8px}
+
 .ikon-ganti{display:inline-block;width:1em;height:1em}
