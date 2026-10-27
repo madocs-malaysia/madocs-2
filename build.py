@@ -1900,22 +1900,31 @@ def bina_aktiviti_detail(a):
     ld = event_ld(a["tajuk"], a.get("tarikh", ""), a.get("tamat"), a.get("tempat"),
                   a.get("negeri"), a.get("ringkas", ""), a.get("gambar"),
                   BASE + "/aktiviti/%s/" % a["slug"], None, "selesai")
-    # Galeri yang dipautkan (data/galeri.json → album[].aktiviti)
-    album_galeri = next((x for x in load("galeri.json").get("album", [])
-                         if x.get("aktiviti") == a["slug"]), None)
+    # Galeri yang dipautkan (data/galeri.json → album[].aktiviti, teks atau senarai)
+    def _slug_album(al):
+        akt = al.get("aktiviti")
+        if isinstance(akt, list):
+            return [x for x in akt if x]
+        return [akt] if akt else []
+
+    album_galeri = [x for x in load("galeri.json").get("album", [])
+                    if a["slug"] in _slug_album(x) and x.get("gambar")]
     blok_galeri = ""
-    if album_galeri and album_galeri.get("gambar"):
-        _kecil = []
-        for g_ in album_galeri["gambar"][:6]:
-            _src, _ss = srcset_galeri(g_["src"])
-            _kecil.append('<a class="galeri-pautan" href="/galeri/%s/"><img src="/%s"%s alt="%s" loading="lazy" decoding="async"></a>'
-                          % (esc(album_galeri["slug"]), esc(_src), _ss, esc(g_["alt"])))
-        blok_galeri = ('<div class="card"><h2>Galeri program</h2>'
-                       '<div class="galeri-mini">%s</div>'
-                       '<a class="btn btn-outline" href="/galeri/%s/" style="margin-top:16px">'
-                       'Lihat semua %d gambar %s</a></div>'
-                       % ("".join(_kecil), esc(album_galeri["slug"]),
-                          len(album_galeri["gambar"]), icon("arrow-right")))
+    if album_galeri:
+        kad_galeri = []
+        for al in album_galeri:
+            _kecil = []
+            for g_ in al["gambar"][:6]:
+                _src, _ss = srcset_galeri(g_["src"])
+                _kecil.append('<a class="galeri-pautan" href="/galeri/%s/"><img src="/%s"%s alt="%s" loading="lazy" decoding="async"></a>'
+                              % (esc(al["slug"]), esc(_src), _ss, esc(g_["alt"])))
+            kad_galeri.append('<p class="galeri-tajuk">%s</p><div class="galeri-mini">%s</div>'
+                              '<a class="btn btn-outline" href="/galeri/%s/" style="margin-top:16px">'
+                              'Lihat semua %d gambar %s</a>'
+                              % (esc(al.get("tajuk", "")), "".join(_kecil), esc(al["slug"]),
+                                 len(al["gambar"]), icon("arrow-right")))
+        blok_galeri = ('<div class="card"><h2>Galeri program</h2>%s</div>'
+                       % "".join('<div class="galeri-blok">%s</div>' % k for k in kad_galeri))
     # Badan laporan: guna senarai perenggan "isi" jika ada, jika tidak "ringkas"
     if a.get("isi"):
         badan = "".join("<p>%s</p>" % esc(p) for p in a["isi"])
@@ -2558,8 +2567,10 @@ def bina_galeri():
         kad = "".join(_kad)
         ringkas = esc(a.get("ringkas", ""))
         # Pautan ke laporan program (jika album ini dipautkan ke aktiviti)
+        _slugs = a.get("aktiviti")
+        _slugs = _slugs if isinstance(_slugs, list) else ([_slugs] if _slugs else [])
         _akt = next((x for x in load("aktiviti.json").get("aktiviti", [])
-                     if x["slug"] == a.get("aktiviti")), None)
+                     if x["slug"] in _slugs), None)
         pautan_laporan = ('<div style="margin:16px 0 20px"><a class="btn btn-outline" href="/aktiviti/%s/">'
                           'Baca laporan program %s</a></div>' % (esc(_akt["slug"]), icon("arrow-right"))) if _akt else ""
         isi = page_hero([("Utama", "/"), ("Galeri", "/galeri/"), (a["tajuk"], None)], a["tajuk"],

@@ -366,7 +366,10 @@
     }
    ],
    "ringkas": "Album program di The Katerina Hotel, Batu Pahat: Priviling Course for Circumcision Part 2 (PCC2-1) dan Comprehensive Circumcision Course 7 (CCC7) pada 13 September 2025, serta Train The Trainer Touchstone pada 14 September 2025.",
-   "aktiviti": "2025-09-01-ccc7-ttt-batu-pahat"
+   "aktiviti": [
+    "2025-09-01-ccc7-ttt-batu-pahat",
+    "2025-09-13-pcc2-1-batu-pahat"
+   ]
   },
   {
    "slug": "demo-peranti-cme",
@@ -449,7 +452,9 @@
      "alt": "Peserta kursus mengikuti sesi dalam dewan"
     }
    ],
-   "aktiviti": "2026-04-26-program-madocs"
+   "aktiviti": [
+    "2026-04-26-program-madocs"
+   ]
   },
   {
    "slug": "pcc2-4-semporna-2026",
@@ -475,7 +480,9 @@
      "alt": "Kakitangan pendaftaran menjalankan tugas di Semporna"
     }
    ],
-   "aktiviti": "2026-06-18-pcc2-4-semporna"
+   "aktiviti": [
+    "2026-06-18-pcc2-4-semporna"
+   ]
   },
   {
    "slug": "pcc1-2-kota-kinabalu-2026",
@@ -509,7 +516,9 @@
      "alt": "Foto berkumpulan peserta kursus PCC1-2 Kota Kinabalu"
     }
    ],
-   "aktiviti": "2026-01-26-pcc1-2-kota-kinabalu"
+   "aktiviti": [
+    "2026-01-26-pcc1-2-kota-kinabalu"
+   ]
   },
   {
    "slug": "pcc2-3-putrajaya-2026",
@@ -539,7 +548,9 @@
      "alt": "Auditorium kursus PCC2-3 di Putrajaya"
     }
    ],
-   "aktiviti": "2026-05-30-pcc2-3-putrajaya"
+   "aktiviti": [
+    "2026-05-30-pcc2-3-putrajaya"
+   ]
   },
   {
    "slug": "pelancaran-2026",
@@ -569,7 +580,9 @@
      "alt": "Sepanduk majlis pelancaran Garis Panduan Berkhatan 2026"
     }
    ],
-   "aktiviti": "2026-09-17-pelancaran-garis-panduan"
+   "aktiviti": [
+    "2026-09-17-pelancaran-garis-panduan"
+   ]
   },
   {
    "slug": "mesyuarat-ajk-2026",
@@ -591,7 +604,9 @@
      "alt": "Ahli jawatankuasa dalam sesi mesyuarat"
     }
    ],
-   "aktiviti": "2026-09-16-mesyuarat-ajk-bil2"
+   "aktiviti": [
+    "2026-09-16-mesyuarat-ajk-bil2"
+   ]
   },
   {
    "slug": "ccc6-cheras-2025",
@@ -762,7 +777,10 @@
      "alt": "Selfie peserta TTT Teknoklem"
     }
    ],
-   "aktiviti": "2025-06-01-ccc6-hotel-maluri"
+   "aktiviti": [
+    "2025-06-01-ccc6-hotel-maluri",
+    "2025-05-31-ttt-teknoklem-cheras"
+   ]
   },
   {
    "slug": "program-2023",
@@ -1009,7 +1027,9 @@
    "tempat": "Klinik Tekno Sunat Junior Depok",
    "kategori": "Lawatan",
    "ringkas": "Album lawatan kerja MADOCS ke Klinik Tekno Sunat Junior Depok pada 23 November 2025: bengkel Train-the-Trainer Teknoklem dan Teknosealer, demonstrasi peranti serta suasana klinik.",
-   "aktiviti": "2026-08-10-lawatan-klinik-indonesia",
+   "aktiviti": [
+    "2026-08-10-lawatan-klinik-indonesia"
+   ],
    "gambar": [
     {
      "src": "assets/galeri/teknoklem-depok-2025/01.webp",

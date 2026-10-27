@@ -1721,3 +1721,8 @@ a.chip-peta:hover{background:#fdf3f5;border-color:#dfbcc4;text-decoration:none}
 .listing .item .lebih{margin-top:8px}
 .listing .item .item-body p{margin-bottom:6px}
 .listing .item .item-body .item-meta{margin-bottom:2px}
+
+/* Beberapa album dalam satu laporan aktiviti */
+.galeri-blok+.galeri-blok{margin-top:22px;padding-top:18px;border-top:1px solid #f0e2e5}
+.galeri-tajuk{margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.04em;
+  text-transform:uppercase;color:#8a0b22}
