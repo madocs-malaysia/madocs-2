@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 AKAR = Path('/home/ubuntu/madocs-site')
 TUJUAN = AKAR / 'assets' / 'kad-aktiviti'
 TUJUAN.mkdir(parents=True, exist_ok=True)
-SAIZ = (1200, 675)
+SAIZ = (1200, 630)
 
 FON_BOLD = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
 FON = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
@@ -45,24 +45,22 @@ def bina(kod, tajuk, tarikh, tempat, keluar):
     # garis emas
     d.rectangle([56, 56, SAIZ[0] - 56, SAIZ[1] - 56], outline=(212, 175, 110), width=2)
 
-    f_kod = ImageFont.truetype(FON_BOLD, 30)
-    f_tajuk = ImageFont.truetype(FON_BOLD, 62)
-    f_meta = ImageFont.truetype(FON, 28)
-    f_kecil = ImageFont.truetype(FON_BOLD, 22)
+    f_kod = ImageFont.truetype(FON_BOLD, 26)
+    f_tajuk = ImageFont.truetype(FON_BOLD, 56)
+    f_meta = ImageFont.truetype(FON, 25)
 
-    d.text((92, 108), kod.upper()[:22], font=f_kod, fill=(240, 205, 150))
+    d.text((86, 92), kod.upper()[:20], font=f_kod, fill=(240, 205, 150))
 
-    baris = textwrap.wrap(tajuk, width=26)[:3]
-    y = 170
+    baris = textwrap.wrap(tajuk, width=23)[:2]
+    y = 146
     for b in baris:
-        d.text((92, y), b, font=f_tajuk, fill=(255, 255, 255))
-        y += 74
+        d.text((86, y), b, font=f_tajuk, fill=(255, 255, 255))
+        y += 66
 
-    d.text((92, SAIZ[1] - 150), tarikh, font=f_meta, fill=(255, 230, 235))
-    if tempat:
-        d.text((92, SAIZ[1] - 106), tempat[:52], font=f_meta, fill=(240, 210, 215))
-
-    d.text((SAIZ[0] - 250, SAIZ[1] - 96), 'MADOCS', font=f_kecil, fill=(240, 205, 150))
+    # tarikh & tempat di kanan bawah: kiri bawah disimpan untuk badge kategori
+    teks = tarikh + (('  ·  ' + tempat[:32]) if tempat else '')
+    lebar = d.textlength(teks, font=f_meta)
+    d.text((SAIZ[0] - 86 - lebar, SAIZ[1] - 104), teks, font=f_meta, fill=(245, 220, 224))
     im.save(keluar, format='WEBP', quality=88, method=6)
     return keluar
 
