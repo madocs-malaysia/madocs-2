@@ -1,32 +1,32 @@
 {
  "cara_edit": "PRD §11: angka hanya diterbitkan selepas disahkan jawatankuasa. 'disahkan': true bermaksud angka ini datang daripada daftar rasmi jawatankuasa. Sertakan 'setakat' (tarikh) supaya pengunjung tahu usia angka. Jangan letak angka yang belum disahkan, lebih baik sembunyi.",
  "disahkan": true,
- "setakat": "2026-09-15",
- "sumber": "Daftar keahlian MADOCS (dikemas kini 15 September 2026)",
- "nota": "Angka daripada daftar keahlian jawatankuasa, dikemas kini 15 September 2026.",
+ "setakat": "2026-10-29",
+ "sumber": "Daftar keahlian MADOCS (dikemas kini 29 Oktober 2026)",
+ "nota": "Angka daripada daftar keahlian terkini, diselaraskan dengan halaman Semak Keahlian.",
  "pecahan": {
-  "ahli_seumur_hidup": 46,
+  "ahli_seumur_hidup": 45,
   "ahli_biasa": 170,
   "ahli_bersekutu": 2,
-  "jumlah": 218,
-  "aktif": 85,
-  "tidak_aktif": 133
+  "jumlah": 217,
+  "aktif": 81,
+  "tidak_aktif": 136
  },
  "items": [
   {
-   "nilai": "218",
+   "nilai": "217",
    "label": "Ahli Berdaftar",
-   "sub": "Setakat 15 September 2026",
+   "sub": "Setakat 29 Oktober 2026",
    "ikon": "users"
   },
   {
-   "nilai": "85",
+   "nilai": "81",
    "label": "Ahli Aktif",
    "sub": "Telah memperbaharui keahlian",
    "ikon": "badge-check"
   },
   {
-   "nilai": "46",
+   "nilai": "45",
    "label": "Ahli Seumur Hidup",
    "sub": "Daftar seumur hidup",
    "ikon": "award"

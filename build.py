@@ -35,6 +35,24 @@ BULAN_SING = ["JAN", "FEB", "MAC", "APR", "MEI", "JUN", "JUL", "OGO", "SEP", "OK
 TUNJUK_KREDENSIAL = False
 
 
+def blok_fakta():
+    """Jalur fakta ringkas di bawah hero. Semua angka dikira dari data laman."""
+    ahli = load("ahli.json").get("ahli") or []
+    aktiviti = load("aktiviti.json").get("aktiviti") or []
+    kod = set()
+    for a in ahli:
+        m = re.match(r"[A-Z]+", a.get("no") or "")
+        if m:
+            kod.add(m.group(0))
+    kursus = sum(1 for a in aktiviti if a.get("kategori") in ("CCC", "PCC"))
+    butir = ((len(ahli), "Ahli berdaftar"), (len(kod), "Negeri"),
+             (len(aktiviti), "Program"), (kursus, "Kursus"))
+    sel = "".join('<div class="fakta-sel"><b>%d</b><span>%s</span></div>' % (n, esc(l))
+                  for n, l in butir)
+    return ('<section class="fakta-band" aria-label="Fakta MADOCS">\n'
+            '  <div class="shell fakta-grid">%s</div>\n</section>' % sel)
+
+
 def _blok_kredensial(isi: str) -> str:
     if not TUNJUK_KREDENSIAL:
         return ""
@@ -1132,6 +1150,8 @@ def bina_utama():
     </div>
   </div>
 </section>
+
+{blok_fakta()}
 
 {_blok_kredensial(kred_html)}
 

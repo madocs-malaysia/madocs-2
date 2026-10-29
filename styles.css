@@ -1730,4 +1730,18 @@ a.chip-peta:hover{background:#fdf3f5;border-color:#dfbcc4;text-decoration:none}
 .galeri-tajuk{margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.04em;
   text-transform:uppercase;color:#8a0b22}
 
+/* === JALUR FAKTA DI BAWAH HERO === */
+.fakta-band{background:linear-gradient(135deg,#510716 0%,#3a040f 100%);color:#fff}
+.fakta-grid{display:grid;grid-template-columns:repeat(4,1fr);padding:26px 0}
+.fakta-sel{padding:2px 18px;border-left:1px solid rgba(255,255,255,.16);text-align:center}
+.fakta-sel:first-child{border-left:0}
+.fakta-sel b{display:block;font-size:clamp(26px,3.2vw,40px);line-height:1.05;font-weight:800;letter-spacing:-.02em;color:#f3d59c}
+.fakta-sel span{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72);font-weight:600}
+@media(max-width:700px){
+ .fakta-grid{grid-template-columns:repeat(2,1fr);padding:20px 0;row-gap:18px}
+ .fakta-sel{border-left:0}
+ .fakta-sel b{font-size:30px}
+ .fakta-sel span{font-size:10.5px;letter-spacing:.06em}
+}
+
 .ikon-ganti{display:inline-block;width:1em;height:1em}
