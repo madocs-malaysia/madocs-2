@@ -146,12 +146,12 @@
  },
  "kategori_sumber": "Brosur rasmi MADOCS (2023). Jawatankuasa diminta mengesahkan kategori untuk sesi semasa.",
  "statistik": {
-  "tajuk": "Keahlian sehingga 15 September 2026",
-  "sumber": "",
+  "tajuk": "Keahlian sehingga 29 Oktober 2026",
+  "sumber": "Daftar keahlian MADOCS (diselaraskan dengan halaman Semak Keahlian)",
   "baris": [
    {
     "label": "Ahli Seumur Hidup",
-    "nilai": "46"
+    "nilai": "45"
    },
    {
     "label": "Ahli Biasa",
@@ -163,12 +163,12 @@
    },
    {
     "label": "Jumlah berdaftar",
-    "nilai": "218",
+    "nilai": "217",
     "tebal": true
    },
    {
     "label": "Ahli aktif",
-    "nilai": "85",
+    "nilai": "81",
     "tebal": true
    }
   ]
