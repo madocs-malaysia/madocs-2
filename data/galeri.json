@@ -1184,5 +1184,27 @@
     }
    ]
   }
- ]
+ ],
+ "hero_tahun": {
+  "2026": {
+   "gambar": "assets/galeri/pcc2-3-putrajaya-2026/06.webp",
+   "album": "pcc2-3-putrajaya-2026",
+   "alt": "Peserta dan fasilitator Privileging Course for Circumcision (Dorsal Slit) Part 2 & 3 bergambar bersama sepanduk kursus di Putrajaya, 2026"
+  },
+  "2025": {
+   "gambar": "assets/galeri/batu-pahat-2025/01.webp",
+   "album": "batu-pahat-2025",
+   "alt": "Peserta Privileging Course for Circumcision (Dorsal Slit) Part 2 bergambar bersama sepanduk kursus di Batu Pahat, 2025"
+  },
+  "2024": {
+   "gambar": "assets/galeri/program-2024/2024-11.webp",
+   "album": "program-2024",
+   "alt": "Mesyuarat Agung Tahunan MADOCS 2024 di Hotel Maluri, Cheras, dengan penyertaan ahli dari seluruh negara"
+  },
+  "2023": {
+   "gambar": "assets/galeri/program-2023/umum-03.webp",
+   "album": "program-2023",
+   "alt": "Ahli dan jawatankuasa MADOCS bergambar bersama selepas program pada 2023"
+  }
+ }
 }

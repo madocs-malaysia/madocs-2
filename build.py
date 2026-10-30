@@ -2543,29 +2543,71 @@ def bina_galeri():
             bahagian.append("<span>%s</span>" % esc(a["tempat"]))
         return " · ".join(bahagian)
 
-    # ---- halaman indeks: kad album ----
-    kad_album = []
-    for a in al:
+    # ---- halaman indeks: album dikumpul ikut tahun, satu gambar hero setiap tahun ----
+    hero_tahun = load("galeri.json").get("hero_tahun") or {}
+
+    def kad_untuk(a):
         g0 = (a.get("gambar") or [{}])[0]
         cover = g0.get("src", "")
         alt = g0.get("alt", a["tajuk"])
-        kad_album.append(f"""    <a class="album-kad" href="/galeri/{esc(a["slug"])}/">
-      <span class="album-kad-gambar">{'<img src="/%s"%s alt="%s" loading="lazy" decoding="async">' % (esc(srcset_galeri(cover)[0]), srcset_galeri(cover)[1], esc(alt)) if cover else ''}</span>
+        gambar = ('<img src="/%s"%s alt="%s" loading="lazy" decoding="async">'
+                  % (esc(srcset_galeri(cover)[0]), srcset_galeri(cover)[1], esc(alt))) if cover else ""
+        return f"""    <a class="album-kad" href="/galeri/{esc(a["slug"])}/">
+      <span class="album-kad-gambar">{gambar}</span>
       <span class="album-kad-isi">
         <span class="chip">{esc(a.get("kategori", "") or "Album")}</span>
         <b>{esc(a["tajuk"])}</b>
         <small>{meta_album(a)}</small>
         <em>{len(a.get("gambar", []))} gambar</em>
       </span>
-    </a>""")
+    </a>"""
+
+    ikut_tahun = {}
+    for a in al:
+        t = (a.get("tarikh") or "")[:4]
+        ikut_tahun.setdefault(t if t.isdigit() else "Lain-lain", []).append(a)
+
+    def blok_tahun(tahun, senarai):
+        jum = sum(len(x.get("gambar", [])) for x in senarai)
+        h = hero_tahun.get(tahun) or {}
+        gbr = h.get("gambar") or ((senarai[0].get("gambar") or [{}])[0].get("src", ""))
+        pautan = h.get("album") or senarai[0]["slug"]
+        tajuk_hero = next((x["tajuk"] for x in senarai if x["slug"] == pautan), senarai[0]["tajuk"])
+        alt = h.get("alt") or tajuk_hero
+        hero = ""
+        if gbr and tahun != "Lain-lain":
+            _s, _ss = srcset_galeri(gbr)
+            hero = f"""    <a class="tahun-hero" href="/galeri/{esc(pautan)}/">
+      <img src="/{esc(_s)}"{_ss} alt="{esc(alt)}" loading="lazy" decoding="async">
+      <span class="tahun-hero-teks"><small>Album pilihan</small><b>{esc(tajuk_hero)}</b></span>
+    </a>"""
+        kad = "\n".join(kad_untuk(a) for a in senarai)
+        return f"""  <section class="galeri-tahun" id="tahun-{esc(str(tahun).lower())}">
+    <div class="tahun-kepala">
+      <h2>{esc("Album lain" if tahun == "Lain-lain" else str(tahun))}</h2>
+      <p>{len(senarai)} album · {jum} gambar</p>
+    </div>
+{hero}
+    <div class="album-grid">
+{kad}
+    </div>
+  </section>"""
+
+    urut = sorted([t for t in ikut_tahun if t != "Lain-lain"], reverse=True)
+    if "Lain-lain" in ikut_tahun:
+        urut.append("Lain-lain")
+    blok = "\n".join(blok_tahun(t, ikut_tahun[t]) for t in urut)
+
+    nav_tahun = "".join(
+        '<a href="#tahun-%s">%s</a>' % (esc(t.lower()), esc("Album lain" if t == "Lain-lain" else t))
+        for t in urut if ikut_tahun.get(t))
 
     isi = page_hero([("Utama", "/"), ("Galeri", None)], "Galeri",
                     "Album gambar sebenar program, kursus dan perhimpunan MADOCS.") + f"""
 <section class="content-wrap">
   <div class="shell">
-    <div class="album-grid">
-{chr(10).join(kad_album)}
-    </div>
+    <nav class="tahun-nav" aria-label="Lompat ke tahun">{nav_tahun}</nav>
+{blok}
     <p class="nota-isi">Gambar diambil semasa program MADOCS dan diterbitkan untuk tujuan dokumentasi pertubuhan.
     Ibu bapa, penjaga atau peserta yang ingin gambar tertentu dibuang boleh menghubungi urusetia MADOCS.
     Kami akan memadamkannya.</p>
