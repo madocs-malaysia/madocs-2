@@ -2537,7 +2537,10 @@ def bina_galeri():
         """Tarikh dan tempat sebagai nod berasingan (tempat boleh diterjemah)."""
         d = parse_date(a.get("tarikh"))
         bahagian = []
-        if d:
+        if d and a.get("sembunyi_tarikh"):
+            # album himpunan setahun: tarikh sebenar tidak diketahui
+            bahagian.append("<span>Sepanjang %s</span>" % esc(a["tarikh"][:4]))
+        elif d:
             bahagian.append('<time datetime="%s">%s</time>' % (esc(a.get("tarikh", "")), esc(tarikh_pdk(d))))
         if a.get("tempat"):
             bahagian.append("<span>%s</span>" % esc(a["tempat"]))

@@ -923,7 +923,8 @@
      "src": "assets/galeri/program-2023/umum-05.webp",
      "alt": "Penyediaan sijil keahlian MADOCS"
     }
-   ]
+   ],
+   "sembunyi_tarikh": true
   },
   {
    "slug": "program-2024",
@@ -1044,7 +1045,8 @@
      "src": "assets/galeri/program-2024/2024-28.webp",
      "alt": "Poster Mesyuarat Agung Tahunan ke-2 MADOCS 2024"
     }
-   ]
+   ],
+   "sembunyi_tarikh": true
   },
   {
    "slug": "teknoklem-depok-2025",
@@ -1146,7 +1148,8 @@
      "src": "assets/galeri/program-2025/2025-25.webp",
      "alt": "Barisan penceramah di pentas program kebangsaan"
     }
-   ]
+   ],
+   "sembunyi_tarikh": true
   }
  ],
  "hero_tahun": {
