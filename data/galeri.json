@@ -580,10 +580,6 @@
      "alt": "Peserta majlis pelancaran di dalam dewan Hospital Shah Alam"
     },
     {
-     "src": "assets/galeri/pelancaran-2026/04.webp",
-     "alt": "Peserta berdaftar di kaunter majlis pelancaran"
-    },
-    {
      "src": "assets/galeri/pelancaran-2026/05.webp",
      "alt": "Sepanduk majlis pelancaran Garis Panduan Berkhatan 2026"
     },
@@ -599,7 +595,7 @@
   },
   {
    "slug": "mesyuarat-ajk-2026",
-   "tajuk": "Mesyuarat Ahli Jawatankuasa Bil. 2/2026",
+   "tajuk": "Mesyuarat AJK Bil. 2/2026 (16 September)",
    "tarikh": "2026-09-16",
    "tempat": "Restoran Qasar Balqis, Taman Melati, Kuala Lumpur",
    "kategori": "Mesyuarat",
@@ -891,10 +887,6 @@
      "alt": "Ahli jawatankuasa MADOCS dalam perbincangan meja bulat"
     },
     {
-     "src": "assets/galeri/program-2023/umum-02.webp",
-     "alt": "Presiden MADOCS berjabat tangan dengan wakil rakan NGO"
-    },
-    {
      "src": "assets/galeri/program-2023/umum-03.webp",
      "alt": "Gambar berkumpulan ahli MADOCS pada program 2023"
     },
@@ -1062,32 +1054,12 @@
    "ringkas": "Album program MADOCS sepanjang 2025: kursus komprehensif berkhatan, kursus privileging, mesyuarat garis panduan bersama Kementerian Kesihatan, sunathon dan simposium kebangsaan. Gambar pesakit dan prosedur tidak diterbitkan.",
    "gambar": [
     {
-     "src": "assets/galeri/program-2025/2025-01.webp",
-     "alt": "Penyampaian cenderamata semasa program MADOCS 2025"
-    },
-    {
-     "src": "assets/galeri/program-2025/2025-02.webp",
-     "alt": "Program komuniti MADOCS bersama penduduk setempat"
-    },
-    {
      "src": "assets/galeri/program-2025/2025-03.webp",
      "alt": "Peserta beratur di kaunter program komuniti MADOCS"
     },
     {
-     "src": "assets/galeri/program-2025/2025-04.webp",
-     "alt": "Peserta memenuhi dewan semasa majlis MADOCS"
-    },
-    {
-     "src": "assets/galeri/program-2025/2025-05.webp",
-     "alt": "Pentas Program Sunathon 2025 dengan sepanduk penganjur"
-    },
-    {
      "src": "assets/galeri/program-2025/2025-06.webp",
      "alt": "Gambar berkumpulan peserta Program Sunathon 2025 di atas pentas"
-    },
-    {
-     "src": "assets/galeri/program-2025/2025-10.webp",
-     "alt": "Peserta kursus bergambar di hadapan bangunan"
     },
     {
      "src": "assets/galeri/program-2025/2025-11.webp",
@@ -1153,7 +1125,7 @@
   },
   {
    "slug": "mesyuarat-ajk-okt-2026",
-   "tajuk": "Mesyuarat Ahli Jawatankuasa, 27 Oktober 2026",
+   "tajuk": "Mesyuarat AJK, 27 Oktober 2026",
    "tarikh": "2026-10-27",
    "kategori": "Mesyuarat",
    "ringkas": "Mesyuarat ahli jawatankuasa MADOCS di Qasar Balqis Restaurant, Ampang, Kuala Lumpur. Perbincangan meliputi kertas kerja program, kursus dan persiapan mesyuarat agung tahunan.",
