@@ -2581,16 +2581,17 @@ def bina_galeri():
       <img src="/{esc(_s)}"{_ss} alt="{esc(alt)}" loading="lazy" decoding="async">
       <span class="tahun-hero-teks"><small>Album pilihan</small><b>{esc(tajuk_hero)}</b></span>
     </a>"""
-        kad = "\n".join(kad_untuk(a) for a in senarai)
+        # album yang sudah jadi hero tahun tidak diulang sebagai kad
+        ada_hero = bool(gbr) and tahun != "Lain-lain"
+        kad = "\n".join(kad_untuk(a) for a in senarai
+                         if not (ada_hero and a["slug"] == pautan))
         return f"""  <section class="galeri-tahun" id="tahun-{esc(str(tahun).lower())}">
     <div class="tahun-kepala">
       <h2>{esc("Album lain" if tahun == "Lain-lain" else str(tahun))}</h2>
       <p>{len(senarai)} album · {jum} gambar</p>
     </div>
 {hero}
-    <div class="album-grid">
-{kad}
-    </div>
+{('<div class="album-grid">' + chr(10) + kad + chr(10) + '    </div>') if kad else ''}
   </section>"""
 
     urut = sorted([t for t in ikut_tahun if t != "Lain-lain"], reverse=True)
