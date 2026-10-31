@@ -392,6 +392,9 @@ def organisasi_ld():
         "logo": BASE + "/assets/logo-128.webp",
         "address": {"@type": "PostalAddress", "addressCountry": "MY"},
     }
+    pautan = [v for v in (SITE.get("sosial") or {}).values() if v]
+    if pautan:
+        o["sameAs"] = pautan
     return o
 
 
@@ -504,6 +507,7 @@ def footer():
       <h3>Mengenai MADOCS</h3>
       <p>{esc(SITE['nama'])} ({esc(SITE['singkatan'])}) ialah pertubuhan profesional yang meningkatkan standard amalan berkhatan selamat melalui pendidikan, latihan, advokasi dan kerjasama profesional.</p>
       <div class="socials">
+        {('<a href="%s" target="_blank" rel="noopener" aria-label="Facebook MADOCS">%s</a>' % (esc((SITE.get('sosial') or {}).get('facebook', '')), icon('facebook'))) if (SITE.get('sosial') or {}).get('facebook') else ''}
         <a href="mailto:{esc(SITE['email'])}" aria-label="E-mel">{icon('mail')}</a>
         <a href="tel:{esc(SITE['telefon'])}" aria-label="Telefon">{icon('phone')}</a>
         <a href="{wa_pautan(MESEJ_WA_UMUM)}" target="_blank" rel="noopener" aria-label="WhatsApp urusetia">{icon('message-circle')}</a>
@@ -2222,6 +2226,11 @@ def bina_hubungi():
           <span>{icon('map-pin')}{esc(SITE['alamat'])}</span>
           <span>{icon('shield-check')}{esc(SITE['pendaftaran'])}</span>
         </div>
+      </div>
+      <div class="card">
+        <h3>Ikuti MADOCS di Facebook</h3>
+        <p style="font-size:14px;line-height:1.7;color:#583c42">Gambar program, pengumuman dan aktiviti terkini diterbitkan di halaman Facebook rasmi persatuan.</p>
+        <a class="btn-blok" href="{esc((SITE.get('sosial') or {}).get('facebook', ''))}" target="_blank" rel="noopener" style="margin-top:14px">{icon('facebook')} Halaman Facebook MADOCS</a>
       </div>
       <div class="card kotak-bantuan">
         <h3>Lebih pantas melalui WhatsApp</h3>
