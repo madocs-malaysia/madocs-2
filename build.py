@@ -2919,6 +2919,28 @@ def bersih_halaman_sisa():
     return dibuang
 
 
+# Laluan lama yang sudah tidak wujud (album digabung, halaman dipindah).
+# Ditulis semula setiap kali bina supaya pautan yang sudah dikongsi tidak jadi 404.
+ALIH = {
+    "galeri/mesyuarat-ajk-okt-2026/index.html": "/galeri/mesyuarat-ajk-2026/",
+    "en/gallery/mesyuarat-ajk-okt-2026/index.html": "/en/gallery/mesyuarat-ajk-2026/",
+}
+
+
+def tulis_alihan():
+    for laluan, tuju in ALIH.items():
+        f = ROOT / laluan
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text("""<!doctype html>
+<html lang="ms"><head><meta charset="utf-8">
+<title>Halaman dipindahkan | MADOCS</title>
+<link rel="canonical" href="https://madocs.my%s">
+<meta http-equiv="refresh" content="0; url=%s">
+<meta name="robots" content="noindex">
+</head><body><p>Halaman ini telah dipindahkan. <a href="%s">Buka halaman baharu</a>.</p></body></html>
+""" % (tuju, tuju, tuju), encoding="utf-8")
+
+
 def main():
     bina_fail_statik()
     bina_utama()
@@ -2951,6 +2973,7 @@ def main():
     bina_bahasa_inggeris()
     bina_peta_sitemap()
     bersih_halaman_sisa()
+    tulis_alihan()
     cap_versi()
 
     if "--report" in sys.argv:
