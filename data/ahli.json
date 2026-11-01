@@ -1,6 +1,6 @@
 {
  "nota": "Rekod awam status keahlian MADOCS. Tiada kad pengenalan, nombor MMC, telefon atau e-mel disimpan di sini. Nombor ahli mengikut kod negeri.",
- "dikemas_kini": "2026-10-25",
+ "dikemas_kini": "2026-11-02",
  "contoh": false,
  "ahli": [
   {
@@ -146,9 +146,9 @@
   {
    "no": "JDT21",
    "nama_papar": "H*** b. A*** Y***",
-   "kategori": "Ahli Biasa",
-   "status": "tamat",
-   "sah_hingga": "2026-04-13"
+   "kategori": "Ahli Seumur Hidup",
+   "status": "aktif",
+   "sah_hingga": ""
   },
   {
    "no": "JDT22",
@@ -798,7 +798,7 @@
    "no": "SBB7",
    "nama_papar": "A*** P***",
    "kategori": "Ahli Biasa",
-   "status": "tamat",
+   "status": "aktif",
    "sah_hingga": "2026-08-27"
   },
   {
