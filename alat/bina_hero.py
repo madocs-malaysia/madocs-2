@@ -3,7 +3,7 @@
 
 Keluaran:
   assets/hero/<nama>-besar.webp    (1400x1015)
-  assets/hero/<nama>-telefon.webp  (1100x733)
+  assets/hero/<nama>-telefon.webp  (720x480)
   data/hero.json                   (gambar prosedur + SEMUA berita, berselang-seli)
 
 Semua berita dalam data/berita.json masuk roulette secara automatik — jangan edit
@@ -15,7 +15,7 @@ from PIL import Image, ImageDraw, ImageFilter
 
 AKAR = '/home/ubuntu/madocs-site'
 BESAR = (1400, 1015)
-TELEFON = (1100, 733)
+TELEFON = (720, 480)
 SELANG = 6
 
 # Gambar prosedur/klinikal (bukan berita). Fokus menegak 0=puncak 1=dasar.

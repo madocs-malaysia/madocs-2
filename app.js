@@ -251,7 +251,7 @@
 
     var hero = document.querySelector(".hero");
     var selang = ((parseInt(hero && hero.getAttribute("data-selang"), 10) || 7)) * 1000;
-    var indeks = 0, pemasa = null;
+    var indeks = 0, pemasa = null, dijeda = false;
 
     function muatSlaid(n) {
       var p = slaid[(n + slaid.length) % slaid.length];
@@ -277,7 +277,7 @@
       muatSlaid(indeks + 1);
       tandaTitik();
     }
-    function mula() { if (!pemasa) { pemasa = window.setInterval(tukar, selang); } }
+    function mula() { if (!pemasa && !dijeda) { pemasa = window.setInterval(tukar, selang); } }
     function henti() { if (pemasa) { window.clearInterval(pemasa); pemasa = null; } }
     function tolak(arah) { pergi(arah); henti(); mula(); }
 
@@ -344,6 +344,28 @@
         titik.push(t);
       });
       kawalan.insertBefore(bekasTitik, kawalan.querySelector(".hero-nav-kanan"));
+
+      /* --- butang jeda/mula putaran (WCAG 2.2.2: kawalan untuk gerakan automatik) --- */
+      var jedaBtn = document.createElement("button");
+      jedaBtn.type = "button";
+      jedaBtn.className = "hero-jeda";
+      jedaBtn.setAttribute("aria-pressed", "false");
+      var ikonJeda = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>';
+      var ikonMain = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+      jedaBtn.innerHTML = ikonJeda;
+      function paparJeda() {
+        jedaBtn.setAttribute("aria-pressed", dijeda ? "true" : "false");
+        jedaBtn.innerHTML = dijeda ? ikonMain : ikonJeda;
+        jedaBtn.setAttribute("aria-label", dijeda ? "Mainkan putaran" : "Jeda putaran");
+      }
+      jedaBtn.setAttribute("aria-label", "Jeda putaran");
+      jedaBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        dijeda = !dijeda;
+        if (dijeda) { henti(); } else { mula(); }
+        paparJeda();
+      });
+      kawalan.insertBefore(jedaBtn, kawalan.firstChild);
       tandaTitik();
       if (mqMudah.addEventListener) {
         mqMudah.addEventListener("change", tetingkapTitik);

@@ -954,6 +954,13 @@ footer .socials a:hover,.tile:hover>span.ikon{transform:none}
 .hero-nav svg{width:17px; height:17px}
 .hero-nav:hover,.hero-nav:focus-visible{background:#ffffff33; transform:scale(1.06)}
 
+.hero-jeda{position:static; width:34px; height:34px; border:0; padding:0;
+  border-radius:50%; cursor:pointer; display:grid; place-items:center; color:#fff;
+  background:#ffffff14; transition:background .2s, transform .2s}
+.hero-jeda svg{width:16px; height:16px}
+.hero-jeda:hover,.hero-jeda:focus-visible{background:#ffffff33; transform:scale(1.06)}
+.hero-jeda[aria-pressed="true"]{background:#ffffff40}
+
 .hero-titik{position:static; transform:none; display:flex; flex-direction:row;
   align-items:center; gap:6px}
 .hero-titik button{width:24px; height:24px; padding:0; border:0; background:transparent; cursor:pointer;
