@@ -526,11 +526,11 @@ def footer():
       <span>{icon('map-pin')} {esc(SITE['alamat'])}</span>
     </div>
     <div>
-      <h3>Langgan berita</h3>
-      <p>Hantar e-mel kepada urusetia untuk menerima kemas kini kursus, aktiviti dan berita MADOCS.</p>
+      <h3>Mahu terima kemas kini?</h3>
+      <p>Hantar e-mel kepada urusetia untuk dimasukkan ke senarai makluman kursus, aktiviti dan berita MADOCS. Butang di bawah akan buka aplikasi e-mel anda.</p>
       <form action="mailto:{esc(SITE['email'])}" method="get" enctype="text/plain">
         <label>{icon('mail')}<input type="email" name="email" placeholder="Alamat e-mel anda" aria-label="Alamat e-mel" required></label>
-        <button type="submit">Langgan</button>
+        <button type="submit">Hantar e-mel</button>
       </form>
     </div>
   </div>
