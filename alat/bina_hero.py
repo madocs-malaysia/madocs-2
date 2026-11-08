@@ -20,6 +20,8 @@ SELANG = 6
 
 # Gambar prosedur/klinikal (bukan berita). Fokus menegak 0=puncak 1=dasar.
 GAMBAR = [
+    ('assets/ucapan-deepavali-2026.jpg', 'ucapan-deepavali', 0.45,
+     'Kad ucapan Selamat Hari Deepavali daripada Presiden dan Ahli Jawatankuasa MADOCS'),
     ('assets/galeri/pelancaran-2026/06.webp', 'garis-panduan', 0.42,
      'Stand pelancaran Buku Garis Panduan Berkhatan (Lelaki) 2026 di majlis pelancaran rasmi Kementerian Kesihatan Malaysia'),
     ('assets/berita-agm-2026-kumpulan.webp', 'ahli-agm', 0.45,
@@ -42,7 +44,7 @@ GAMBAR = [
 POSTER = {'2026-11-24-cme-tissue-adhesive'}
 
 # Gambar berkumpulan: jangan potong sesiapa. Paparkan penuh di atas latar kabur.
-PENUH = {'ahli-agm', 'peserta-kursus', 'garis-panduan'}
+PENUH = {'ahli-agm', 'peserta-kursus', 'garis-panduan', 'ucapan-deepavali'}
 
 
 def slaid_penuh(im, saiz):

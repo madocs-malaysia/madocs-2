@@ -4,9 +4,9 @@
  "slaid": [
   {
    "jenis": "imej",
-   "besar": "assets/hero/garis-panduan-besar.webp",
-   "telefon": "assets/hero/garis-panduan-telefon.webp",
-   "alt": "Stand pelancaran Buku Garis Panduan Berkhatan (Lelaki) 2026 di majlis pelancaran rasmi Kementerian Kesihatan Malaysia"
+   "besar": "assets/hero/ucapan-deepavali-besar.webp",
+   "telefon": "assets/hero/ucapan-deepavali-telefon.webp",
+   "alt": "Kad ucapan Selamat Hari Deepavali daripada Presiden dan Ahli Jawatankuasa MADOCS"
   },
   {
    "jenis": "berita",
@@ -19,9 +19,9 @@
   },
   {
    "jenis": "imej",
-   "besar": "assets/hero/ahli-agm-besar.webp",
-   "telefon": "assets/hero/ahli-agm-telefon.webp",
-   "alt": "Ahli dan Ahli Jawatankuasa MADOCS bergambar bersama sepanduk MALAYSIAN DOCTORS OF CIRCUMCISION SOCIETY pada Mesyuarat Agung Tahunan Ke-4, 2026"
+   "besar": "assets/hero/garis-panduan-besar.webp",
+   "telefon": "assets/hero/garis-panduan-telefon.webp",
+   "alt": "Stand pelancaran Buku Garis Panduan Berkhatan (Lelaki) 2026 di majlis pelancaran rasmi Kementerian Kesihatan Malaysia"
   },
   {
    "jenis": "berita",
@@ -31,6 +31,12 @@
    "tajuk": "Ceramah CME oleh Presiden MADOCS",
    "kicker": "CME",
    "pautan": "/berita/2026-11-24-cme-tissue-adhesive/"
+  },
+  {
+   "jenis": "imej",
+   "besar": "assets/hero/ahli-agm-besar.webp",
+   "telefon": "assets/hero/ahli-agm-telefon.webp",
+   "alt": "Ahli dan Ahli Jawatankuasa MADOCS bergambar bersama sepanduk MALAYSIAN DOCTORS OF CIRCUMCISION SOCIETY pada Mesyuarat Agung Tahunan Ke-4, 2026"
   },
   {
    "jenis": "imej",
