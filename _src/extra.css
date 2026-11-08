@@ -1745,7 +1745,7 @@ a.chip-peta:hover{background:#fdf3f5;border-color:#dfbcc4;text-decoration:none}
  .fakta-grid{grid-template-columns:repeat(2,1fr);padding:20px 0;row-gap:18px}
  .fakta-sel{border-left:0}
  .fakta-sel b{font-size:30px}
- .fakta-sel span{font-size:10.5px;letter-spacing:.06em}
+ .fakta-sel span{font-size:12px;line-height:1.25;letter-spacing:.04em}
 }
 
 /* === GALERI: KELOMPOK IKUT TAHUN === */
