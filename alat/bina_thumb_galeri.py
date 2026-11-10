@@ -16,8 +16,9 @@ AKAR = Path('/home/ubuntu/madocs-site')
 GALERI = AKAR / 'assets' / 'galeri'
 LEBAR = 520
 LEBAR_SEDERHANA = 780
-MIN_UNTUK_SEDERHANA = 1100
+MIN_UNTUK_SEDERHANA = 900
 KUALITI = 82
+KUALITI_SEDERHANA = 78
 
 
 def jana(im, fail, lebar, akhiran, paksa):
@@ -25,10 +26,11 @@ def jana(im, fail, lebar, akhiran, paksa):
     if keluar.exists() and not paksa and keluar.stat().st_mtime >= fail.stat().st_mtime:
         return False
     if im.width <= lebar:
-        im.save(keluar, format='WEBP', quality=KUALITI, method=6)
+        im.save(keluar, format='WEBP', quality=(KUALITI_SEDERHANA if akhiran == '-sederhana' else KUALITI), method=6)
     else:
         tinggi = round(im.height * lebar / im.width)
-        im.resize((lebar, tinggi), Image.LANCZOS).save(keluar, format='WEBP', quality=KUALITI, method=6)
+        im.resize((lebar, tinggi), Image.LANCZOS).save(
+        keluar, format='WEBP', quality=(KUALITI_SEDERHANA if akhiran == '-sederhana' else KUALITI), method=6)
     return True
 
 
