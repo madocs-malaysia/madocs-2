@@ -75,6 +75,8 @@ def mesej_perayaan(d, beza, p):
     baris = ['Peringatan perayaan: %s' % p['nama'],
              'Tarikh: %s' % tarikh_teks(d),
              'Lagi %d hari.' % beza if beza else 'Hari ini.']
+    if p.get('jenis') == 'sambutan':
+        baris.append('(Hari sambutan, bukan cuti umum.)')
     if p.get('kad'):
         baris.append('')
         baris.append('Kad ucapan hero perlu disiapkan. Beritahu aku bila Doc nak '
