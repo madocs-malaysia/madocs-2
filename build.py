@@ -2537,30 +2537,45 @@ def lebar_imej(laluan: str) -> int:
     return lebar
 
 
+def _calon_srcset(src: str, saiz: str) -> tuple:
+    """Bina (src lalai, atribut srcset) daripada varian -kecil/-sederhana yang ada.
+
+    Telefon 2x/3x perlukan ~700-800 px untuk slot 92vw; tanpa varian tengah pelayar
+    terpaksa mengambil fail penuh (1000-1600 px). Varian tengah hanya wujud untuk
+    imej asal >= 1100 px (lihat alat/bina_imej_responsif.py).
+    """
+    if not src.endswith(".webp"):
+        return src, ""
+    akar = src[:-5]
+    calon = []
+    for akhiran in ("-kecil", "-sederhana"):
+        p = akar + akhiran + ".webp"
+        if (ROOT / p.lstrip("/")).exists():
+            calon.append((p, lebar_imej(p)))
+    if not calon:
+        return src, ""
+    calon.append((src, lebar_imej(src)))
+    calon.sort(key=lambda x: x[1])
+    srcset = ", ".join("/%s %dw" % (esc(p), w) for p, w in calon)
+    return calon[0][0], ' srcset="%s" sizes="%s"' % (srcset, saiz)
+
+
 def srcset_imej(src: str, saiz: str = "(max-width: 640px) 92vw, 400px") -> tuple:
     """Pulangkan (src, atribut_srcset) untuk imej kad biasa.
 
-    Versi kecil dijana oleh alat/bina_imej_responsif.py. Kad berita/aktiviti hanya
-    selebar ~400 px, jadi menghantar fail 1024-1400 px membazir data pembaca telefon.
+    Versi kecil/sederhana dijana oleh alat/bina_imej_responsif.py. Kad berita/aktiviti
+    hanya selebar ~400 px, jadi menghantar fail 1024-1400 px membazir data pembaca telefon.
     """
-    kecil = src[:-5] + "-kecil.webp" if src.endswith(".webp") else None
-    if kecil and (ROOT / kecil.lstrip("/")).exists():
-        return kecil, ' srcset="/%s %dw, /%s %dw" sizes="%s"' % (
-            esc(kecil), lebar_imej(kecil), esc(src), lebar_imej(src), saiz)
-    return src, ""
+    return _calon_srcset(src, saiz)
 
 
 def srcset_galeri(src: str) -> tuple:
     """Pulangkan (src, atribut_srcset) untuk gambar galeri.
 
-    Versi kecil (520 px) dijana oleh alat/bina_thumb_galeri.py. Grid hanya memaparkan
-    gambar selebar 300-400 px, jadi menghantar fail 1400 px membazir data pembaca telefon.
+    Varian dijana oleh alat/bina_thumb_galeri.py. Grid hanya memaparkan gambar selebar
+    300-400 px, jadi menghantar fail 1400 px membazir data pembaca telefon.
     """
-    kecil = src[:-5] + "-kecil.webp" if src.endswith(".webp") else None
-    if kecil and (ROOT / kecil.lstrip("/")).exists():
-        return kecil, ' srcset="/%s %dw, /%s %dw" sizes="(max-width: 640px) 45vw, (max-width: 1024px) 31vw, 320px"' % (
-            esc(kecil), lebar_imej(kecil), esc(src), lebar_imej(src))
-    return src, ""
+    return _calon_srcset(src, "(max-width: 640px) 45vw, (max-width: 1024px) 31vw, 320px")
 
 
 def bina_galeri():
