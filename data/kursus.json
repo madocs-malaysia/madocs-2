@@ -1,12 +1,12 @@
 {
- "cara_edit": "Latihan/kursus. Tarikh = YYYY-MM-DD. status: open (buka), limited (kerusi terhad), closed (ditutup), done (selesai). Susun yang terbaru di atas. Medan kosong ('') akan tersembunyi dari laman, jangan reka nilai.",
+ "cara_edit": "Latihan/kursus. Tarikh = YYYY-MM-DD. status: open (buka), limited (kerusi terhad), closed (ditutup), done (selesai), tentatif (tarikh belum disahkan), batal (kursus dibatalkan). Susun yang terbaru di atas. Medan kosong ('') akan tersembunyi dari laman, jangan reka nilai.",
  "kursus": [
   {
    "slug": "pcc2-5-disember",
    "kod": "PCC 2-5",
    "tajuk": "Kursus Privileging Berkhatan (Dorsal Slit) Siri 5 (PCC 2-5)",
    "kategori": "Privileging",
-   "ringkas": "Kursus penilaian kompetensi berkhatan (Dorsal Slit) PCC 2-5. Tarikh telah ditempah; tempat akan diumumkan setelah disahkan jawatankuasa.",
+   "ringkas": "Kursus PCC 2-5 yang dirancang pada 12 Disember 2026 telah dibatalkan. MADOCS akan mengumumkan tarikh baharu kelak.",
    "gambar": "assets/kursus-amali.webp",
    "gambar_alt": "Peserta kursus mempelajari prosedur Dorsal Slit dalam sesi amali MADOCS",
    "tarikh": "2026-12-12",
@@ -23,19 +23,20 @@
    "yuran_bukan_ahli": "",
    "tutup_daftar": "",
    "kapasiti": "",
-   "status": "tentatif",
+   "status": "batal",
    "daftar_url": "",
    "kandungan": [
-    "Tarikh kursus telah ditempah. Tempat dan butiran penuh akan diterbitkan sebaik sahaja disahkan oleh jawatankuasa MADOCS."
+    "Kursus PCC 2-5 yang dirancang pada Sabtu, 12 Disember 2026 telah dibatalkan oleh jawatankuasa MADOCS.",
+    "Tarikh dan tempat baharu akan diumumkan kemudian. Hubungi urusetia jika ada pertanyaan tentang kursus akan datang."
    ],
-   "nota_status": "Tarikh dan butiran pendaftaran menunggu pengesahan jawatankuasa. Hubungi urusetia untuk maklumat terkini."
+   "nota_status": "Kursus ini dibatalkan. Hubungi urusetia MADOCS untuk maklumat kursus PCC yang akan datang."
   },
   {
    "slug": "ccc9-masjid-putrajaya",
    "kod": "CCC 9",
    "tajuk": "Kursus Komprehensif Berkhatan (CCC 9)",
    "kategori": "Kursus Komprehensif",
-   "ringkas": "Kursus komprehensif berkhatan CCC 9, dijadualkan pada Ahad 13 Disember 2026 di Masjid Putrajaya. Tarikh masih tentatif.",
+   "ringkas": "Kursus komprehensif berkhatan CCC 9 dirancang pada Ahad 13 Disember 2026 di Masjid Putrajaya. Tarikh belum disahkan.",
    "gambar": "assets/lokasi/masjid-putra-putrajaya.webp",
    "gambar_alt": "Masjid Putra, Putrajaya, lokasi kursus CCC 9",
    "tarikh": "2026-12-13",
@@ -55,10 +56,11 @@
    "status": "tentatif",
    "daftar_url": "",
    "kandungan": [
-    "Tarikh dan tempat kursus ini masih tentatif dan menunggu pengesahan jawatankuasa MADOCS. Butiran pendaftaran akan diumumkan kemudian."
+    "CCC 9 dirancang pada Ahad, 13 Disember 2026 di Masjid Putrajaya, tetapi tarikhnya belum disahkan oleh jawatankuasa MADOCS.",
+    "Sekiranya disahkan, butiran pendaftaran, yuran dan masa kursus akan diumumkan di halaman ini."
    ],
    "gambar_kredit": "Foto lokasi: Muhammad Faqih, Wikimedia Commons (CC BY-SA 4.0), bukan gambar acara MADOCS",
-   "nota_status": "Tarikh dan butiran pendaftaran menunggu pengesahan jawatankuasa. Hubungi urusetia untuk maklumat terkini."
+   "nota_status": "Tarikh 13 Disember 2026 belum disahkan. Butiran pendaftaran akan diumumkan setelah jawatankuasa mengesahkannya."
   }
  ]
 }

@@ -69,6 +69,7 @@ STATUS_LABEL = {
     "limited": ("Kerusi terhad", "limited"),
     "closed": ("Pendaftaran ditutup", "closed"),
     "done": ("Selesai", "done"),
+    "batal": ("Dibatalkan", "closed"),
 }
 
 
@@ -738,7 +739,7 @@ def kad_kursus(k, keutamaan=False):
     {f'<span class="chip-kredit">{esc(k["gambar_kredit"])}</span>' if k.get("gambar_kredit") else ''}
   </div>
   <div class="course-info">
-    <span class="course-code">{esc(k.get('kod',''))}</span>
+    <span class="course-code">{esc(k.get('kod',''))}</span>{badge_status(k.get('status')) if k.get('status') else ''}
     <h3>{esc(k['tajuk'])}</h3>
     <ul>{''.join(fakta)}</ul>
     {f'<div class="tags">{tag}</div>' if tag else ''}
@@ -1378,7 +1379,18 @@ def bina_pendidikan():
     kursus = load("kursus.json")["kursus"]
     hari_ini = date.today()
     akan = sorted([k for k in kursus if k.get("status") in ("open", "limited", "tentatif")], key=lambda k: k.get("tarikh") or "")
-    lepas = sorted([k for k in kursus if k.get("status") in ("closed", "done")], key=lambda k: k.get("tarikh") or "", reverse=True)
+    lepas = sorted([k for k in kursus if k.get("status") in ("closed", "done", "batal")], key=lambda k: k.get("tarikh") or "", reverse=True)
+    def senarai(items, kosong_teks=""):
+        if not items:
+            return kosong_teks
+        return '<div class="listing">%s</div>' % "".join(
+            item_kandungan(k["tajuk"], "/pendidikan/%s/" % k["slug"], k.get("ringkas", ""),
+                           tarikh=k.get("tarikh"), kategori=k.get("kod", ""), gambar=k.get("gambar"),
+                           alt=k.get("gambar_alt", ""), kredit=k.get("gambar_kredit"),
+                           tempat=k.get("tempat"), peta=k.get("peta"), tamat=k.get("tamat"),
+                           meta_sebaris=True)
+            for k in items)
+
     if not lepas:
         lebih = sorted(load("aktiviti.json")["aktiviti"], key=lambda a: a.get("tarikh") or "", reverse=True)[:3]
         blok_lepas = ('<div class="listing">%s</div>' % "".join(
@@ -1396,16 +1408,6 @@ def bina_pendidikan():
                 ("users", "Latihan Tenaga Pengajar", "TTT", "Menyediakan tenaga pengajar bertauliah dalam latihan MADOCS."),
                 ("file-text", "Seminar, Bengkel &amp; Konferens", "Aktiviti", "Pembelajaran berterusan dan perkongsian ilmu profesional.")]
 
-    def senarai(items, kosong_teks):
-        if not items:
-            return kosong_teks
-        return '<div class="listing">%s</div>' % "".join(
-            item_kandungan(k["tajuk"], "/pendidikan/%s/" % k["slug"], k.get("ringkas", ""),
-                           tarikh=k.get("tarikh"), kategori=k.get("kod", ""), gambar=k.get("gambar"),
-                           alt=k.get("gambar_alt", ""), kredit=k.get("gambar_kredit"),
-                           tempat=k.get("tempat"), peta=k.get("peta"), tamat=k.get("tamat"),
-                           meta_sebaris=True)
-            for k in items)
 
     isi = page_hero([("Utama", "/"), ("Pendidikan & Latihan", None)],
                     "Pendidikan & Latihan",
@@ -2107,7 +2109,8 @@ def bina_berita():
 
     # --- kursus akan datang + aktiviti terkini di atas senarai berita
     _hari_ini = date.today().isoformat()
-    akan = sorted([k for k in load("kursus.json")["kursus"] if (k.get("tarikh") or "") >= _hari_ini],
+    akan = sorted([k for k in load("kursus.json")["kursus"]
+                   if (k.get("tarikh") or "") >= _hari_ini and k.get("status") != "batal"],
                   key=lambda k: k.get("tarikh") or "")[:2]
     kursus_html = ('<div class="listing">%s</div>' % "".join(
         item_kandungan(k["tajuk"], "/pendidikan/%s/" % k["slug"], k.get("ringkas", ""),
