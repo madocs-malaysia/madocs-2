@@ -44,7 +44,12 @@ GAMBAR = [
 POSTER = {'2026-11-24-cme-tissue-adhesive'}
 
 # Gambar berkumpulan: jangan potong sesiapa. Paparkan penuh di atas latar kabur.
-PENUH = {'ahli-agm', 'peserta-kursus', 'garis-panduan', 'ucapan-deepavali'}
+PENUH = {'ahli-agm', 'peserta-kursus', 'garis-panduan'}
+
+# Kad ucapan Deepavali bukan gambar — ia direka penuh pada dua nisbah hero oleh
+# alat/bina_kad_deepavali.py. Jangan jana semula daripada gambar sumber (poster
+# menegak yang ditampal atas latar kabur nampak kecil + terpotong pada telefon).
+SIAP = {'ucapan-deepavali'}
 
 
 def slaid_penuh(im, saiz):
@@ -112,15 +117,16 @@ def main():
         if not os.path.exists(laluan):
             print('TIADA:', src)
             continue
-        im = Image.open(laluan).convert('RGB')
-        for saiz, akhiran in ((TELEFON, 'telefon'), (BESAR, 'besar')):
-            out = slaid_penuh(im, saiz) if nama in PENUH else potong(im, saiz, fokus)
-            out.save(os.path.join(hero_dir, '%s-%s.webp' % (nama, akhiran)), 'WEBP', quality=82, method=6)
+        if nama not in SIAP:
+            im = Image.open(laluan).convert('RGB')
+            for saiz, akhiran in ((TELEFON, 'telefon'), (BESAR, 'besar')):
+                out = slaid_penuh(im, saiz) if nama in PENUH else potong(im, saiz, fokus)
+                out.save(os.path.join(hero_dir, '%s-%s.webp' % (nama, akhiran)), 'WEBP', quality=82, method=6)
         slaid_gambar.append({'jenis': 'imej',
                              'besar': 'assets/hero/%s-besar.webp' % nama,
                              'telefon': 'assets/hero/%s-telefon.webp' % nama,
                              'alt': alt})
-        print('imej   %-14s siap' % nama)
+        print('imej   %-14s %s' % (nama, 'kekal (direka penuh)' if nama in SIAP else 'siap'))
 
     slaid_berita = []
     berita = json.load(open(os.path.join(AKAR, 'data', 'berita.json'), encoding='utf-8'))['berita']
