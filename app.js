@@ -427,9 +427,13 @@
   var T = EN
     ? { jaya: "Certificate is valid", gagal: "Not found", kursus: "Course", tarikh: "Date",
         cpd: "CPD points", hash: "SHA-256 (first 32 characters)", siri: "Serial number",
+        kosong: "Serial number required",
+        kosong_teks: "Please enter the certificate serial number first, for example MADOCS-CP-2026-0001.",
         batal: "This certificate has been revoked." }
     : { jaya: "Sijil ini sah", gagal: "Tidak dijumpai", kursus: "Kursus", tarikh: "Tarikh",
         cpd: "Mata CPD", hash: "SHA-256 (32 aksara pertama)", siri: "Nombor siri",
+        kosong: "Nombor siri diperlukan",
+        kosong_teks: "Sila masukkan nombor siri sijil dahulu, contohnya MADOCS-CP-2026-0001.",
         batal: "Sijil ini telah dibatalkan." };
 
   var masuk = document.getElementById("siri");
@@ -452,6 +456,10 @@
   function papar(siri) {
     var r = cari(siri);
     var kunci = String(siri || "").trim();
+    if (!kunci) {
+      tunjuk("<h3>" + T.kosong + "</h3><p>" + T.kosong_teks + "</p>", "gagal");
+      return;
+    }
     if (!r) {
       tunjuk("<h3>" + T.gagal + "</h3><p>" + (EN ? "No certificate with serial number " : "Tiada sijil dengan nombor siri ")
              + "<b>" + kunci.replace(/[<>&]/g, "") + "</b> "
@@ -498,11 +506,15 @@
     ? { jaya: "Active member", tamat: "Membership expired", tangguh: "Membership suspended",
         gagal: "Not found", no: "Member number", nama: "Name", kategori: "Category",
         status: "Status", sah: "Valid until", seumur: "Lifetime membership — no expiry",
+        kosong: "Member number required",
+        kosong_teks: "Please enter a member number first, for example SDE53.",
         tiadaSah: "Not recorded — ask the secretariat",
         aktif: "Active", ditamat: "Expired", ditangguh: "Suspended" }
     : { jaya: "Ahli aktif", tamat: "Keahlian telah tamat", tangguh: "Keahlian ditangguh",
         gagal: "Tidak dijumpai", no: "Nombor ahli", nama: "Nama", kategori: "Kategori",
         status: "Status", sah: "Sah hingga", seumur: "Keahlian seumur hidup — tiada tarikh luput",
+        kosong: "Nombor ahli diperlukan",
+        kosong_teks: "Sila masukkan nombor ahli dahulu, contohnya SDE53.",
         tiadaSah: "Tidak direkodkan — sila tanya urusetia",
         aktif: "Aktif", ditamat: "Tamat tempoh", ditangguh: "Ditangguh" };
 
@@ -530,6 +542,10 @@
   function papar(no) {
     var r = cari(no);
     var kunci = String(no || "").trim().replace(/[<>&]/g, "");
+    if (!kunci) {
+      tunjuk("<h3>" + T.kosong + "</h3><p>" + T.kosong_teks + "</p>", "gagal");
+      return;
+    }
     if (!r) {
       tunjuk("<h3>" + T.gagal + "</h3><p>" + (EN ? "No member with number " : "Tiada ahli dengan nombor ")
              + "<b>" + kunci + "</b> " + (EN ? "is recorded by MADOCS. Please check the number on the membership certificate."

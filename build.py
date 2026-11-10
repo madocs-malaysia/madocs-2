@@ -731,9 +731,10 @@ def kad_kursus(k, keutamaan=False):
     img = k.get("gambar") or gambar_hero_utama()
     alt = k.get("gambar_alt") or k.get("tajuk", "")
     chip = chip_ilustrasi(alt)
+    _kw, _kh = saiz_imej(img)
     return f"""<article class="course-feature">
   <div class="course-photo">
-    <img src="/{esc(img)}" alt="{esc(alt)}" loading="{'eager' if keutamaan else 'lazy'}" decoding="async">
+    <img src="/{esc(img)}" width="{_kw}" height="{_kh}" alt="{esc(alt)}" loading="{'eager' if keutamaan else 'lazy'}" decoding="async">
     {badge}
     {chip}
     {f'<span class="chip-kredit">{esc(k["gambar_kredit"])}</span>' if k.get("gambar_kredit") else ''}
@@ -811,8 +812,12 @@ def ringkas_meta(teks, had=158):
 def item_kandungan(tajuk, url, ringkas, tarikh=None, kategori="", gambar=None, alt="", meta_ikon="calendar-days", kredit=None, tarikh_papar=None, label="Baca lanjut", tempat=None, peta=None, meta_sebaris=False, tamat=None):
     """Kad senarai untuk berita / aktiviti / sumber."""
     _gs, _gset = srcset_imej(gambar) if gambar else ("", "")
-    foto = ('<div class="item-photo"><img src="/%s"%s alt="%s" loading="lazy" decoding="async">%s%s</div>'
-            % (esc(_gs), _gset, esc(alt or tajuk), chip_ilustrasi(alt),
+    _dim = ""
+    if gambar:
+        _w, _h = saiz_imej(_gs or gambar)
+        _dim = ' width="%d" height="%d"' % (_w, _h)
+    foto = ('<div class="item-photo"><img src="/%s"%s%s alt="%s" loading="lazy" decoding="async">%s%s</div>'
+            % (esc(_gs), _gset, _dim, esc(alt or tajuk), chip_ilustrasi(alt),
                '<span class="chip-kredit">%s</span>' % esc(kredit) if kredit else "")) if gambar else ""
     kelas = "" if gambar else " no-photo"
     badge = '<span class="badge">%s</span>' % esc(kategori) if kategori else ""
@@ -978,7 +983,7 @@ def laman_ringkas(slug, tajuk, isi_html, deskripsi=None):
   <div class="shell">{crumbs([("Utama", "/")])}<h1>{esc(tajuk)}</h1></div>
 </section>
 <section class="content-wrap"><div class="shell"><div class="card prose">{isi_html}</div></div></section>"""
-    ket = deskripsi or ("%s Pertubuhan Doktor Khatan Malaysia (MADOCS): persatuan profesional doktor "
+    ket = deskripsi or ("%s Pertubuhan Doktor Khatan Malaysia (MADOCS): pertubuhan profesional doktor "
                         "yang terlibat dalam amalan berkhatan di Malaysia." % tajuk)
     halaman("", tajuk + " | MADOCS", ringkas_meta(ket, 160), "/%s/" % slug, dalam)
 
@@ -2055,7 +2060,7 @@ def bina_cp():
   <div class="card prose">
     <h2>Apa itu C&amp;P</h2>
     <p>Credentialing ialah proses menyemak kelayakan seorang doktor, iaitu ijazah perubatan, pendaftaran MMC, latihan berkhatan dan rekod log kes. Privileging ialah keputusan memberi hak melakukan prosedur tertentu di fasiliti tertentu, berdasarkan kelayakan yang telah disemak itu.</p>
-    <p>Kedua-duanya berasingan daripada keahlian MADOCS. Keahlian ialah hubungan dengan persatuan; C&amp;P ialah penilaian kecekapan klinikal yang membolehkan doktor melakukan prosedur di sesebuah hospital atau klinik.</p>
+    <p>Kedua-duanya berasingan daripada keahlian MADOCS. Keahlian ialah hubungan dengan pertubuhan; C&amp;P ialah penilaian kecekapan klinikal yang membolehkan doktor melakukan prosedur di sesebuah hospital atau klinik.</p>
 
     <h2>Aliran C&amp;P MADOCS</h2>
     <div class="langkah-cp">
@@ -2232,7 +2237,7 @@ def bina_hubungi():
       </div>
       <div class="card">
         <h3>Ikuti MADOCS di Facebook</h3>
-        <p style="font-size:14px;line-height:1.7;color:#583c42">Gambar program, pengumuman dan aktiviti terkini diterbitkan di halaman Facebook rasmi persatuan.</p>
+        <p style="font-size:14px;line-height:1.7;color:#583c42">Gambar program, pengumuman dan aktiviti terkini diterbitkan di halaman Facebook rasmi pertubuhan.</p>
         <a class="btn-blok" href="{esc((SITE.get('sosial') or {}).get('facebook', ''))}" target="_blank" rel="noopener" style="margin-top:14px">{icon('facebook')} Halaman Facebook MADOCS</a>
       </div>
       <div class="card kotak-bantuan">
@@ -2455,6 +2460,29 @@ def blok_jawatankuasa(jk_data):
 
 
 _LEBAR_CACHE = {}
+_SAIZ_CACHE = {}
+
+
+def saiz_imej(laluan: str) -> tuple:
+    """(lebar, tinggi) sebenar fail imej — untuk atribut width/height (elak layout shift)."""
+    if laluan in _SAIZ_CACHE:
+        return _SAIZ_CACHE[laluan]
+    fail = ROOT / laluan.lstrip("/")
+    saiz = None
+    try:
+        with open(fail, "rb") as f:
+            saiz = _lebar_webp(f.read(64))
+    except Exception:
+        saiz = None
+    if not saiz:
+        try:
+            from PIL import Image
+            with Image.open(fail) as im:
+                saiz = (im.width, im.height)
+        except Exception:
+            saiz = (1000, 750)
+    _SAIZ_CACHE[laluan] = saiz
+    return saiz
 
 
 def _lebar_webp(data: bytes):
@@ -2638,10 +2666,11 @@ def bina_galeri():
         _kad = []
         for g in a.get("gambar", []):
             _src, _srcset = srcset_galeri(g["src"])
+            _w, _h = saiz_imej(_src or g["src"])
             _kad.append(
                 '<button class="gambar" type="button" data-besar="/%s" data-kapsyen="%s" aria-label="%s">'
-                '<img src="/%s"%s alt="%s" loading="lazy" decoding="async"></button>'
-                % (esc(g["src"]), esc(g["alt"]), esc(g["alt"]), esc(_src), _srcset, esc(g["alt"])))
+                '<img src="/%s"%s width="%d" height="%d" alt="%s" loading="lazy" decoding="async"></button>'
+                % (esc(g["src"]), esc(g["alt"]), esc(g["alt"]), esc(_src), _srcset, _w, _h, esc(g["alt"])))
         kad = "".join(_kad)
         ringkas = esc(a.get("ringkas", ""))
         # Pautan ke laporan program (jika album ini dipautkan ke aktiviti)
@@ -2657,6 +2686,7 @@ def bina_galeri():
   <div class="shell">
     {f'<p class="album-ringkas-teks">{ringkas}</p>' if ringkas else ''}
     {pautan_laporan}
+    <h2 class="tajuk-galeri">Gambar program</h2>
     <div class="galeri">{kad}</div>
     <p class="nota-isi" style="margin-top:18px">Gambar diambil semasa program MADOCS dan diterbitkan untuk tujuan dokumentasi pertubuhan. Ibu bapa, penjaga atau peserta yang ingin gambar tertentu dibuang boleh menghubungi urusetia MADOCS. <a href="/galeri/">Kembali ke semua album</a>.</p>
   </div>
@@ -2822,7 +2852,7 @@ def bina_dasar():
 <ul><li>Maklumat hubungan (nama, e-mel, nombor telefon).</li><li>Maklumat profesional (nombor pendaftaran MMC, tempat praktis, negeri).</li><li>Maklumat permohonan keahlian: nombor kad pengenalan, tarikh lahir, alamat rumah dan pejabat, bangsa serta agama.</li><li>Maklumat yang anda taip dalam mesej atau permohonan.</li></ul>
 <h2>Kegunaan maklumat</h2>
 <p>Maklumat digunakan semata-mata untuk memproses keahlian, pendaftaran program latihan, pertanyaan dan komunikasi berkaitan aktiviti MADOCS.</p>
-<p>Bangsa dan agama dikumpul untuk rekod keahlian dan statistik persatuan sahaja, dan tidak digunakan sebagai syarat kelulusan keahlian. Kerana agama termasuk data peribadi sensitif di bawah Akta Perlindungan Data Peribadi 2010, persetujuan nyata diminta pada borang permohonan sebelum data dihantar.</p>
+<p>Bangsa dan agama dikumpul untuk rekod keahlian dan statistik pertubuhan sahaja, dan tidak digunakan sebagai syarat kelulusan keahlian. Kerana agama termasuk data peribadi sensitif di bawah Akta Perlindungan Data Peribadi 2010, persetujuan nyata diminta pada borang permohonan sebelum data dihantar.</p>
 <h2>Perkongsian</h2>
 <p>Maklumat peribadi tidak dijual atau dikongsi dengan pihak ketiga untuk tujuan pemasaran. Nama ahli dan maklumat peribadi tidak diterbitkan di laman awam.</p>
 <h2>Penyimpanan</h2>
@@ -2946,14 +2976,19 @@ def tulis_alihan():
     for laluan, tuju in ALIH.items():
         f = ROOT / laluan
         f.parent.mkdir(parents=True, exist_ok=True)
+        inggeris = laluan.startswith("en/")
+        # Halaman alihan dua bahasa: pembaca /en/ tidak sepatutnya nampak teks BM.
+        tajuk = "Page moved | MADOCS" if inggeris else "Halaman dipindahkan | MADOCS"
+        teks = ("This page has moved. <a href=\"%s\">Open the new page</a>." % tuju if inggeris
+                else "Halaman ini telah dipindahkan. <a href=\"%s\">Buka halaman baharu</a>." % tuju)
         f.write_text("""<!doctype html>
-<html lang="ms"><head><meta charset="utf-8">
-<title>Halaman dipindahkan | MADOCS</title>
+<html lang="%s"><head><meta charset="utf-8">
+<title>%s</title>
 <link rel="canonical" href="https://madocs.my%s">
 <meta http-equiv="refresh" content="0; url=%s">
 <meta name="robots" content="noindex">
-</head><body><p>Halaman ini telah dipindahkan. <a href="%s">Buka halaman baharu</a>.</p></body></html>
-""" % (tuju, tuju, tuju), encoding="utf-8")
+</head><body><p>%s</p></body></html>
+""" % ("en" if inggeris else "ms", tajuk, tuju, tuju, teks), encoding="utf-8")
 
 
 def main():

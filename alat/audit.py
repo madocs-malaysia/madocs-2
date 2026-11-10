@@ -42,6 +42,16 @@ def semua_html():
     return sorted(keluar)
 
 
+def halaman_alihan(p):
+    """Halaman alihan (meta refresh + noindex) memang minimum: tiada h1/meta description.
+    Ia bukan pelanggaran SEO, jadi dikecualikan daripada semakan meta/tajuk."""
+    try:
+        t = p.read_text(encoding='utf-8', errors='ignore')[:800].lower()
+    except OSError:
+        return False
+    return 'http-equiv="refresh"' in t and 'name="robots" content="noindex"' in t
+
+
 def pautan_tempatan(doc, fail):
     """Pulangkan senarai pautan dalaman + nilai href mentah."""
     hasil = []
@@ -135,6 +145,7 @@ def audit():
                 laporan['pemegang_tempat'].append((relatif, frasa))
 
         # --- meta
+        alihan = halaman_alihan(fail)
         tajuk = (doc.title.string or '').strip() if doc.title and doc.title.string else ''
         ket = doc.find('meta', attrs={'name': 'description'})
         ket_nilai = (ket.get('content') or '').strip() if ket else ''
@@ -143,16 +154,16 @@ def audit():
             masalah.append('tiada <title>')
         elif len(tajuk) > 70:
             masalah.append('tajuk %d aksara' % len(tajuk))
-        if not ket_nilai:
+        if not ket_nilai and not alihan:
             masalah.append('tiada meta description')
-        elif not (60 <= len(ket_nilai) <= 165):
+        elif ket_nilai and not (60 <= len(ket_nilai) <= 165):
             masalah.append('description %d aksara' % len(ket_nilai))
         if masalah:
             laporan['meta'].append((relatif, '; '.join(masalah)))
 
         # --- h1
         h1 = doc.find_all('h1')
-        if len(h1) != 1:
+        if len(h1) != 1 and not alihan:
             laporan['h1'].append((relatif, len(h1)))
 
         # --- noindex

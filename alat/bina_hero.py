@@ -41,7 +41,7 @@ GAMBAR = [
 ]
 
 # Berita yang gambarnya poster menegak: dipaparkan sebagai kad pada latar gelap.
-POSTER = {'2026-11-24-cme-tissue-adhesive'}
+POSTER = {'2026-11-24-cme-tissue-adhesive', '2026-10-27-promosi-keahlian-seumur-hidup-2026'}
 
 # Gambar berkumpulan: jangan potong sesiapa. Paparkan penuh di atas latar kabur.
 PENUH = {'ahli-agm', 'peserta-kursus', 'garis-panduan'}
