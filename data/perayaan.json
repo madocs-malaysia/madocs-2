@@ -1,42 +1,215 @@
 {
- "cara_edit": "Kalendar perayaan, hari kebangsaan dan hari sambutan Malaysia untuk kad ucapan hero MADOCS. Tarikh perayaan Islam tertakluk kepada pengisytiharan rasmi. Kemas kini setiap tahun (November) untuk tahun berikutnya. Dibaca oleh alat/semak_perayaan.py (cron).",
+ "cara_edit": "Kalendar perayaan, hari kebangsaan, hari profesional dan hari sambutan untuk kad ucapan hero MADOCS. Tarikh perayaan Islam tertakluk kepada pengisytiharan rasmi. Kemas kini setiap tahun (November) untuk tahun berikutnya. Dibaca oleh alat/semak_perayaan.py (cron).",
  "dikemas_pada": "2026-11-10",
- "sumber": "Takwim cuti umum persekutuan 2027 (JPM/FMM); Hari Doktor Malaysia 10 Okt (FPMPAM sejak 2014); Hari Ibu = Ahad ke-2 Mei, Hari Bapa = Ahad ke-3 Jun",
+ "sumber": "Takwim cuti umum persekutuan 2027 (JPM/FMM + JAKIM e-solat); Hari Doktor Malaysia 10 Okt (FPMPAM sejak 2014); Hari Pembantu Perubatan 10 Mac (KKM); Hari Jururawat 12 Mei; Hari Guru 16 Mei; Hari Ibu = Ahad ke-2 Mei; Hari Bapa = Ahad ke-3 Jun",
  "perayaan": [
-  {"tarikh": "2026-12-25", "nama": "Hari Krismas & Tahun Baharu 2027", "jenis": "cuti_umum", "kad": true,
-   "nota": "Satu kad untuk kedua-duanya (25 Dis hingga 1 Jan). Pasang sekitar 15 Dis."},
-  {"tarikh": "2027-01-22", "nama": "Thaipusam", "jenis": "cuti_umum", "kad": false,
-   "nota": "Cuti di Johor, Kedah, N. Sembilan, Perak, Pulau Pinang, Selangor, KL, Putrajaya."},
-  {"tarikh": "2027-02-06", "nama": "Tahun Baru Cina", "jenis": "cuti_umum", "kad": true,
-   "nota": "Sambutan 6-7 Feb, cuti ganti 8 Feb. Kad ucapan + slaid kursus Februari."},
-  {"tarikh": "2027-03-10", "nama": "Hari Raya Aidilfitri", "jenis": "cuti_umum", "kad": true,
-   "nota": "10-11 Mac. Tertakluk pengisytiharan rasmi. Sahkan tarikh akhir Januari."},
-  {"tarikh": "2027-05-01", "nama": "Hari Pekerja", "jenis": "cuti_umum", "kad": false, "nota": ""},
-  {"tarikh": "2027-05-09", "nama": "Hari Ibu", "jenis": "sambutan", "kad": true,
-   "nota": "Ahad kedua Mei. Kad ucapan untuk ibu ahli dan keluarga."},
-  {"tarikh": "2027-05-17", "nama": "Hari Raya Haji (Qurban)", "jenis": "cuti_umum", "kad": false,
-   "nota": "17-18 Mei. Tertakluk pengisytiharan rasmi."},
-  {"tarikh": "2027-05-20", "nama": "Hari Wesak", "jenis": "cuti_umum", "kad": false, "nota": ""},
-  {"tarikh": "2027-05-30", "nama": "Pesta Kaamatan", "jenis": "cuti_umum", "kad": false,
-   "nota": "Sabah & Labuan, 30-31 Mei."},
-  {"tarikh": "2027-06-01", "nama": "Hari Gawai Dayak", "jenis": "cuti_umum", "kad": false,
-   "nota": "Sarawak, 1-2 Jun."},
-  {"tarikh": "2027-06-06", "nama": "Awal Muharram", "jenis": "cuti_umum", "kad": false,
-   "nota": "Tertakluk pengisytiharan rasmi."},
-  {"tarikh": "2027-06-07", "nama": "Keputeraan YDP Agong", "jenis": "cuti_umum", "kad": false, "nota": ""},
-  {"tarikh": "2027-06-20", "nama": "Hari Bapa", "jenis": "sambutan", "kad": true,
-   "nota": "Ahad ketiga Jun. Kad ucapan untuk bapa."},
-  {"tarikh": "2027-08-15", "nama": "Maulidur Rasul", "jenis": "cuti_umum", "kad": false,
-   "nota": "Tertakluk pengisytiharan rasmi."},
-  {"tarikh": "2027-08-31", "nama": "Hari Kebangsaan", "jenis": "cuti_umum", "kad": true,
-   "nota": "Kad ucapan Merdeka. Boleh gabung dengan Hari Malaysia (16 Sept)."},
-  {"tarikh": "2027-09-16", "nama": "Hari Malaysia", "jenis": "cuti_umum", "kad": true,
-   "nota": "Kad ucapan Hari Malaysia."},
-  {"tarikh": "2027-10-10", "nama": "Hari Doktor Malaysia", "jenis": "sambutan", "kad": true,
-   "nota": "Disambut 10 Oktober setiap tahun (FPMPAM sejak 2014). Kad ucapan untuk doktor - sangat relevan untuk MADOCS; elok ada ucapan Presiden."},
-  {"tarikh": "2027-10-28", "nama": "Deepavali", "jenis": "cuti_umum", "kad": true,
-   "nota": "Kad ucapan Deepavali (guna semula reka bentuk 2026, tukar tahun)."},
-  {"tarikh": "2027-12-25", "nama": "Hari Krismas & Tahun Baharu 2028", "jenis": "cuti_umum", "kad": true,
-   "nota": "Satu kad untuk kedua-duanya."}
+  {
+   "tarikh": "2026-12-25",
+   "nama": "Hari Krismas & Tahun Baharu 2027",
+   "kumpulan": "Perayaan",
+   "jenis": "cuti_umum",
+   "kad": true,
+   "nota": "Satu kad untuk kedua-duanya (25 Dis hingga 1 Jan). Pasang sekitar 15 Dis."
+  },
+  {
+   "tarikh": "2027-01-06",
+   "nama": "Israk dan Mikraj",
+   "kumpulan": "Islam",
+   "jenis": "sambutan",
+   "kad": false,
+   "nota": "Cuti di Kedah, N. Sembilan, Perlis, Terengganu. Tertakluk pengisytiharan rasmi."
+  },
+  {
+   "tarikh": "2027-01-22",
+   "nama": "Thaipusam",
+   "kumpulan": "Perayaan",
+   "jenis": "cuti_umum",
+   "kad": false,
+   "nota": "Cuti di Johor, Kedah, N. Sembilan, Perak, Pulau Pinang, Selangor, KL, Putrajaya."
+  },
+  {
+   "tarikh": "2027-02-06",
+   "nama": "Tahun Baru Cina",
+   "kumpulan": "Perayaan",
+   "jenis": "cuti_umum",
+   "kad": true,
+   "nota": "Sambutan 6-7 Feb, cuti ganti 8 Feb."
+  },
+  {
+   "tarikh": "2027-02-08",
+   "nama": "Awal Ramadan",
+   "kumpulan": "Islam",
+   "jenis": "sambutan",
+   "kad": true,
+   "nota": "1 Ramadan 1448. Kad ucapan bulan puasa; tertakluk pengisytiharan rasmi."
+  },
+  {
+   "tarikh": "2027-02-24",
+   "nama": "Nuzul Al-Quran",
+   "kumpulan": "Islam",
+   "jenis": "sambutan",
+   "kad": false,
+   "nota": "17 Ramadan 1448. Cuti di 10 negeri."
+  },
+  {
+   "tarikh": "2027-03-10",
+   "nama": "Hari Pembantu Perubatan",
+   "kumpulan": "Profesion",
+   "jenis": "sambutan",
+   "kad": true,
+   "nota": "10 Mac setiap tahun (KKM). Pada 2027 tarikhnya sama dengan Aidilfitri - kad Pembantu Perubatan boleh dipasang sebelum atau selepas raya."
+  },
+  {
+   "tarikh": "2027-03-10",
+   "nama": "Hari Raya Aidilfitri",
+   "kumpulan": "Islam",
+   "jenis": "cuti_umum",
+   "kad": true,
+   "nota": "10-11 Mac (1 Syawal 1448). Tertakluk pengisytiharan rasmi; sahkan akhir Januari."
+  },
+  {
+   "tarikh": "2027-05-01",
+   "nama": "Hari Pekerja",
+   "kumpulan": "Kebangsaan",
+   "jenis": "cuti_umum",
+   "kad": false,
+   "nota": ""
+  },
+  {
+   "tarikh": "2027-05-09",
+   "nama": "Hari Ibu",
+   "kumpulan": "Sambutan",
+   "jenis": "sambutan",
+   "kad": true,
+   "nota": "Ahad kedua Mei. Kad ucapan untuk ibu ahli dan keluarga."
+  },
+  {
+   "tarikh": "2027-05-12",
+   "nama": "Hari Jururawat",
+   "kumpulan": "Profesion",
+   "jenis": "sambutan",
+   "kad": true,
+   "nota": "12 Mei (Hari Jururawat Sedunia). Ucapan untuk jururawat - rakan kerja ahli MADOCS."
+  },
+  {
+   "tarikh": "2027-05-16",
+   "nama": "Hari Guru",
+   "kumpulan": "Sambutan",
+   "jenis": "sambutan",
+   "kad": true,
+   "nota": "16 Mei. Kad ucapan untuk guru (ahli yang juga pendidik dan keluarga ahli)."
+  },
+  {
+   "tarikh": "2027-05-17",
+   "nama": "Hari Raya Haji (Aidiladha)",
+   "kumpulan": "Islam",
+   "jenis": "cuti_umum",
+   "kad": true,
+   "nota": "17-18 Mei (10 Zulhijjah 1448). Tertakluk pengisytiharan rasmi."
+  },
+  {
+   "tarikh": "2027-05-20",
+   "nama": "Hari Wesak",
+   "kumpulan": "Perayaan",
+   "jenis": "cuti_umum",
+   "kad": false,
+   "nota": ""
+  },
+  {
+   "tarikh": "2027-05-30",
+   "nama": "Pesta Kaamatan",
+   "kumpulan": "Perayaan",
+   "jenis": "cuti_umum",
+   "kad": false,
+   "nota": "Sabah & Labuan, 30-31 Mei."
+  },
+  {
+   "tarikh": "2027-06-01",
+   "nama": "Hari Gawai Dayak",
+   "kumpulan": "Perayaan",
+   "jenis": "cuti_umum",
+   "kad": false,
+   "nota": "Sarawak, 1-2 Jun."
+  },
+  {
+   "tarikh": "2027-06-06",
+   "nama": "Awal Muharram (Maal Hijrah)",
+   "kumpulan": "Islam",
+   "jenis": "cuti_umum",
+   "kad": true,
+   "nota": "1 Muharram 1449. Tertakluk pengisytiharan rasmi."
+  },
+  {
+   "tarikh": "2027-06-07",
+   "nama": "Keputeraan YDP Agong",
+   "kumpulan": "Kebangsaan",
+   "jenis": "cuti_umum",
+   "kad": false,
+   "nota": ""
+  },
+  {
+   "tarikh": "2027-06-20",
+   "nama": "Hari Bapa",
+   "kumpulan": "Sambutan",
+   "jenis": "sambutan",
+   "kad": true,
+   "nota": "Ahad ketiga Jun. Kad ucapan untuk bapa."
+  },
+  {
+   "tarikh": "2027-08-15",
+   "nama": "Maulidur Rasul",
+   "kumpulan": "Islam",
+   "jenis": "cuti_umum",
+   "kad": true,
+   "nota": "12 Rabiulawal 1449. Tertakluk pengisytiharan rasmi."
+  },
+  {
+   "tarikh": "2027-08-31",
+   "nama": "Hari Kebangsaan",
+   "kumpulan": "Kebangsaan",
+   "jenis": "cuti_umum",
+   "kad": true,
+   "nota": "Kad ucapan Merdeka."
+  },
+  {
+   "tarikh": "2027-09-16",
+   "nama": "Hari Malaysia",
+   "kumpulan": "Kebangsaan",
+   "jenis": "cuti_umum",
+   "kad": true,
+   "nota": "Kad ucapan Hari Malaysia."
+  },
+  {
+   "tarikh": "2027-10-10",
+   "nama": "Hari Doktor Malaysia",
+   "kumpulan": "Profesion",
+   "jenis": "sambutan",
+   "kad": true,
+   "nota": "10 Oktober setiap tahun (FPMPAM sejak 2014). Elok ada ucapan Presiden."
+  },
+  {
+   "tarikh": "2027-10-28",
+   "nama": "Deepavali",
+   "kumpulan": "Perayaan",
+   "jenis": "cuti_umum",
+   "kad": true,
+   "nota": "Guna semula reka bentuk kad 2026, tukar tahun."
+  },
+  {
+   "tarikh": "2027-12-25",
+   "nama": "Hari Krismas & Tahun Baharu 2028",
+   "kumpulan": "Perayaan",
+   "jenis": "cuti_umum",
+   "kad": true,
+   "nota": "Satu kad untuk kedua-duanya."
+  },
+  {
+   "tarikh": "2027-12-26",
+   "nama": "Israk dan Mikraj",
+   "kumpulan": "Islam",
+   "jenis": "sambutan",
+   "kad": false,
+   "nota": "Cuti di Kedah, N. Sembilan, Perlis, Terengganu."
+  }
  ]
 }

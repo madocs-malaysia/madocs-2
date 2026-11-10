@@ -75,7 +75,7 @@ def mesej_perayaan(d, beza, p):
     baris = ['Peringatan perayaan: %s' % p['nama'],
              'Tarikh: %s' % tarikh_teks(d),
              'Lagi %d hari.' % beza if beza else 'Hari ini.']
-    if p.get('jenis') == 'sambutan':
+    if p.get('kumpulan') in ('Profesion', 'Sambutan') and p.get('jenis') == 'sambutan':
         baris.append('(Hari sambutan, bukan cuti umum.)')
     if p.get('kad'):
         baris.append('')
@@ -98,7 +98,8 @@ def main():
             print('Tiada perayaan dalam kalendar 400 hari akan datang.')
         for d, beza, p in datang:
             tanda = 'KAD' if p.get('kad') else '   '
-            print('%s  %-22s %s  %4d hari' % (tanda, p['nama'], tarikh_teks(d), beza))
+            print('%s  %-32s %s  %4d hari  [%s]'
+                  % (tanda, p['nama'], tarikh_teks(d), beza, p.get('kumpulan', '-')))
         return
 
     state = baca_state()
