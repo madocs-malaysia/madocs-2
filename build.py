@@ -1384,7 +1384,7 @@ def bina_organisasi():
 def bina_pendidikan():
     kursus = load("kursus.json")["kursus"]
     hari_ini = date.today()
-    akan = sorted([k for k in kursus if k.get("status") in ("open", "limited", "tentatif")], key=lambda k: k.get("tarikh") or "")
+    akan = sorted([k for k in kursus if k.get("status") in ("akan_datang", "open", "limited", "tentatif")], key=lambda k: k.get("tarikh") or "")
     lepas = sorted([k for k in kursus if k.get("status") in ("closed", "done", "batal")], key=lambda k: k.get("tarikh") or "", reverse=True)
     def senarai(items, kosong_teks=""):
         if not items:
