@@ -63,6 +63,7 @@ def _blok_kredensial(isi: str) -> str:
 GAMBAR_OG_LALAI = "/assets/og-madocs.jpg"
 OG_SAIZ = (1200, 630)
 
+STATUS_AKAN_DATANG = ("akan_datang", "open", "limited", "tentatif")   # satu sumber; jangan senaraikan semula di tempat lain
 STATUS_LABEL = {
     "akan_datang": ("Akan datang", "tentatif"),
     "tentatif": ("Tarikh tentatif", "tentatif"),
@@ -1050,7 +1051,7 @@ def bina_utama():
     hari_ini = date.today()
 
     akan_datang = sorted([k for k in kursus
-                          if k.get("status") in ("open", "limited", "tentatif")
+                          if k.get("status") in STATUS_AKAN_DATANG
                           and (parse_date(k.get("tarikh")) or hari_ini) >= hari_ini],
                          key=lambda k: k.get("tarikh") or "")
     lepas = sorted([k for k in kursus if k not in akan_datang],
@@ -1384,7 +1385,7 @@ def bina_organisasi():
 def bina_pendidikan():
     kursus = load("kursus.json")["kursus"]
     hari_ini = date.today()
-    akan = sorted([k for k in kursus if k.get("status") in ("akan_datang", "open", "limited", "tentatif")], key=lambda k: k.get("tarikh") or "")
+    akan = sorted([k for k in kursus if k.get("status") in STATUS_AKAN_DATANG], key=lambda k: k.get("tarikh") or "")
     lepas = sorted([k for k in kursus if k.get("status") in ("closed", "done", "batal")], key=lambda k: k.get("tarikh") or "", reverse=True)
     def senarai(items, kosong_teks=""):
         if not items:
@@ -3009,6 +3010,28 @@ def tulis_alihan():
 """ % ("en" if inggeris else "ms", tajuk, tuju, tuju, teks), encoding="utf-8")
 
 
+def semak_keterlihatan_kursus():
+    """Amaran jika kursus dalam data tidak muncul pada laman utama atau halaman pendidikan.
+
+    Bug 11 Nov 2026: status baharu 'akan_datang' tidak dimasukkan dalam penapis senarai,
+    jadi kursus wujud tetapi kadnya tersembunyi dan pelawat nampak 'Tiada kursus akan datang'.
+    """
+    hari_ini = date.today()
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    pend = ROOT / "pendidikan" / "index.html"
+    if pend.exists():
+        html += pend.read_text(encoding="utf-8")
+    hilang = []
+    for k in load("kursus.json")["kursus"]:
+        status = k.get("status")
+        if status == "batal":
+            continue          # kursus batal hanya disenaraikan sebagai rekod lepas, bukan tawaran
+        if "/pendidikan/%s/" % k["slug"] not in html:
+            hilang.append("%s (%s)" % (k["slug"], status))
+    if hilang:
+        print("AMARAN: kursus tiada pautan pada laman utama/pendidikan: %s" % ", ".join(hilang))
+
+
 def main():
     bina_fail_statik()
     bina_utama()
@@ -3043,6 +3066,7 @@ def main():
     bersih_halaman_sisa()
     tulis_alihan()
     cap_versi()
+    semak_keterlihatan_kursus()
 
     if "--report" in sys.argv:
         print("\n=== KANDUNGAN YANG MASIH DIPERLUKAN (%d) ===" % len(KURANG))
