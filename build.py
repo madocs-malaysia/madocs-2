@@ -64,6 +64,7 @@ GAMBAR_OG_LALAI = "/assets/og-madocs.jpg"
 OG_SAIZ = (1200, 630)
 
 STATUS_LABEL = {
+    "akan_datang": ("Akan datang", "tentatif"),
     "tentatif": ("Tarikh tentatif", "tentatif"),
     "open": ("Pendaftaran dibuka", "open"),
     "limited": ("Kerusi terhad", "limited"),
@@ -746,7 +747,7 @@ def kad_kursus(k, keutamaan=False):
     {f'<div class="tags">{tag}</div>' if tag else ''}
     <div class="course-actions">
       <a class="small-btn filled" href="/pendidikan/{esc(k['slug'])}/" style="display:inline-flex;align-items:center;text-decoration:none">Lihat kursus</a>
-      {'<a class="small-btn" href="%s" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;text-decoration:none">Daftar</a>' % esc(k['daftar_url']) if k.get('daftar_url') else '<a class="small-btn" href="/hubungi/" style="display:inline-flex;align-items:center;text-decoration:none">Daftar</a>'}
+      {'<a class="small-btn" href="%s" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;text-decoration:none">Daftar</a>' % esc(k['daftar_url']) if k.get('daftar_url') else ''}
     </div>
   </div>
 </article>"""
@@ -2984,6 +2985,8 @@ def bersih_halaman_sisa():
 ALIH = {
     "galeri/mesyuarat-ajk-okt-2026/index.html": "/galeri/mesyuarat-ajk-2026/",
     "en/gallery/mesyuarat-ajk-okt-2026/index.html": "/en/gallery/mesyuarat-ajk-2026/",
+    "pendidikan/ccc9-masjid-putrajaya/index.html": "/pendidikan/ccc9-bandar-tun-razak/",
+    "en/education/ccc9-masjid-putrajaya/index.html": "/en/education/ccc9-bandar-tun-razak/",
 }
 
 
