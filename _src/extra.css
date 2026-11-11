@@ -1824,3 +1824,10 @@ a.chip-peta:hover{background:#fdf3f5;border-color:#dfbcc4;text-decoration:none}
   .listing .item-meta.sebaris time,
   .listing .item-meta.sebaris .meta-peta{white-space:normal;overflow-wrap:anywhere}
 }
+
+/* Kad kursus di laman utama: butang aksi absolute menindih baris terakhir fakta pada telefon.
+   Beri ruang bawah supaya tiada teks tertutup. */
+@media (max-width:640px){
+  .course-feature .course-info{padding-bottom:66px}
+}
+
