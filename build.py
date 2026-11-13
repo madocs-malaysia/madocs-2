@@ -1156,7 +1156,7 @@ def bina_utama():
       <h2>Memajukan Amalan Berkhatan Selamat di Malaysia</h2>
       <p>Memperkasa pengamal perubatan melalui pendidikan, latihan klinikal berstruktur, pembangunan profesional dan amalan khatan yang selamat.</p>
       <div class="hero-buttons">
-        <a href="/pendidikan/" class="btn btn-primary">{icon('book-open')} Lihat kursus</a>
+        <a href="{('/pendidikan/%s/' % akan_datang[0]['slug']) if akan_datang else '/pendidikan/'}" class="btn btn-primary">{icon('book-open')} Lihat kursus</a>
         <a href="/keahlian/sertai/" class="btn btn-outline">Sertai MADOCS</a>
       </div>
     </div>

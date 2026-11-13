@@ -42,6 +42,12 @@ GAMBAR = [
 POSTER = {'2026-11-24-cme-tissue-adhesive', '2026-10-27-promosi-keahlian-seumur-hidup-2026',
           '2026-11-13-ccc9-pendaftaran-dibuka'}
 
+# Berita yang imej hero-nya direka penuh oleh alat lain (jangan jana semula di sini).
+SIAP_BERITA = {'2026-11-13-ccc9-pendaftaran-dibuka'}
+
+# Berita yang kad teksnya tidak dipaparkan: reka bentuk hero sudah mengandungi tajuk + CTA.
+TANPA_KAD = {'2026-11-13-ccc9-pendaftaran-dibuka'}
+
 # Slaid berita yang dipin di hadapan roulette (promosi aktif).
 PIN = ('2026-11-13-ccc9-pendaftaran-dibuka',)
 
@@ -148,12 +154,22 @@ def main():
             print('berita tanpa gambar dilangkau:', b['slug'])
             continue
         nama = 'berita-' + b['slug']
-        im = Image.open(os.path.join(AKAR, g)).convert('RGB')
         poster = b['slug'] in POSTER
-        for saiz, akhiran in ((TELEFON, 'telefon'), (BESAR, 'besar')):
-            out = slaid_poster(im, saiz) if poster else potong(im, saiz, 0.40)
-            out.save(os.path.join(hero_dir, '%s-%s.webp' % (nama, akhiran)), 'WEBP', quality=82, method=6)
-        slaid_berita.append({'jenis': 'berita',
+        if b['slug'] in SIAP_BERITA:
+            print('berita %-40s kad direka penuh (kekal)' % b['slug'][:40])
+        else:
+            im = Image.open(os.path.join(AKAR, g)).convert('RGB')
+            for saiz, akhiran in ((TELEFON, 'telefon'), (BESAR, 'besar')):
+                out = slaid_poster(im, saiz) if poster else potong(im, saiz, 0.40)
+                out.save(os.path.join(hero_dir, '%s-%s.webp' % (nama, akhiran)), 'WEBP', quality=82, method=6)
+        if b['slug'] in TANPA_KAD:
+            slaid_berita.append({'jenis': 'imej', 'slug': b['slug'],
+                                 'besar': 'assets/hero/%s-besar.webp' % nama,
+                                 'telefon': 'assets/hero/%s-telefon.webp' % nama,
+                                 'alt': b.get('gambar_alt') or b['tajuk']})
+            print('berita %-40s imej tanpa kad' % b['slug'][:40])
+            continue
+        slaid_berita.append({'jenis': 'berita', 'slug': b['slug'],
                              'besar': 'assets/hero/%s-besar.webp' % nama,
                              'telefon': 'assets/hero/%s-telefon.webp' % nama,
                              'alt': b.get('gambar_alt') or b.get('tajuk'),
@@ -171,7 +187,7 @@ def main():
             susunan.append(slaid_berita[bi]); bi += 1
 
     # Slaid yang dipin naik ke hadapan supaya promosi aktif jadi slaid pertama.
-    hadapan = [s for s in susunan if s.get('pautan', '').strip('/').split('/')[-1] in PIN]
+    hadapan = [s for s in susunan if s.get('slug') in PIN]
     susunan = hadapan + [s for s in susunan if s not in hadapan]
 
     data = {

@@ -3,13 +3,11 @@
  "selang_saat": 6,
  "slaid": [
   {
-   "jenis": "berita",
+   "jenis": "imej",
+   "slug": "2026-11-13-ccc9-pendaftaran-dibuka",
    "besar": "assets/hero/berita-2026-11-13-ccc9-pendaftaran-dibuka-besar.webp",
    "telefon": "assets/hero/berita-2026-11-13-ccc9-pendaftaran-dibuka-telefon.webp",
-   "alt": "Poster Comprehensive Circumcision Course 9 (CCC 9), 13 Disember 2026, Masjid Saidina Uthman Ibn Affan, Bandar Tun Razak",
-   "tajuk": "CCC 9: Pendaftaran Dibuka",
-   "kicker": "Kursus",
-   "pautan": "/berita/2026-11-13-ccc9-pendaftaran-dibuka/"
+   "alt": "Poster Comprehensive Circumcision Course 9 (CCC 9), 13 Disember 2026, Masjid Saidina Uthman Ibn Affan, Bandar Tun Razak"
   },
   {
    "jenis": "imej",
@@ -25,6 +23,7 @@
   },
   {
    "jenis": "berita",
+   "slug": "2026-10-27-promosi-keahlian-seumur-hidup-2026",
    "besar": "assets/hero/berita-2026-10-27-promosi-keahlian-seumur-hidup-2026-besar.webp",
    "telefon": "assets/hero/berita-2026-10-27-promosi-keahlian-seumur-hidup-2026-telefon.webp",
    "alt": "Poster Promosi Keahlian Seumur Hidup MADOCS 2026",
@@ -40,6 +39,7 @@
   },
   {
    "jenis": "berita",
+   "slug": "2026-11-24-cme-tissue-adhesive",
    "besar": "assets/hero/berita-2026-11-24-cme-tissue-adhesive-besar.webp",
    "telefon": "assets/hero/berita-2026-11-24-cme-tissue-adhesive-telefon.webp",
    "alt": "Poster webinar CME Beyond the Conventional Clamp, The Role of Tissue Adhesives in Pediatric Circumcision, 24 November 2026, Teams Webinar, anjuran PERDIM dan MADOCS",
