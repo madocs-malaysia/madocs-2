@@ -1591,6 +1591,15 @@ def bina_kursus_detail(k):
                                          "location": {"@type": "Place", "name": k.get("tempat", ""),
                                                       "address": {"@type": "PostalAddress", "addressCountry": "MY"}}}})
 
+    borang = ""
+    if k.get("borang_embed") and not selesai:
+        borang = f"""<div class="card" id="daftar">
+        <h2>Borang pendaftaran</h2>
+        <p class="nota-isi">Isi borang di bawah untuk mendaftar. Borang ini memerlukan akaun Google. Kalau borang tidak muncul, buka dalam tab baharu.</p>
+        <div class="borang-embed"><iframe src="{esc(k['borang_embed'])}" title="Borang pendaftaran {esc(k.get('kod',''))}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        {f'<p style="margin-top:14px"><a class="btn btn-outline" href="{esc(k["daftar_url"])}" target="_blank" rel="noopener">Buka borang dalam tab baharu</a></p>' if k.get("daftar_url") else ''}
+      </div>"""
+
     isi = page_hero([("Utama", "/"), ("Pendidikan & Latihan", "/pendidikan/"), (k["kod"], None)],
                     k["tajuk"], k.get("ringkas", "")) + f"""
 <section class="content-wrap">
@@ -1614,6 +1623,7 @@ def bina_kursus_detail(k):
           {f'<a class="btn btn-outline" href="{kal}" target="_blank" rel="noopener">{icon("calendar-days")} TAMBAH KE KALENDAR</a>' if kal else ''}
         </div>
       </div>
+      {borang}
       {kaitan_html}
     </div>
     <aside class="side">

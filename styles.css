@@ -1834,5 +1834,10 @@ a.chip-peta:hover{background:#fdf3f5;border-color:#dfbcc4;text-decoration:none}
   .course-feature .course-info{padding-bottom:66px}
 }
 
+/* Borang pendaftaran (Google Forms) yang dibenamkan dalam halaman kursus. */
+.borang-embed{margin-top:16px;border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#fff}
+.borang-embed iframe{display:block;width:100%;min-height:1250px;border:0}
+@media (max-width:640px){.borang-embed iframe{min-height:1500px}}
+
 
 .ikon-ganti{display:inline-block;width:1em;height:1em}

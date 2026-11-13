@@ -36,7 +36,7 @@
       "kod": "CCC 9",
       "tajuk": "Kursus Komprehensif Berkhatan (CCC 9)",
       "kategori": "Kursus Komprehensif",
-      "ringkas": "CCC 9 berlangsung pada Ahad, 13 Disember 2026 di Masjid Saidina Uthman Ibn Affan, Bandar Tun Razak. Empat kaedah ditawarkan; setiap peserta memilih satu dan melaksanakan dua kes.",
+      "ringkas": "CCC 9 berlangsung pada Ahad, 13 Disember 2026 di Masjid Saidina Uthman Ibn Affan, Bandar Tun Razak. Empat kaedah: forceps-guided, Smart Clamp, Tekno Klem dan ZSR Stapler. Setiap peserta memilih satu kaedah dan melaksanakan dua kes amali.",
       "gambar": "assets/kursus-ccc9-dewan.webp",
       "gambar_alt": "Peserta kursus komprehensif MADOCS mengikuti sesi kuliah di dalam dewan",
       "tarikh": "2026-12-13",
@@ -48,21 +48,24 @@
       "sasaran": "Doktor Perubatan",
       "objektif": [],
       "rangka": [],
-      "yuran": "",
-      "yuran_ahli": "",
+      "yuran": "RM900 – RM1,500 mengikut kaedah",
+      "yuran_ahli": "RM850 – RM1,450 mengikut kaedah",
       "yuran_bukan_ahli": "",
       "tutup_daftar": "",
       "kapasiti": "10 peserta setiap kaedah",
-      "status": "akan_datang",
-      "daftar_url": "",
+      "status": "open",
+      "daftar_url": "https://forms.gle/mwczM9uWyeiSg89h7",
       "kandungan": [
-        "CCC 9 akan diadakan pada Ahad, 13 Disember 2026, dari 8.00 pagi hingga 5.00 petang, di Masjid Saidina Uthman Ibn Affan, Jalan Budiman, Bandar Tun Razak, Cheras. Dewan utamanya boleh memuatkan 200 peserta gaya kelas, dan terdapat dua bilik tambahan untuk sesi amali.",
-        "Empat kaedah berkhatan ditawarkan: forceps-guided, clamp (Smart Clamp), glue (Tekno Klem) dan stapler (Touch Stone). Setiap peserta memilih satu kaedah dan wajib melaksanakan dua kes.",
-        "Setiap kaedah terhad kepada 10 peserta. Jumlah keseluruhan ialah 100 kes, termasuk empat kes demonstrasi.",
-        "Yuran dan cara pendaftaran akan dimaklumkan kelak."
+        "CCC 9 akan diadakan pada Ahad, 13 Disember 2026, dari 8.00 pagi hingga 5.00 petang, di Masjid Saidina Uthman Ibn Affan, Jalan Budiman, Bandar Tun Razak, Cheras.",
+        "Empat kaedah ditawarkan: forceps-guided, Smart Clamp (kaedah clamp), Tekno Klem (kaedah glue) dan ZSR Stapler (kaedah stapler). Setiap peserta memilih satu kaedah dan melaksanakan dua kes amali dalam kaedah itu.",
+        "Yuran termasuk kuliah, makan, dan dua kes amali. Kadar peserta: Forceps-guided RM900 (ahli MADOCS RM850) · Smart Clamp RM970 (RM920) · Tekno Klem RM1,030 (RM980) · ZSR Stapler RM1,500 (RM1,450).",
+        "Mata CPD akan diberikan. Setiap kaedah terhad kepada 10 peserta — daftar awal untuk memastikan tempat.",
+        "Bayaran ke akaun Maybank 5629 9102 8408 (Malaysian Doctors of Circumcision Society).",
+        "CCC 9 dianjurkan oleh MADOCS dengan sokongan Nano Medic Care Sdn Bhd."
       ],
       "gambar_kredit": "Foto program MADOCS terdahulu (CCC6, Hotel Maluri Cheras, 2025) — bukan gambar CCC9.",
-      "nota_status": "Tarikh dan tempat telah disahkan. Yuran dan pendaftaran akan diumumkan kemudian."
+      "nota_status": "Pendaftaran dibuka. Tempat terhad kepada 10 peserta setiap kaedah.",
+      "borang_embed": "https://docs.google.com/forms/d/e/1FAIpQLScenzbnbo9Qi58JvLgZz_lAAnPtpKuI7eKnTCi6ActLzYmmOQ/viewform?embedded=true"
     }
   ]
 }
