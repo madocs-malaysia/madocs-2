@@ -3,10 +3,25 @@
  "selang_saat": 6,
  "slaid": [
   {
+   "jenis": "berita",
+   "besar": "assets/hero/berita-2026-11-13-ccc9-pendaftaran-dibuka-besar.webp",
+   "telefon": "assets/hero/berita-2026-11-13-ccc9-pendaftaran-dibuka-telefon.webp",
+   "alt": "Poster Comprehensive Circumcision Course 9 (CCC 9), 13 Disember 2026, Masjid Saidina Uthman Ibn Affan, Bandar Tun Razak",
+   "tajuk": "CCC 9: Pendaftaran Dibuka",
+   "kicker": "Kursus",
+   "pautan": "/berita/2026-11-13-ccc9-pendaftaran-dibuka/"
+  },
+  {
    "jenis": "imej",
-   "besar": "assets/hero/ucapan-deepavali-besar.webp",
-   "telefon": "assets/hero/ucapan-deepavali-telefon.webp",
-   "alt": "Kad ucapan Selamat Hari Deepavali daripada Presiden dan Ahli Jawatankuasa MADOCS"
+   "besar": "assets/hero/garis-panduan-besar.webp",
+   "telefon": "assets/hero/garis-panduan-telefon.webp",
+   "alt": "Stand pelancaran Buku Garis Panduan Berkhatan (Lelaki) 2026 di majlis pelancaran rasmi Kementerian Kesihatan Malaysia"
+  },
+  {
+   "jenis": "imej",
+   "besar": "assets/hero/ahli-agm-besar.webp",
+   "telefon": "assets/hero/ahli-agm-telefon.webp",
+   "alt": "Ahli dan Ahli Jawatankuasa MADOCS bergambar bersama sepanduk MALAYSIAN DOCTORS OF CIRCUMCISION SOCIETY pada Mesyuarat Agung Tahunan Ke-4, 2026"
   },
   {
    "jenis": "berita",
@@ -19,9 +34,9 @@
   },
   {
    "jenis": "imej",
-   "besar": "assets/hero/garis-panduan-besar.webp",
-   "telefon": "assets/hero/garis-panduan-telefon.webp",
-   "alt": "Stand pelancaran Buku Garis Panduan Berkhatan (Lelaki) 2026 di majlis pelancaran rasmi Kementerian Kesihatan Malaysia"
+   "besar": "assets/hero/peserta-kursus-besar.webp",
+   "telefon": "assets/hero/peserta-kursus-telefon.webp",
+   "alt": "Peserta dan fasilitator kursus Privileging Course for Circumcision (Dorsal Slit) Part 2 bergambar bersama sepanduk kursus di The Katerina Hotel, Batu Pahat"
   },
   {
    "jenis": "berita",
@@ -31,18 +46,6 @@
    "tajuk": "Ceramah CME oleh Presiden MADOCS",
    "kicker": "CME",
    "pautan": "/berita/2026-11-24-cme-tissue-adhesive/"
-  },
-  {
-   "jenis": "imej",
-   "besar": "assets/hero/ahli-agm-besar.webp",
-   "telefon": "assets/hero/ahli-agm-telefon.webp",
-   "alt": "Ahli dan Ahli Jawatankuasa MADOCS bergambar bersama sepanduk MALAYSIAN DOCTORS OF CIRCUMCISION SOCIETY pada Mesyuarat Agung Tahunan Ke-4, 2026"
-  },
-  {
-   "jenis": "imej",
-   "besar": "assets/hero/peserta-kursus-besar.webp",
-   "telefon": "assets/hero/peserta-kursus-telefon.webp",
-   "alt": "Peserta dan fasilitator kursus Privileging Course for Circumcision (Dorsal Slit) Part 2 bergambar bersama sepanduk kursus di The Katerina Hotel, Batu Pahat"
   },
   {
    "jenis": "imej",

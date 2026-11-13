@@ -20,8 +20,6 @@ SELANG = 6
 
 # Gambar prosedur/klinikal (bukan berita). Fokus menegak 0=puncak 1=dasar.
 GAMBAR = [
-    ('assets/ucapan-deepavali-2026.jpg', 'ucapan-deepavali', 0.45,
-     'Kad ucapan Selamat Hari Deepavali daripada Presiden dan Ahli Jawatankuasa MADOCS'),
     ('assets/galeri/pelancaran-2026/06.webp', 'garis-panduan', 0.42,
      'Stand pelancaran Buku Garis Panduan Berkhatan (Lelaki) 2026 di majlis pelancaran rasmi Kementerian Kesihatan Malaysia'),
     ('assets/berita-agm-2026-kumpulan.webp', 'ahli-agm', 0.45,
@@ -41,7 +39,11 @@ GAMBAR = [
 ]
 
 # Berita yang gambarnya poster menegak: dipaparkan sebagai kad pada latar gelap.
-POSTER = {'2026-11-24-cme-tissue-adhesive', '2026-10-27-promosi-keahlian-seumur-hidup-2026'}
+POSTER = {'2026-11-24-cme-tissue-adhesive', '2026-10-27-promosi-keahlian-seumur-hidup-2026',
+          '2026-11-13-ccc9-pendaftaran-dibuka'}
+
+# Slaid berita yang dipin di hadapan roulette (promosi aktif).
+PIN = ('2026-11-13-ccc9-pendaftaran-dibuka',)
 
 # Gambar berkumpulan: jangan potong sesiapa. Paparkan penuh di atas latar kabur.
 PENUH = {'ahli-agm', 'peserta-kursus', 'garis-panduan'}
@@ -92,11 +94,21 @@ def slaid_poster(im, saiz):
     latar = potong(im, saiz, 0.35).filter(ImageFilter.GaussianBlur(38))
     latar = Image.blend(latar, Image.new('RGB', saiz, '#2c0308'), 0.55)
 
-    tinggi = int(lh * 0.78)
-    lebar = int(im.width * tinggi / im.height)
-    poster = im.resize((lebar, tinggi), Image.LANCZOS)
-    x = int(lw * 0.05)
-    y = (lh - tinggi) // 2
+    # Telefon: kad teks berita berada di bawah (top ~328px), jadi poster mesti
+    # kekal di bahagian atas dan lebih kecil supaya tidak tertutup.
+    if saiz == TELEFON:
+        tinggi = int(lh * 0.60)
+        lebar = int(im.width * tinggi / im.height)
+        poster = im.resize((lebar, tinggi), Image.LANCZOS)
+        x = (lw - lebar) // 2
+        y = int(lh * 0.02)
+    else:
+        tinggi = int(lh * 0.70)
+        lebar = int(im.width * tinggi / im.height)
+        poster = im.resize((lebar, tinggi), Image.LANCZOS)
+        # Tengah imej: CSS hero memotong tepi kiri/kanan (object-fit:cover).
+        x = (lw - lebar) // 2
+        y = (lh - tinggi) // 2
 
     bayang = Image.new('RGBA', saiz, (0, 0, 0, 0))
     ImageDraw.Draw(bayang).rectangle(
@@ -157,6 +169,10 @@ def main():
             susunan.append(slaid_gambar[gi]); gi += 1
         if bi < len(slaid_berita):
             susunan.append(slaid_berita[bi]); bi += 1
+
+    # Slaid yang dipin naik ke hadapan supaya promosi aktif jadi slaid pertama.
+    hadapan = [s for s in susunan if s.get('pautan', '').strip('/').split('/')[-1] in PIN]
+    susunan = hadapan + [s for s in susunan if s not in hadapan]
 
     data = {
         'cara_edit': ('Dijana oleh alat/bina_hero.py — jangan edit dengan tangan. Gambar prosedur '

@@ -1,39 +1,56 @@
 {
- "cara_edit": "Berita/pengumuman. 'kandungan' ialah senarai perenggan. Setiap berita boleh ada beberapa perenggan. DRAF: teks ini ditulis oleh urusetia teknikal berdasarkan tarikh/tempat peristiwa, jawatankuasa dinasihatkan menyemak dan menambah butiran sebelum dihebahkan.",
- "berita": [
-  {
-   "slug": "2026-10-27-promosi-keahlian-seumur-hidup-2026",
-   "tajuk": "Promosi Keahlian Seumur Hidup 2026",
-   "tarikh": "2026-10-27",
-   "kategori": "Pengumuman",
-   "penulis": "Urusetia MADOCS",
-   "ringkas": "Yuran keahlian seumur hidup dikurangkan daripada RM1,000 kepada RM900 sepanjang tempoh promosi 2026, terbuka kepada ahli baharu dan ahli sedia ada yang ingin menaik taraf.",
-   "kandungan": [
-    "Ahli Jawatankuasa MADOCS menetapkan Promosi Keahlian Seumur Hidup bagi tahun 2026. Sepanjang tempoh promosi, yuran keahlian seumur hidup dikurangkan daripada RM1,000 kepada RM900.",
-    "Tawaran ini terbuka kepada dua kumpulan: doktor yang baru menyertai MADOCS sebagai Ahli Seumur Hidup, dan ahli sedia ada yang ingin menaik taraf daripada keahlian tahunan kepada keahlian seumur hidup. Yuran pendaftaran RM100 dikenakan bagi pendaftaran baharu.",
-    "Bayaran boleh dibuat ke akaun MALAYSIAN DOCTORS OF CIRCUMCISION SOCIETY, Maybank 562991028408. Sila pastikan nama akaun tepat sebelum membayar; MADOCS tidak pernah meminta bayaran ke akaun peribadi individu.",
-    "Hantar bukti pembayaran kepada urusetia untuk melengkapkan pendaftaran anda. Butiran penuh kategori, yuran dan proses permohonan terdapat di halaman Keahlian."
-   ],
-   "gambar": "assets/promosi-life-membership-2026.webp",
-   "gambar_alt": "Poster Promosi Keahlian Seumur Hidup MADOCS 2026"
-  },
-  {
-   "slug": "2026-11-24-cme-tissue-adhesive",
-   "tajuk": "Ceramah CME oleh Presiden MADOCS",
-   "tarikh": "2026-11-24",
-   "kategori": "CME",
-   "penulis": "Urusetia MADOCS",
-   "ringkas": "Dr Abdol Rashid bin Masrom dijemput membentangkan penggunaan pelekat tisu (tissue adhesive) dalam berkhatan pediatrik pada webinar CME bersama PERDIM, 24 November 2026, 2.00-3.00 petang.",
-   "kandungan": [
-    "Presiden MADOCS, Dr Abdol Rashid bin Masrom, dijemput menyampaikan ceramah CME bertajuk \"Beyond the Conventional Clamp, The Role of Tissue Adhesives in Pediatric Circumcision\". Sesi ini dianjurkan bersama Pertubuhan Doktor-Doktor Islam Malaysia (PERDIM) dan MADOCS.",
-    "Ceramah akan diadakan pada 24 November 2026 (Selasa), 2.00 hingga 3.00 petang, secara dalam talian melalui Teams Webinar. Sesi ini terbuka kepada doktor dan pengamal perubatan yang berminat dengan perkembangan teknik berkhatan pediatrik.",
-    "Sesi ini menyediakan 1 mata CPD. Penyertaan akan direkodkan oleh penganjur bersama PERDIM dan MADOCS.",
-    "MADOCS mengucapkan terima kasih kepada Presiden dan Ahli Jawatankuasa PERDIM kerana bersetuju menjemput Presiden MADOCS, dan kepada Asumed Biotech selaku penaja program.",
-    "Untuk mendaftar minat, imbas kod QR pada poster atau hubungi urusetia MADOCS. Sesi akan dijalankan dalam bahasa Inggeris."
-   ],
-   "gambar": "assets/berita-2026-11-24-cme-tissue-adhesive.webp",
-   "gambar_alt": "Poster webinar CME Beyond the Conventional Clamp, The Role of Tissue Adhesives in Pediatric Circumcision, 24 November 2026, Teams Webinar, anjuran PERDIM dan MADOCS",
-   "tempat": "Dalam talian"
-  }
- ]
+  "cara_edit": "Berita/pengumuman. 'kandungan' ialah senarai perenggan. Setiap berita boleh ada beberapa perenggan. DRAF: teks ini ditulis oleh urusetia teknikal berdasarkan tarikh/tempat peristiwa, jawatankuasa dinasihatkan menyemak dan menambah butiran sebelum dihebahkan.",
+  "berita": [
+    {
+      "slug": "2026-11-13-ccc9-pendaftaran-dibuka",
+      "tajuk": "CCC 9: Pendaftaran Dibuka",
+      "tarikh": "2026-11-13",
+      "kategori": "Kursus",
+      "penulis": "Urusetia MADOCS",
+      "ringkas": "Pendaftaran Comprehensive Circumcision Course 9 (CCC 9) dibuka. Ahad 13 Disember 2026, Masjid Saidina Uthman Ibn Affan, Bandar Tun Razak. Empat kaedah, 10 tempat setiap kaedah.",
+      "kandungan": [
+        "MADOCS membuka pendaftaran Comprehensive Circumcision Course 9 (CCC 9) yang akan berlangsung pada Ahad, 13 Disember 2026, dari 8.00 pagi hingga 5.00 petang, di Masjid Saidina Uthman Ibn Affan, Jalan Budiman, Bandar Tun Razak, Cheras.",
+        "Empat kaedah ditawarkan: forceps-guided, Smart Clamp (clamp), Tekno Klem (glue) dan ZSR Stapler (stapler). Setiap peserta memilih satu kaedah dan melaksanakan dua kes amali dalam kaedah itu. Kuliah, makan dan dua kes amali termasuk dalam yuran, dan mata CPD akan diberikan.",
+        "Yuran peserta: Forceps-guided RM900 (ahli MADOCS RM850) · Smart Clamp RM970 (RM920) · Tekno Klem RM1,030 (RM980) · ZSR Stapler RM1,500 (RM1,450).",
+        "Setiap kaedah terhad kepada 10 peserta. Pendaftaran dibuat melalui borang Google Forms di https://forms.gle/mwczM9uWyeiSg89h7, dan butiran penuh terdapat di halaman kursus.",
+        "Bayaran ke akaun Maybank 5629 9102 8408 (Malaysian Doctors of Circumcision Society). CCC 9 dianjurkan oleh MADOCS dengan sokongan Nano Medic Care Sdn Bhd."
+      ],
+      "gambar": "assets/ccc9-poster-2026.webp",
+      "gambar_alt": "Poster Comprehensive Circumcision Course 9 (CCC 9), 13 Disember 2026, Masjid Saidina Uthman Ibn Affan, Bandar Tun Razak"
+    },
+    {
+      "slug": "2026-10-27-promosi-keahlian-seumur-hidup-2026",
+      "tajuk": "Promosi Keahlian Seumur Hidup 2026",
+      "tarikh": "2026-10-27",
+      "kategori": "Pengumuman",
+      "penulis": "Urusetia MADOCS",
+      "ringkas": "Yuran keahlian seumur hidup dikurangkan daripada RM1,000 kepada RM900 sepanjang tempoh promosi 2026, terbuka kepada ahli baharu dan ahli sedia ada yang ingin menaik taraf.",
+      "kandungan": [
+        "Ahli Jawatankuasa MADOCS menetapkan Promosi Keahlian Seumur Hidup bagi tahun 2026. Sepanjang tempoh promosi, yuran keahlian seumur hidup dikurangkan daripada RM1,000 kepada RM900.",
+        "Tawaran ini terbuka kepada dua kumpulan: doktor yang baru menyertai MADOCS sebagai Ahli Seumur Hidup, dan ahli sedia ada yang ingin menaik taraf daripada keahlian tahunan kepada keahlian seumur hidup. Yuran pendaftaran RM100 dikenakan bagi pendaftaran baharu.",
+        "Bayaran boleh dibuat ke akaun MALAYSIAN DOCTORS OF CIRCUMCISION SOCIETY, Maybank 562991028408. Sila pastikan nama akaun tepat sebelum membayar; MADOCS tidak pernah meminta bayaran ke akaun peribadi individu.",
+        "Hantar bukti pembayaran kepada urusetia untuk melengkapkan pendaftaran anda. Butiran penuh kategori, yuran dan proses permohonan terdapat di halaman Keahlian."
+      ],
+      "gambar": "assets/promosi-life-membership-2026.webp",
+      "gambar_alt": "Poster Promosi Keahlian Seumur Hidup MADOCS 2026"
+    },
+    {
+      "slug": "2026-11-24-cme-tissue-adhesive",
+      "tajuk": "Ceramah CME oleh Presiden MADOCS",
+      "tarikh": "2026-11-24",
+      "kategori": "CME",
+      "penulis": "Urusetia MADOCS",
+      "ringkas": "Dr Abdol Rashid bin Masrom dijemput membentangkan penggunaan pelekat tisu (tissue adhesive) dalam berkhatan pediatrik pada webinar CME bersama PERDIM, 24 November 2026, 2.00-3.00 petang.",
+      "kandungan": [
+        "Presiden MADOCS, Dr Abdol Rashid bin Masrom, dijemput menyampaikan ceramah CME bertajuk \"Beyond the Conventional Clamp, The Role of Tissue Adhesives in Pediatric Circumcision\". Sesi ini dianjurkan bersama Pertubuhan Doktor-Doktor Islam Malaysia (PERDIM) dan MADOCS.",
+        "Ceramah akan diadakan pada 24 November 2026 (Selasa), 2.00 hingga 3.00 petang, secara dalam talian melalui Teams Webinar. Sesi ini terbuka kepada doktor dan pengamal perubatan yang berminat dengan perkembangan teknik berkhatan pediatrik.",
+        "Sesi ini menyediakan 1 mata CPD. Penyertaan akan direkodkan oleh penganjur bersama PERDIM dan MADOCS.",
+        "MADOCS mengucapkan terima kasih kepada Presiden dan Ahli Jawatankuasa PERDIM kerana bersetuju menjemput Presiden MADOCS, dan kepada Asumed Biotech selaku penaja program.",
+        "Untuk mendaftar minat, imbas kod QR pada poster atau hubungi urusetia MADOCS. Sesi akan dijalankan dalam bahasa Inggeris."
+      ],
+      "gambar": "assets/berita-2026-11-24-cme-tissue-adhesive.webp",
+      "gambar_alt": "Poster webinar CME Beyond the Conventional Clamp, The Role of Tissue Adhesives in Pediatric Circumcision, 24 November 2026, Teams Webinar, anjuran PERDIM dan MADOCS",
+      "tempat": "Dalam talian"
+    }
+  ]
 }
