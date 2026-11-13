@@ -40,14 +40,63 @@
       "gambar": "assets/kursus-ccc9-dewan.webp",
       "gambar_alt": "Peserta kursus komprehensif MADOCS mengikuti sesi kuliah di dalam dewan",
       "tarikh": "2026-12-13",
-      "masa_mula": "08:00",
-      "masa_tamat": "17:00",
+      "masa_mula": "07:30",
+      "masa_tamat": "16:00",
       "tempat": "Masjid Saidina Uthman Ibn Affan, Bandar Tun Razak, Cheras",
       "penganjur": "MADOCS",
       "fakulti": "",
       "sasaran": "Doktor Perubatan",
-      "objektif": [],
-      "rangka": [],
+      "objektif": [
+        "Memahami perbandingan kaedah berkhatan berasaskan peranti: forceps-guided, clamp, glue dan stapler.",
+        "Menguasai langkah prosedur dan pemilihan peranti yang sesuai untuk setiap kaedah.",
+        "Melaksanakan dua kes amali di bawah penyeliaan fasilitator bertauliah."
+      ],
+      "rangka": [
+        {
+          "masa": "07:30–08:00",
+          "slot": "Pendaftaran peserta, staf, penceramah dan tetamu"
+        },
+        {
+          "masa": "08:00–08:15",
+          "slot": "Ucapan perasmian dan taklimat program — Dr Abdol Rashid Masrom"
+        },
+        {
+          "masa": "08:15–09:00",
+          "slot": "Overview of Device-Based Circumcision — Dr (Mr) Muhammad Taufiq Khalila Razali"
+        },
+        {
+          "masa": "09:00–09:45",
+          "slot": "Forceps-guided — Dr (Mr) Mohd Tarmizi Md Nor (Lecture Room 1) · Mould & Glue — Dr Abdol Rashid Masrom (Lecture Room 2)"
+        },
+        {
+          "masa": "09:45–10:15",
+          "slot": "Smart Klamp — Dr Mohd Shafiz Mohd Zaini (Lecture Room 1) · Stapler — Dr (Mr) Shalizan bin Torman (Lecture Room 2)"
+        },
+        {
+          "masa": "10:15–10:45",
+          "slot": "Rehat pagi dan lawatan booth pameran"
+        },
+        {
+          "masa": "10:45–11:15",
+          "slot": "Demonstrasi 1–4 di Main Hall: forceps-guided (Dr Mohd Tarmizi Md Nor), Smart Klamp (Dr Mohd Shafiz Mohd Zaini), Tekno Klem (Dr Abdol Rashid Masrom), ZSR Stapler (Dr Shalizan bin Torman)"
+        },
+        {
+          "masa": "11:45–12:45",
+          "slot": "Hands-on serentak: forceps-guided (8 kes, Meja 1–4) · Smart Klamp (8 kes, Meja 5–8) · Tekno Klem (8 kes, Meja 9–12) · ZSR Stapler (8 kes, Meja 13–16)"
+        },
+        {
+          "masa": "12:45–13:30",
+          "slot": "Makan tengah hari dan lawatan booth pameran"
+        },
+        {
+          "masa": "13:30–15:30",
+          "slot": "Hands-on serentak: forceps-guided (12 kes, Meja 1–4) · Smart Klamp (12 kes, Meja 5–8) · Tekno Klem (12 kes, Meja 13–16) · ZSR Stapler (12 kes, Meja 13–16)"
+        },
+        {
+          "masa": "15:30–16:00",
+          "slot": "Majlis penutup dan sesi bergambar"
+        }
+      ],
       "yuran": "RM900 – RM1,500 mengikut kaedah",
       "yuran_ahli": "RM850 – RM1,450 mengikut kaedah",
       "yuran_bukan_ahli": "",
