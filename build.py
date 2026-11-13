@@ -1562,10 +1562,8 @@ def bina_kursus_detail(k):
         butang_daftar = (f'<div class="form-note" style="margin-top:18px"><b>Program ini telah selesai.</b> '
                          f'Maklumat program akan datang boleh dilihat di halaman <a href="/pendidikan/">Pendidikan &amp; Latihan</a>. '
                          f'Untuk pertanyaan, hubungi urusetia MADOCS.</div>')
-    elif k.get("daftar_url"):
-        butang_daftar = (f'<a class="btn-hantar" href="{esc(k["daftar_url"])}" target="_blank" rel="noopener">'
-                         f'Daftar sekarang {icon("external-link")}</a>')
     else:
+        # Kad "Pendaftaran" di bawah membawa butang daftar; tiada butang kedua di kad fakta.
         butang_daftar = ""
 
     kaitan = [x for x in load("kursus.json")["kursus"] if x["slug"] != k["slug"]][:2]
@@ -1592,12 +1590,17 @@ def bina_kursus_detail(k):
                                                       "address": {"@type": "PostalAddress", "addressCountry": "MY"}}}})
 
     borang = ""
-    if k.get("borang_embed") and not selesai:
+    if k.get("daftar_url") and not selesai:
+        benam = ""
+        if k.get("borang_embed"):
+            benam = ('<div class="borang-embed"><iframe src="%s" title="Borang pendaftaran %s" '
+                     'loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>'
+                     % (esc(k["borang_embed"]), esc(k.get("kod", ""))))
         borang = f"""<div class="card" id="daftar">
-        <h2>Borang pendaftaran</h2>
-        <p class="nota-isi">Isi borang di bawah untuk mendaftar. Borang ini memerlukan akaun Google. Kalau borang tidak muncul, buka dalam tab baharu.</p>
-        <div class="borang-embed"><iframe src="{esc(k['borang_embed'])}" title="Borang pendaftaran {esc(k.get('kod',''))}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-        {f'<p style="margin-top:14px"><a class="btn btn-outline" href="{esc(k["daftar_url"])}" target="_blank" rel="noopener">Buka borang dalam tab baharu</a></p>' if k.get("daftar_url") else ''}
+        <h2>Pendaftaran</h2>
+        <p class="nota-isi">Pendaftaran dibuat melalui borang Google Forms. Borang memerlukan akaun Google.</p>
+        {benam}
+        <p style="margin-top:16px"><a class="btn-hantar" href="{esc(k["daftar_url"])}" target="_blank" rel="noopener">Daftar sekarang</a></p>
       </div>"""
 
     isi = page_hero([("Utama", "/"), ("Pendidikan & Latihan", "/pendidikan/"), (k["kod"], None)],
