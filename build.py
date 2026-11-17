@@ -1452,7 +1452,7 @@ def bina_pendidikan():
 
 
 def event_ld(tajuk, tarikh, tamat=None, tempat=None, negeri=None, ringkas="", gambar=None,
-             url=None, yuran=None, status=None, penganjur=None):
+             url=None, yuran=None, status=None, penganjur=None, daftar_buka=None):
     """Bina data berstruktur schema.org/Event untuk kursus/aktiviti.
 
     Google memerlukan name, startDate dan location untuk hasil carian acara. Jika tempat
@@ -1498,6 +1498,10 @@ def event_ld(tajuk, tarikh, tamat=None, tempat=None, negeri=None, ringkas="", ga
             "url": url or (BASE + "/keahlian/"),
             "availability": "https://schema.org/InStock",
         }
+        # Google Search Console: Offer disyorkan ada validFrom. Isi hanya jika data kursus
+        # menyimpan tarikh pendaftaran dibuka — jangan reka tarikh.
+        if daftar_buka:
+            d["offers"]["validFrom"] = daftar_buka
     return d
 
 
@@ -1579,7 +1583,7 @@ def bina_kursus_detail(k):
         ld.append(event_ld(k["tajuk"], k.get("tarikh", ""), k.get("tamat"), k.get("tempat"),
                            k.get("negeri"), k.get("ringkas", ""), k.get("gambar"),
                            url_kongsi, k.get("yuran") or k.get("yuran_ahli"), k.get("status"),
-                           k.get("penganjur")))
+                           k.get("penganjur"), k.get("daftar_buka")))
         ld.append({"@context": "https://schema.org", "@type": "Course",
                    "name": k["tajuk"], "description": k.get("ringkas", ""),
                    "provider": {"@type": "Organization", "name": SITE["nama"], "sameAs": BASE + "/"},
