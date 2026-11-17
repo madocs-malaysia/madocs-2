@@ -1489,15 +1489,29 @@ def event_ld(tajuk, tarikh, tamat=None, tempat=None, negeri=None, ringkas="", ga
         d["image"] = [BASE + "/" + gambar.lstrip("/")]
     if penganjur:
         d["organizer"] = {"@type": "Organization", "name": penganjur, "url": BASE + "/"}
-    harga = re.sub(r"[^0-9.]", "", str(yuran or ""))
-    if harga:
-        d["offers"] = {
-            "@type": "Offer",
-            "price": harga,
-            "priceCurrency": "MYR",
-            "url": url or (BASE + "/keahlian/"),
-            "availability": "https://schema.org/InStock",
-        }
+    # Yuran boleh jadi satu angka ("RM900") atau julat ("RM900 – RM1,500 mengikut kaedah").
+    # Ambil setiap angka secara berasingan — jangan cantumkan digit ("9001500").
+    angka = [float(a.replace(",", "")) for a in re.findall(r"\d[\d,]*(?:\.\d+)?", str(yuran or ""))]
+    angka = [a for a in angka if a > 0]
+    if angka:
+        if len(angka) > 1 and min(angka) != max(angka):
+            # Julat harga: schema.org mahu AggregateOffer, bukan Offer.price.
+            d["offers"] = {
+                "@type": "AggregateOffer",
+                "lowPrice": ("%g" % min(angka)),
+                "highPrice": ("%g" % max(angka)),
+                "priceCurrency": "MYR",
+                "url": url or (BASE + "/keahlian/"),
+                "availability": "https://schema.org/InStock",
+            }
+        else:
+            d["offers"] = {
+                "@type": "Offer",
+                "price": ("%g" % angka[0]),
+                "priceCurrency": "MYR",
+                "url": url or (BASE + "/keahlian/"),
+                "availability": "https://schema.org/InStock",
+            }
         # Google Search Console: Offer disyorkan ada validFrom. Isi hanya jika data kursus
         # menyimpan tarikh pendaftaran dibuka — jangan reka tarikh.
         if daftar_buka:
