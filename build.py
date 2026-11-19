@@ -748,7 +748,7 @@ def kad_kursus(k, keutamaan=False):
     {f'<div class="tags">{tag}</div>' if tag else ''}
     <div class="course-actions">
       <a class="small-btn filled" href="/pendidikan/{esc(k['slug'])}/" style="display:inline-flex;align-items:center;text-decoration:none">Lihat kursus</a>
-      {'<a class="small-btn" href="%s" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;text-decoration:none">Daftar</a>' % esc(k['daftar_url']) if k.get('daftar_url') else ''}
+      {'<a class="small-btn" href="/daftar/%s/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;text-decoration:none">Daftar</a>' % esc(k['slug']) if k.get('daftar_url') else ''}
     </div>
   </div>
 </article>"""
@@ -1618,7 +1618,7 @@ def bina_kursus_detail(k):
         <h2>Pendaftaran</h2>
         <p class="nota-isi">Pendaftaran dibuat melalui borang Google Forms. Borang memerlukan akaun Google.</p>
         {benam}
-        <p style="margin-top:16px"><a class="btn-hantar" href="{esc(k["daftar_url"])}" target="_blank" rel="noopener">Daftar sekarang</a></p>
+        <p style="margin-top:16px"><a class="btn-hantar" href="/daftar/{esc(k['slug'])}/" target="_blank" rel="noopener">Daftar sekarang</a></p>
       </div>"""
 
     isi = page_hero([("Utama", "/"), ("Pendidikan & Latihan", "/pendidikan/"), (k["kod"], None)],
@@ -2849,6 +2849,49 @@ def bina_404():
             "Halaman yang anda cari tidak dijumpai. Kembali ke laman utama MADOCS atau gunakan carian untuk mencari maklumat yang anda perlukan.", "/404.html", isi, masuk_sitemap=False)
 
 
+def _halaman_alihan(tajuk, url, kanonikal):
+    """HTML minimum untuk halaman alihan yang dikira sebagai satu lawatan."""
+    u, t = esc(url), esc(tajuk)
+    return ('<!DOCTYPE html>\n<html lang="ms">\n<head>\n<meta charset="utf-8">\n'
+            '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+            '<title>Mendaftar: %s | MADOCS</title>\n'
+            '<meta name="robots" content="noindex">\n'
+            '<link rel="canonical" href="%s%s">\n'
+            '<meta http-equiv="refresh" content="0; url=%s">\n'
+            '<style>body{font-family:"Segoe UI",system-ui,Arial,sans-serif;'
+            'display:flex;min-height:100vh;align-items:center;justify-content:center;'
+            'margin:0;background:#fdf4f6;color:#510716;text-align:center;padding:24px}'
+            'a{color:#9f0d2a;font-weight:700}</style>\n</head>\n<body>\n'
+            '<p>Menghantar anda ke borang pendaftaran…<br>'
+            '<a href="%s">Tekan di sini jika borang tidak terbuka</a>.</p>\n'
+            '<script>location.replace(%s);</script>\n</body>\n</html>\n'
+            % (t, esc(BASE), esc(kanonikal), u, u, json.dumps(url)))
+
+
+def bina_halaman_daftar():
+    """Halaman alihan /daftar/<slug>/ (dan alias /ccc9/) yang mengira klik.
+
+    Analitik Cloudflare tidak nampak klik keluar ke Google Forms. Butang "Daftar" menghala
+    ke halaman kecil ini dahulu — satu paparan halaman = satu klik — kemudian pelawat
+    dihantar ke borang sebenar. noindex supaya halaman ini tidak masuk hasil carian.
+    """
+    kursus = load("kursus.json").get("kursus") or []
+    n = 0
+    for k in kursus:
+        url = k.get("daftar_url")
+        if not url:
+            continue
+        slug = k["slug"]
+        kanonikal = "/pendidikan/%s/" % slug
+        dokumen = _halaman_alihan(k.get("tajuk", "kursus"), url, kanonikal)
+        tulis("/daftar/%s/" % slug, dokumen, False)
+        n += 1
+        if slug.startswith("ccc9"):
+            tulis("/ccc9/", dokumen, False)
+            n += 1
+    print("halaman daftar: %d ditulis" % n)
+
+
 def bina_prakata():
     """Halaman 'Dari Meja Presiden' — kandungan dalam data/prakata.json (draf untuk Presiden)."""
     p = load("prakata.json")
@@ -3091,6 +3134,7 @@ def main():
 
     bina_dasar()
     bina_404()
+    bina_halaman_daftar()
 
     bina_bahasa_inggeris()
     bina_peta_sitemap()
