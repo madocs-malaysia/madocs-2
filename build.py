@@ -53,6 +53,34 @@ def blok_fakta():
             '  <div class="shell fakta-grid">%s</div>\n</section>' % sel)
 
 
+def blok_video():
+    """Bahagian video promosi di laman utama. Kandungan: data/video.json."""
+    v = load("video.json") if (DATA / "video.json").exists() else {}
+    if not v or not v.get("fail"):
+        return ""
+    fail = "/" + str(v["fail"]).lstrip("/")
+    poster = "/" + str(v.get("poster", "")).lstrip("/")
+    pautan = esc(v.get("pautan_butang", "/pendidikan/"))
+    return f"""<section class="section-pad seksyen-b blok-video" id="video">
+  <div class="shell">
+    <div class="section-title-row activities-head">
+      <h2>{esc(v['tajuk'])}</h2>
+      <a href="{pautan}">{esc(v.get('teks_butang', ''))} {icon('arrow-right')}</a>
+    </div>
+    <div class="video-bingkai">
+      <video controls preload="none" playsinline poster="{poster}" width="{v.get('lebar', 496)}" height="{v.get('tinggi', 368)}" aria-label="{esc(v.get('alt', ''))}">
+        <source src="{fail}" type="video/mp4">
+        <p>Pelayar anda tidak menyokong video. <a href="{fail}">Muat turun video</a>.</p>
+      </video>
+    </div>
+    <div class="video-bawah">
+      <p class="video-keterangan">{esc(v.get('keterangan', ''))}</p>
+      <p class="video-nota">{esc(v.get('nota', ''))}</p>
+    </div>
+  </div>
+</section>"""
+
+
 def _blok_kredensial(isi: str) -> str:
     if not TUNJUK_KREDENSIAL:
         return ""
@@ -1166,6 +1194,8 @@ def bina_utama():
 {blok_fakta()}
 
 {_blok_kredensial(kred_html)}
+
+{blok_video()}
 
 <section class="section-pad seksyen-b" id="tentang">
   <div class="shell overview-grid">

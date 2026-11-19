@@ -1840,4 +1840,23 @@ a.chip-peta:hover{background:#fdf3f5;border-color:#dfbcc4;text-decoration:none}
 @media (max-width:640px){.borang-embed iframe{min-height:1500px}}
 
 
+/* ==== Bahagian video promosi di laman utama (GAYA A) ==== */
+.blok-video .section-title-row{margin-bottom:20px}
+.video-bingkai{max-width:640px;margin-inline:auto;border:1px solid var(--g-line,#e7eaf0);
+  border-radius:14px;overflow:hidden;background:#0b1b3a;line-height:0}
+.video-bingkai video{display:block;width:100%;height:auto;aspect-ratio:496/368;background:#0b1b3a}
+.video-bawah{max-width:640px;margin:16px auto 0;text-align:left}
+.video-keterangan{font-size:16px;line-height:1.6;color:var(--g-teks,#46536b);margin:0}
+.video-nota{font-size:13px;color:var(--g-teks,#46536b);opacity:.8;margin:8px 0 0}
+@media (max-width:640px){
+  .video-keterangan{font-size:15px}
+  .video-bingkai{border-radius:11px}
+}
+/* Telefon: tajuk dan pautan bahagian video disusun menegak supaya pautan tidak berpecah dua baris. */
+@media (max-width:640px){
+  .blok-video .section-title-row{display:block}
+  .blok-video .section-title-row h2{margin-bottom:10px}
+  .blok-video .section-title-row a{font-size:13px;display:inline-flex}
+}
+
 .ikon-ganti{display:inline-block;width:1em;height:1em}
