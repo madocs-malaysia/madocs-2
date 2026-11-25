@@ -1,120 +1,120 @@
 {
-  "cara_edit": "Latihan/kursus. Tarikh = YYYY-MM-DD. status: open (buka), limited (kerusi terhad), closed (ditutup), done (selesai), tentatif (tarikh belum disahkan), batal (kursus dibatalkan). Susun yang terbaru di atas. Medan kosong ('') akan tersembunyi dari laman, jangan reka nilai.",
-  "kursus": [
+ "cara_edit": "Latihan/kursus. Tarikh = YYYY-MM-DD. status: open (buka), limited (kerusi terhad), closed (ditutup), done (selesai), tentatif (tarikh belum disahkan), batal (kursus dibatalkan). Susun yang terbaru di atas. Medan kosong ('') akan tersembunyi dari laman, jangan reka nilai.",
+ "kursus": [
+  {
+   "slug": "pcc2-5-disember",
+   "kod": "PCC 2-5",
+   "tajuk": "Kursus Privileging Berkhatan (Dorsal Slit) Siri 5 (PCC 2-5)",
+   "kategori": "Privileging",
+   "ringkas": "Kursus PCC 2-5 yang dirancang pada 12 Disember 2026 telah dibatalkan. MADOCS akan mengumumkan tarikh baharu kelak.",
+   "gambar": "assets/kursus-amali.webp",
+   "gambar_alt": "Peserta kursus mempelajari prosedur Dorsal Slit dalam sesi amali MADOCS",
+   "tarikh": "2026-12-12",
+   "masa_mula": "",
+   "masa_tamat": "",
+   "tempat": "",
+   "penganjur": "MADOCS",
+   "fakulti": "",
+   "sasaran": "Doktor Perubatan",
+   "objektif": [],
+   "rangka": [],
+   "yuran": "",
+   "yuran_ahli": "",
+   "yuran_bukan_ahli": "",
+   "tutup_daftar": "",
+   "kapasiti": "",
+   "status": "batal",
+   "daftar_url": "",
+   "kandungan": [
+    "Kursus PCC 2-5 yang dirancang pada Sabtu, 12 Disember 2026 telah dibatalkan oleh jawatankuasa MADOCS.",
+    "Tarikh dan tempat baharu akan diumumkan kemudian. Hubungi urusetia jika ada pertanyaan tentang kursus akan datang."
+   ],
+   "nota_status": "Kursus ini dibatalkan. Hubungi urusetia MADOCS untuk maklumat kursus PCC yang akan datang."
+  },
+  {
+   "slug": "ccc9-bandar-tun-razak",
+   "kod": "CCC 9",
+   "tajuk": "Kursus Komprehensif Berkhatan (CCC 9)",
+   "kategori": "Kursus Komprehensif",
+   "ringkas": "CCC 9 berlangsung pada Ahad, 13 Disember 2026 di Masjid Saidina Uthman Ibn Affan, Bandar Tun Razak. Empat kaedah: forceps-guided, Smart Clamp, Tekno Klem dan ZSR Stapler. Setiap peserta memilih satu kaedah dan melaksanakan dua kes amali.",
+   "gambar": "assets/kursus-ccc9-dewan.webp",
+   "gambar_alt": "Peserta kursus komprehensif MADOCS mengikuti sesi kuliah di dalam dewan",
+   "tarikh": "2026-12-13",
+   "masa_mula": "07:30",
+   "masa_tamat": "16:00",
+   "tempat": "Masjid Saidina Uthman Ibn Affan, Bandar Tun Razak, Cheras",
+   "penganjur": "MADOCS",
+   "fakulti": "",
+   "sasaran": "Doktor Perubatan",
+   "objektif": [
+    "Memahami perbandingan kaedah berkhatan berasaskan peranti: forceps-guided, clamp, glue dan stapler.",
+    "Menguasai langkah prosedur dan pemilihan peranti yang sesuai untuk setiap kaedah.",
+    "Melaksanakan dua kes amali di bawah penyeliaan fasilitator bertauliah."
+   ],
+   "rangka": [
     {
-      "slug": "pcc2-5-disember",
-      "kod": "PCC 2-5",
-      "tajuk": "Kursus Privileging Berkhatan (Dorsal Slit) Siri 5 (PCC 2-5)",
-      "kategori": "Privileging",
-      "ringkas": "Kursus PCC 2-5 yang dirancang pada 12 Disember 2026 telah dibatalkan. MADOCS akan mengumumkan tarikh baharu kelak.",
-      "gambar": "assets/kursus-amali.webp",
-      "gambar_alt": "Peserta kursus mempelajari prosedur Dorsal Slit dalam sesi amali MADOCS",
-      "tarikh": "2026-12-12",
-      "masa_mula": "",
-      "masa_tamat": "",
-      "tempat": "",
-      "penganjur": "MADOCS",
-      "fakulti": "",
-      "sasaran": "Doktor Perubatan",
-      "objektif": [],
-      "rangka": [],
-      "yuran": "",
-      "yuran_ahli": "",
-      "yuran_bukan_ahli": "",
-      "tutup_daftar": "",
-      "kapasiti": "",
-      "status": "batal",
-      "daftar_url": "",
-      "kandungan": [
-        "Kursus PCC 2-5 yang dirancang pada Sabtu, 12 Disember 2026 telah dibatalkan oleh jawatankuasa MADOCS.",
-        "Tarikh dan tempat baharu akan diumumkan kemudian. Hubungi urusetia jika ada pertanyaan tentang kursus akan datang."
-      ],
-      "nota_status": "Kursus ini dibatalkan. Hubungi urusetia MADOCS untuk maklumat kursus PCC yang akan datang."
+     "masa": "07:30–08:00",
+     "slot": "Pendaftaran peserta, staf, penceramah dan tetamu"
     },
     {
-      "slug": "ccc9-bandar-tun-razak",
-      "kod": "CCC 9",
-      "tajuk": "Kursus Komprehensif Berkhatan (CCC 9)",
-      "kategori": "Kursus Komprehensif",
-      "ringkas": "CCC 9 berlangsung pada Ahad, 13 Disember 2026 di Masjid Saidina Uthman Ibn Affan, Bandar Tun Razak. Empat kaedah: forceps-guided, Smart Clamp, Tekno Klem dan ZSR Stapler. Setiap peserta memilih satu kaedah dan melaksanakan dua kes amali.",
-      "gambar": "assets/kursus-ccc9-dewan.webp",
-      "gambar_alt": "Peserta kursus komprehensif MADOCS mengikuti sesi kuliah di dalam dewan",
-      "tarikh": "2026-12-13",
-      "masa_mula": "07:30",
-      "masa_tamat": "16:00",
-      "tempat": "Masjid Saidina Uthman Ibn Affan, Bandar Tun Razak, Cheras",
-      "penganjur": "MADOCS",
-      "fakulti": "",
-      "sasaran": "Doktor Perubatan",
-      "objektif": [
-        "Memahami perbandingan kaedah berkhatan berasaskan peranti: forceps-guided, clamp, glue dan stapler.",
-        "Menguasai langkah prosedur dan pemilihan peranti yang sesuai untuk setiap kaedah.",
-        "Melaksanakan dua kes amali di bawah penyeliaan fasilitator bertauliah."
-      ],
-      "rangka": [
-        {
-          "masa": "07:30–08:00",
-          "slot": "Pendaftaran peserta, staf, penceramah dan tetamu"
-        },
-        {
-          "masa": "08:00–08:15",
-          "slot": "Ucapan perasmian dan taklimat program — Dr Abdol Rashid Masrom"
-        },
-        {
-          "masa": "08:15–09:00",
-          "slot": "Overview of Device-Based Circumcision — Dr (Mr) Muhammad Taufiq Khalila Razali"
-        },
-        {
-          "masa": "09:00–09:45",
-          "slot": "Forceps-guided — Dr (Mr) Mohd Tarmizi Md Nor (Lecture Room 1) · Mould & Glue — Dr Abdol Rashid Masrom (Lecture Room 2)"
-        },
-        {
-          "masa": "09:45–10:15",
-          "slot": "Smart Klamp — Dr Mohd Shafiz Mohd Zaini (Lecture Room 1) · Stapler — Dr (Mr) Shalizan bin Torman (Lecture Room 2)"
-        },
-        {
-          "masa": "10:15–10:45",
-          "slot": "Rehat pagi dan lawatan booth pameran"
-        },
-        {
-          "masa": "10:45–11:15",
-          "slot": "Demonstrasi 1–4 di Main Hall: forceps-guided (Dr Mohd Tarmizi Md Nor), Smart Klamp (Dr Mohd Shafiz Mohd Zaini), Tekno Klem (Dr Abdol Rashid Masrom), ZSR Stapler (Dr Shalizan bin Torman)"
-        },
-        {
-          "masa": "11:45–12:45",
-          "slot": "Hands-on serentak: forceps-guided (8 kes, Meja 1–4) · Smart Klamp (8 kes, Meja 5–8) · Tekno Klem (8 kes, Meja 9–12) · ZSR Stapler (8 kes, Meja 13–16)"
-        },
-        {
-          "masa": "12:45–13:30",
-          "slot": "Makan tengah hari dan lawatan booth pameran"
-        },
-        {
-          "masa": "13:30–15:30",
-          "slot": "Hands-on serentak: forceps-guided (12 kes, Meja 1–4) · Smart Klamp (12 kes, Meja 5–8) · Tekno Klem (12 kes, Meja 13–16) · ZSR Stapler (12 kes, Meja 13–16)"
-        },
-        {
-          "masa": "15:30–16:00",
-          "slot": "Majlis penutup dan sesi bergambar"
-        }
-      ],
-      "yuran": "RM900 – RM1,500 mengikut kaedah",
-      "yuran_ahli": "RM850 – RM1,450 mengikut kaedah",
-      "yuran_bukan_ahli": "",
-      "tutup_daftar": "",
-      "daftar_buka": "2026-11-13",
-      "kapasiti": "10 peserta setiap kaedah",
-      "status": "open",
-      "daftar_url": "https://forms.gle/mwczM9uWyeiSg89h7",
-      "kandungan": [
-        "CCC 9 akan diadakan pada Ahad, 13 Disember 2026, dari 8.00 pagi hingga 5.00 petang, di Masjid Saidina Uthman Ibn Affan, Jalan Budiman, Bandar Tun Razak, Cheras.",
-        "Empat kaedah ditawarkan: forceps-guided, Smart Clamp (kaedah clamp), Tekno Klem (kaedah glue) dan ZSR Stapler (kaedah stapler). Setiap peserta memilih satu kaedah dan melaksanakan dua kes amali dalam kaedah itu.",
-        "Yuran termasuk kuliah, makan, dan dua kes amali. Kadar peserta: Forceps-guided RM900 (ahli MADOCS RM850) · Smart Clamp RM970 (RM920) · Tekno Klem RM1,030 (RM980) · ZSR Stapler RM1,500 (RM1,450).",
-        "Mata CPD akan diberikan. Setiap kaedah terhad kepada 10 peserta — daftar awal untuk memastikan tempat.",
-        "Bayaran ke akaun Maybank 5629 9102 8408 (Malaysian Doctors of Circumcision Society).",
-        "CCC 9 dianjurkan oleh MADOCS dengan sokongan Nano Medic Care Sdn Bhd."
-      ],
-      "gambar_kredit": "Foto program MADOCS terdahulu (CCC6, Hotel Maluri Cheras, 2025) — bukan gambar CCC9.",
-      "nota_status": "Pendaftaran dibuka. Tempat terhad kepada 10 peserta setiap kaedah."
+     "masa": "08:00–08:15",
+     "slot": "Ucapan perasmian dan taklimat program — Dr Abdol Rashid Masrom"
+    },
+    {
+     "masa": "08:15–09:00",
+     "slot": "Overview of Device-Based Circumcision — Dr (Mr) Muhammad Taufiq Khalila Razali"
+    },
+    {
+     "masa": "09:00–09:45",
+     "slot": "Forceps-guided — Dr (Mr) Mohd Tarmizi Md Nor (Lecture Room 1) · Mould & Glue — Dr Abdol Rashid Masrom (Lecture Room 2)"
+    },
+    {
+     "masa": "09:45–10:15",
+     "slot": "Smart Klamp — Dr Mohd Shafiz Mohd Zaini (Lecture Room 1) · Stapler — Dr (Mr) Shalizan bin Torman (Lecture Room 2)"
+    },
+    {
+     "masa": "10:15–10:45",
+     "slot": "Rehat pagi dan lawatan booth pameran"
+    },
+    {
+     "masa": "10:45–11:15",
+     "slot": "Demonstrasi 1–4 di Main Hall: forceps-guided (Dr Mohd Tarmizi Md Nor), Smart Klamp (Dr Mohd Shafiz Mohd Zaini), Tekno Klem (Dr Abdol Rashid Masrom), ZSR Stapler (Dr Shalizan bin Torman)"
+    },
+    {
+     "masa": "11:45–12:45",
+     "slot": "Hands-on serentak: forceps-guided (8 kes, Meja 1–4) · Smart Klamp (8 kes, Meja 5–8) · Tekno Klem (8 kes, Meja 9–12) · ZSR Stapler (8 kes, Meja 13–16)"
+    },
+    {
+     "masa": "12:45–13:30",
+     "slot": "Makan tengah hari dan lawatan booth pameran"
+    },
+    {
+     "masa": "13:30–15:30",
+     "slot": "Hands-on serentak: forceps-guided (12 kes, Meja 1–4) · Smart Klamp (12 kes, Meja 5–8) · Tekno Klem (12 kes, Meja 13–16) · ZSR Stapler (12 kes, Meja 13–16)"
+    },
+    {
+     "masa": "15:30–16:00",
+     "slot": "Majlis penutup dan sesi bergambar"
     }
-  ]
+   ],
+   "yuran": "RM650 untuk semua kaedah",
+   "yuran_ahli": "RM600 untuk semua kaedah (ahli MADOCS)",
+   "yuran_bukan_ahli": "",
+   "tutup_daftar": "",
+   "daftar_buka": "2026-11-13",
+   "kapasiti": "10 peserta setiap kaedah",
+   "status": "open",
+   "daftar_url": "https://forms.gle/mwczM9uWyeiSg89h7",
+   "kandungan": [
+    "CCC 9 akan diadakan pada Ahad, 13 Disember 2026, dari 8.00 pagi hingga 5.00 petang, di Masjid Saidina Uthman Ibn Affan, Jalan Budiman, Bandar Tun Razak, Cheras.",
+    "Empat kaedah ditawarkan: forceps-guided, Smart Clamp (kaedah clamp), Tekno Klem (kaedah glue) dan ZSR Stapler (kaedah stapler). Setiap peserta memilih satu kaedah dan melaksanakan dua kes amali dalam kaedah itu.",
+    "Yuran termasuk kuliah, makan, dan dua kes amali. Kadar rata RM650 untuk semua kaedah; ahli MADOCS membayar RM600.",
+    "Mata CPD akan diberikan. Setiap kaedah terhad kepada 10 peserta — daftar awal untuk memastikan tempat.",
+    "Bayaran ke akaun Maybank 5629 9102 8408 (Malaysian Doctors of Circumcision Society).",
+    "CCC 9 dianjurkan oleh MADOCS dengan sokongan Nano Medic Care Sdn Bhd."
+   ],
+   "gambar_kredit": "Foto program MADOCS terdahulu (CCC6, Hotel Maluri Cheras, 2025) — bukan gambar CCC9.",
+   "nota_status": "Pendaftaran dibuka. Tempat terhad kepada 10 peserta setiap kaedah."
+  }
+ ]
 }
